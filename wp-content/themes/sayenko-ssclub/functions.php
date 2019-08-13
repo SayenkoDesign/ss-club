@@ -25,7 +25,7 @@ if ( ! function_exists( '_s_setup' ) ) :
 		define( 'THEME_PUBLIC', THEME_URL . '/public' );
 		define( 'THEME_LANG', THEME_URL . '/language' );
 		define( 'THEME_LIB', THEME_URL . '/lib' );
-		define( 'THEME_FAVICONS', THEME_PUBLIC . '/favicon' );
+		define( 'THEME_FAVICONS', THEME_URL . '/favicon' );
 		define( 'THEME_CSS', THEME_PUBLIC . '/css' );
 		define( 'THEME_IMG', THEME_PUBLIC . '/images' );
 		define( 'THEME_JS', THEME_PUBLIC . '/js' );

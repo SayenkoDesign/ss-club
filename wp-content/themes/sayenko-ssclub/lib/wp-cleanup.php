@@ -138,7 +138,11 @@ function add_slug_body_class( $wp_classes, $classes ) {
 	}
 	// Are we on mobile?
 	if ( wp_is_mobile() ) {
-		$classes[] = 'mobile';
+		$classes[] = 'is-mobile';
+	}
+    // Are we on mobile?
+	if ( ! wp_is_mobile() ) {
+		$classes[] = 'is-desktop';
 	}
 	// @codingStandardsIgnoreEnd
     

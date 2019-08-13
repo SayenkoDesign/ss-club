@@ -69,16 +69,14 @@
 
 // Colors
 $red: #ED3D4A;
-$dark-red: #D43642;
-$red-hover: #D43642;
-$gray: #ECECEC;
+$purple: #0C3963;
+
 
 
 $light-gray: #F5F5F5;
-
 $medium-gray: #596975;
+$gray: #ECECEC;
 $dark-gray: #2C2E32;
-
 $blue-gray: #CADADE;
 
 // Fonts
@@ -166,7 +164,7 @@ $block-grid-max: 8;
 // ------------------
 
 $header-font-family: $playfair;
-$header-font-weight: $font-weight-normal;
+$header-font-weight: $font-weight-regular;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: $dark-gray;
