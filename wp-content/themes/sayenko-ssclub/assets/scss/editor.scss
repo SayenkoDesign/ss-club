@@ -1,0 +1,48 @@
+/*!
+ * Gutenberg Editor Styles
+ */
+
+/** === Includes === */
+
+@charset 'utf-8';
+
+/** === Button === */
+.wp-block-button {
+
+	.wp-block-button__link {
+		
+	}
+
+	// add special styling for squared buttons
+	&.is-style-squared .wp-block-button__link {
+		border-radius: 0;
+	}
+
+	// add outline styles
+	&.is-style-outline .wp-block-button__link{
+		
+	}
+
+	// set transparent background to block for outline button
+	&.is-style-outline,
+	&.is-style-outline:hover,
+	&.is-style-outline:focus,
+	&.is-style-outline:active {
+		background: transparent;
+	}
+}
+
+/** === Pullquote === */
+.wp-block-paragraph.has-background{
+	
+}
+
+/** === Table === */
+.wp-block-table td{
+	border: none;
+}
+
+/** === Latest Posts grid view === */
+.wp-block-latest-posts.is-grid{
+	list-style: none;
+}

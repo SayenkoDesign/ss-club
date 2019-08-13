@@ -1,0 +1,20 @@
+// gutenberg
+
+// Gutenberg color options
+// -- see editor-color-palette in functions.php
+$colors: (
+	'purple' 	 : $purple,
+	'black' 	 : $back,
+	'light-gray' : $light-gray
+);
+
+@each $name, $color in $colors {
+
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background-color {
+		background-color: $color;
+	}
+}
