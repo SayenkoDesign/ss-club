@@ -1,11 +1,11 @@
 <?php
 
-  add_filter( 'wp_nav_menu_items', function( $items, $args ) {
+add_filter( 'wp_nav_menu_items', function( $items, $args ) {
     if ( 'primary' === $args->theme_location ) {
         return sprintf( '<li class="logo"></li>%s', $items );
     }
     return $items;   
-});              
+}, 10, 3);              
 
 
 add_filter('nav_menu_item_args', function ($args, $item, $depth) {
@@ -18,12 +18,16 @@ add_filter('nav_menu_item_args', function ($args, $item, $depth) {
 }, 10, 3);
 
 
-function foundation_submenu_class($menu) {    
-    $menu = preg_replace('/ class="sub-menu"/','/ class="sub-menu is-dropdown-submenu" /',$menu);        
-    return $menu;      
+function my_nav_menu_submenu_css_class( $classes, $args ) {
+    
+    if( 'secondary-menu' == $args->menu_id ) {
+        $classes[] = 'vertical nested';
+    } else if( 'primary-menu' == $args->menu_id ) {
+        $classes[] = 'is-dropdown-submenu';
+    }
+    return $classes;
 }
-
-add_filter('wp_nav_menu','foundation_submenu_class'); 
+add_filter( 'nav_menu_submenu_css_class', 'my_nav_menu_submenu_css_class', 99, 2 );
 
 
 // Filter menu items as needed and set a custom class etc....

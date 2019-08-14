@@ -5,107 +5,9 @@
 
 .site-footer {
     
-    @include breakpoint(large) {
-        background: linear-gradient(to left, #fff 50%, $dark-gray 50%);   
-    }
+    background-color: $light-gray;
     
-    .copyright {
-        
-        
-        p {
-            color: #CADADE;
-            font-size: rem-calc(15);
-            line-height: 1.866666667;  
-            
-            a {
-                text-decoration: underline;
-                color: #CADADE;
-                
-                &:hover {
-                    color: $red;   
-                }
-            }
-            
-            span {
-                display: block;   
-            }
-        }
-    }
-    
-    .hours-phone-directions {
-         margin-top: rem-calc(80);
-         
-         @include breakpoint(large) {
-             margin-top: rem-calc(160);
-             margin-bottom: 0;
-         }
-         
-         @include breakpoint(xlarge) {
-            
-            li {
-                
-                &:first-child {
-                    margin-right: auto;   
-                }
-                                
-                &:last-child {
-                    margin-left: auto; 
-                    padding-right: 0;  
-                }
-                
-                
-            }
-            
-            
-        }
-    }
-    
-    .content {
-        @include breakpoint(large) {
-            padding-left: 10%;
-        }
-        
-        @include breakpoint(xxxlarge) {
-            padding-left: rem-calc(145);
-        }
-    }
-    
-    .left {
-        padding-top: rem-calc(50); 
-        padding-bottom: rem-calc(50);
-        background-color: $dark-gray;  
-        
-        @include breakpoint(large) {
-            padding-bottom: rem-calc(25);
-            padding-top: rem-calc(100);
-        }
-    }
-    
-    .right {
-               
-       padding-top: rem-calc(50);  
-       padding-bottom: rem-calc(50); 
-        
-        @include breakpoint(large) {
-            padding-bottom: rem-calc(25);
-            padding-top: rem-calc(100);
-        }
-       
-       .content {
-            
-            h2 {
-                
-                line-height: 1.138888889;   
-                margin-bottom: rem-calc(60);
-            }
-       }
-    }
-    
-    .white{
-        background: #fff;   
-    }
-
-	.widget {
+    .widget {
         
         margin-bottom: rem-calc(35);
 
@@ -115,7 +17,6 @@
 		}
         
         p {
-           color: #CADADE;
 			font-size: rem-calc(15);
 			line-height: 1.2; 
             margin-bottom: rem-calc(15);
@@ -135,12 +36,12 @@
 		}
 
 		.menu-item {
-			display: block;
+			display: inline-block;
             margin-bottom: rem-calc(14);
 		}
 
 		a {
-			color: #CADADE;
+			color: $black;
 			font-size: rem-calc(15);
 			line-height: 1.2;
 			padding: 0;
@@ -202,12 +103,27 @@
 	}
     
     
-    @include breakpoint(large) {
-        .copyright,
-        .social-icons {
-            margin-bottom: rem-calc(50);   
+    .copyright {
+        
+        
+        p {
+            color: #000;
+            font-size: rem-calc(15);
+            line-height: 1.866666667;  
+            
+            a {
+                text-decoration: underline;
+                color: #000;
+                
+                &:hover {
+                    color: $purple;   
+                }
+            }
+            
+            span {
+                display: block;   
+            }
         }
     }
-
 
 }

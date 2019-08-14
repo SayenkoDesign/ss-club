@@ -121,419 +121,6 @@ return EvEmitter;
 
 /***/ }),
 
-/***/ "./node_modules/foundation-sites/js/foundation.accordion.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.accordion.js ***!
-  \******************************************************************/
-/*! exports provided: Accordion */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Accordion", function() { return Accordion; });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
-/* harmony import */ var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.keyboard */ "./node_modules/foundation-sites/js/foundation.util.keyboard.js");
-/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
-
-
-
-
-
-
-
-/**
- * Accordion module.
- * @module foundation.accordion
- * @requires foundation.util.keyboard
- */
-
-class Accordion extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__["Plugin"] {
-  /**
-   * Creates a new instance of an accordion.
-   * @class
-   * @name Accordion
-   * @fires Accordion#init
-   * @param {jQuery} element - jQuery object to make into an accordion.
-   * @param {Object} options - a plain object with settings to override the default options.
-   */
-  _setup(element, options) {
-    this.$element = element;
-    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, Accordion.defaults, this.$element.data(), options);
-
-    this.className = 'Accordion'; // ie9 back compat
-    this._init();
-
-    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].register('Accordion', {
-      'ENTER': 'toggle',
-      'SPACE': 'toggle',
-      'ARROW_DOWN': 'next',
-      'ARROW_UP': 'previous'
-    });
-  }
-
-  /**
-   * Initializes the accordion by animating the preset active pane(s).
-   * @private
-   */
-  _init() {
-    this._isInitializing = true;
-
-    this.$element.attr('role', 'tablist');
-    this.$tabs = this.$element.children('[data-accordion-item]');
-
-    this.$tabs.each(function(idx, el) {
-      var $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(el),
-          $content = $el.children('[data-tab-content]'),
-          id = $content[0].id || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["GetYoDigits"])(6, 'accordion'),
-          linkId = (el.id) ? `${el.id}-label` : `${id}-label`;
-
-      $el.find('a:first').attr({
-        'aria-controls': id,
-        'role': 'tab',
-        'id': linkId,
-        'aria-expanded': false,
-        'aria-selected': false
-      });
-
-      $content.attr({'role': 'tabpanel', 'aria-labelledby': linkId, 'aria-hidden': true, 'id': id});
-    });
-
-    var $initActive = this.$element.find('.is-active').children('[data-tab-content]');
-    if ($initActive.length) {
-      // Save up the initial hash to return to it later when going back in history
-      this._initialAnchor = $initActive.prev('a').attr('href');
-      this._openSingleTab($initActive);
-    }
-
-    this._checkDeepLink = () => {
-      var anchor = window.location.hash;
-
-      if (!anchor.length) {
-        // If we are still initializing and there is no anchor, then there is nothing to do
-        if (this._isInitializing) return;
-        // Otherwise, move to the initial anchor
-        if (this._initialAnchor) anchor = this._initialAnchor;
-      }
-
-      var $anchor = anchor && jquery__WEBPACK_IMPORTED_MODULE_0___default()(anchor);
-      var $link = anchor && this.$element.find(`[href$="${anchor}"]`);
-      // Whether the anchor element that has been found is part of this element
-      var isOwnAnchor = !!($anchor.length && $link.length);
-
-      // If there is an anchor for the hash, open it (if not already active)
-      if ($anchor && $link && $link.length) {
-        if (!$link.parent('[data-accordion-item]').hasClass('is-active')) {
-          this._openSingleTab($anchor);
-        };
-      }
-      // Otherwise, close everything
-      else {
-        this._closeAllTabs();
-      }
-
-      if (isOwnAnchor) {
-        // Roll up a little to show the titles
-        if (this.options.deepLinkSmudge) {
-          Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["onLoad"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window), () => {
-            var offset = this.$element.offset();
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').animate({ scrollTop: offset.top }, this.options.deepLinkSmudgeDelay);
-          });
-        }
-
-        /**
-         * Fires when the plugin has deeplinked at pageload
-         * @event Accordion#deeplink
-         */
-        this.$element.trigger('deeplink.zf.accordion', [$link, $anchor]);
-      }
-    }
-
-    //use browser to open a tab, if it exists in this tabset
-    if (this.options.deepLink) {
-      this._checkDeepLink();
-    }
-
-    this._events();
-
-    this._isInitializing = false;
-  }
-
-  /**
-   * Adds event handlers for items within the accordion.
-   * @private
-   */
-  _events() {
-    var _this = this;
-
-    this.$tabs.each(function() {
-      var $elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
-      var $tabContent = $elem.children('[data-tab-content]');
-      if ($tabContent.length) {
-        $elem.children('a').off('click.zf.accordion keydown.zf.accordion')
-               .on('click.zf.accordion', function(e) {
-          e.preventDefault();
-          _this.toggle($tabContent);
-        }).on('keydown.zf.accordion', function(e){
-          _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].handleKey(e, 'Accordion', {
-            toggle: function() {
-              _this.toggle($tabContent);
-            },
-            next: function() {
-              var $a = $elem.next().find('a').focus();
-              if (!_this.options.multiExpand) {
-                $a.trigger('click.zf.accordion')
-              }
-            },
-            previous: function() {
-              var $a = $elem.prev().find('a').focus();
-              if (!_this.options.multiExpand) {
-                $a.trigger('click.zf.accordion')
-              }
-            },
-            handled: function() {
-              e.preventDefault();
-              e.stopPropagation();
-            }
-          });
-        });
-      }
-    });
-    if(this.options.deepLink) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('hashchange', this._checkDeepLink);
-    }
-  }
-
-  /**
-   * Toggles the selected content pane's open/close state.
-   * @param {jQuery} $target - jQuery object of the pane to toggle (`.accordion-content`).
-   * @function
-   */
-  toggle($target) {
-    if ($target.closest('[data-accordion]').is('[disabled]')) {
-      console.info('Cannot toggle an accordion that is disabled.');
-      return;
-    }
-    if($target.parent().hasClass('is-active')) {
-      this.up($target);
-    } else {
-      this.down($target);
-    }
-    //either replace or update browser history
-    if (this.options.deepLink) {
-      var anchor = $target.prev('a').attr('href');
-
-      if (this.options.updateHistory) {
-        history.pushState({}, '', anchor);
-      } else {
-        history.replaceState({}, '', anchor);
-      }
-    }
-  }
-
-  /**
-   * Opens the accordion tab defined by `$target`.
-   * @param {jQuery} $target - Accordion pane to open (`.accordion-content`).
-   * @fires Accordion#down
-   * @function
-   */
-  down($target) {
-    if ($target.closest('[data-accordion]').is('[disabled]'))  {
-      console.info('Cannot call down on an accordion that is disabled.');
-      return;
-    }
-
-    if (this.options.multiExpand)
-      this._openTab($target);
-    else
-      this._openSingleTab($target);
-  }
-
-  /**
-   * Closes the tab defined by `$target`.
-   * It may be ignored if the Accordion options don't allow it.
-   *
-   * @param {jQuery} $target - Accordion tab to close (`.accordion-content`).
-   * @fires Accordion#up
-   * @function
-   */
-  up($target) {
-    if (this.$element.is('[disabled]')) {
-      console.info('Cannot call up on an accordion that is disabled.');
-      return;
-    }
-
-    // Don't close the item if it is already closed
-    const $targetItem = $target.parent();
-    if (!$targetItem.hasClass('is-active')) return;
-
-    // Don't close the item if there is no other active item (unless with `allowAllClosed`)
-    const $othersItems = $targetItem.siblings();
-    if (!this.options.allowAllClosed && !$othersItems.hasClass('is-active')) return;
-
-    this._closeTab($target);
-  }
-
-  /**
-   * Make the tab defined by `$target` the only opened tab, closing all others tabs.
-   * @param {jQuery} $target - Accordion tab to open (`.accordion-content`).
-   * @function
-   * @private
-   */
-  _openSingleTab($target) {
-    // Close all the others active tabs.
-    const $activeContents = this.$element.children('.is-active').children('[data-tab-content]');
-    if ($activeContents.length) {
-      this._closeTab($activeContents.not($target));
-    }
-
-    // Then open the target.
-    this._openTab($target);
-  }
-
-  /**
-   * Opens the tab defined by `$target`.
-   * @param {jQuery} $target - Accordion tab to open (`.accordion-content`).
-   * @fires Accordion#down
-   * @function
-   * @private
-   */
-  _openTab($target) {
-    const $targetItem = $target.parent();
-    const targetContentId = $target.attr('aria-labelledby');
-
-    $target.attr('aria-hidden', false);
-    $targetItem.addClass('is-active');
-
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#${targetContentId}`).attr({
-      'aria-expanded': true,
-      'aria-selected': true
-    });
-
-    $target.slideDown(this.options.slideSpeed, () => {
-      /**
-       * Fires when the tab is done opening.
-       * @event Accordion#down
-       */
-      this.$element.trigger('down.zf.accordion', [$target]);
-    });
-  }
-
-  /**
-   * Closes the tab defined by `$target`.
-   * @param {jQuery} $target - Accordion tab to close (`.accordion-content`).
-   * @fires Accordion#up
-   * @function
-   * @private
-   */
-  _closeTab($target) {
-    const $targetItem = $target.parent();
-    const targetContentId = $target.attr('aria-labelledby');
-
-    $target.attr('aria-hidden', true)
-    $targetItem.removeClass('is-active');
-
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#${targetContentId}`).attr({
-     'aria-expanded': false,
-     'aria-selected': false
-    });
-
-    $target.slideUp(this.options.slideSpeed, () => {
-      /**
-       * Fires when the tab is done collapsing up.
-       * @event Accordion#up
-       */
-      this.$element.trigger('up.zf.accordion', [$target]);
-    });
-  }
-
-  /**
-   * Closes all active tabs
-   * @fires Accordion#up
-   * @function
-   * @private
-   */
-  _closeAllTabs() {
-    var $activeTabs = this.$element.children('.is-active').children('[data-tab-content]');
-    if ($activeTabs.length) {
-      this._closeTab($activeTabs);
-    }
-  }
-
-  /**
-   * Destroys an instance of an accordion.
-   * @fires Accordion#destroyed
-   * @function
-   */
-  _destroy() {
-    this.$element.find('[data-tab-content]').stop(true).slideUp(0).css('display', '');
-    this.$element.find('a').off('.zf.accordion');
-    if(this.options.deepLink) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('hashchange', this._checkDeepLink);
-    }
-
-  }
-}
-
-Accordion.defaults = {
-  /**
-   * Amount of time to animate the opening of an accordion pane.
-   * @option
-   * @type {number}
-   * @default 250
-   */
-  slideSpeed: 250,
-  /**
-   * Allow the accordion to have multiple open panes.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  multiExpand: false,
-  /**
-   * Allow the accordion to close all panes.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  allowAllClosed: false,
-  /**
-   * Link the location hash to the open pane.
-   * Set the location hash when the opened pane changes, and open and scroll to the corresponding pane when the location changes.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  deepLink: false,
-  /**
-   * If `deepLink` is enabled, adjust the deep link scroll to make sure the top of the accordion panel is visible
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  deepLinkSmudge: false,
-  /**
-   * If `deepLinkSmudge` is enabled, animation time (ms) for the deep link adjustment
-   * @option
-   * @type {number}
-   * @default 300
-   */
-  deepLinkSmudgeDelay: 300,
-  /**
-   * If `deepLink` is enabled, update the browser history with the open accordion
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  updateHistory: false
-};
-
-
-
-
-/***/ }),
-
 /***/ "./node_modules/foundation-sites/js/foundation.accordionMenu.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/foundation-sites/js/foundation.accordionMenu.js ***!
@@ -1499,669 +1086,6 @@ function ignoreMousedisappear(handler, { ignoreLeaveWindow = false, ignoreReappe
 
 /***/ }),
 
-/***/ "./node_modules/foundation-sites/js/foundation.drilldown.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.drilldown.js ***!
-  \******************************************************************/
-/*! exports provided: Drilldown */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Drilldown", function() { return Drilldown; });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.util.keyboard */ "./node_modules/foundation-sites/js/foundation.util.keyboard.js");
-/* harmony import */ var _foundation_util_nest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.nest */ "./node_modules/foundation-sites/js/foundation.util.nest.js");
-/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
-/* harmony import */ var _foundation_util_box__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.util.box */ "./node_modules/foundation-sites/js/foundation.util.box.js");
-/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
-
-
-
-
-
-
-
-
-
-/**
- * Drilldown module.
- * @module foundation.drilldown
- * @requires foundation.util.keyboard
- * @requires foundation.util.nest
- * @requires foundation.util.box
- */
-
-class Drilldown extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_5__["Plugin"] {
-  /**
-   * Creates a new instance of a drilldown menu.
-   * @class
-   * @name Drilldown
-   * @param {jQuery} element - jQuery object to make into an accordion menu.
-   * @param {Object} options - Overrides to the default plugin settings.
-   */
-  _setup(element, options) {
-    this.$element = element;
-    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, Drilldown.defaults, this.$element.data(), options);
-    this.className = 'Drilldown'; // ie9 back compat
-
-    this._init();
-
-    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_1__["Keyboard"].register('Drilldown', {
-      'ENTER': 'open',
-      'SPACE': 'open',
-      'ARROW_RIGHT': 'next',
-      'ARROW_UP': 'up',
-      'ARROW_DOWN': 'down',
-      'ARROW_LEFT': 'previous',
-      'ESCAPE': 'close',
-      'TAB': 'down',
-      'SHIFT_TAB': 'up'
-    });
-  }
-
-  /**
-   * Initializes the drilldown by creating jQuery collections of elements
-   * @private
-   */
-  _init() {
-    _foundation_util_nest__WEBPACK_IMPORTED_MODULE_2__["Nest"].Feather(this.$element, 'drilldown');
-
-    if(this.options.autoApplyClass) {
-      this.$element.addClass('drilldown');
-    }
-
-    this.$element.attr({
-      'role': 'tree',
-      'aria-multiselectable': false
-    });
-    this.$submenuAnchors = this.$element.find('li.is-drilldown-submenu-parent').children('a');
-    this.$submenus = this.$submenuAnchors.parent('li').children('[data-submenu]').attr('role', 'group');
-    this.$menuItems = this.$element.find('li').not('.js-drilldown-back').attr('role', 'treeitem').find('a');
-
-    // Set the main menu as current by default (unless a submenu is selected)
-    // Used to set the wrapper height when the drilldown is closed/reopened from any (sub)menu
-    this.$currentMenu = this.$element;
-
-    this.$element.attr('data-mutate', (this.$element.attr('data-drilldown') || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["GetYoDigits"])(6, 'drilldown')));
-
-    this._prepareMenu();
-    this._registerEvents();
-
-    this._keyboardEvents();
-  }
-
-  /**
-   * prepares drilldown menu by setting attributes to links and elements
-   * sets a min height to prevent content jumping
-   * wraps the element if not already wrapped
-   * @private
-   * @function
-   */
-  _prepareMenu() {
-    var _this = this;
-    // if(!this.options.holdOpen){
-    //   this._menuLinkEvents();
-    // }
-    this.$submenuAnchors.each(function(){
-      var $link = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
-      var $sub = $link.parent();
-      if(_this.options.parentLink){
-        $link.clone().prependTo($sub.children('[data-submenu]')).wrap('<li data-is-parent-link class="is-submenu-parent-item is-submenu-item is-drilldown-submenu-item" role="menuitem"></li>');
-      }
-      $link.data('savedHref', $link.attr('href')).removeAttr('href').attr('tabindex', 0);
-      $link.children('[data-submenu]')
-          .attr({
-            'aria-hidden': true,
-            'tabindex': 0,
-            'role': 'group'
-          });
-      _this._events($link);
-    });
-    this.$submenus.each(function(){
-      var $menu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
-          $back = $menu.find('.js-drilldown-back');
-      if(!$back.length){
-        switch (_this.options.backButtonPosition) {
-          case "bottom":
-            $menu.append(_this.options.backButton);
-            break;
-          case "top":
-            $menu.prepend(_this.options.backButton);
-            break;
-          default:
-            console.error("Unsupported backButtonPosition value '" + _this.options.backButtonPosition + "'");
-        }
-      }
-      _this._back($menu);
-    });
-
-    this.$submenus.addClass('invisible');
-    if(!this.options.autoHeight) {
-      this.$submenus.addClass('drilldown-submenu-cover-previous');
-    }
-
-    // create a wrapper on element if it doesn't exist.
-    if(!this.$element.parent().hasClass('is-drilldown')){
-      this.$wrapper = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.options.wrapper).addClass('is-drilldown');
-      if(this.options.animateHeight) this.$wrapper.addClass('animate-height');
-      this.$element.wrap(this.$wrapper);
-    }
-    // set wrapper
-    this.$wrapper = this.$element.parent();
-    this.$wrapper.css(this._getMaxDims());
-  }
-
-  _resize() {
-    this.$wrapper.css({'max-width': 'none', 'min-height': 'none'});
-    // _getMaxDims has side effects (boo) but calling it should update all other necessary heights & widths
-    this.$wrapper.css(this._getMaxDims());
-  }
-
-  /**
-   * Adds event handlers to elements in the menu.
-   * @function
-   * @private
-   * @param {jQuery} $elem - the current menu item to add handlers to.
-   */
-  _events($elem) {
-    var _this = this;
-
-    $elem.off('click.zf.drilldown')
-    .on('click.zf.drilldown', function(e){
-      if(jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).parentsUntil('ul', 'li').hasClass('is-drilldown-submenu-parent')){
-        e.stopImmediatePropagation();
-        e.preventDefault();
-      }
-
-      // if(e.target !== e.currentTarget.firstElementChild){
-      //   return false;
-      // }
-      _this._show($elem.parent('li'));
-
-      if(_this.options.closeOnClick){
-        var $body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
-        $body.off('.zf.drilldown').on('click.zf.drilldown', function(e){
-          if (e.target === _this.$element[0] || jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(_this.$element[0], e.target)) { return; }
-          e.preventDefault();
-          _this._hideAll();
-          $body.off('.zf.drilldown');
-        });
-      }
-    });
-  }
-
-  /**
-   * Adds event handlers to the menu element.
-   * @function
-   * @private
-   */
-  _registerEvents() {
-    if(this.options.scrollTop){
-      this._bindHandler = this._scrollTop.bind(this);
-      this.$element.on('open.zf.drilldown hide.zf.drilldown closed.zf.drilldown',this._bindHandler);
-    }
-    this.$element.on('mutateme.zf.trigger', this._resize.bind(this));
-  }
-
-  /**
-   * Scroll to Top of Element or data-scroll-top-element
-   * @function
-   * @fires Drilldown#scrollme
-   */
-  _scrollTop() {
-    var _this = this;
-    var $scrollTopElement = _this.options.scrollTopElement!=''?jquery__WEBPACK_IMPORTED_MODULE_0___default()(_this.options.scrollTopElement):_this.$element,
-        scrollPos = parseInt($scrollTopElement.offset().top+_this.options.scrollTopOffset, 10);
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').stop(true).animate({ scrollTop: scrollPos }, _this.options.animationDuration, _this.options.animationEasing,function(){
-      /**
-        * Fires after the menu has scrolled
-        * @event Drilldown#scrollme
-        */
-      if(this===jquery__WEBPACK_IMPORTED_MODULE_0___default()('html')[0])_this.$element.trigger('scrollme.zf.drilldown');
-    });
-  }
-
-  /**
-   * Adds keydown event listener to `li`'s in the menu.
-   * @private
-   */
-  _keyboardEvents() {
-    var _this = this;
-
-    this.$menuItems.add(this.$element.find('.js-drilldown-back > a, .is-submenu-parent-item > a')).on('keydown.zf.drilldown', function(e){
-      var $element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
-          $elements = $element.parent('li').parent('ul').children('li').children('a'),
-          $prevElement,
-          $nextElement;
-
-      $elements.each(function(i) {
-        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).is($element)) {
-          $prevElement = $elements.eq(Math.max(0, i-1));
-          $nextElement = $elements.eq(Math.min(i+1, $elements.length-1));
-          return;
-        }
-      });
-
-      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_1__["Keyboard"].handleKey(e, 'Drilldown', {
-        next: function() {
-          if ($element.is(_this.$submenuAnchors)) {
-            _this._show($element.parent('li'));
-            $element.parent('li').one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["transitionend"])($element), function(){
-              $element.parent('li').find('ul li a').not('.js-drilldown-back a').first().focus();
-            });
-            return true;
-          }
-        },
-        previous: function() {
-          _this._hide($element.parent('li').parent('ul'));
-          $element.parent('li').parent('ul').one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["transitionend"])($element), function(){
-            setTimeout(function() {
-              $element.parent('li').parent('ul').parent('li').children('a').first().focus();
-            }, 1);
-          });
-          return true;
-        },
-        up: function() {
-          $prevElement.focus();
-          // Don't tap focus on first element in root ul
-          return !$element.is(_this.$element.find('> li:first-child > a'));
-        },
-        down: function() {
-          $nextElement.focus();
-          // Don't tap focus on last element in root ul
-          return !$element.is(_this.$element.find('> li:last-child > a'));
-        },
-        close: function() {
-          // Don't close on element in root ul
-          if (!$element.is(_this.$element.find('> li > a'))) {
-            _this._hide($element.parent().parent());
-            $element.parent().parent().siblings('a').focus();
-          }
-        },
-        open: function() {
-          if (_this.options.parentLink && $element.attr('href')) { // Link with href
-            return false;
-          } else if (!$element.is(_this.$menuItems)) { // not menu item means back button
-            _this._hide($element.parent('li').parent('ul'));
-            $element.parent('li').parent('ul').one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["transitionend"])($element), function(){
-              setTimeout(function() {
-                $element.parent('li').parent('ul').parent('li').children('a').first().focus();
-              }, 1);
-            });
-            return true;
-          } else if ($element.is(_this.$submenuAnchors)) { // Sub menu item
-            _this._show($element.parent('li'));
-            $element.parent('li').one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["transitionend"])($element), function(){
-              $element.parent('li').find('ul li a').not('.js-drilldown-back a').first().focus();
-            });
-            return true;
-          }
-        },
-        handled: function(preventDefault) {
-          if (preventDefault) {
-            e.preventDefault();
-          }
-          e.stopImmediatePropagation();
-        }
-      });
-    }); // end keyboardAccess
-  }
-
-  /**
-   * Closes all open elements, and returns to root menu.
-   * @function
-   * @fires Drilldown#closed
-   */
-  _hideAll() {
-    var $elem = this.$element.find('.is-drilldown-submenu.is-active').addClass('is-closing');
-    if(this.options.autoHeight) this.$wrapper.css({height:$elem.parent().closest('ul').data('calcHeight')});
-    $elem.one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["transitionend"])($elem), function(e){
-      $elem.removeClass('is-active is-closing');
-    });
-        /**
-         * Fires when the menu is fully closed.
-         * @event Drilldown#closed
-         */
-    this.$element.trigger('closed.zf.drilldown');
-  }
-
-  /**
-   * Adds event listener for each `back` button, and closes open menus.
-   * @function
-   * @fires Drilldown#back
-   * @param {jQuery} $elem - the current sub-menu to add `back` event.
-   */
-  _back($elem) {
-    var _this = this;
-    $elem.off('click.zf.drilldown');
-    $elem.children('.js-drilldown-back')
-      .on('click.zf.drilldown', function(e){
-        e.stopImmediatePropagation();
-        // console.log('mouseup on back');
-        _this._hide($elem);
-
-        // If there is a parent submenu, call show
-        let parentSubMenu = $elem.parent('li').parent('ul').parent('li');
-        if (parentSubMenu.length) {
-          _this._show(parentSubMenu);
-        }
-      });
-  }
-
-  /**
-   * Adds event listener to menu items w/o submenus to close open menus on click.
-   * @function
-   * @private
-   */
-  _menuLinkEvents() {
-    var _this = this;
-    this.$menuItems.not('.is-drilldown-submenu-parent')
-        .off('click.zf.drilldown')
-        .on('click.zf.drilldown', function(e){
-          // e.stopImmediatePropagation();
-          setTimeout(function(){
-            _this._hideAll();
-          }, 0);
-      });
-  }
-
-  /**
-   * Sets the CSS classes for submenu to show it.
-   * @function
-   * @private
-   * @param {jQuery} $elem - the target submenu (`ul` tag)
-   * @param {boolean} trigger - trigger drilldown event
-   */
-  _setShowSubMenuClasses($elem, trigger) {
-    $elem.addClass('is-active').removeClass('invisible').attr('aria-hidden', false);
-    $elem.parent('li').attr('aria-expanded', true);
-    if (trigger === true) {
-      this.$element.trigger('open.zf.drilldown', [$elem]);
-    }
-  }
-
-  /**
-   * Sets the CSS classes for submenu to hide it.
-   * @function
-   * @private
-   * @param {jQuery} $elem - the target submenu (`ul` tag)
-   * @param {boolean} trigger - trigger drilldown event
-   */
-  _setHideSubMenuClasses($elem, trigger) {
-    $elem.removeClass('is-active').addClass('invisible').attr('aria-hidden', true);
-    $elem.parent('li').attr('aria-expanded', false);
-    if (trigger === true) {
-      $elem.trigger('hide.zf.drilldown', [$elem]);
-    }
-  }
-
-  /**
-   * Opens a specific drilldown (sub)menu no matter which (sub)menu in it is currently visible.
-   * Compared to _show() this lets you jump into any submenu without clicking through every submenu on the way to it.
-   * @function
-   * @fires Drilldown#open
-   * @param {jQuery} $elem - the target (sub)menu (`ul` tag)
-   * @param {boolean} autoFocus - if true the first link in the target (sub)menu gets auto focused
-   */
-  _showMenu($elem, autoFocus) {
-
-    var _this = this;
-
-    // Reset drilldown
-    var $expandedSubmenus = this.$element.find('li[aria-expanded="true"] > ul[data-submenu]');
-    $expandedSubmenus.each(function(index) {
-      _this._setHideSubMenuClasses(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this));
-    });
-
-    // Save the menu as the currently displayed one.
-    this.$currentMenu = $elem;
-
-    // If target menu is root, focus first link & exit
-    if ($elem.is('[data-drilldown]')) {
-      if (autoFocus === true) $elem.find('li[role="treeitem"] > a').first().focus();
-      if (this.options.autoHeight) this.$wrapper.css('height', $elem.data('calcHeight'));
-      return;
-    }
-
-    // Find all submenus on way to root incl. the element itself
-    var $submenus = $elem.children().first().parentsUntil('[data-drilldown]', '[data-submenu]');
-
-    // Open target menu and all submenus on its way to root
-    $submenus.each(function(index) {
-
-      // Update height of first child (target menu) if autoHeight option true
-      if (index === 0 && _this.options.autoHeight) {
-        _this.$wrapper.css('height', jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('calcHeight'));
-      }
-
-      var isLastChild = index == $submenus.length - 1;
-
-      // Add transitionsend listener to last child (root due to reverse order) to open target menu's first link
-      // Last child makes sure the event gets always triggered even if going through several menus
-      if (isLastChild === true) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["transitionend"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this)), () => {
-          if (autoFocus === true) {
-            $elem.find('li[role="treeitem"] > a').first().focus();
-          }
-        });
-      }
-
-      _this._setShowSubMenuClasses(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this), isLastChild);
-    });
-  }
-
-  /**
-   * Opens a submenu.
-   * @function
-   * @fires Drilldown#open
-   * @param {jQuery} $elem - the current element with a submenu to open, i.e. the `li` tag.
-   */
-  _show($elem) {
-    const $submenu = $elem.children('[data-submenu]');
-
-    $elem.attr('aria-expanded', true);
-
-    this.$currentMenu = $submenu;
-    $submenu.addClass('is-active').removeClass('invisible').attr('aria-hidden', false);
-    if (this.options.autoHeight) {
-      this.$wrapper.css({ height: $submenu.data('calcHeight') });
-    }
-
-    /**
-     * Fires when the submenu has opened.
-     * @event Drilldown#open
-     */
-    this.$element.trigger('open.zf.drilldown', [$elem]);
-  }
-
-  /**
-   * Hides a submenu
-   * @function
-   * @fires Drilldown#hide
-   * @param {jQuery} $elem - the current sub-menu to hide, i.e. the `ul` tag.
-   */
-  _hide($elem) {
-    if(this.options.autoHeight) this.$wrapper.css({height:$elem.parent().closest('ul').data('calcHeight')});
-    var _this = this;
-    $elem.parent('li').attr('aria-expanded', false);
-    $elem.attr('aria-hidden', true);
-    $elem.addClass('is-closing')
-         .one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["transitionend"])($elem), function(){
-           $elem.removeClass('is-active is-closing');
-           $elem.blur().addClass('invisible');
-         });
-    /**
-     * Fires when the submenu has closed.
-     * @event Drilldown#hide
-     */
-    $elem.trigger('hide.zf.drilldown', [$elem]);
-  }
-
-  /**
-   * Iterates through the nested menus to calculate the min-height, and max-width for the menu.
-   * Prevents content jumping.
-   * @function
-   * @private
-   */
-  _getMaxDims() {
-    var maxHeight = 0, result = {}, _this = this;
-
-    // Recalculate menu heights and total max height
-    this.$submenus.add(this.$element).each(function(){
-      var numOfElems = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('li').length;
-      var height = _foundation_util_box__WEBPACK_IMPORTED_MODULE_4__["Box"].GetDimensions(this).height;
-
-      maxHeight = height > maxHeight ? height : maxHeight;
-
-      if(_this.options.autoHeight) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('calcHeight',height);
-      }
-    });
-
-    if (this.options.autoHeight)
-      result['height'] = this.$currentMenu.data('calcHeight');
-    else
-      result['min-height'] = `${maxHeight}px`;
-
-    result['max-width'] = `${this.$element[0].getBoundingClientRect().width}px`;
-
-    return result;
-  }
-
-  /**
-   * Destroys the Drilldown Menu
-   * @function
-   */
-  _destroy() {
-    if(this.options.scrollTop) this.$element.off('.zf.drilldown',this._bindHandler);
-    this._hideAll();
-	  this.$element.off('mutateme.zf.trigger');
-    _foundation_util_nest__WEBPACK_IMPORTED_MODULE_2__["Nest"].Burn(this.$element, 'drilldown');
-    this.$element.unwrap()
-                 .find('.js-drilldown-back, .is-submenu-parent-item').remove()
-                 .end().find('.is-active, .is-closing, .is-drilldown-submenu').removeClass('is-active is-closing is-drilldown-submenu')
-                 .end().find('[data-submenu]').removeAttr('aria-hidden tabindex role');
-    this.$submenuAnchors.each(function() {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).off('.zf.drilldown');
-    });
-
-    this.$element.find('[data-is-parent-link]').detach();
-    this.$submenus.removeClass('drilldown-submenu-cover-previous invisible');
-
-    this.$element.find('a').each(function(){
-      var $link = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
-      $link.removeAttr('tabindex');
-      if($link.data('savedHref')){
-        $link.attr('href', $link.data('savedHref')).removeData('savedHref');
-      }else{ return; }
-    });
-  };
-}
-
-Drilldown.defaults = {
-  /**
-   * Drilldowns depend on styles in order to function properly; in the default build of Foundation these are
-   * on the `drilldown` class. This option auto-applies this class to the drilldown upon initialization.
-   * @option
-   * @type {boolian}
-   * @default true
-   */
-  autoApplyClass: true,
-  /**
-   * Markup used for JS generated back button. Prepended  or appended (see backButtonPosition) to submenu lists and deleted on `destroy` method, 'js-drilldown-back' class required. Remove the backslash (`\`) if copy and pasting.
-   * @option
-   * @type {string}
-   * @default '<li class="js-drilldown-back"><a tabindex="0">Back</a></li>'
-   */
-  backButton: '<li class="js-drilldown-back"><a tabindex="0">Back</a></li>',
-  /**
-   * Position the back button either at the top or bottom of drilldown submenus. Can be `'left'` or `'bottom'`.
-   * @option
-   * @type {string}
-   * @default top
-   */
-  backButtonPosition: 'top',
-  /**
-   * Markup used to wrap drilldown menu. Use a class name for independent styling; the JS applied class: `is-drilldown` is required. Remove the backslash (`\`) if copy and pasting.
-   * @option
-   * @type {string}
-   * @default '<div></div>'
-   */
-  wrapper: '<div></div>',
-  /**
-   * Adds the parent link to the submenu.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  parentLink: false,
-  /**
-   * Allow the menu to return to root list on body click.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  closeOnClick: false,
-  /**
-   * Allow the menu to auto adjust height.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  autoHeight: false,
-  /**
-   * Animate the auto adjust height.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  animateHeight: false,
-  /**
-   * Scroll to the top of the menu after opening a submenu or navigating back using the menu back button
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  scrollTop: false,
-  /**
-   * String jquery selector (for example 'body') of element to take offset().top from, if empty string the drilldown menu offset().top is taken
-   * @option
-   * @type {string}
-   * @default ''
-   */
-  scrollTopElement: '',
-  /**
-   * ScrollTop offset
-   * @option
-   * @type {number}
-   * @default 0
-   */
-  scrollTopOffset: 0,
-  /**
-   * Scroll animation duration
-   * @option
-   * @type {number}
-   * @default 500
-   */
-  animationDuration: 500,
-  /**
-   * Scroll animation easing. Can be `'swing'` or `'linear'`.
-   * @option
-   * @type {string}
-   * @see {@link https://api.jquery.com/animate|JQuery animate}
-   * @default 'swing'
-   */
-  animationEasing: 'swing'
-  // holdOpen: false
-};
-
-
-
-
-/***/ }),
-
 /***/ "./node_modules/foundation-sites/js/foundation.dropdownMenu.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/foundation-sites/js/foundation.dropdownMenu.js ***!
@@ -2639,22 +1563,25 @@ DropdownMenu.defaults = {
 
 /***/ }),
 
-/***/ "./node_modules/foundation-sites/js/foundation.equalizer.js":
+/***/ "./node_modules/foundation-sites/js/foundation.offcanvas.js":
 /*!******************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.equalizer.js ***!
+  !*** ./node_modules/foundation-sites/js/foundation.offcanvas.js ***!
   \******************************************************************/
-/*! exports provided: Equalizer */
+/*! exports provided: OffCanvas */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Equalizer", function() { return Equalizer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OffCanvas", function() { return OffCanvas; });
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
-/* harmony import */ var _foundation_util_imageLoader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.imageLoader */ "./node_modules/foundation-sites/js/foundation.util.imageLoader.js");
-/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.keyboard */ "./node_modules/foundation-sites/js/foundation.util.keyboard.js");
+/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
 /* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
+/* harmony import */ var _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./foundation.util.triggers */ "./node_modules/foundation-sites/js/foundation.util.triggers.js");
+
+
 
 
 
@@ -2664,926 +1591,554 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * Equalizer module.
- * @module foundation.equalizer
+ * OffCanvas module.
+ * @module foundation.offcanvas
+ * @requires foundation.util.keyboard
  * @requires foundation.util.mediaQuery
- * @requires foundation.util.imageLoader if equalizer contains images
- */
-
-class Equalizer extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__["Plugin"] {
-  /**
-   * Creates a new instance of Equalizer.
-   * @class
-   * @name Equalizer
-   * @fires Equalizer#init
-   * @param {Object} element - jQuery object to add the trigger to.
-   * @param {Object} options - Overrides to the default plugin settings.
-   */
-  _setup(element, options){
-    this.$element = element;
-    this.options  = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, Equalizer.defaults, this.$element.data(), options);
-    this.className = 'Equalizer'; // ie9 back compat
-
-    this._init();
-  }
-
-  /**
-   * Initializes the Equalizer plugin and calls functions to get equalizer functioning on load.
-   * @private
-   */
-  _init() {
-    var eqId = this.$element.attr('data-equalizer') || '';
-    var $watched = this.$element.find(`[data-equalizer-watch="${eqId}"]`);
-
-    _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"]._init();
-
-    this.$watched = $watched.length ? $watched : this.$element.find('[data-equalizer-watch]');
-    this.$element.attr('data-resize', (eqId || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["GetYoDigits"])(6, 'eq')));
-    this.$element.attr('data-mutate', (eqId || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["GetYoDigits"])(6, 'eq')));
-
-    this.hasNested = this.$element.find('[data-equalizer]').length > 0;
-    this.isNested = this.$element.parentsUntil(document.body, '[data-equalizer]').length > 0;
-    this.isOn = false;
-    this._bindHandler = {
-      onResizeMeBound: this._onResizeMe.bind(this),
-      onPostEqualizedBound: this._onPostEqualized.bind(this)
-    };
-
-    var imgs = this.$element.find('img');
-    var tooSmall;
-    if(this.options.equalizeOn){
-      tooSmall = this._checkMQ();
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery', this._checkMQ.bind(this));
-    }else{
-      this._events();
-    }
-    if((typeof tooSmall !== 'undefined' && tooSmall === false) || typeof tooSmall === 'undefined'){
-      if(imgs.length){
-        Object(_foundation_util_imageLoader__WEBPACK_IMPORTED_MODULE_2__["onImagesLoaded"])(imgs, this._reflow.bind(this));
-      }else{
-        this._reflow();
-      }
-    }
-  }
-
-  /**
-   * Removes event listeners if the breakpoint is too small.
-   * @private
-   */
-  _pauseEvents() {
-    this.isOn = false;
-    this.$element.off({
-      '.zf.equalizer': this._bindHandler.onPostEqualizedBound,
-      'resizeme.zf.trigger': this._bindHandler.onResizeMeBound,
-	  'mutateme.zf.trigger': this._bindHandler.onResizeMeBound
-    });
-  }
-
-  /**
-   * function to handle $elements resizeme.zf.trigger, with bound this on _bindHandler.onResizeMeBound
-   * @private
-   */
-  _onResizeMe(e) {
-    this._reflow();
-  }
-
-  /**
-   * function to handle $elements postequalized.zf.equalizer, with bound this on _bindHandler.onPostEqualizedBound
-   * @private
-   */
-  _onPostEqualized(e) {
-    if(e.target !== this.$element[0]){ this._reflow(); }
-  }
-
-  /**
-   * Initializes events for Equalizer.
-   * @private
-   */
-  _events() {
-    var _this = this;
-    this._pauseEvents();
-    if(this.hasNested){
-      this.$element.on('postequalized.zf.equalizer', this._bindHandler.onPostEqualizedBound);
-    }else{
-      this.$element.on('resizeme.zf.trigger', this._bindHandler.onResizeMeBound);
-	  this.$element.on('mutateme.zf.trigger', this._bindHandler.onResizeMeBound);
-    }
-    this.isOn = true;
-  }
-
-  /**
-   * Checks the current breakpoint to the minimum required size.
-   * @private
-   */
-  _checkMQ() {
-    var tooSmall = !_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"].is(this.options.equalizeOn);
-    if(tooSmall){
-      if(this.isOn){
-        this._pauseEvents();
-        this.$watched.css('height', 'auto');
-      }
-    }else{
-      if(!this.isOn){
-        this._events();
-      }
-    }
-    return tooSmall;
-  }
-
-  /**
-   * A noop version for the plugin
-   * @private
-   */
-  _killswitch() {
-    return;
-  }
-
-  /**
-   * Calls necessary functions to update Equalizer upon DOM change
-   * @private
-   */
-  _reflow() {
-    if(!this.options.equalizeOnStack){
-      if(this._isStacked()){
-        this.$watched.css('height', 'auto');
-        return false;
-      }
-    }
-    if (this.options.equalizeByRow) {
-      this.getHeightsByRow(this.applyHeightByRow.bind(this));
-    }else{
-      this.getHeights(this.applyHeight.bind(this));
-    }
-  }
-
-  /**
-   * Manually determines if the first 2 elements are *NOT* stacked.
-   * @private
-   */
-  _isStacked() {
-    if (!this.$watched[0] || !this.$watched[1]) {
-      return true;
-    }
-    return this.$watched[0].getBoundingClientRect().top !== this.$watched[1].getBoundingClientRect().top;
-  }
-
-  /**
-   * Finds the outer heights of children contained within an Equalizer parent and returns them in an array
-   * @param {Function} cb - A non-optional callback to return the heights array to.
-   * @returns {Array} heights - An array of heights of children within Equalizer container
-   */
-  getHeights(cb) {
-    var heights = [];
-    for(var i = 0, len = this.$watched.length; i < len; i++){
-      this.$watched[i].style.height = 'auto';
-      heights.push(this.$watched[i].offsetHeight);
-    }
-    cb(heights);
-  }
-
-  /**
-   * Finds the outer heights of children contained within an Equalizer parent and returns them in an array
-   * @param {Function} cb - A non-optional callback to return the heights array to.
-   * @returns {Array} groups - An array of heights of children within Equalizer container grouped by row with element,height and max as last child
-   */
-  getHeightsByRow(cb) {
-    var lastElTopOffset = (this.$watched.length ? this.$watched.first().offset().top : 0),
-        groups = [],
-        group = 0;
-    //group by Row
-    groups[group] = [];
-    for(var i = 0, len = this.$watched.length; i < len; i++){
-      this.$watched[i].style.height = 'auto';
-      //maybe could use this.$watched[i].offsetTop
-      var elOffsetTop = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$watched[i]).offset().top;
-      if (elOffsetTop!=lastElTopOffset) {
-        group++;
-        groups[group] = [];
-        lastElTopOffset=elOffsetTop;
-      }
-      groups[group].push([this.$watched[i],this.$watched[i].offsetHeight]);
-    }
-
-    for (var j = 0, ln = groups.length; j < ln; j++) {
-      var heights = jquery__WEBPACK_IMPORTED_MODULE_0___default()(groups[j]).map(function(){ return this[1]; }).get();
-      var max         = Math.max.apply(null, heights);
-      groups[j].push(max);
-    }
-    cb(groups);
-  }
-
-  /**
-   * Changes the CSS height property of each child in an Equalizer parent to match the tallest
-   * @param {array} heights - An array of heights of children within Equalizer container
-   * @fires Equalizer#preequalized
-   * @fires Equalizer#postequalized
-   */
-  applyHeight(heights) {
-    var max = Math.max.apply(null, heights);
-    /**
-     * Fires before the heights are applied
-     * @event Equalizer#preequalized
-     */
-    this.$element.trigger('preequalized.zf.equalizer');
-
-    this.$watched.css('height', max);
-
-    /**
-     * Fires when the heights have been applied
-     * @event Equalizer#postequalized
-     */
-     this.$element.trigger('postequalized.zf.equalizer');
-  }
-
-  /**
-   * Changes the CSS height property of each child in an Equalizer parent to match the tallest by row
-   * @param {array} groups - An array of heights of children within Equalizer container grouped by row with element,height and max as last child
-   * @fires Equalizer#preequalized
-   * @fires Equalizer#preequalizedrow
-   * @fires Equalizer#postequalizedrow
-   * @fires Equalizer#postequalized
-   */
-  applyHeightByRow(groups) {
-    /**
-     * Fires before the heights are applied
-     */
-    this.$element.trigger('preequalized.zf.equalizer');
-    for (var i = 0, len = groups.length; i < len ; i++) {
-      var groupsILength = groups[i].length,
-          max = groups[i][groupsILength - 1];
-      if (groupsILength<=2) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(groups[i][0][0]).css({'height':'auto'});
-        continue;
-      }
-      /**
-        * Fires before the heights per row are applied
-        * @event Equalizer#preequalizedrow
-        */
-      this.$element.trigger('preequalizedrow.zf.equalizer');
-      for (var j = 0, lenJ = (groupsILength-1); j < lenJ ; j++) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(groups[i][j][0]).css({'height':max});
-      }
-      /**
-        * Fires when the heights per row have been applied
-        * @event Equalizer#postequalizedrow
-        */
-      this.$element.trigger('postequalizedrow.zf.equalizer');
-    }
-    /**
-     * Fires when the heights have been applied
-     */
-     this.$element.trigger('postequalized.zf.equalizer');
-  }
-
-  /**
-   * Destroys an instance of Equalizer.
-   * @function
-   */
-  _destroy() {
-    this._pauseEvents();
-    this.$watched.css('height', 'auto');
-  }
-}
-
-/**
- * Default settings for plugin
- */
-Equalizer.defaults = {
-  /**
-   * Enable height equalization when stacked on smaller screens.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  equalizeOnStack: false,
-  /**
-   * Enable height equalization row by row.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  equalizeByRow: false,
-  /**
-   * String representing the minimum breakpoint size the plugin should equalize heights on.
-   * @option
-   * @type {string}
-   * @default ''
-   */
-  equalizeOn: ''
-};
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/foundation-sites/js/foundation.responsiveAccordionTabs.js":
-/*!********************************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.responsiveAccordionTabs.js ***!
-  \********************************************************************************/
-/*! exports provided: ResponsiveAccordionTabs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResponsiveAccordionTabs", function() { return ResponsiveAccordionTabs; });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
-/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
-/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
-/* harmony import */ var _foundation_accordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.accordion */ "./node_modules/foundation-sites/js/foundation.accordion.js");
-/* harmony import */ var _foundation_tabs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./foundation.tabs */ "./node_modules/foundation-sites/js/foundation.tabs.js");
-
-
-
-
-
-
-
-
-
-
-// The plugin matches the plugin classes with these plugin instances.
-var MenuPlugins = {
-  tabs: {
-    cssClass: 'tabs',
-    plugin: _foundation_tabs__WEBPACK_IMPORTED_MODULE_5__["Tabs"]
-  },
-  accordion: {
-    cssClass: 'accordion',
-    plugin: _foundation_accordion__WEBPACK_IMPORTED_MODULE_4__["Accordion"]
-  }
-};
-
-
-/**
- * ResponsiveAccordionTabs module.
- * @module foundation.responsiveAccordionTabs
- * @requires foundation.util.motion
- * @requires foundation.accordion
- * @requires foundation.tabs
- */
-
-class ResponsiveAccordionTabs extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__["Plugin"]{
-  /**
-   * Creates a new instance of a responsive accordion tabs.
-   * @class
-   * @name ResponsiveAccordionTabs
-   * @fires ResponsiveAccordionTabs#init
-   * @param {jQuery} element - jQuery object to make into Responsive Accordion Tabs.
-   * @param {Object} options - Overrides to the default plugin settings.
-   */
-  _setup(element, options) {
-    this.$element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element);
-    this.options  = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, this.$element.data(), options);
-    this.rules = this.$element.data('responsive-accordion-tabs');
-    this.currentMq = null;
-    this.currentPlugin = null;
-    this.className = 'ResponsiveAccordionTabs'; // ie9 back compat
-    if (!this.$element.attr('id')) {
-      this.$element.attr('id',Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__["GetYoDigits"])(6, 'responsiveaccordiontabs'));
-    };
-
-    this._init();
-    this._events();
-  }
-
-  /**
-   * Initializes the Menu by parsing the classes from the 'data-responsive-accordion-tabs' attribute on the element.
-   * @function
-   * @private
-   */
-  _init() {
-    _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"]._init();
-
-    // The first time an Interchange plugin is initialized, this.rules is converted from a string of "classes" to an object of rules
-    if (typeof this.rules === 'string') {
-      let rulesTree = {};
-
-      // Parse rules from "classes" pulled from data attribute
-      let rules = this.rules.split(' ');
-
-      // Iterate through every rule found
-      for (let i = 0; i < rules.length; i++) {
-        let rule = rules[i].split('-');
-        let ruleSize = rule.length > 1 ? rule[0] : 'small';
-        let rulePlugin = rule.length > 1 ? rule[1] : rule[0];
-
-        if (MenuPlugins[rulePlugin] !== null) {
-          rulesTree[ruleSize] = MenuPlugins[rulePlugin];
-        }
-      }
-
-      this.rules = rulesTree;
-    }
-
-    this._getAllOptions();
-
-    if (!jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isEmptyObject(this.rules)) {
-      this._checkMediaQueries();
-    }
-  }
-
-  _getAllOptions() {
-    //get all defaults and options
-    var _this = this;
-    _this.allOptions = {};
-    for (var key in MenuPlugins) {
-      if (MenuPlugins.hasOwnProperty(key)) {
-        var obj = MenuPlugins[key];
-        try {
-          var dummyPlugin = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<ul></ul>');
-          var tmpPlugin = new obj.plugin(dummyPlugin,_this.options);
-          for (var keyKey in tmpPlugin.options) {
-            if (tmpPlugin.options.hasOwnProperty(keyKey) && keyKey !== 'zfPlugin') {
-              var objObj = tmpPlugin.options[keyKey];
-              _this.allOptions[keyKey] = objObj;
-            }
-          }
-          tmpPlugin.destroy();
-        }
-        catch(e) {
-        }
-      }
-    }
-  }
-
-  /**
-   * Initializes events for the Menu.
-   * @function
-   * @private
-   */
-  _events() {
-    this._changedZfMediaQueryHandler = this._checkMediaQueries.bind(this);
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery', this._changedZfMediaQueryHandler);
-  }
-
-  /**
-   * Checks the current screen width against available media queries. If the media query has changed, and the plugin needed has changed, the plugins will swap out.
-   * @function
-   * @private
-   */
-  _checkMediaQueries() {
-    var matchedMq, _this = this;
-    // Iterate through each rule and find the last matching rule
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(this.rules, function(key) {
-      if (_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"].atLeast(key)) {
-        matchedMq = key;
-      }
-    });
-
-    // No match? No dice
-    if (!matchedMq) return;
-
-    // Plugin already initialized? We good
-    if (this.currentPlugin instanceof this.rules[matchedMq].plugin) return;
-
-    // Remove existing plugin-specific CSS classes
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(MenuPlugins, function(key, value) {
-      _this.$element.removeClass(value.cssClass);
-    });
-
-    // Add the CSS class for the new plugin
-    this.$element.addClass(this.rules[matchedMq].cssClass);
-
-    // Create an instance of the new plugin
-    if (this.currentPlugin) {
-      //don't know why but on nested elements data zfPlugin get's lost
-      if (!this.currentPlugin.$element.data('zfPlugin') && this.storezfData) this.currentPlugin.$element.data('zfPlugin',this.storezfData);
-      this.currentPlugin.destroy();
-    }
-    this._handleMarkup(this.rules[matchedMq].cssClass);
-    this.currentPlugin = new this.rules[matchedMq].plugin(this.$element, {});
-    this.storezfData = this.currentPlugin.$element.data('zfPlugin');
-
-  }
-
-  _handleMarkup(toSet){
-    var _this = this, fromString = 'accordion';
-    var $panels = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-tabs-content='+this.$element.attr('id')+']');
-    if ($panels.length) fromString = 'tabs';
-    if (fromString === toSet) {
-      return;
-    };
-
-    var tabsTitle = _this.allOptions.linkClass?_this.allOptions.linkClass:'tabs-title';
-    var tabsPanel = _this.allOptions.panelClass?_this.allOptions.panelClass:'tabs-panel';
-
-    this.$element.removeAttr('role');
-    var $liHeads = this.$element.children('.'+tabsTitle+',[data-accordion-item]').removeClass(tabsTitle).removeClass('accordion-item').removeAttr('data-accordion-item');
-    var $liHeadsA = $liHeads.children('a').removeClass('accordion-title');
-
-    if (fromString === 'tabs') {
-      $panels = $panels.children('.'+tabsPanel).removeClass(tabsPanel).removeAttr('role').removeAttr('aria-hidden').removeAttr('aria-labelledby');
-      $panels.children('a').removeAttr('role').removeAttr('aria-controls').removeAttr('aria-selected');
-    }else{
-      $panels = $liHeads.children('[data-tab-content]').removeClass('accordion-content');
-    };
-
-    $panels.css({display:'',visibility:''});
-    $liHeads.css({display:'',visibility:''});
-    if (toSet === 'accordion') {
-      $panels.each(function(key,value){
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(value).appendTo($liHeads.get(key)).addClass('accordion-content').attr('data-tab-content','').removeClass('is-active').css({height:''});
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-tabs-content='+_this.$element.attr('id')+']').after('<div id="tabs-placeholder-'+_this.$element.attr('id')+'"></div>').detach();
-        $liHeads.addClass('accordion-item').attr('data-accordion-item','');
-        $liHeadsA.addClass('accordion-title');
-      });
-    }else if (toSet === 'tabs'){
-      var $tabsContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-tabs-content='+_this.$element.attr('id')+']');
-      var $placeholder = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#tabs-placeholder-'+_this.$element.attr('id'));
-      if ($placeholder.length) {
-        $tabsContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="tabs-content"></div>').insertAfter($placeholder).attr('data-tabs-content',_this.$element.attr('id'));
-        $placeholder.remove();
-      }else{
-        $tabsContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div class="tabs-content"></div>').insertAfter(_this.$element).attr('data-tabs-content',_this.$element.attr('id'));
-      };
-      $panels.each(function(key,value){
-        var tempValue = jquery__WEBPACK_IMPORTED_MODULE_0___default()(value).appendTo($tabsContent).addClass(tabsPanel);
-        var hash = $liHeadsA.get(key).hash.slice(1);
-        var id = jquery__WEBPACK_IMPORTED_MODULE_0___default()(value).attr('id') || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__["GetYoDigits"])(6, 'accordion');
-        if (hash !== id) {
-          if (hash !== '') {
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()(value).attr('id',hash);
-          }else{
-            hash = id;
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()(value).attr('id',hash);
-            jquery__WEBPACK_IMPORTED_MODULE_0___default()($liHeadsA.get(key)).attr('href',jquery__WEBPACK_IMPORTED_MODULE_0___default()($liHeadsA.get(key)).attr('href').replace('#','')+'#'+hash);
-          };
-        };
-        var isActive = jquery__WEBPACK_IMPORTED_MODULE_0___default()($liHeads.get(key)).hasClass('is-active');
-        if (isActive) {
-          tempValue.addClass('is-active');
-        };
-      });
-      $liHeads.addClass(tabsTitle);
-    };
-  }
-
-  /**
-   * Destroys the instance of the current plugin on this element, as well as the window resize handler that switches the plugins out.
-   * @function
-   */
-  _destroy() {
-    if (this.currentPlugin) this.currentPlugin.destroy();
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('changed.zf.mediaquery', this._changedZfMediaQueryHandler);
-  }
-}
-
-ResponsiveAccordionTabs.defaults = {};
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/foundation-sites/js/foundation.responsiveMenu.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.responsiveMenu.js ***!
-  \***********************************************************************/
-/*! exports provided: ResponsiveMenu */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResponsiveMenu", function() { return ResponsiveMenu; });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
-/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
-/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
-/* harmony import */ var _foundation_dropdownMenu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.dropdownMenu */ "./node_modules/foundation-sites/js/foundation.dropdownMenu.js");
-/* harmony import */ var _foundation_drilldown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./foundation.drilldown */ "./node_modules/foundation-sites/js/foundation.drilldown.js");
-/* harmony import */ var _foundation_accordionMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./foundation.accordionMenu */ "./node_modules/foundation-sites/js/foundation.accordionMenu.js");
-
-
-
-
-
-
-
-
-
-
-
-
-let MenuPlugins = {
-  dropdown: {
-    cssClass: 'dropdown',
-    plugin: _foundation_dropdownMenu__WEBPACK_IMPORTED_MODULE_4__["DropdownMenu"]
-  },
- drilldown: {
-    cssClass: 'drilldown',
-    plugin: _foundation_drilldown__WEBPACK_IMPORTED_MODULE_5__["Drilldown"]
-  },
-  accordion: {
-    cssClass: 'accordion-menu',
-    plugin: _foundation_accordionMenu__WEBPACK_IMPORTED_MODULE_6__["AccordionMenu"]
-  }
-};
-
-  // import "foundation.util.triggers.js";
-
-
-/**
- * ResponsiveMenu module.
- * @module foundation.responsiveMenu
  * @requires foundation.util.triggers
- * @requires foundation.util.mediaQuery
  */
 
-class ResponsiveMenu extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__["Plugin"] {
+class OffCanvas extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__["Plugin"] {
   /**
-   * Creates a new instance of a responsive menu.
+   * Creates a new instance of an off-canvas wrapper.
    * @class
-   * @name ResponsiveMenu
-   * @fires ResponsiveMenu#init
-   * @param {jQuery} element - jQuery object to make into a dropdown menu.
+   * @name OffCanvas
+   * @fires OffCanvas#init
+   * @param {Object} element - jQuery object to initialize.
    * @param {Object} options - Overrides to the default plugin settings.
    */
   _setup(element, options) {
-    this.$element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element);
-    this.rules = this.$element.data('responsive-menu');
-    this.currentMq = null;
-    this.currentPlugin = null;
-    this.className = 'ResponsiveMenu'; // ie9 back compat
+    this.className = 'OffCanvas'; // ie9 back compat
+    this.$element = element;
+    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, OffCanvas.defaults, this.$element.data(), options);
+    this.contentClasses = { base: [], reveal: [] };
+    this.$lastTrigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()();
+    this.$triggers = jquery__WEBPACK_IMPORTED_MODULE_0___default()();
+    this.position = 'left';
+    this.$content = jquery__WEBPACK_IMPORTED_MODULE_0___default()();
+    this.nested = !!(this.options.nested);
+
+    // Defines the CSS transition/position classes of the off-canvas content container.
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(['push', 'overlap']).each((index, val) => {
+      this.contentClasses.base.push('has-transition-'+val);
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(['left', 'right', 'top', 'bottom']).each((index, val) => {
+      this.contentClasses.base.push('has-position-'+val);
+      this.contentClasses.reveal.push('has-reveal-'+val);
+    });
+
+    // Triggers init is idempotent, just need to make sure it is initialized
+    _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_5__["Triggers"].init(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
+    _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__["MediaQuery"]._init();
 
     this._init();
     this._events();
+
+    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].register('OffCanvas', {
+      'ESCAPE': 'close'
+    });
+
   }
 
   /**
-   * Initializes the Menu by parsing the classes from the 'data-ResponsiveMenu' attribute on the element.
+   * Initializes the off-canvas wrapper by adding the exit overlay (if needed).
    * @function
    * @private
    */
   _init() {
+    var id = this.$element.attr('id');
 
-    _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"]._init();
-    // The first time an Interchange plugin is initialized, this.rules is converted from a string of "classes" to an object of rules
-    if (typeof this.rules === 'string') {
-      let rulesTree = {};
+    this.$element.attr('aria-hidden', 'true');
 
-      // Parse rules from "classes" pulled from data attribute
-      let rules = this.rules.split(' ');
+    // Find off-canvas content, either by ID (if specified), by siblings or by closest selector (fallback)
+    if (this.options.contentId) {
+      this.$content = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#'+this.options.contentId);
+    } else if (this.$element.siblings('[data-off-canvas-content]').length) {
+      this.$content = this.$element.siblings('[data-off-canvas-content]').first();
+    } else {
+      this.$content = this.$element.closest('[data-off-canvas-content]').first();
+    }
 
-      // Iterate through every rule found
-      for (let i = 0; i < rules.length; i++) {
-        let rule = rules[i].split('-');
-        let ruleSize = rule.length > 1 ? rule[0] : 'small';
-        let rulePlugin = rule.length > 1 ? rule[1] : rule[0];
+    if (!this.options.contentId) {
+      // Assume that the off-canvas element is nested if it isn't a sibling of the content
+      this.nested = this.$element.siblings('[data-off-canvas-content]').length === 0;
 
-        if (MenuPlugins[rulePlugin] !== null) {
-          rulesTree[ruleSize] = MenuPlugins[rulePlugin];
+    } else if (this.options.contentId && this.options.nested === null) {
+      // Warning if using content ID without setting the nested option
+      // Once the element is nested it is required to work properly in this case
+      console.warn('Remember to use the nested option if using the content ID option!');
+    }
+
+    if (this.nested === true) {
+      // Force transition overlap if nested
+      this.options.transition = 'overlap';
+      // Remove appropriate classes if already assigned in markup
+      this.$element.removeClass('is-transition-push');
+    }
+
+    this.$element.addClass(`is-transition-${this.options.transition} is-closed`);
+
+    // Find triggers that affect this element and add aria-expanded to them
+    this.$triggers = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document)
+      .find('[data-open="'+id+'"], [data-close="'+id+'"], [data-toggle="'+id+'"]')
+      .attr('aria-expanded', 'false')
+      .attr('aria-controls', id);
+
+    // Get position by checking for related CSS class
+    this.position = this.$element.is('.position-left, .position-top, .position-right, .position-bottom') ? this.$element.attr('class').match(/position\-(left|top|right|bottom)/)[1] : this.position;
+
+    // Add an overlay over the content if necessary
+    if (this.options.contentOverlay === true) {
+      var overlay = document.createElement('div');
+      var overlayPosition = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$element).css("position") === 'fixed' ? 'is-overlay-fixed' : 'is-overlay-absolute';
+      overlay.setAttribute('class', 'js-off-canvas-overlay ' + overlayPosition);
+      this.$overlay = jquery__WEBPACK_IMPORTED_MODULE_0___default()(overlay);
+      if(overlayPosition === 'is-overlay-fixed') {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$overlay).insertAfter(this.$element);
+      } else {
+        this.$content.append(this.$overlay);
+      }
+    }
+
+    // Get the revealOn option from the class.
+    var revealOnRegExp = new RegExp(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["RegExpEscape"])(this.options.revealClass) + '([^\\s]+)', 'g');
+    var revealOnClass = revealOnRegExp.exec(this.$element[0].className);
+    if (revealOnClass) {
+      this.options.isRevealed = true;
+      this.options.revealOn = this.options.revealOn || revealOnClass[1];
+    }
+
+    // Ensure the `reveal-on-*` class is set.
+    if (this.options.isRevealed === true && this.options.revealOn) {
+      this.$element.first().addClass(`${this.options.revealClass}${this.options.revealOn}`);
+      this._setMQChecker();
+    }
+
+    if (this.options.transitionTime) {
+      this.$element.css('transition-duration', this.options.transitionTime);
+    }
+
+    // Initally remove all transition/position CSS classes from off-canvas content container.
+    this._removeContentClasses();
+  }
+
+  /**
+   * Adds event handlers to the off-canvas wrapper and the exit overlay.
+   * @function
+   * @private
+   */
+  _events() {
+    this.$element.off('.zf.trigger .zf.offcanvas').on({
+      'open.zf.trigger': this.open.bind(this),
+      'close.zf.trigger': this.close.bind(this),
+      'toggle.zf.trigger': this.toggle.bind(this),
+      'keydown.zf.offcanvas': this._handleKeyboard.bind(this)
+    });
+
+    if (this.options.closeOnClick === true) {
+      var $target = this.options.contentOverlay ? this.$overlay : this.$content;
+      $target.on({'click.zf.offcanvas': this.close.bind(this)});
+    }
+  }
+
+  /**
+   * Applies event listener for elements that will reveal at certain breakpoints.
+   * @private
+   */
+  _setMQChecker() {
+    var _this = this;
+
+    this.onLoadListener = Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["onLoad"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window), function () {
+      if (_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__["MediaQuery"].atLeast(_this.options.revealOn)) {
+        _this.reveal(true);
+      }
+    });
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery', function () {
+      if (_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__["MediaQuery"].atLeast(_this.options.revealOn)) {
+        _this.reveal(true);
+      } else {
+        _this.reveal(false);
+      }
+    });
+  }
+
+  /**
+   * Removes the CSS transition/position classes of the off-canvas content container.
+   * Removing the classes is important when another off-canvas gets opened that uses the same content container.
+   * @param {Boolean} hasReveal - true if related off-canvas element is revealed.
+   * @private
+   */
+  _removeContentClasses(hasReveal) {
+    if (typeof hasReveal !== 'boolean') {
+      this.$content.removeClass(this.contentClasses.base.join(' '));
+    } else if (hasReveal === false) {
+      this.$content.removeClass(`has-reveal-${this.position}`);
+    }
+  }
+
+  /**
+   * Adds the CSS transition/position classes of the off-canvas content container, based on the opening off-canvas element.
+   * Beforehand any transition/position class gets removed.
+   * @param {Boolean} hasReveal - true if related off-canvas element is revealed.
+   * @private
+   */
+  _addContentClasses(hasReveal) {
+    this._removeContentClasses(hasReveal);
+    if (typeof hasReveal !== 'boolean') {
+      this.$content.addClass(`has-transition-${this.options.transition} has-position-${this.position}`);
+    } else if (hasReveal === true) {
+      this.$content.addClass(`has-reveal-${this.position}`);
+    }
+  }
+
+  /**
+   * Handles the revealing/hiding the off-canvas at breakpoints, not the same as open.
+   * @param {Boolean} isRevealed - true if element should be revealed.
+   * @function
+   */
+  reveal(isRevealed) {
+    if (isRevealed) {
+      this.close();
+      this.isRevealed = true;
+      this.$element.attr('aria-hidden', 'false');
+      this.$element.off('open.zf.trigger toggle.zf.trigger');
+      this.$element.removeClass('is-closed');
+    } else {
+      this.isRevealed = false;
+      this.$element.attr('aria-hidden', 'true');
+      this.$element.off('open.zf.trigger toggle.zf.trigger').on({
+        'open.zf.trigger': this.open.bind(this),
+        'toggle.zf.trigger': this.toggle.bind(this)
+      });
+      this.$element.addClass('is-closed');
+    }
+    this._addContentClasses(isRevealed);
+  }
+
+  /**
+   * Stops scrolling of the body when offcanvas is open on mobile Safari and other troublesome browsers.
+   * @private
+   */
+  _stopScrolling(event) {
+    return false;
+  }
+
+  // Taken and adapted from http://stackoverflow.com/questions/16889447/prevent-full-page-scrolling-ios
+  // Only really works for y, not sure how to extend to x or if we need to.
+  _recordScrollable(event) {
+    let elem = this; // called from event handler context with this as elem
+
+     // If the element is scrollable (content overflows), then...
+    if (elem.scrollHeight !== elem.clientHeight) {
+      // If we're at the top, scroll down one pixel to allow scrolling up
+      if (elem.scrollTop === 0) {
+        elem.scrollTop = 1;
+      }
+      // If we're at the bottom, scroll up one pixel to allow scrolling down
+      if (elem.scrollTop === elem.scrollHeight - elem.clientHeight) {
+        elem.scrollTop = elem.scrollHeight - elem.clientHeight - 1;
+      }
+    }
+    elem.allowUp = elem.scrollTop > 0;
+    elem.allowDown = elem.scrollTop < (elem.scrollHeight - elem.clientHeight);
+    elem.lastY = event.originalEvent.pageY;
+  }
+
+  _stopScrollPropagation(event) {
+    let elem = this; // called from event handler context with this as elem
+    let up = event.pageY < elem.lastY;
+    let down = !up;
+    elem.lastY = event.pageY;
+
+    if((up && elem.allowUp) || (down && elem.allowDown)) {
+      event.stopPropagation();
+    } else {
+      event.preventDefault();
+    }
+  }
+
+  /**
+   * Opens the off-canvas menu.
+   * @function
+   * @param {Object} event - Event object passed from listener.
+   * @param {jQuery} trigger - element that triggered the off-canvas to open.
+   * @fires Offcanvas#opened
+   * @todo also trigger 'open' event?
+   */
+  open(event, trigger) {
+    if (this.$element.hasClass('is-open') || this.isRevealed) { return; }
+    var _this = this;
+
+    if (trigger) {
+      this.$lastTrigger = trigger;
+    }
+
+    if (this.options.forceTo === 'top') {
+      window.scrollTo(0, 0);
+    } else if (this.options.forceTo === 'bottom') {
+      window.scrollTo(0,document.body.scrollHeight);
+    }
+
+    if (this.options.transitionTime && this.options.transition !== 'overlap') {
+      this.$element.siblings('[data-off-canvas-content]').css('transition-duration', this.options.transitionTime);
+    } else {
+      this.$element.siblings('[data-off-canvas-content]').css('transition-duration', '');
+    }
+
+    this.$element.addClass('is-open').removeClass('is-closed');
+
+    this.$triggers.attr('aria-expanded', 'true');
+    this.$element.attr('aria-hidden', 'false');
+
+    this.$content.addClass('is-open-' + this.position);
+
+    // If `contentScroll` is set to false, add class and disable scrolling on touch devices.
+    if (this.options.contentScroll === false) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-off-canvas-open').on('touchmove', this._stopScrolling);
+      this.$element.on('touchstart', this._recordScrollable);
+      this.$element.on('touchmove', this._stopScrollPropagation);
+    }
+
+    if (this.options.contentOverlay === true) {
+      this.$overlay.addClass('is-visible');
+    }
+
+    if (this.options.closeOnClick === true && this.options.contentOverlay === true) {
+      this.$overlay.addClass('is-closable');
+    }
+
+    if (this.options.autoFocus === true) {
+      this.$element.one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["transitionend"])(this.$element), function() {
+        if (!_this.$element.hasClass('is-open')) {
+          return; // exit if prematurely closed
         }
-      }
-
-      this.rules = rulesTree;
+        var canvasFocus = _this.$element.find('[data-autofocus]');
+        if (canvasFocus.length) {
+            canvasFocus.eq(0).focus();
+        } else {
+            _this.$element.find('a, button').eq(0).focus();
+        }
+      });
     }
 
-    if (!jquery__WEBPACK_IMPORTED_MODULE_0___default.a.isEmptyObject(this.rules)) {
-      this._checkMediaQueries();
+    if (this.options.trapFocus === true) {
+      this.$content.attr('tabindex', '-1');
+      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].trapFocus(this.$element);
     }
-    // Add data-mutate since children may need it.
-    this.$element.attr('data-mutate', (this.$element.attr('data-mutate') || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__["GetYoDigits"])(6, 'responsive-menu')));
+
+    this._addContentClasses();
+
+    /**
+     * Fires when the off-canvas menu opens.
+     * @event Offcanvas#opened
+     */
+    this.$element.trigger('opened.zf.offcanvas');
   }
 
   /**
-   * Initializes events for the Menu.
+   * Closes the off-canvas menu.
    * @function
-   * @private
+   * @param {Function} cb - optional cb to fire after closure.
+   * @fires Offcanvas#closed
    */
-  _events() {
+  close(cb) {
+    if (!this.$element.hasClass('is-open') || this.isRevealed) { return; }
+
     var _this = this;
 
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery', function() {
-      _this._checkMediaQueries();
-    });
-    // $(window).on('resize.zf.ResponsiveMenu', function() {
-    //   _this._checkMediaQueries();
-    // });
-  }
+    this.$element.removeClass('is-open');
 
-  /**
-   * Checks the current screen width against available media queries. If the media query has changed, and the plugin needed has changed, the plugins will swap out.
-   * @function
-   * @private
-   */
-  _checkMediaQueries() {
-    var matchedMq, _this = this;
-    // Iterate through each rule and find the last matching rule
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(this.rules, function(key) {
-      if (_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"].atLeast(key)) {
-        matchedMq = key;
-      }
-    });
-
-    // No match? No dice
-    if (!matchedMq) return;
-
-    // Plugin already initialized? We good
-    if (this.currentPlugin instanceof this.rules[matchedMq].plugin) return;
-
-    // Remove existing plugin-specific CSS classes
-    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(MenuPlugins, function(key, value) {
-      _this.$element.removeClass(value.cssClass);
-    });
-
-    // Add the CSS class for the new plugin
-    this.$element.addClass(this.rules[matchedMq].cssClass);
-
-    // Create an instance of the new plugin
-    if (this.currentPlugin) this.currentPlugin.destroy();
-    this.currentPlugin = new this.rules[matchedMq].plugin(this.$element, {});
-  }
-
-  /**
-   * Destroys the instance of the current plugin on this element, as well as the window resize handler that switches the plugins out.
-   * @function
-   */
-  _destroy() {
-    this.currentPlugin.destroy();
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('.zf.ResponsiveMenu');
-  }
-}
-
-ResponsiveMenu.defaults = {};
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/foundation-sites/js/foundation.responsiveToggle.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.responsiveToggle.js ***!
-  \*************************************************************************/
-/*! exports provided: ResponsiveToggle */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResponsiveToggle", function() { return ResponsiveToggle; });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
-/* harmony import */ var _foundation_util_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.motion */ "./node_modules/foundation-sites/js/foundation.util.motion.js");
-/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
-
-
-
-
-
-
-
-
-/**
- * ResponsiveToggle module.
- * @module foundation.responsiveToggle
- * @requires foundation.util.mediaQuery
- * @requires foundation.util.motion
- */
-
-class ResponsiveToggle extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__["Plugin"] {
-  /**
-   * Creates a new instance of Tab Bar.
-   * @class
-   * @name ResponsiveToggle
-   * @fires ResponsiveToggle#init
-   * @param {jQuery} element - jQuery object to attach tab bar functionality to.
-   * @param {Object} options - Overrides to the default plugin settings.
-   */
-  _setup(element, options) {
-    this.$element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element);
-    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, ResponsiveToggle.defaults, this.$element.data(), options);
-    this.className = 'ResponsiveToggle'; // ie9 back compat
-
-    this._init();
-    this._events();
-  }
-
-  /**
-   * Initializes the tab bar by finding the target element, toggling element, and running update().
-   * @function
-   * @private
-   */
-  _init() {
-    _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"]._init();
-    var targetID = this.$element.data('responsive-toggle');
-    if (!targetID) {
-      console.error('Your tab bar needs an ID of a Menu as the value of data-tab-bar.');
-    }
-
-    this.$targetMenu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#${targetID}`);
-    this.$toggler = this.$element.find('[data-toggle]').filter(function() {
-      var target = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('toggle');
-      return (target === targetID || target === "");
-    });
-    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, this.options, this.$targetMenu.data());
-
-    // If they were set, parse the animation classes
-    if(this.options.animate) {
-      let input = this.options.animate.split(' ');
-
-      this.animationIn = input[0];
-      this.animationOut = input[1] || null;
-    }
-
-    this._update();
-  }
-
-  /**
-   * Adds necessary event handlers for the tab bar to work.
-   * @function
-   * @private
-   */
-  _events() {
-    var _this = this;
-
-    this._updateMqHandler = this._update.bind(this);
-
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery', this._updateMqHandler);
-
-    this.$toggler.on('click.zf.responsiveToggle', this.toggleMenu.bind(this));
-  }
-
-  /**
-   * Checks the current media query to determine if the tab bar should be visible or hidden.
-   * @function
-   * @private
-   */
-  _update() {
-    // Mobile
-    if (!_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"].atLeast(this.options.hideFor)) {
-      this.$element.show();
-      this.$targetMenu.hide();
-    }
-
-    // Desktop
-    else {
-      this.$element.hide();
-      this.$targetMenu.show();
-    }
-  }
-
-  /**
-   * Toggles the element attached to the tab bar. The toggle only happens if the screen is small enough to allow it.
-   * @function
-   * @fires ResponsiveToggle#toggled
-   */
-  toggleMenu() {
-    if (!_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_1__["MediaQuery"].atLeast(this.options.hideFor)) {
+    this.$element.attr('aria-hidden', 'true')
       /**
-       * Fires when the element attached to the tab bar toggles.
-       * @event ResponsiveToggle#toggled
+       * Fires when the off-canvas menu opens.
+       * @event Offcanvas#closed
        */
-      if(this.options.animate) {
-        if (this.$targetMenu.is(':hidden')) {
-          _foundation_util_motion__WEBPACK_IMPORTED_MODULE_2__["Motion"].animateIn(this.$targetMenu, this.animationIn, () => {
-            this.$element.trigger('toggled.zf.responsiveToggle');
-            this.$targetMenu.find('[data-mutate]').triggerHandler('mutateme.zf.trigger');
-          });
-        }
-        else {
-          _foundation_util_motion__WEBPACK_IMPORTED_MODULE_2__["Motion"].animateOut(this.$targetMenu, this.animationOut, () => {
-            this.$element.trigger('toggled.zf.responsiveToggle');
-          });
-        }
-      }
-      else {
-        this.$targetMenu.toggle(0);
-        this.$targetMenu.find('[data-mutate]').trigger('mutateme.zf.trigger');
-        this.$element.trigger('toggled.zf.responsiveToggle');
-      }
+        .trigger('closed.zf.offcanvas');
+
+    this.$content.removeClass('is-open-left is-open-top is-open-right is-open-bottom');
+
+    // If `contentScroll` is set to false, remove class and re-enable scrolling on touch devices.
+    if (this.options.contentScroll === false) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('is-off-canvas-open').off('touchmove', this._stopScrolling);
+      this.$element.off('touchstart', this._recordScrollable);
+      this.$element.off('touchmove', this._stopScrollPropagation);
     }
-  };
 
+    if (this.options.contentOverlay === true) {
+      this.$overlay.removeClass('is-visible');
+    }
+
+    if (this.options.closeOnClick === true && this.options.contentOverlay === true) {
+      this.$overlay.removeClass('is-closable');
+    }
+
+    this.$triggers.attr('aria-expanded', 'false');
+
+    if (this.options.trapFocus === true) {
+      this.$content.removeAttr('tabindex');
+      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].releaseFocus(this.$element);
+    }
+
+    // Listen to transitionEnd and add class when done.
+    this.$element.one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["transitionend"])(this.$element), function(e) {
+      _this.$element.addClass('is-closed');
+      _this._removeContentClasses();
+    });
+  }
+
+  /**
+   * Toggles the off-canvas menu open or closed.
+   * @function
+   * @param {Object} event - Event object passed from listener.
+   * @param {jQuery} trigger - element that triggered the off-canvas to open.
+   */
+  toggle(event, trigger) {
+    if (this.$element.hasClass('is-open')) {
+      this.close(event, trigger);
+    }
+    else {
+      this.open(event, trigger);
+    }
+  }
+
+  /**
+   * Handles keyboard input when detected. When the escape key is pressed, the off-canvas menu closes, and focus is restored to the element that opened the menu.
+   * @function
+   * @private
+   */
+  _handleKeyboard(e) {
+    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].handleKey(e, 'OffCanvas', {
+      close: () => {
+        this.close();
+        this.$lastTrigger.focus();
+        return true;
+      },
+      handled: () => {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    });
+  }
+
+  /**
+   * Destroys the offcanvas plugin.
+   * @function
+   */
   _destroy() {
-    this.$element.off('.zf.responsiveToggle');
-    this.$toggler.off('.zf.responsiveToggle');
-
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('changed.zf.mediaquery', this._updateMqHandler);
+    this.close();
+    this.$element.off('.zf.trigger .zf.offcanvas');
+    this.$overlay.off('.zf.offcanvas');
+    if (this.onLoadListener) jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(this.onLoadListener);
   }
 }
 
-ResponsiveToggle.defaults = {
+OffCanvas.defaults = {
   /**
-   * The breakpoint after which the menu is always shown, and the tab bar is hidden.
+   * Allow the user to click outside of the menu to close it.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  closeOnClick: true,
+
+  /**
+   * Adds an overlay on top of `[data-off-canvas-content]`.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  contentOverlay: true,
+
+  /**
+   * Target an off-canvas content container by ID that may be placed anywhere. If null the closest content container will be taken.
+   * @option
+   * @type {?string}
+   * @default null
+   */
+  contentId: null,
+
+  /**
+   * Define the off-canvas element is nested in an off-canvas content. This is required when using the contentId option for a nested element.
+   * @option
+   * @type {boolean}
+   * @default null
+   */
+  nested: null,
+
+  /**
+   * Enable/disable scrolling of the main content when an off canvas panel is open.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  contentScroll: true,
+
+  /**
+   * Amount of time in ms the open and close transition requires. If none selected, pulls from body style.
+   * @option
+   * @type {number}
+   * @default null
+   */
+  transitionTime: null,
+
+  /**
+   * Type of transition for the offcanvas menu. Options are 'push', 'detached' or 'slide'.
    * @option
    * @type {string}
-   * @default 'medium'
+   * @default push
    */
-  hideFor: 'medium',
+  transition: 'push',
 
   /**
-   * To decide if the toggle should be animated or not.
+   * Force the page to scroll to top or bottom on open.
+   * @option
+   * @type {?string}
+   * @default null
+   */
+  forceTo: null,
+
+  /**
+   * Allow the offcanvas to remain open for certain breakpoints.
    * @option
    * @type {boolean}
    * @default false
    */
-  animate: false
-};
+  isRevealed: false,
+
+  /**
+   * Breakpoint at which to reveal. JS will use a RegExp to target standard classes, if changing classnames, pass your class with the `revealClass` option.
+   * @option
+   * @type {?string}
+   * @default null
+   */
+  revealOn: null,
+
+  /**
+   * Force focus to the offcanvas on open. If true, will focus the opening trigger on close.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  autoFocus: true,
+
+  /**
+   * Class used to force an offcanvas to remain open. Foundation defaults for this are `reveal-for-large` & `reveal-for-medium`.
+   * @option
+   * @type {string}
+   * @default reveal-for-
+   * @todo improve the regex testing for this.
+   */
+  revealClass: 'reveal-for-',
+
+  /**
+   * Triggers optional focus trapping when opening an offcanvas. Sets tabindex of [data-off-canvas-content] to -1 for accessibility purposes.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  trapFocus: false
+}
 
 
 
@@ -4396,748 +2951,6 @@ SmoothScroll.defaults = {
    */
   offset: 0
 }
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/foundation-sites/js/foundation.tabs.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.tabs.js ***!
-  \*************************************************************/
-/*! exports provided: Tabs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tabs", function() { return Tabs; });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
-/* harmony import */ var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.keyboard */ "./node_modules/foundation-sites/js/foundation.util.keyboard.js");
-/* harmony import */ var _foundation_util_imageLoader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.util.imageLoader */ "./node_modules/foundation-sites/js/foundation.util.imageLoader.js");
-/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
-
-
-
-
-
-
-
-/**
- * Tabs module.
- * @module foundation.tabs
- * @requires foundation.util.keyboard
- * @requires foundation.util.imageLoader if tabs contain images
- */
-
-class Tabs extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__["Plugin"] {
-  /**
-   * Creates a new instance of tabs.
-   * @class
-   * @name Tabs
-   * @fires Tabs#init
-   * @param {jQuery} element - jQuery object to make into tabs.
-   * @param {Object} options - Overrides to the default plugin settings.
-   */
-  _setup(element, options) {
-    this.$element = element;
-    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, Tabs.defaults, this.$element.data(), options);
-    this.className = 'Tabs'; // ie9 back compat
-
-    this._init();
-    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].register('Tabs', {
-      'ENTER': 'open',
-      'SPACE': 'open',
-      'ARROW_RIGHT': 'next',
-      'ARROW_UP': 'previous',
-      'ARROW_DOWN': 'next',
-      'ARROW_LEFT': 'previous'
-      // 'TAB': 'next',
-      // 'SHIFT_TAB': 'previous'
-    });
-  }
-
-  /**
-   * Initializes the tabs by showing and focusing (if autoFocus=true) the preset active tab.
-   * @private
-   */
-  _init() {
-    var _this = this;
-    this._isInitializing = true;
-
-    this.$element.attr({'role': 'tablist'});
-    this.$tabTitles = this.$element.find(`.${this.options.linkClass}`);
-    this.$tabContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-tabs-content="${this.$element[0].id}"]`);
-
-    this.$tabTitles.each(function(){
-      var $elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
-          $link = $elem.find('a'),
-          isActive = $elem.hasClass(`${_this.options.linkActiveClass}`),
-          hash = $link.attr('data-tabs-target') || $link[0].hash.slice(1),
-          linkId = $link[0].id ? $link[0].id : `${hash}-label`,
-          $tabContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#${hash}`);
-
-      $elem.attr({'role': 'presentation'});
-
-      $link.attr({
-        'role': 'tab',
-        'aria-controls': hash,
-        'aria-selected': isActive,
-        'id': linkId,
-        'tabindex': isActive ? '0' : '-1'
-      });
-
-      $tabContent.attr({
-        'role': 'tabpanel',
-        'aria-labelledby': linkId
-      });
-
-      // Save up the initial hash to return to it later when going back in history
-      if (isActive) {
-        _this._initialAnchor = `#${hash}`;
-      }
-
-      if(!isActive) {
-        $tabContent.attr('aria-hidden', 'true');
-      }
-
-      if(isActive && _this.options.autoFocus){
-        _this.onLoadListener = Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["onLoad"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window), function() {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').animate({ scrollTop: $elem.offset().top }, _this.options.deepLinkSmudgeDelay, () => {
-            $link.focus();
-          });
-        });
-      }
-    });
-
-    if(this.options.matchHeight) {
-      var $images = this.$tabContent.find('img');
-
-      if ($images.length) {
-        Object(_foundation_util_imageLoader__WEBPACK_IMPORTED_MODULE_3__["onImagesLoaded"])($images, this._setHeight.bind(this));
-      } else {
-        this._setHeight();
-      }
-    }
-
-     // Current context-bound function to open tabs on page load or history hashchange
-    this._checkDeepLink = () => {
-      var anchor = window.location.hash;
-
-      if (!anchor.length) {
-        // If we are still initializing and there is no anchor, then there is nothing to do
-        if (this._isInitializing) return;
-        // Otherwise, move to the initial anchor
-        if (this._initialAnchor) anchor = this._initialAnchor;
-      }
-
-      var $anchor = anchor && jquery__WEBPACK_IMPORTED_MODULE_0___default()(anchor);
-      var $link = anchor && this.$element.find('[href$="'+anchor+'"]');
-      // Whether the anchor element that has been found is part of this element
-      var isOwnAnchor = !!($anchor.length && $link.length);
-
-      // If there is an anchor for the hash, select it
-      if ($anchor && $anchor.length && $link && $link.length) {
-        this.selectTab($anchor, true);
-      }
-      // Otherwise, collapse everything
-      else {
-        this._collapse();
-      }
-
-      if (isOwnAnchor) {
-        // Roll up a little to show the titles
-        if (this.options.deepLinkSmudge) {
-          var offset = this.$element.offset();
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').animate({ scrollTop: offset.top }, this.options.deepLinkSmudgeDelay);
-        }
-
-        /**
-         * Fires when the plugin has deeplinked at pageload
-         * @event Tabs#deeplink
-         */
-        this.$element.trigger('deeplink.zf.tabs', [$link, $anchor]);
-      }
-    }
-
-    //use browser to open a tab, if it exists in this tabset
-    if (this.options.deepLink) {
-      this._checkDeepLink();
-    }
-
-    this._events();
-
-    this._isInitializing = false;
-  }
-
-  /**
-   * Adds event handlers for items within the tabs.
-   * @private
-   */
-  _events() {
-    this._addKeyHandler();
-    this._addClickHandler();
-    this._setHeightMqHandler = null;
-
-    if (this.options.matchHeight) {
-      this._setHeightMqHandler = this._setHeight.bind(this);
-
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery', this._setHeightMqHandler);
-    }
-
-    if(this.options.deepLink) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('hashchange', this._checkDeepLink);
-    }
-  }
-
-  /**
-   * Adds click handlers for items within the tabs.
-   * @private
-   */
-  _addClickHandler() {
-    var _this = this;
-
-    this.$element
-      .off('click.zf.tabs')
-      .on('click.zf.tabs', `.${this.options.linkClass}`, function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        _this._handleTabChange(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this));
-      });
-  }
-
-  /**
-   * Adds keyboard event handlers for items within the tabs.
-   * @private
-   */
-  _addKeyHandler() {
-    var _this = this;
-
-    this.$tabTitles.off('keydown.zf.tabs').on('keydown.zf.tabs', function(e){
-      if (e.which === 9) return;
-
-
-      var $element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
-        $elements = $element.parent('ul').children('li'),
-        $prevElement,
-        $nextElement;
-
-      $elements.each(function(i) {
-        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).is($element)) {
-          if (_this.options.wrapOnKeys) {
-            $prevElement = i === 0 ? $elements.last() : $elements.eq(i-1);
-            $nextElement = i === $elements.length -1 ? $elements.first() : $elements.eq(i+1);
-          } else {
-            $prevElement = $elements.eq(Math.max(0, i-1));
-            $nextElement = $elements.eq(Math.min(i+1, $elements.length-1));
-          }
-          return;
-        }
-      });
-
-      // handle keyboard event with keyboard util
-      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].handleKey(e, 'Tabs', {
-        open: function() {
-          $element.find('[role="tab"]').focus();
-          _this._handleTabChange($element);
-        },
-        previous: function() {
-          $prevElement.find('[role="tab"]').focus();
-          _this._handleTabChange($prevElement);
-        },
-        next: function() {
-          $nextElement.find('[role="tab"]').focus();
-          _this._handleTabChange($nextElement);
-        },
-        handled: function() {
-          e.stopPropagation();
-          e.preventDefault();
-        }
-      });
-    });
-  }
-
-  /**
-   * Opens the tab `$targetContent` defined by `$target`. Collapses active tab.
-   * @param {jQuery} $target - Tab to open.
-   * @param {boolean} historyHandled - browser has already handled a history update
-   * @fires Tabs#change
-   * @function
-   */
-  _handleTabChange($target, historyHandled) {
-
-    // With `activeCollapse`, if the target is the active Tab, collapse it.
-    if ($target.hasClass(`${this.options.linkActiveClass}`)) {
-        if(this.options.activeCollapse) {
-            this._collapse();
-        }
-        return;
-    }
-
-    var $oldTab = this.$element.
-          find(`.${this.options.linkClass}.${this.options.linkActiveClass}`),
-          $tabLink = $target.find('[role="tab"]'),
-          target = $tabLink.attr('data-tabs-target'),
-          anchor = target && target.length ? `#${target}` : $tabLink[0].hash,
-          $targetContent = this.$tabContent.find(anchor);
-
-    //close old tab
-    this._collapseTab($oldTab);
-
-    //open new tab
-    this._openTab($target);
-
-    //either replace or update browser history
-    if (this.options.deepLink && !historyHandled) {
-      if (this.options.updateHistory) {
-        history.pushState({}, '', anchor);
-      } else {
-        history.replaceState({}, '', anchor);
-      }
-    }
-
-    /**
-     * Fires when the plugin has successfully changed tabs.
-     * @event Tabs#change
-     */
-    this.$element.trigger('change.zf.tabs', [$target, $targetContent]);
-
-    //fire to children a mutation event
-    $targetContent.find("[data-mutate]").trigger("mutateme.zf.trigger");
-  }
-
-  /**
-   * Opens the tab `$targetContent` defined by `$target`.
-   * @param {jQuery} $target - Tab to open.
-   * @function
-   */
-  _openTab($target) {
-      var $tabLink = $target.find('[role="tab"]'),
-          hash = $tabLink.attr('data-tabs-target') || $tabLink[0].hash.slice(1),
-          $targetContent = this.$tabContent.find(`#${hash}`);
-
-      $target.addClass(`${this.options.linkActiveClass}`);
-
-      $tabLink.attr({
-        'aria-selected': 'true',
-        'tabindex': '0'
-      });
-
-      $targetContent
-        .addClass(`${this.options.panelActiveClass}`).removeAttr('aria-hidden');
-  }
-
-  /**
-   * Collapses `$targetContent` defined by `$target`.
-   * @param {jQuery} $target - Tab to collapse.
-   * @function
-   */
-  _collapseTab($target) {
-    var $target_anchor = $target
-      .removeClass(`${this.options.linkActiveClass}`)
-      .find('[role="tab"]')
-      .attr({
-        'aria-selected': 'false',
-        'tabindex': -1
-      });
-
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#${$target_anchor.attr('aria-controls')}`)
-      .removeClass(`${this.options.panelActiveClass}`)
-      .attr({ 'aria-hidden': 'true' })
-  }
-
-  /**
-   * Collapses the active Tab.
-   * @fires Tabs#collapse
-   * @function
-   */
-  _collapse() {
-    var $activeTab = this.$element.find(`.${this.options.linkClass}.${this.options.linkActiveClass}`);
-
-    if ($activeTab.length) {
-      this._collapseTab($activeTab);
-
-      /**
-      * Fires when the plugin has successfully collapsed tabs.
-      * @event Tabs#collapse
-      */
-      this.$element.trigger('collapse.zf.tabs', [$activeTab]);
-    }
-  }
-
-  /**
-   * Public method for selecting a content pane to display.
-   * @param {jQuery | String} elem - jQuery object or string of the id of the pane to display.
-   * @param {boolean} historyHandled - browser has already handled a history update
-   * @function
-   */
-  selectTab(elem, historyHandled) {
-    var idStr;
-
-    if (typeof elem === 'object') {
-      idStr = elem[0].id;
-    } else {
-      idStr = elem;
-    }
-
-    if (idStr.indexOf('#') < 0) {
-      idStr = `#${idStr}`;
-    }
-
-    var $target = this.$tabTitles.has(`[href$="${idStr}"]`);
-
-    this._handleTabChange($target, historyHandled);
-  };
-
-  /**
-   * Sets the height of each panel to the height of the tallest panel.
-   * If enabled in options, gets called on media query change.
-   * If loading content via external source, can be called directly or with _reflow.
-   * If enabled with `data-match-height="true"`, tabs sets to equal height
-   * @function
-   * @private
-   */
-  _setHeight() {
-    var max = 0,
-        _this = this; // Lock down the `this` value for the root tabs object
-
-    this.$tabContent
-      .find(`.${this.options.panelClass}`)
-      .css('height', '')
-      .each(function() {
-
-        var panel = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
-            isActive = panel.hasClass(`${_this.options.panelActiveClass}`); // get the options from the parent instead of trying to get them from the child
-
-        if (!isActive) {
-          panel.css({'visibility': 'hidden', 'display': 'block'});
-        }
-
-        var temp = this.getBoundingClientRect().height;
-
-        if (!isActive) {
-          panel.css({
-            'visibility': '',
-            'display': ''
-          });
-        }
-
-        max = temp > max ? temp : max;
-      })
-      .css('height', `${max}px`);
-  }
-
-  /**
-   * Destroys an instance of tabs.
-   * @fires Tabs#destroyed
-   */
-  _destroy() {
-    this.$element
-      .find(`.${this.options.linkClass}`)
-      .off('.zf.tabs').hide().end()
-      .find(`.${this.options.panelClass}`)
-      .hide();
-
-    if (this.options.matchHeight) {
-      if (this._setHeightMqHandler != null) {
-         jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('changed.zf.mediaquery', this._setHeightMqHandler);
-      }
-    }
-
-    if (this.options.deepLink) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('hashchange', this._checkDeepLink);
-    }
-
-    if (this.onLoadListener) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(this.onLoadListener);
-    }
-  }
-}
-
-Tabs.defaults = {
-  /**
-   * Link the location hash to the active pane.
-   * Set the location hash when the active pane changes, and open the corresponding pane when the location changes.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  deepLink: false,
-
-  /**
-   * If `deepLink` is enabled, adjust the deep link scroll to make sure the top of the tab panel is visible
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  deepLinkSmudge: false,
-
-  /**
-   * If `deepLinkSmudge` is enabled, animation time (ms) for the deep link adjustment
-   * @option
-   * @type {number}
-   * @default 300
-   */
-  deepLinkSmudgeDelay: 300,
-
-  /**
-   * If `deepLink` is enabled, update the browser history with the open tab
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  updateHistory: false,
-
-  /**
-   * Allows the window to scroll to content of active pane on load.
-   * Not recommended if more than one tab panel per page.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  autoFocus: false,
-
-  /**
-   * Allows keyboard input to 'wrap' around the tab links.
-   * @option
-   * @type {boolean}
-   * @default true
-   */
-  wrapOnKeys: true,
-
-  /**
-   * Allows the tab content panes to match heights if set to true.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  matchHeight: false,
-
-  /**
-   * Allows active tabs to collapse when clicked.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  activeCollapse: false,
-
-  /**
-   * Class applied to `li`'s in tab link list.
-   * @option
-   * @type {string}
-   * @default 'tabs-title'
-   */
-  linkClass: 'tabs-title',
-
-  /**
-   * Class applied to the active `li` in tab link list.
-   * @option
-   * @type {string}
-   * @default 'is-active'
-   */
-  linkActiveClass: 'is-active',
-
-  /**
-   * Class applied to the content containers.
-   * @option
-   * @type {string}
-   * @default 'tabs-panel'
-   */
-  panelClass: 'tabs-panel',
-
-  /**
-   * Class applied to the active content container.
-   * @option
-   * @type {string}
-   * @default 'is-active'
-   */
-  panelActiveClass: 'is-active'
-};
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/foundation-sites/js/foundation.toggler.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/foundation-sites/js/foundation.toggler.js ***!
-  \****************************************************************/
-/*! exports provided: Toggler */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Toggler", function() { return Toggler; });
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _foundation_util_motion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.util.motion */ "./node_modules/foundation-sites/js/foundation.util.motion.js");
-/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
-/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
-/* harmony import */ var _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.util.triggers */ "./node_modules/foundation-sites/js/foundation.util.triggers.js");
-
-
-
-
-
-
-
-
-/**
- * Toggler module.
- * @module foundation.toggler
- * @requires foundation.util.motion
- * @requires foundation.util.triggers
- */
-
-class Toggler extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_2__["Plugin"] {
-  /**
-   * Creates a new instance of Toggler.
-   * @class
-   * @name Toggler
-   * @fires Toggler#init
-   * @param {Object} element - jQuery object to add the trigger to.
-   * @param {Object} options - Overrides to the default plugin settings.
-   */
-  _setup(element, options) {
-    this.$element = element;
-    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, Toggler.defaults, element.data(), options);
-    this.className = '';
-    this.className = 'Toggler'; // ie9 back compat
-
-    // Triggers init is idempotent, just need to make sure it is initialized
-    _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_4__["Triggers"].init(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
-
-    this._init();
-    this._events();
-  }
-
-  /**
-   * Initializes the Toggler plugin by parsing the toggle class from data-toggler, or animation classes from data-animate.
-   * @function
-   * @private
-   */
-  _init() {
-    var input;
-    // Parse animation classes if they were set
-    if (this.options.animate) {
-      input = this.options.animate.split(' ');
-
-      this.animationIn = input[0];
-      this.animationOut = input[1] || null;
-    }
-    // Otherwise, parse toggle class
-    else {
-      input = this.$element.data('toggler');
-      // Allow for a . at the beginning of the string
-      this.className = input[0] === '.' ? input.slice(1) : input;
-    }
-
-    // Add ARIA attributes to triggers:
-    var id = this.$element[0].id,
-      $triggers = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-open~="${id}"], [data-close~="${id}"], [data-toggle~="${id}"]`);
-
-    // - aria-expanded: according to the element visibility.
-    $triggers.attr('aria-expanded', !this.$element.is(':hidden'));
-    // - aria-controls: adding the element id to it if not already in it.
-    $triggers.each((index, trigger) => {
-      const $trigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()(trigger);
-      const controls = $trigger.attr('aria-controls') || '';
-
-      const containsId = new RegExp(`\\b${Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["RegExpEscape"])(id)}\\b`).test(controls);
-      if (!containsId) $trigger.attr('aria-controls', controls ? `${controls} ${id}` : id);
-    });
-  }
-
-  /**
-   * Initializes events for the toggle trigger.
-   * @function
-   * @private
-   */
-  _events() {
-    this.$element.off('toggle.zf.trigger').on('toggle.zf.trigger', this.toggle.bind(this));
-  }
-
-  /**
-   * Toggles the target class on the target element. An event is fired from the original trigger depending on if the resultant state was "on" or "off".
-   * @function
-   * @fires Toggler#on
-   * @fires Toggler#off
-   */
-  toggle() {
-    this[ this.options.animate ? '_toggleAnimate' : '_toggleClass']();
-  }
-
-  _toggleClass() {
-    this.$element.toggleClass(this.className);
-
-    var isOn = this.$element.hasClass(this.className);
-    if (isOn) {
-      /**
-       * Fires if the target element has the class after a toggle.
-       * @event Toggler#on
-       */
-      this.$element.trigger('on.zf.toggler');
-    }
-    else {
-      /**
-       * Fires if the target element does not have the class after a toggle.
-       * @event Toggler#off
-       */
-      this.$element.trigger('off.zf.toggler');
-    }
-
-    this._updateARIA(isOn);
-    this.$element.find('[data-mutate]').trigger('mutateme.zf.trigger');
-  }
-
-  _toggleAnimate() {
-    var _this = this;
-
-    if (this.$element.is(':hidden')) {
-      _foundation_util_motion__WEBPACK_IMPORTED_MODULE_1__["Motion"].animateIn(this.$element, this.animationIn, function() {
-        _this._updateARIA(true);
-        this.trigger('on.zf.toggler');
-        this.find('[data-mutate]').trigger('mutateme.zf.trigger');
-      });
-    }
-    else {
-      _foundation_util_motion__WEBPACK_IMPORTED_MODULE_1__["Motion"].animateOut(this.$element, this.animationOut, function() {
-        _this._updateARIA(false);
-        this.trigger('off.zf.toggler');
-        this.find('[data-mutate]').trigger('mutateme.zf.trigger');
-      });
-    }
-  }
-
-  _updateARIA(isOn) {
-    var id = this.$element[0].id;
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-open="${id}"], [data-close="${id}"], [data-toggle="${id}"]`)
-      .attr({
-        'aria-expanded': isOn ? true : false
-      });
-  }
-
-  /**
-   * Destroys the instance of Toggler on the element.
-   * @function
-   */
-  _destroy() {
-    this.$element.off('.zf.toggler');
-  }
-}
-
-Toggler.defaults = {
-  /**
-   * Tells the plugin if the element should animated when toggled.
-   * @option
-   * @type {boolean}
-   * @default false
-   */
-  animate: false
-};
 
 
 

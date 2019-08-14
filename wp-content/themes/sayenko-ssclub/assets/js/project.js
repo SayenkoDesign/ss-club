@@ -12,7 +12,7 @@ import jqueryMatchHeight from 'jquery-match-height';
 // Custom Modules
 // import externalLinks from './modules/external-links';
 // import facetWp from './modules/facetwp';
-import fixedHeader from './modules/fixed-header';
+//import fixedHeader from './modules/fixed-header';
 import general from './modules/general';
 // import inlineSvg from './modules/inline-svg';
 // import modalVideo from './modules/modal-video';
@@ -21,17 +21,17 @@ import general from './modules/general';
 import slick from './modules/slick';
 import smoothScroll from './modules/smooth-scroll';
 // import superfish from './modules/superfish';
-import backgroundVideo from './modules/background-video';
+//import backgroundVideo from './modules/background-video';
 // import menuToggle from './modules/menu-toggle';
-import accordionFix from './modules/accordion-fix';
+//import accordionFix from './modules/accordion-fix';
 
 // import full screen scrolling section
-import fullScreenScrollingSection from './modules/full-screen-scrolling-section';
+//import fullScreenScrollingSection from './modules/full-screen-scrolling-section';
 
 const modules = new ModuleLoader( {
 	// externalLinks,
 	// facetWp,
-	fixedHeader,
+	//fixedHeader,
 	general,
 	// inlineSvg,
 	// modalVideo,
@@ -40,10 +40,10 @@ const modules = new ModuleLoader( {
 	slick,
 	smoothScroll,
 	// superfish
-	backgroundVideo,
+	//backgroundVideo,
 	//menuToggle,
-    accordionFix,
-    fullScreenScrollingSection
+    //accordionFix,
+    //fullScreenScrollingSection
 } );
 
 $( document ).ready( () => {

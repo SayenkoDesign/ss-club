@@ -32,33 +32,84 @@
 	<li><a href="#footer" class="screen-reader-shortcut"><?php esc_html_e( 'Skip to footer', '_s' ); ?></a></li>
 </ul>
 
-<div class="sticky-header">
-        <header id="masthead" class="site-header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
-            <div class="wrap">
-                <div class="site-branding">
-                    <div class="site-title">
-                    <?php
-                    $site_url = home_url();
-                    $logo = sprintf('<img src="%slogo.svg" alt="site logo" class="logo" />', trailingslashit( THEME_IMG ) );  
-                    $logo_mobile = sprintf('<img src="%slogo-mobile.svg" alt="site logo" class="logo-mobile" aria-hidden="true" />', 
-                                            trailingslashit( THEME_IMG ) ); 
-
-                    printf('<a href="%s" title="%s">%s%s</a>',
-                            $site_url, 
-                            get_bloginfo( 'name' ), 
-                            $logo,
-                            $logo_mobile
-                            );
-                    ?>
-                    </div>
-                    
-                    <div class="title-bar" data-responsive-toggle="site-navigation" data-hide-for="xlarge">
-                        <button class="menu-toggle" type="button" data-toggle="site-navigation"></button>
-                    </div>
-                    
-                </div><!-- .site-branding -->
+<div class="sticky-wrapper">
+    <header id="masthead" class="site-header" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+        <div class="wrap">
+            
+            <button type="button" class="menu-toggle" data-toggle="offCanvas"><span class="screen-reader-text">Open Menu</span></button>
+            
+            <button type="button" class="search-toggle" data-toggle="offCanvas"><span class="screen-reader-text">Open Menu</span></button>
+            
+            <div class="site-branding">
+                <div class="site-title">
+                <?php
+                $site_url = home_url();
+                $logo = sprintf('<img src="%slogo.svg" alt="site logo" class="logo" />', trailingslashit( THEME_IMG ) );  
+                printf('<a href="%s" title="%s">%s</a>',
+                        $site_url, 
+                        get_bloginfo( 'name' ), 
+                        $logo
+                        );
+                ?>
+                </div>
                 
-                <nav id="site-navigation" class="nav-primary" role="navigation" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement">  
+            </div><!-- .site-branding -->
+            
+            <div id="site-navigation">
+                        
+                <div class="off-canvas position-left" id="offCanvas" data-off-canvas data-content-scroll="true">
+                    
+                    <!-- Close button -->
+                    <button class="close-button" aria-label="Close menu" type="button" data-close>
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    
+                    
+                    <nav class="nav-primary" role="navigation" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement">  
+                        <?php
+                        
+                        
+                        
+                        // Desktop Menu
+                        $args = array(
+                            'theme_location'  => 'primary',
+                            'container'       => '',
+                            'container_class' => '',
+                            'container_id'    => '',
+                            'menu_id'         => 'secondary-menu',
+                            'menu_class'      => 'vertical menu accordion-menu hide-for-xlarge',
+                            'before'          => '',
+                            'after'           => '',
+                            'link_before'     => '',
+                            'link_after'      => '',
+                            'items_wrap'      => '<ul id="%1$s" class="%2$s" data-accordion-menu data-submenu-toggle="true" aria-hidden="true">%3$s</ul>'
+                        );
+                        
+                        $secondary_menu = wp_nav_menu( $args );
+                        
+                        $args = array(
+                            'theme_location'  => 'secondary',
+                            'container'       => '',
+                            'container_class' => '',
+                            'container_id'    => '',
+                            'menu_id'         => 'secondary-menu',
+                            'menu_class'      => 'vertical menu accordion-menu',
+                            'before'          => '',
+                            'after'           => '',
+                            'link_before'     => '',
+                            'link_after'      => '',
+                            'items_wrap'      => '<ul id="%1$s" class="%2$s" data-accordion-menu data-submenu-toggle="true" aria-hidden="true">%3$s</ul>'
+                        );
+                        
+                        wp_nav_menu( $args );
+                        ?>
+                    </nav>
+                </div>
+                
+                
+                <nav class="nav-secondary" aria-hidden="true" itemscope itemtype="https://schema.org/SiteNavigationElement">  
+              
+                    
                     <?php
                     // Desktop Menu
                     $args = array(
@@ -67,23 +118,24 @@
                         'container_class' => '',
                         'container_id'    => '',
                         'menu_id'         => 'primary-menu',
-                        'menu_class'      => 'menu vertical xlarge-horizontal',
+                        'menu_class'      => 'dropdown menu',
                         'before'          => '',
                         'after'           => '',
                         'link_before'     => '',
                         'link_after'      => '',
-                        'items_wrap'      => '<ul id="%1$s" class="%2$s" data-responsive-menu="accordion xlarge-dropdown">%3$s</ul>'
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s" data-dropdown-menu>%3$s</ul>'
                     );
                     
                     wp_nav_menu( $args );
                     ?>
                     
                 </nav>
+            </div>
 
-            </div><!-- wrap -->
-             
-        </header><!-- #masthead -->
-    </div>
+        </div><!-- wrap -->
+         
+    </header><!-- #masthead -->
+</div>
 
 <div id="page" class="site-container">
 

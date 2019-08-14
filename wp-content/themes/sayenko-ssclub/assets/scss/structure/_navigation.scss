@@ -1,4 +1,15 @@
+
 .nav-primary {
+    
+    @include breakpoint(large) {
+        max-width: 75%;
+    }
+    
+    border-right: 1px solid $light-gray;
+    
+}
+
+.nav-secondary {
 	background-color: $dark-gray;
     display: none;
 
@@ -6,55 +17,43 @@
 		background-color: transparent;
         display: block;
         
-        flex: 1 1 auto;
+        .menu {
+            @include list-reset;
+            display: flex;
+            height: rem-calc(84); 
+            align-items: center; 
+            
+            > li {
+                /* required for logo positioned in center */
+                flex-basis: auto;
+            }
         
-        display: flex!important;
-        flex-flow: row nowrap;
-        align-items: center;  
-        justify-content: flex-end;
+            > li.logo,
+            > li:nth-child(n + 5) {
+                order: 3;
+            }
+            
+            > li:nth-child(n + 5) {
+                text-align: right;
+            }
         
-        #secondary-menu {
-            order: 2;
+            /* margin auto center aligns logo */
+            > li.logo {
+                margin-left: auto;
+                margin-right: auto;
+                flex-basis: auto;
+            }   
         }
-        
-        #primary-menu {
-            order: 1;
-        }
-	}
-
-	.menu {
-		//flex-grow: 1;
-
-		@include breakpoint(xlarge) {
-			justify-content: flex-end;
-		}
 	}
 
 	.menu-item {
-		display: block;
-		@include breakpoint(xlarge) {
-			text-align: center;
-		}
-        
-        @include breakpoint(xlarge only) {
-            margin-right: rem-calc(5);
-            a {
-                padding-left: rem-calc(5);
-                padding-right: rem-calc(5);   
-            }
-		}
-        
-        @include breakpoint(xlarge) {
-			text-align: center;
-            margin-right: .5vw;
-		}
-
-
+		
 		a {
 			color: #fff;
             font-size: rem-calc(15);
-            font-weight: 900;
-            line-height: 1.133333333;
+            letter-spacing: 0.26px;
+            line-height: 1.333333333;
+            text-transform: uppercase;
             
 			padding-top: rem-calc(11.5);
             padding-bottom: rem-calc(11.5);
@@ -74,12 +73,19 @@
             }
             
             @include breakpoint(xlarge) {
-                color: $dark-gray;
-                padding: $global-menu-padding;
+                color: $black;
+                padding-left: rem-calc(map-get($grid-column-gutter, large)/2); 
+                padding-right: rem-calc(map-get($grid-column-gutter, large)/2);
+            }
+            
+            @include breakpoint(xlarge only) {
+                font-size: rem-calc(13);
+                padding-left: rem-calc(map-get($grid-column-gutter, large)/4); 
+                padding-right: rem-calc(map-get($grid-column-gutter, large)/4);
             }
             
             &:hover {
-                color: $red;   
+                color: $purple;   
             }
 
 		}
@@ -88,22 +94,25 @@
             &.current-menu-ancestor,
             &.current_page_parent {
                 > a {
-                    color: $red;   
+                    color: $purple;   
                 }
             }
         }
 	}
     
     .sub-menu {
+        @include list-reset;
         background: $red;
         
         @include breakpoint(xlarge) {
-            background: #fff;   
+            background: #fff;  
+            margin-left: rem-calc(-7); 
         }
         
-        margin-left: rem-calc(-1);
-                
-        
+        @include breakpoint(xlarge only) {
+            background: #fff;  
+            margin-left: rem-calc(5); 
+        }
         
         .menu-item {
             text-align: left; 
@@ -132,57 +141,9 @@
             top: inherit;
             left: inherit;
             border: none;  
-            background-color: $red;
+            background-color: $purple;
             margin-left: 0; 
         }
     }
 }
 
-#secondary-menu {
-    
-    @include breakpoint(xlarge) {
-        margin-left: 2vw;
-    }
-    
-	.menu-item {
-        
-        &.phone-number {
-            display: none;
-            @include breakpoint(xlarge) {
-                display: block;
-            }   
-        }
-
-		&.lets-talk {            
-            
-            @include breakpoint(xlarge) {
-                a {
-                    @include button(false, $dark-gray, $dark-gray, $white, 'hollow');
-                    display: block;
-                    margin-bottom: 0;
-                    padding-top: rem-calc(11.5);
-                    padding-bottom: rem-calc(11.5);
-                    
-                    
-                    &:hover {
-                        @include button(false, $red, $red, $white );
-                        display: block;
-                        margin-bottom: 0;
-                        padding-top: rem-calc(11.5);
-                        padding-bottom: rem-calc(11.5);
-        
-                    }
-                }
-                    
-            }
-            
-            @include breakpoint(xxxlarge) {
-                a {
-                    min-width: rem-calc(150);
-                }
-            }
-            
-       }
-        
-	}
-}

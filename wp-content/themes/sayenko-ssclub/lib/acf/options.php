@@ -31,16 +31,6 @@ if( function_exists('acf_add_options_sub_page') ) {
 	));
     
     acf_add_options_sub_page(array(
-		'page_title' 	=> 'Footer CTA',
-		'menu_title' 	=> 'Footer CTA',
-        'menu_slug' 	=> 'theme-settings-footer-cta',
-        'parent' 		=> 'theme-settings',
-		'capability' => 'edit_posts',
- 		'redirect' 	=> false,
-        'autoload' => true,
-	));
-    
-    acf_add_options_sub_page(array(
 		'page_title' 	=> 'Social',
 		'menu_title' 	=> 'Social',
         'menu_slug' 	=> 'theme-settings-social',
@@ -48,16 +38,6 @@ if( function_exists('acf_add_options_sub_page') ) {
 		'capability' => 'edit_posts',
  		'redirect' 	=> false,
         'autoload' => true,
-	));
-        
-    acf_add_options_sub_page(array(
-		'page_title' 	=> 'Company',
-		'menu_title' 	=> 'Company',
-        'menu_slug' 	=> 'theme-settings-company',
-        'parent' 		=> 'theme-settings',
-		'capability' => 'edit_posts',
- 		'redirect' 	=> false,
-        'autoload' => true,
-	));
+	));    
 
 }

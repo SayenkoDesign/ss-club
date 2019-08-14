@@ -119,8 +119,7 @@ function _s_widgets_init() {
 
 	// Define sidebars.
 	$sidebars = array(
-		'footer-1'      => esc_html__( 'Footer 1', '_s' ),
-		'footer-2'      => esc_html__( 'Footer 2', '_s' )
+		'footer'      => esc_html__( 'Footer', '_s' )
    	);
 
 	// Loop through each sidebar and register.
@@ -129,8 +128,8 @@ function _s_widgets_init() {
 			'name'          => $sidebar_name,
 			'id'            => $sidebar_id,
 			'description'   => sprintf( esc_html__( 'Widget area for %s', '_s' ), $sidebar_name ),
-			'before_widget' => '<aside class="widget %2$s">',
-			'after_widget'  => '</aside>',
+			'before_widget' => '<div class="cell medium-large-auto"><aside class="widget %2$s">',
+			'after_widget'  => '</aside></div>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		) );
@@ -150,7 +149,7 @@ add_action( 'login_enqueue_scripts', '_s_login_stylesheet' );
 
 // changing the login logo
 function _s_login_logo() {
-	$logo = sprintf( '%slogo.png', trailingslashit( THEME_IMG ) );
+	$logo = sprintf( '%slogo.svg', trailingslashit( THEME_IMG ) );
 	printf( '<style type="text/css">h1 a { background-image:url(%s)!important; }</style>', $logo );
 }
 
