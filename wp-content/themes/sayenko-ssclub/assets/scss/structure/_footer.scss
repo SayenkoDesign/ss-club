@@ -6,6 +6,7 @@
 .site-footer {
     
     background-color: $light-gray;
+    padding: rem-calc(40 0 0 0);
     
     .widget {
         
@@ -26,6 +27,13 @@
             }
         }
 	}
+    
+    .widget_media_image {
+        img {
+            display: block;
+            margin: 0 auto;   
+        }
+    }
 
 	.widget_nav_menu {
 
@@ -105,6 +113,7 @@
     
     .copyright {
         
+        text-align: center;
         
         p {
             color: #000;
@@ -122,6 +131,10 @@
             
             span {
                 display: block;   
+                
+                @include breakpoint(large) {
+                    display: inline;
+                }
             }
         }
     }
