@@ -65,7 +65,7 @@
                     cursor: pointer;
                     
                     &.slick-current {
-                        border: 1px solid $red;
+                        border: 1px solid $blue;
                     }
                     
                     .thumbnail {
@@ -156,7 +156,7 @@
         
         .application-technology {
             ul {
-                @include bullets($red);   
+                @include bullets($blue);   
             }
                
         }
@@ -215,11 +215,11 @@
                 }
                 
                 i {
-                    color: $red;   
+                    color: $blue;   
                 }
                 
                 &:hover {
-                    background-color: $red; 
+                    background-color: $blue; 
                     color: #fff;  
                     
                     i {
@@ -238,7 +238,7 @@
         padding: rem-calc(100 0 75);
         
         ul {
-           @include bullets($red);  
+           @include bullets($blue);  
                       
            span {
                display: inline-block;
@@ -305,7 +305,7 @@
             }
             
             .slick-active a {
-                color: $red;   
+                color: $blue;   
             }
             
             @include breakpoint(large) {
@@ -385,7 +385,7 @@
             
             ul li::before {
               content: "\2022";
-              color: $red;
+              color: $blue;
               font-weight: 900;
               display: inline-block; 
               width: rem-calc(24);

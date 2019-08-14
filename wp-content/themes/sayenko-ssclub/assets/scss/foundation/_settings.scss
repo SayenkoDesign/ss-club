@@ -68,16 +68,14 @@
 // ---------
 
 // Colors
-$red: #ED3D4A;
 $purple: #0C3963;
-
+$blue: #0C3963;
 
 
 $light-gray: #F5F5F5;
-$medium-gray: #596975;
-$gray: #ECECEC;
-$dark-gray: #2C2E32;
-$blue-gray: #CADADE;
+$gray: #666666;
+$medium-gray: #454C54;
+$dark-gray: #4A4A4A;
 
 // Fonts
 $playfair: 'Playfair Display', serif;
@@ -99,7 +97,7 @@ $global-font-size: 100%;
 $global-width: rem-calc(1260);
 $global-lineheight: 1.5;
 $foundation-palette: (
-	primary: $red,
+	primary: $blue,
 	secondary: $dark-gray,
 	success: #3adb76,
 	warning: #ffae00,
@@ -252,7 +250,7 @@ $accordion-background: transparent;
 $accordion-plusminus: true;
 $accordion-title-font-size: rem-calc(20);
 $accordion-item-color: #596975;
-$accordion-item-background-hover: $red;
+$accordion-item-background-hover: $blue;
 $accordion-item-padding: rem-calc(20 50 20 20);
 $accordion-content-background: $white;
 $accordion-content-border: none;
@@ -538,7 +536,7 @@ $offcanvas-reveal-zindex: 12;
 $offcanvas-transition-length: 0.5s;
 $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
-$offcanvas-exit-background: rgba($white, 0.75);
+$offcanvas-exit-background: rgba($black, 0.5);
 $maincontent-class: 'off-canvas-content';
 
 // 26. Orbit

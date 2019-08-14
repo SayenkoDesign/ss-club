@@ -3,7 +3,7 @@
 $nav-arrow-width: 31px;
 $nav-arrow-height: 22px;
 $nav-arrow-color: #d7d5d6;
-$nav-arrow-color-hover: $red;
+$nav-arrow-color-hover: $blue;
 
 
 @mixin nav-arrow( $color: #999, $position: left ) {
@@ -22,7 +22,7 @@ $nav-arrow-color-hover: $red;
 .archive {
     
     .section-hero {
-        background-color: $red;
+        background-color: $blue;
         padding-top: rem-calc(35);
         
         h1 {
@@ -181,15 +181,15 @@ $nav-arrow-color-hover: $red;
         
         .active a,
         .number span.current {
-            color: $red;
+            color: $blue;
             
             &:after {
-                background: $red;   
+                background: $blue;   
             }
         }
         
         &:not(.active) a:hover {
-            color: $red;
+            color: $blue;
         }
                   
         .nav-previous,
@@ -317,7 +317,7 @@ $nav-arrow-color-hover: $red;
             width: 100%;  
             
             &.active {
-                color: $red;   
+                color: $blue;   
             }
         }
     }
@@ -343,7 +343,7 @@ $nav-arrow-color-hover: $red;
                 content: '';
                 display: block;
                 width: 0;
-                background: $red;
+                background: $blue;
                 height: 2px;
                 position: relative;
                 margin-top: rem-calc(2);
@@ -409,12 +409,12 @@ $nav-arrow-color-hover: $red;
                 font-size: rem-calc(17); 
                 
                 &:hover {
-                    color: $red;   
+                    color: $blue;   
                 }
             }
             
             &.current-menu-item a {
-                color: $red;   
+                color: $blue;   
             }
         }
     }

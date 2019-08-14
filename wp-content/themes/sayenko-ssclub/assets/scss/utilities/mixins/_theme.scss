@@ -55,7 +55,7 @@
 }
 
 
-@mixin bullets-arrow($color: #ffffff, $background: $red ) {        
+@mixin bullets-arrow($color: #ffffff, $background: $blue ) {        
     @include list-reset;
     margin-bottom: rem-calc($global-margin);
     $color: str-replace(#{$color}, '#', '');
@@ -133,7 +133,7 @@
         display: block;
         width: 44px;
         height: 2px;
-        background-color: $red;
+        background-color: $blue;
         margin-top: rem-calc(5);
     }
     

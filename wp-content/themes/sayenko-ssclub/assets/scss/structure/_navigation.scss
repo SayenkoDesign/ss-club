@@ -2,10 +2,18 @@
 .nav-primary {
     
     @include breakpoint(large) {
-        max-width: 75%;
+        //max-width: 75%;
     }
     
     border-right: 1px solid $light-gray;
+    
+    ul {
+        @include list-reset;   
+    }
+    
+    .submenu-toggle {
+        background-color: $light-gray;    
+    }
     
 }
 
@@ -102,7 +110,7 @@
     
     .sub-menu {
         @include list-reset;
-        background: $red;
+        background: $blue;
         
         @include breakpoint(xlarge) {
             background: #fff;  
@@ -128,7 +136,7 @@
                     color: $white;  
                     
                     @include breakpoint(xlarge) {
-                        color: $red;   
+                        color: $blue;   
                     }
                 }
             }

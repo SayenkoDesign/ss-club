@@ -22,7 +22,7 @@ import slick from './modules/slick';
 import smoothScroll from './modules/smooth-scroll';
 // import superfish from './modules/superfish';
 //import backgroundVideo from './modules/background-video';
-// import menuToggle from './modules/menu-toggle';
+import menuToggle from './modules/menu-toggle';
 //import accordionFix from './modules/accordion-fix';
 
 // import full screen scrolling section
@@ -41,7 +41,7 @@ const modules = new ModuleLoader( {
 	smoothScroll,
 	// superfish
 	//backgroundVideo,
-	//menuToggle,
+	menuToggle,
     //accordionFix,
     //fullScreenScrollingSection
 } );

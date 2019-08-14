@@ -22,3 +22,23 @@ add_theme_support( 'editor-color-palette', array(
 		'color' => '#F5F5F5',
 	)
 ) );
+
+
+// block templates
+
+
+function wp4378295342_maybe_add_template() {
+    if ( ! is_admin() || ! isset( $_GET['post'] ) || '1234' !== $_GET['post'] ) {
+        // This is not the post/page we want to limit things to.
+        return false;
+    }
+
+    $post_type_object = get_post_type_object( 'post' );
+    $post_type_object->template = array(
+        array( 'core/paragraph', array(
+            'placeholder' => 'Add Description...',
+        ) ),
+    );
+    $post_type_object->template_lock = 'all';
+}
+//add_action( 'init', 'wp4378295342_maybe_add_template' );

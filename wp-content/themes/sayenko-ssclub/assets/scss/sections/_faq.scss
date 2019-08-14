@@ -87,7 +87,7 @@
                 transform: translateY(-50%);
                 right: 1rem;
                 margin-top: 0!important;
-                color: $red;
+                color: $blue;
                 font-size: rem-calc(40);
                 content: "\002B";
             } 
@@ -104,7 +104,7 @@
             .is-active>.accordion-title,
             .accordion-title:hover, 
             .accordion-title:focus {
-                background: $red;
+                background: $blue;
                 color: #fff;
                 
                 &::before {

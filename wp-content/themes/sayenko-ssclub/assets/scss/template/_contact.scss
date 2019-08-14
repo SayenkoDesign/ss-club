@@ -46,7 +46,7 @@
         }
         
         .location {
-            background-color: $red;
+            background-color: $blue;
             width: rem-calc(268);
             margin: 0 auto;
             position: relative;
@@ -79,7 +79,7 @@
                 height: 0;
                 border-style: solid;
                 border-width: 20px 20px 0 20px;
-                border-color: $red transparent transparent transparent;   
+                border-color: $blue transparent transparent transparent;   
                 position: absolute;
                 top: 100%;
                 left: 50%;
