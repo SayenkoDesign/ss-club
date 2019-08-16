@@ -80,7 +80,7 @@ if( ! class_exists( 'Articles' ) ) {
             $order = [];
             
             foreach( $categories as $category ) {
-                if( 1 === $term->term_id || $term->parent ) {
+                if( 1 === $category->term_id || $category->parent ) {
                     continue;
                 }
                 $order[sanitize_title_with_dashes( $category->name )] = $category->name; 

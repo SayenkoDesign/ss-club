@@ -68,7 +68,7 @@
                     <nav class="nav-primary" role="navigation" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement">  
                         <?php
                         
-                        
+                        get_search_form();
                         
                         // Desktop Menu
                         $args = array(
