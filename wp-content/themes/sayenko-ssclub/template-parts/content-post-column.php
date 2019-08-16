@@ -7,32 +7,36 @@
  * @package _s
  */
 
+
+$terms =  wp_get_post_terms( get_the_ID(), 'category' );
+$terms_string = '';            
+foreach( $terms as $term ) {
+    $terms_string .= ' ' . sanitize_title_with_dashes( $term->name );
+}
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'cell' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( ['cell', trim( $terms_string ) ] ); ?>>
     
     <?php     
-    $post_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+    $image = get_the_post_thumbnail_url( get_the_ID(), 'medium' );  
+    $image = sprintf( '<div class="background" style="background-image: url(%s);"></div>', $image );
     
-    if( empty( $post_image ) ) {
-        $post_image = get_field( 'post_image_fallback', 'option' );
-        if( ! empty( $post_image ) ) {
-            $post_image = wp_get_attachment_image_src( $post_image, 'large' );
-        }   
+    $title = get_the_title();
+    $title = _s_format_string( $title, 'h3' );
+    
+    $excerpt = '';
+    if( has_excerpt() ) {
+        $excerpt = apply_filters( 'the_content', get_the_excerpt() );
     }
     
-    if( ! empty( $post_image ) ) {
-        $post_image = sprintf( 'background-image: url(%s);', $post_image );
-    }     
-    
-    $date_format = get_option( 'date_format' );
-    $post_date = _s_get_posted_on( $date_format );
-       
-    $post_title = sprintf( '<h3><a href="%s">%s</a></h3>', get_permalink(), get_the_title() );
-    $read_more = sprintf( '<p class="read-more"><a href="%s" class="more fancy-link">%s</a></p>', get_permalink(), __( 'read more', '_s' ) ) ;
-        
-    printf( '<a href="%s" class="post-hero" style="%s"></a>', get_permalink(), $post_image );
-                    
-    printf( '<header class="entry-header">%s%s%s</header>', $post_date, $post_title, $read_more );
+    $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
+   
+    printf( '%s<a href="%s" rel="bookmark">%s%s%s</a>', 
+                        $image,
+                        get_permalink(),
+                        $title,
+                        $excerpt,
+                        $link
+                     );
 
     ?>
     

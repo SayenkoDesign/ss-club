@@ -17,6 +17,9 @@
 *****************************************/
 	include_once( 'includes/cpt-core/CPT_Core.php' );
 	include_once( 'includes/taxonomy-core/Taxonomy_Core.php' );
+    
+    include_once( 'includes/post-views.php' );
+    
     include_once( 'includes/theme-functions/array.php' );
 
 /****************************************
@@ -35,7 +38,7 @@
 
     include_once( 'functions/template-tags.php' );
 
-     include_once( 'functions/videos.php' );
+    //include_once( 'functions/videos.php' );
 
 	include_once( 'functions/fonts.php' );
 
@@ -53,7 +56,7 @@
 
     //include_once( 'functions/facetwp.php' );
 
-    include_once( 'functions/case-studies.php' );
+    //include_once( 'functions/case-studies.php' );
 
 /****************************************
 	ACF Custom Fields
@@ -95,4 +98,4 @@ include_once( 'foundation/class-foundation-tabs.php' );
 *****************************************/
 
     include_once( 'post-types/cpt-case-study.php' );
-    include_once( 'post-types/cpt-testimonial.php' );
+    include_once( 'post-types/cpt-post-author.php' );

@@ -34,23 +34,16 @@
                     if( has_nav_menu( 'copyright' ) ) {
                         $args = array( 
                         'theme_location'  => 'copyright', 
-                        'container'       => false,
-                        'container_class' => '',
-                        'container_id'    => '',
-                        'menu_id'         => 'secondary-menu',
-                        'menu_class'      => 'vertical menu accordion-menu',
-                        'before'          => '',
-                        'after'           => '',
-                        'link_before'     => '',
-                        'link_after'      => '',
-                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'depth'           => 0,
-                        'echo'            => false,
-                            
+                            'container'       => false,
+                            'echo'            => false,
+                            'items_wrap'      => '%3$s',
+                            'link_before'     => '<span>',
+                            'link_after'      => '</span>',
+                            'depth'           => 0,
                         ); 
                         
-                        $menu = wp_nav_menu( $args );
-                    
+                        $menu = sprintf( '%s', str_replace('<a', '<i>&nbsp;&nbsp;/&nbsp;&nbsp;</i><a', strip_tags( wp_nav_menu( $args ), '<a>' ) ) );
+                        
                     }
                 
                 

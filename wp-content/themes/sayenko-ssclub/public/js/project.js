@@ -248,6 +248,64 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./assets/js/modules/isotope.js":
+/*!**************************************!*\
+  !*** ./assets/js/modules/isotope.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery_bridget__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery-bridget */ "./node_modules/jquery-bridget/jquery-bridget.js");
+/* harmony import */ var jquery_bridget__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery_bridget__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var isotope_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isotope-layout */ "./node_modules/isotope-layout/js/isotope.js");
+/* harmony import */ var isotope_layout__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isotope_layout__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  init: function init() {
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.isotope-grid').length) {
+      jquery_bridget__WEBPACK_IMPORTED_MODULE_1___default()('isotope', isotope_layout__WEBPACK_IMPORTED_MODULE_2___default.a, jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
+      var $grid = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".isotope-grid").isotope({
+        itemSelector: ".cell",
+        percentPosition: true,
+        masonry: {
+          columnWidth: ".cell"
+        }
+      }); // layout Isotope after each image loads
+
+      $grid.imagesLoaded({
+        background: 'article'
+      }).progress(function () {
+        $grid.isotope('layout');
+      }); // bind filter on select change
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters-select').on('change', function () {
+        // get filter value from option value
+        var filterValue = this.value; // use filterFn if matches value
+
+        $grid.isotope({
+          filter: filterValue
+        });
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').click(function () {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').removeClass('active');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
+        var data = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('data-filter');
+        $grid.isotope({
+          filter: data
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./assets/js/modules/menu-toggle.js":
 /*!******************************************!*\
   !*** ./assets/js/modules/menu-toggle.js ***!
@@ -548,6 +606,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slick__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/slick */ "./assets/js/modules/slick.js");
 /* harmony import */ var _modules_smooth_scroll__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/smooth-scroll */ "./assets/js/modules/smooth-scroll.js");
 /* harmony import */ var _modules_menu_toggle__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/menu-toggle */ "./assets/js/modules/menu-toggle.js");
+/* harmony import */ var _modules_isotope__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/isotope */ "./assets/js/modules/isotope.js");
 
  // Foundation
 
@@ -571,8 +630,8 @@ __webpack_require__.r(__webpack_exports__);
  // import superfish from './modules/superfish';
 //import backgroundVideo from './modules/background-video';
 
- //import accordionFix from './modules/accordion-fix';
-// import full screen scrolling section
+
+ // import full screen scrolling section
 //import fullScreenScrollingSection from './modules/full-screen-scrolling-section';
 
 var modules = new _loader_ModuleLoader__WEBPACK_IMPORTED_MODULE_1__["default"]({
@@ -588,8 +647,8 @@ var modules = new _loader_ModuleLoader__WEBPACK_IMPORTED_MODULE_1__["default"]({
   smoothScroll: _modules_smooth_scroll__WEBPACK_IMPORTED_MODULE_7__["default"],
   // superfish
   //backgroundVideo,
-  menuToggle: _modules_menu_toggle__WEBPACK_IMPORTED_MODULE_8__["default"] //accordionFix,
-  //fullScreenScrollingSection
+  menuToggle: _modules_menu_toggle__WEBPACK_IMPORTED_MODULE_8__["default"],
+  isotope: _modules_isotope__WEBPACK_IMPORTED_MODULE_9__["default"] //fullScreenScrollingSection
 
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {

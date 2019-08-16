@@ -2,84 +2,11 @@
 
 .single-post {
         
-    .section-hero {
-        margin-bottom: rem-calc(75);   
-        padding: rem-calc(75 0);
-        text-align: center;
-        background-color: $gray;
+    .section-hero {        
+        padding-top: 38.1944444%;
         
-        &.background-image {        
-            background-color: transparent;
-            background-size: cover;
-            position: relative;
-                    
-            &:after {
-                content: '';
-                display: block;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
-                background: rgba( $dark-gray, .5);
-            }
-            
-            .wrap {
-                position: relative;
-                z-index: 3;   
-            }
-        } 
-        
-        .grid-x {
-            min-height: 25vw;   
-        }
-
-        ul.post-categories {
-            @include list-reset;
-            display: inline-block;            
-            color: $white;
-            position: relative;
-            min-width: inherit;
-            padding-left: 30px;
-            padding-right: 30px;
-            margin-left: 40px;
-            margin-right: 40px;
-            
-            li {
-                display: inline-block;
-                margin: rem-calc(5 5);
-                a {
-                    @include button(false, $dark-gray, $dark-gray, $white );
-                    text-transform: uppercase;
-                    font-weight: 900;
-                    padding-top: rem-calc(11.5);
-                    padding-bottom: rem-calc(11.5);
-                    
-                    @include breakpoint(large) {
-                        min-width: rem-calc(160);
-                        padding-top: rem-calc(18.5);
-                        padding-bottom: rem-calc(18.5);
-                    }
-                    
-                    &:hover {
-                        background-color: $blue;   
-                    }
-                }
-            }
-        }
-        
-        h1 {
-            color: #fff;   
-        }
-        
-        .posted-on {
-            margin-top: rem-calc(25);
-            display: block;
-            color: #fff;
-            font-size: rem-calc(18);
-            line-height: 18px;   
-            font-family: $nunito;
-            font-style: italic;
+        @include breakpoint(1900) {
+            //padding-top: 28%;
         }
         
     }
@@ -94,9 +21,37 @@
                         
         .entry-content {
             
+            .posted-on {
+                margin-top: rem-calc(25);
+                color: $medium-gray;
+                font-family: $nunito;
+                font-size: rem-calc(15);
+                line-height: 1.333333333;
+            }
+            
             img {
-                
                 box-shadow: $box-shadow;              
+            }
+            
+            .wp-block-media-text {
+                img {
+                    margin-bottom: $global-margin;   
+                }
+            }
+            
+            @include breakpoint(xxlarge) {
+                .wp-block-media-text {
+                    > .wp-block-media-text__media {
+                        margin-left: -100px;
+                    }
+                    
+                    &.has-media-on-the-right {
+                        > .wp-block-media-text__media {
+                            margin-left: auto;
+                            margin-right: -100px;
+                        }
+                    }
+                }
             }
         }
         

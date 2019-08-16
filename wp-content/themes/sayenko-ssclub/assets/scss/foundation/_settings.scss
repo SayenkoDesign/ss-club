@@ -68,7 +68,6 @@
 // ---------
 
 // Colors
-$purple: #0C3963;
 $blue: #0C3963;
 
 
@@ -110,7 +109,7 @@ $body-background: $white;
 $body-font-color: $dark-gray;
 $body-font-family: $nunito;
 $body-antialiased: true;
-$global-margin: 1rem;
+$global-margin: 24px;
 $global-padding: 1rem;
 $global-position: 1rem;
 $global-weight-normal: normal;
@@ -264,7 +263,7 @@ $accordionmenu-padding: $global-menu-padding;
 $accordionmenu-nested-margin: $global-menu-nested-margin;
 $accordionmenu-submenu-padding: $accordionmenu-padding;
 $accordionmenu-arrows: true;
-$accordionmenu-arrow-color: $primary-color;
+$accordionmenu-arrow-color: $dark-gray;
 $accordionmenu-item-background: null;
 $accordionmenu-border: null;
 $accordionmenu-submenu-toggle-background: null;

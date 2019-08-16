@@ -71,10 +71,3 @@ function _s_enqueue_stylesheet() {
 }
 
 add_action( 'wp_enqueue_scripts', '_s_enqueue_stylesheet', 15 );
-
-
-/****************************************
- * Image Sizes
- *****************************************/
-
-add_image_size( 'hero', 1440, 9999 ); // 1440 x 510

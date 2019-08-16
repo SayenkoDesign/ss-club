@@ -112,24 +112,29 @@ function _s_get_the_post_navigation( $args = array() ) {
 }
 
 
-/*
-// adding custom post types to blog pagination
-add_action( 'get_previous_post_where', 'misha_posts_and_page', 20 );
-add_action( 'get_next_post_where', 'misha_posts_and_page', 20 );
- 
-function misha_posts_and_page( $where ){
+function _s_add_custom_post_types_to_loop( $query ) {
+	if ( ! is_admin() && $query->is_main_query() && ! is_post_type_archive() && ( is_home() || is_archive() ) )
+		$query->set( 'post_type', array( 'post', 'case_study' ) );
+	return $query;
+}
+add_action( 'pre_get_posts', '_s_add_custom_post_types_to_loop' );
+
+
+// adding custom post types to blog pagination 
+function _s_posts_and_page( $where ){
 	// $where looks like WHERE p.post_date < '2017-08-02 09:07:03' AND p.post_type = 'post' AND ( p.post_status = 'publish' OR p.post_status = 'private' )
 	// In code $where looks like $wpdb->prepare( "WHERE p.post_date $op %s AND p.post_type = %s $where", $post->post_date, $post->post_type )
 	// Parameters $op and another $where can not be passed to this action hook
 	// So, I think the best way is to use str_replace()
 	return str_replace(
-		array( "p.post_type = 'post'", "p.post_type = 'story'", "p.post_type = 'event'" ),
-		"(p.post_type = 'post' OR p.post_type = 'story' OR p.post_type = 'event')",
+		array( "p.post_type = 'post'", "p.post_type = 'case_study'" ),
+		"(p.post_type = 'post' OR p.post_type = 'case_study')",
 		$where
 	);
  
 }
-*/
+add_action( 'get_previous_post_where', '_s_posts_and_page', 20 );
+add_action( 'get_next_post_where', '_s_posts_and_page', 20 );
 
 
 function _s_get_post_terms( $post_id ) {
@@ -167,3 +172,229 @@ function comment_form_submit_button($button) {
     return $button;
 }
 add_filter('comment_form_submit_button', 'comment_form_submit_button');
+
+
+function _s_get_archives( $args = '' ) {
+	global $wpdb, $wp_locale;
+
+	$defaults = array(
+		'type'            => 'monthly',
+		'limit'           => '',
+		'format'          => 'html',
+		'before'          => '',
+		'after'           => '',
+		'show_post_count' => false,
+		'echo'            => 1,
+		'order'           => 'DESC',
+		'post_type'       => 'post',
+		'year'            => get_query_var( 'year' ),
+		'monthnum'        => get_query_var( 'monthnum' ),
+		'day'             => get_query_var( 'day' ),
+		'w'               => get_query_var( 'w' ),
+	);
+
+	$r = wp_parse_args( $args, $defaults );
+
+	$post_type_object = get_post_type_object( $r['post_type'] );
+	if ( ! is_post_type_viewable( $post_type_object ) ) {
+		return;
+	}
+	$r['post_type'] = $post_type_object->name;
+
+	if ( '' == $r['type'] ) {
+		$r['type'] = 'monthly';
+	}
+
+	if ( ! empty( $r['limit'] ) ) {
+		$r['limit'] = absint( $r['limit'] );
+		$r['limit'] = ' LIMIT ' . $r['limit'];
+	}
+
+	$order = strtoupper( $r['order'] );
+	if ( $order !== 'ASC' ) {
+		$order = 'DESC';
+	}
+
+	// this is what will separate dates on weekly archive links
+	$archive_week_separator = '&#8211;';
+
+	$sql_where = $wpdb->prepare( "WHERE post_type = %s AND post_status = 'publish'", $r['post_type'] );
+
+	/**
+	 * Filters the SQL WHERE clause for retrieving archives.
+	 *
+	 * @since 2.2.0
+	 *
+	 * @param string $sql_where Portion of SQL query containing the WHERE clause.
+	 * @param array  $r         An array of default arguments.
+	 */
+	$where = apply_filters( 'getarchives_where', $sql_where, $r );
+
+	/**
+	 * Filters the SQL JOIN clause for retrieving archives.
+	 *
+	 * @since 2.2.0
+	 *
+	 * @param string $sql_join Portion of SQL query containing JOIN clause.
+	 * @param array  $r        An array of default arguments.
+	 */
+	$join = apply_filters( 'getarchives_join', '', $r );
+
+	$output = '';
+
+	$last_changed = wp_cache_get_last_changed( 'posts' );
+
+	$limit = $r['limit'];
+
+	if ( 'monthly' == $r['type'] ) {
+		$query = "SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month`, count(ID) as posts FROM $wpdb->posts $join $where GROUP BY YEAR(post_date), MONTH(post_date) ORDER BY post_date $order $limit";
+		$key   = md5( $query );
+		$key   = "wp_get_archives:$key:$last_changed";
+		if ( ! $results = wp_cache_get( $key, 'posts' ) ) {
+			$results = $wpdb->get_results( $query );
+			wp_cache_set( $key, $results, 'posts' );
+		}
+		if ( $results ) {
+			$after = $r['after'];
+			foreach ( (array) $results as $result ) {
+				$url = get_month_link( $result->year, $result->month );
+				if ( 'post' !== $r['post_type'] ) {
+					$url = add_query_arg( 'post_type', $r['post_type'], $url );
+				}
+				/* translators: 1: month name, 2: 4-digit year */
+				$text = sprintf( __( '%1$s %2$d' ), $wp_locale->get_month_abbrev( $wp_locale->get_month( $result->month ) ), substr( $result->year, 2 ) );
+				if ( $r['show_post_count'] ) {
+					$r['after'] = '&nbsp;(' . $result->posts . ')' . $after;
+				}
+				$selected = is_archive() && (string) $r['year'] === $result->year && (string) $r['monthnum'] === $result->month;
+				$output  .= get_archives_link( $url, $text, $r['format'], $r['before'], $r['after'], $selected );
+			}
+		}
+	} elseif ( 'yearly' == $r['type'] ) {
+		$query = "SELECT YEAR(post_date) AS `year`, count(ID) as posts FROM $wpdb->posts $join $where GROUP BY YEAR(post_date) ORDER BY post_date $order $limit";
+		$key   = md5( $query );
+		$key   = "wp_get_archives:$key:$last_changed";
+		if ( ! $results = wp_cache_get( $key, 'posts' ) ) {
+			$results = $wpdb->get_results( $query );
+			wp_cache_set( $key, $results, 'posts' );
+		}
+		if ( $results ) {
+			$after = $r['after'];
+			foreach ( (array) $results as $result ) {
+				$url = get_year_link( $result->year );
+				if ( 'post' !== $r['post_type'] ) {
+					$url = add_query_arg( 'post_type', $r['post_type'], $url );
+				}
+				$text = sprintf( '%d', $result->year );
+				if ( $r['show_post_count'] ) {
+					$r['after'] = '&nbsp;(' . $result->posts . ')' . $after;
+				}
+				$selected = is_archive() && (string) $r['year'] === $result->year;
+				$output  .= get_archives_link( $url, $text, $r['format'], $r['before'], $r['after'], $selected );
+			}
+		}
+	} elseif ( 'daily' == $r['type'] ) {
+		$query = "SELECT YEAR(post_date) AS `year`, MONTH(post_date) AS `month`, DAYOFMONTH(post_date) AS `dayofmonth`, count(ID) as posts FROM $wpdb->posts $join $where GROUP BY YEAR(post_date), MONTH(post_date), DAYOFMONTH(post_date) ORDER BY post_date $order $limit";
+		$key   = md5( $query );
+		$key   = "wp_get_archives:$key:$last_changed";
+		if ( ! $results = wp_cache_get( $key, 'posts' ) ) {
+			$results = $wpdb->get_results( $query );
+			wp_cache_set( $key, $results, 'posts' );
+		}
+		if ( $results ) {
+			$after = $r['after'];
+			foreach ( (array) $results as $result ) {
+				$url = get_day_link( $result->year, $result->month, $result->dayofmonth );
+				if ( 'post' !== $r['post_type'] ) {
+					$url = add_query_arg( 'post_type', $r['post_type'], $url );
+				}
+				$date = sprintf( '%1$d-%2$02d-%3$02d 00:00:00', $result->year, $result->month, $result->dayofmonth );
+				$text = mysql2date( get_option( 'date_format' ), $date );
+				if ( $r['show_post_count'] ) {
+					$r['after'] = '&nbsp;(' . $result->posts . ')' . $after;
+				}
+				$selected = is_archive() && (string) $r['year'] === $result->year && (string) $r['monthnum'] === $result->month && (string) $r['day'] === $result->dayofmonth;
+				$output  .= get_archives_link( $url, $text, $r['format'], $r['before'], $r['after'], $selected );
+			}
+		}
+	} elseif ( 'weekly' == $r['type'] ) {
+		$week  = _wp_mysql_week( '`post_date`' );
+		$query = "SELECT DISTINCT $week AS `week`, YEAR( `post_date` ) AS `yr`, DATE_FORMAT( `post_date`, '%Y-%m-%d' ) AS `yyyymmdd`, count( `ID` ) AS `posts` FROM `$wpdb->posts` $join $where GROUP BY $week, YEAR( `post_date` ) ORDER BY `post_date` $order $limit";
+		$key   = md5( $query );
+		$key   = "wp_get_archives:$key:$last_changed";
+		if ( ! $results = wp_cache_get( $key, 'posts' ) ) {
+			$results = $wpdb->get_results( $query );
+			wp_cache_set( $key, $results, 'posts' );
+		}
+		$arc_w_last = '';
+		if ( $results ) {
+			$after = $r['after'];
+			foreach ( (array) $results as $result ) {
+				if ( $result->week != $arc_w_last ) {
+					$arc_year       = $result->yr;
+					$arc_w_last     = $result->week;
+					$arc_week       = get_weekstartend( $result->yyyymmdd, get_option( 'start_of_week' ) );
+					$arc_week_start = date_i18n( get_option( 'date_format' ), $arc_week['start'] );
+					$arc_week_end   = date_i18n( get_option( 'date_format' ), $arc_week['end'] );
+					$url            = add_query_arg(
+						array(
+							'm' => $arc_year,
+							'w' => $result->week,
+						),
+						home_url( '/' )
+					);
+					if ( 'post' !== $r['post_type'] ) {
+						$url = add_query_arg( 'post_type', $r['post_type'], $url );
+					}
+					$text = $arc_week_start . $archive_week_separator . $arc_week_end;
+					if ( $r['show_post_count'] ) {
+						$r['after'] = '&nbsp;(' . $result->posts . ')' . $after;
+					}
+					$selected = is_archive() && (string) $r['year'] === $result->yr && (string) $r['w'] === $result->week;
+					$output  .= get_archives_link( $url, $text, $r['format'], $r['before'], $r['after'], $selected );
+				}
+			}
+		}
+	} elseif ( ( 'postbypost' == $r['type'] ) || ( 'alpha' == $r['type'] ) ) {
+		$orderby = ( 'alpha' == $r['type'] ) ? 'post_title ASC ' : 'post_date DESC, ID DESC ';
+		$query   = "SELECT * FROM $wpdb->posts $join $where ORDER BY $orderby $limit";
+		$key     = md5( $query );
+		$key     = "wp_get_archives:$key:$last_changed";
+		if ( ! $results = wp_cache_get( $key, 'posts' ) ) {
+			$results = $wpdb->get_results( $query );
+			wp_cache_set( $key, $results, 'posts' );
+		}
+		if ( $results ) {
+			foreach ( (array) $results as $result ) {
+				if ( $result->post_date != '0000-00-00 00:00:00' ) {
+					$url = get_permalink( $result );
+					if ( $result->post_title ) {
+						/** This filter is documented in wp-includes/post-template.php */
+						$text = strip_tags( apply_filters( 'the_title', $result->post_title, $result->ID ) );
+					} else {
+						$text = $result->ID;
+					}
+					$selected = $result->ID === get_the_ID();
+					$output  .= get_archives_link( $url, $text, $r['format'], $r['before'], $r['after'], $selected );
+				}
+			}
+		}
+	}
+	if ( $r['echo'] ) {
+		echo $output;
+	} else {
+		return $output;
+	}
+}
+
+
+// Add custom post type to archive list
+function _s_getarchives_where_filter( $where , $r ) { 
+    $args = array( 'public' => true , '_builtin' => false ); 
+    $output = 'names'; $operator = 'and';
+    $post_types = get_post_types( $args , $output , $operator ); 
+    $post_types = array_merge( $post_types , array( 'post', 'case_study' ) ); 
+    $post_types = "'" . implode( "' , '" , $post_types ) . "'";
+    return str_replace( "post_type = 'post'" , "post_type IN ( $post_types )" , $where ); 
+} 
+add_filter( 'getarchives_where' , '_s_getarchives_where_filter' , 10 , 2 ); 

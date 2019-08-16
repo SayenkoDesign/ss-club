@@ -65,13 +65,19 @@ if ( ! function_exists( '_s_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+        
+        /****************************************
+         * Image Sizes
+         *****************************************/
+        
+        add_image_size( 'hero', 2000, 9999 ); // 2000 x 510
+        
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary Menu', '_s' ),
 			'secondary' => esc_html__( 'Secondary Menu', '_s' ),
-			'copyright'    => esc_html__( 'Copyright Menu', '_s' ),
-            'resources'    => esc_html__( 'Resources Menu', '_s' )
+			'copyright'    => esc_html__( 'Copyright Menu', '_s' )
 		) );
 
 		/**
@@ -105,7 +111,7 @@ add_action( 'after_setup_theme', '_s_setup' );
  * @global int $content_width
  */
 function _s_content_width() {
-	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 1264 );
+	$GLOBALS['content_width'] = apply_filters( '_s_content_width', 1260 );
 }
 
 add_action( 'after_setup_theme', '_s_content_width', 0 );

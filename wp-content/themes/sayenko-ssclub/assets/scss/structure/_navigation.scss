@@ -93,7 +93,7 @@
             }
             
             &:hover {
-                color: $purple;   
+                color: $blue;   
             }
 
 		}
@@ -102,7 +102,7 @@
             &.current-menu-ancestor,
             &.current_page_parent {
                 > a {
-                    color: $purple;   
+                    color: $blue;   
                 }
             }
         }
@@ -149,7 +149,7 @@
             top: inherit;
             left: inherit;
             border: none;  
-            background-color: $purple;
+            background-color: $blue;
             margin-left: 0; 
         }
     }

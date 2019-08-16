@@ -1,12 +1,12 @@
 <?php
  
 /**
- * Create new CPT - Application
+ * Create new CPT - Post Author
  */
  
-class CPT_Application extends CPT_Core {
+class CPT_Post_Author extends CPT_Core {
 
-    const POST_TYPE = 'application';
+    const POST_TYPE = 'post_author';
 	const TEXTDOMAIN = '_s';
 	
 	/**
@@ -20,8 +20,8 @@ class CPT_Application extends CPT_Core {
         parent::__construct(
         
         	array(
-				__( 'Application', self::TEXTDOMAIN, '_s' ), // Singular
-				__( 'Applications', self::TEXTDOMAIN, '_s' ), // Plural
+				__( 'Post Author', self::TEXTDOMAIN, '_s' ), // Singular
+				__( 'Post Authors', self::TEXTDOMAIN, '_s' ), // Plural
 				self::POST_TYPE // Registered name/slug
 			),
 			array( 
@@ -30,15 +30,14 @@ class CPT_Application extends CPT_Core {
 				'show_ui'             => true,
 				'query_var'           => true,
 				'capability_type'     => 'post',
-				'has_archive'         => false,
+				'has_archive'         => true,
 				'hierarchical'        => false,
 				'show_ui'             => true,
 				'show_in_menu'        => true,
 				'show_in_nav_menus'   => true,
-				'exclude_from_search' => true,
-				//'rewrite'             => array( 'slug' => 'teams' ),
-                //'show_in_rest' => true,
-				'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' )
+				'exclude_from_search' => false,
+				'rewrite'             => array( 'slug' => 'post-author' ),
+				'supports' => array( 'title', 'editor', 'thumbnail' ),
 			)
 
         );
@@ -47,4 +46,4 @@ class CPT_Application extends CPT_Core {
  
 }
 
-new CPT_Application();
+new CPT_Post_Author();

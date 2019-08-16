@@ -125,8 +125,12 @@
                 color: #000;
                 
                 &:hover {
-                    color: $purple;   
+                    color: $blue;   
                 }
+            }
+            
+            i:first-child {
+                display: none;   
             }
             
             span {

@@ -13,6 +13,36 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     
     <div class="entry-content">
+    
+        <header class="entry-header">
+            <?php
+                echo get_the_category_list( '' )
+            ?>
+            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+            <?php
+                $post_author = get_field( 'post_author' );
+                if( ! empty( $post_author ) ) {
+                    if( is_string( get_post_status( $post_author ) ) ) {
+                        printf( '<div class="entry-author"><a href="%s">%s</a></div>', get_permalink( $post_author ), get_the_title( $post_author ) );
+                    }
+                }
+            ?>            
+            <div class="entry-meta">
+				<?php
+                    $date_format = get_option( 'date_format' );
+                    _s_posted_on( $date_format ); 
+                ?>
+			</div><!-- .entry-meta -->
+        </header><!-- .entry-header -->
+        
+        <?php
+        $hero = get_field( 'hero' );
+
+        $layout = '';
+        if( ! empty( $hero['background_image'] ) && ! empty( $hero['layout'] ) && 'Normal' == $hero['layout'] ) {
+            printf( '<div class="">%s</div>', _s_get_acf_image( $hero['background_image'], 'large' ) );
+        }
+        ?>
 	
 		<?php 
 		the_content(); 		
@@ -32,16 +62,7 @@
                 __( 'Share This', '_s' ),
                 _s_get_addtoany_share_icons(),
                 $navigation  
-              );
-              
-        
-        $form_id = absint( 3 ); 
-        $form = GFAPI::get_form( $form_id );
-        if( false !== $form ) {
-           printf( '<h3>Get the latest stories delivered straight to your inbox</h5>%s',  do_shortcode( sprintf( '[gravityform id="%s" title="false" description="false" ajax="false"]', $form_id ) ) );
-        }
-            
-                          
+              );                  
         ?>           
 	</footer><!-- .entry-footer -->
     

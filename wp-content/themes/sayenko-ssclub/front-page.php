@@ -25,8 +25,10 @@ get_header(); ?>
 
             the_post();
 
-            //_s_get_template_part( 'template-parts/home', 'what' );
-                                
+            _s_get_template_part( 'template-parts/home', 'featured' );
+            
+            _s_get_template_part( 'template-parts/home', 'articles' );
+                                            
         endwhile;       
        ?>
 

@@ -23,7 +23,7 @@ import smoothScroll from './modules/smooth-scroll';
 // import superfish from './modules/superfish';
 //import backgroundVideo from './modules/background-video';
 import menuToggle from './modules/menu-toggle';
-//import accordionFix from './modules/accordion-fix';
+import isotope from './modules/isotope';
 
 // import full screen scrolling section
 //import fullScreenScrollingSection from './modules/full-screen-scrolling-section';
@@ -42,7 +42,7 @@ const modules = new ModuleLoader( {
 	// superfish
 	//backgroundVideo,
 	menuToggle,
-    //accordionFix,
+    isotope,
     //fullScreenScrollingSection
 } );
 
