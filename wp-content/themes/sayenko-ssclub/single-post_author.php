@@ -13,7 +13,7 @@ get_header(); ?>
     
                     the_post();
     
-                    get_template_part( 'template-parts', 'content' );
+                    get_template_part( 'template-parts/content', 'post_author' );
                         
                 endwhile;       
                ?>
@@ -25,6 +25,12 @@ get_header(); ?>
     </div>
             
 </div>
+
+<?php
+_s_get_template_part( 'template-parts/post-author', 'featured' );
+
+_s_get_template_part( 'template-parts/post-author', 'recent-posts' );
+?>
 
 <?php
 

@@ -16,7 +16,6 @@ add_filter('use_block_editor_for_post_type', 'sayenko_disable_gutenberg', 100, 2
 function ea_disable_editor( $id = false ) {
 
 	$excluded_templates = array(
-        'page-templates/contact.php',
         'page-templates/multi-purpose.php',
 	);
 

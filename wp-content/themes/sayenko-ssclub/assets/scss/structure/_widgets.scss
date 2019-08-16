@@ -11,65 +11,52 @@
 }
 
 
-.hours-phone-directions {
-        
+.social-icons {
+
     @include list-reset;
-    margin-bottom: rem-calc(50);
-    margin-left: rem-calc(5);
-    
+    height: 48px;
+    margin-bottom: rem-calc(30);
+
     li {
-        padding-left: rem-calc(40); 
+        display: inline-block;
+        padding: rem-calc(0 15 30 0);
+        height: 48px;
+
+        @include breakpoint(large) {
+            padding: rem-calc(0 30 30 0);
+        }
+
+    }
+
+    a {
+        transition: 250ms;
+        width: 48px;
+        height: 48px;
+        display: block;
+        background-color: rgba(#010717, .1);
+        border-radius: 50%;
         position: relative;
-        min-height: 24px;
-        margin-bottom: rem-calc(24);
-        
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 24px;
-            height: 24px;   
-            background-size: 24px auto;
-            background-repeat: no-repeat;
-        }
-         
-        
-        &.hours:before {
-            background-image: url(../images/footer/time.svg);
-        }
-        
-        &.phone:before {
-            background-image: url(../images/footer/phone.svg);
-        }
-        
-        &.directions:before {
-            background-image: url(../images/footer/location.svg);
-        }
-        
-        a,
-        span {
-            font-weight: 600;
-            color: $dark-gray;
-            font-size: rem-calc(16);
-            line-height: 1.1875;   
+
+        &:hover {
+            background-color: #010717;
+            border-radius: 50%;
+
+            &:hover {
+                svg {
+                    fill: $white;
+                }
+            }
         }
     }
-    
-    
-    @include breakpoint(xlarge) {
-        
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        margin-left: 0;
-        
-        li {
-            padding-right: rem-calc(10);
-        }
-        
-        
+
+    svg {
+        width: 28px;
+        height: auto;
+        fill: $dark-gray;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    
+
 }
- 

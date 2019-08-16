@@ -3,6 +3,9 @@ $slick-arrow-color: #fff;
 $slick-arrow-color-hover: #fff;
 
 
+.slider {
+    position: relative;   
+}
 
 .slick-slider {
     visibility: hidden;
@@ -10,7 +13,17 @@ $slick-arrow-color-hover: #fff;
     &.slick-initialized {
         visibility: visible;  
     }
+}
 
+.slick-slider .slick-slide{
+    display: none;
+}
+ .slick-slider .slick-slide:first-child{
+    display: block;
+}
+.slick-initialized.slick-slider .slick-slide,
+.slick-initialized.slick-slider .slick-slide:first-child{
+    display: block;
 }
 
 /*

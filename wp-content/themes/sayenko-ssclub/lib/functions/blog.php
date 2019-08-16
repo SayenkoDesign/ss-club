@@ -112,6 +112,53 @@ function _s_get_the_post_navigation( $args = array() ) {
 }
 
 
+/**
+ * Get the primary term of a post, by taxonomy.
+ * If Yoast Primary Term is used, return it,
+ * otherwise fallback to the first term.
+ *
+ * @version  1.1.0
+ *
+ * @link     https://gist.github.com/JiveDig/5d1518f370b1605ae9c753f564b20b7f
+ * @link     https://gist.github.com/jawinn/1b44bf4e62e114dc341cd7d7cd8dce4c
+ * @author   Mike Hemberger @JiveDig.
+ *
+ * @param    string  $taxonomy  The taxonomy to get the primary term from.
+ * @param    int     $post_id   The post ID to check.
+ *
+ * @return   WP_Term|bool  The term object or false if no terms.
+ */
+function _s_get_primary_term( $taxonomy = 'category', $post_id = false, $args = false ) {
+	// Bail if no taxonomy.
+	if ( ! $taxonomy ) {
+		return false;
+	}
+	// If no post ID, set it.
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+	// If checking for WPSEO.
+	if ( class_exists( 'WPSEO_Primary_Term' ) ) {
+		// Get the primary term.
+		$wpseo_primary_term = new WPSEO_Primary_Term( $taxonomy, $post_id );
+		$wpseo_primary_term = $wpseo_primary_term->get_primary_term();
+		// If we have one, return it.
+		if ( $wpseo_primary_term ) {
+			return get_term( $wpseo_primary_term );
+		}
+	}
+	// We don't have a primary, so let's get all the terms.
+	$terms = wp_get_post_terms( $post_id, $taxonomy, $args );
+	// Bail if no terms.
+	if ( ! $terms || is_wp_error( $terms ) ) {
+		return false;
+	}
+    
+	// Return the first term.
+	return $terms[0];
+}
+
+
 function _s_add_custom_post_types_to_loop( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && ! is_post_type_archive() && ( is_home() || is_archive() ) )
 		$query->set( 'post_type', array( 'post', 'case_study' ) );
@@ -398,3 +445,112 @@ function _s_getarchives_where_filter( $where , $r ) {
     return str_replace( "post_type = 'post'" , "post_type IN ( $post_types )" , $where ); 
 } 
 add_filter( 'getarchives_where' , '_s_getarchives_where_filter' , 10 , 2 ); 
+
+
+
+
+add_filter('manage_posts_columns', 'wpse_3531_add_seo_columns', 10, 2);
+function wpse_3531_add_seo_columns($posts_columns, $post_type)
+{
+    if( function_exists( 'get_field' ) ) {
+        unset( $posts_columns['author'] );
+        $posts_columns['post_author'] = 'Post Author';
+    }
+    return $posts_columns;
+}
+
+add_action('manage_posts_custom_column', 'wpse_3531_display_seo_columns', 10, 2);
+function wpse_3531_display_seo_columns($column_name, $post_id)
+{
+    if( function_exists( 'get_field' ) ) {
+        $post_author = get_field( 'post_author', $post_id );
+        // https://ssclub.vanwp.ca/wp-admin/post.php?post=335&action=edit
+        if ('post_author' == $column_name && ! empty( $post_author )  ) {
+            printf( '<a href="%s">%s</a>', admin_url( sprintf( 'post.php?post=%s&action=edit', $post_author ) ), get_the_title( $post_author ) );
+        }
+    }
+}
+
+
+/**
+ * Filter slugs
+ * @since 1.1.0
+ * @return void
+ */
+/**
+ * Add extra dropdowns to the List Tables
+ *
+ * @param required string $post_type    The Post Type that is being displayed
+ */
+//add_action('restrict_manage_posts', 'add_extra_tablenav');
+function add_extra_tablenav($post_type){
+
+    global $wpdb;
+
+    /** Ensure this is the correct Post Type*/
+    if($post_type !== 'post')
+        return;
+
+    $results = [];
+    
+    /** Grab the results from the DB */
+    $results = $wpdb->get_col( $wpdb->prepare( "
+        SELECT ID FROM {$wpdb->posts}
+        WHERE post_status = '%s' 
+        AND post_type = '%s'
+    ", 'publish', 'post_author' ) );
+
+    /** Ensure there are options to show */
+    if(empty($results))
+        return;
+    
+    if( empty( $results ) ) {
+        return false;
+    }
+
+    // get selected option if there is one selected
+    if (isset( $_GET['post-author'] ) && $_GET['post-author'] != '') {
+        $selected = $_GET['post-author'];
+    } else {
+        $selected = -1;
+    }
+
+    /** Grab all of the options that should be shown */
+    $options[] = sprintf('<option value="">%1$s</option>', __('All Post Authors', '_s'));
+    foreach($results as $key ) :
+        if ( $key == $selected ) {
+            $options[] = sprintf('<option value="%1$s" selected>%2$s</option>', absint( $key ), get_the_title( $key ) );
+        } else {
+            $options[] = sprintf('<option value="%1$s">%2$s</option>', absint( $key ), get_the_title( $key ) );
+        }
+    endforeach;
+
+    /** Output the dropdown menu */
+    echo '<select class="" id="post-author" name="post-author">';
+    echo join("\n", $options);
+    echo '</select>';
+
+}
+
+/**
+ * Update query
+ * @since 1.1.0
+ * @return void
+ */
+//add_filter( 'parse_query', 'prefix_parse_filter' );
+function  prefix_parse_filter($query) {
+   global $pagenow;
+   $current_page = isset( $_GET['post_type'] ) ? $_GET['post_type'] : '';
+
+   if ( is_admin() && 
+     'post' == $current_page &&
+     'edit.php' == $pagenow && 
+      isset( $_GET['post-author'] ) && 
+      $_GET['post-author'] != '') {
+
+    $post_author = $_GET['post-author'];
+    $query->query_vars['meta_key'] = 'post-author';
+    $query->query_vars['meta_value'] = $post_author;
+    $query->query_vars['meta_compare'] = '=';
+  }
+}

@@ -68,7 +68,27 @@ if( ! class_exists( 'Articles' ) ) {
             if( empty( $terms ) ) {
                 return false;
             }
-                          
+            
+            // Get terms so we can set the order          
+            $categories = get_terms( array(
+                'taxonomy' => 'category',
+                'hide_empty' => true,
+                'exclude' => 1,
+                'parent' => 0
+            ) );
+            
+            $order = [];
+            
+            foreach( $categories as $category ) {
+                if( 1 === $term->term_id || $term->parent ) {
+                    continue;
+                }
+                $order[sanitize_title_with_dashes( $category->name )] = $category->name; 
+            }
+            
+            // Set the sorted order
+            $terms = array_merge( $order, $terms );
+                                      
             $options = '<option value="*">All</option>';
             $links = '<li class="active" data-filter="*">All</li>';
             
@@ -90,6 +110,7 @@ if( ! class_exists( 'Articles' ) ) {
             
             $args = array(
                 'post_type' => ['post', 'case_study'],
+                'post_status' => 'publish',
                 'posts_per_page' => 24,
                 'no_found_rows' => true,
             );
@@ -107,7 +128,7 @@ if( ! class_exists( 'Articles' ) ) {
                     $terms =  wp_get_post_terms( get_the_ID(), 'category' );
                                         
                     foreach( $terms as $term ) {
-                        if( 1 === $term->term_id ) {
+                        if( 1 === $term->term_id || $term->parent ) {
                             continue;
                         }
                         $this->terms[sanitize_title_with_dashes( $term->name )] = $term->name; 

@@ -354,188 +354,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
-    if (!String.prototype.padStart) {
-      String.prototype.padStart = function padStart(targetLength, padString) {
-        targetLength = targetLength >> 0; //truncate if number, or convert non-number to 0;
-
-        padString = String(typeof padString !== 'undefined' ? padString : ' ');
-
-        if (this.length >= targetLength) {
-          return String(this);
-        } else {
-          targetLength = targetLength - this.length;
-
-          if (targetLength > padString.length) {
-            padString += padString.repeat(targetLength / padString.length); //append to original to ensure we are longer than needed
-          }
-
-          return padString.slice(0, targetLength) + String(this);
-        }
-      };
-    }
-
-    var $slider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-home-news .slider');
+    var $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-recent-posts');
+    var $slider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slider', $section);
 
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $slider).length) {
-      var currentSlide;
-
-      var updateSliderCounter = function updateSliderCounter(slick, currentIndex) {
-        currentSlide = slick.slickCurrentSlide() + 1;
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-arrows .counter', $slider).text(currentSlide);
-      };
-
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $slider).on('init', function (event, slick) {
-        updateSliderCounter(slick);
-        $slider.css({
-          opacity: 1,
-          visibility: 'visible'
-        });
-      });
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $slider).on('afterChange', function (event, slick, currentSlide) {
-        updateSliderCounter(slick, currentSlide);
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $slider).addClass('slick-loaded');
       });
       jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $slider).slick({
-        fade: true,
         autoplay: false,
         infinite: true,
-        adaptiveHeight: true,
         dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         speed: 300,
+        rows: 0,
         nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $slider),
-        prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $slider)
-      });
-    } // About - history
-
-
-    var $historySlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-about-history .slider');
-
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $historySlider).length) {
-      $historySlider.imagesLoaded().done(function (instance) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $historySlider).slick({
-          fade: true,
-          autoplay: false,
-          infinite: true,
-          adaptiveHeight: true,
-          arrows: true,
-          dots: true,
-          rows: 0,
-          customPaging: function customPaging(slider, i) {
-            var year = jquery__WEBPACK_IMPORTED_MODULE_0___default()(slider.$slides[i]).data('year');
-            return '<a class="dot">' + year + '</a>';
-          },
-          speed: 300,
-          nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $historySlider),
-          prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $historySlider)
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.wrap', $historySlider).append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $historySlider).find('.slick-dots'));
-        $historySlider.addClass('images-loaded');
-      });
-    } // Careers - Testimonials
-
-
-    var $testimonialsSlider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-testimonials .slider');
-
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $testimonialsSlider).length) {
-      $testimonialsSlider.imagesLoaded().done(function (instance) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $testimonialsSlider).slick({
-          fade: true,
-          autoplay: false,
-          infinite: true,
-          adaptiveHeight: true,
-          arrows: true,
-          dots: false,
-          rows: 0,
-
-          /*
-          customPaging : function(slider, i) {
-              let number = i+1;
-              number = number.toString().padStart(2, '0');
-              return '<a class="dot">'+number+'</a>';
-          },
-          */
-          speed: 300,
-          nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $testimonialsSlider),
-          prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $testimonialsSlider)
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.wrap', $testimonialsSlider).append(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $testimonialsSlider).find('.slick-dots'));
-        $testimonialsSlider.addClass('images-loaded');
-      });
-    }
-
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product__slider-main .slick').length) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product__slider').imagesLoaded().done(function (instance) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(".product__slider-main .slick").slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          fade: true,
-          autoplay: false,
-          infinite: true,
-          arrows: false,
-          dots: false,
-          speed: 300,
-          rows: 0,
-          nextArrow: '.product__slider-main .slick-next',
-          prevArrow: '.product__slider-main .slick-prev' //asNavFor: '.product__slider-thumbs .slick',
-
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(".product__slider-thumbs .slick").slick({
-          dots: false,
-          autoplay: false,
-          infinite: true,
-          speed: 300,
-          arrows: false,
-          slidesToShow: 3,
-          slidesToScroll: 1,
-          asNavFor: '.product__slider-main .slick',
-          vertical: true,
-          verticalSwiping: true,
-          focusOnSelect: true,
-          rows: 0,
-          responsive: [{
-            breakpoint: 991,
-            settings: {
-              slidesToShow: 6,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-              vertical: false,
-              verticalSwiping: false
-            }
-          }, {
-            breakpoint: 639,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: false,
-              vertical: false,
-              verticalSwiping: false
-            }
-          }]
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.product__slider').addClass('images-loaded');
-      });
-    }
-
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-product-slideshow .slider .slick').length) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-product-slideshow .slider').imagesLoaded().done(function (instance) {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(".section-product-slideshow .slider .slick").slick({
-          fade: true,
-          autoplay: false,
-          infinite: true,
-          adaptiveHeight: true,
-          dots: true,
-          speed: 300,
-          customPaging: function customPaging(slider, i) {
-            var number = i + 1;
-            number = number.toString().padStart(2, '0');
-            var thumb = jquery__WEBPACK_IMPORTED_MODULE_0___default()(slider.$slides[i]).data();
-            return '<a class="dot">' + number + '</a>';
-          },
-          nextArrow: '.section-product-slideshow .slider .slick-next',
-          prevArrow: '.section-product-slideshow .slider .slick-prev'
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-product-slideshow .slider').addClass('images-loaded');
+        prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $slider),
+        responsive: [{
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        }, {
+          breakpoint: 639,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }]
       });
     }
   }

@@ -128,6 +128,7 @@ if( ! class_exists( 'Featured' ) ) {
             
             $args = array(
                 'post_type' => 'post',
+                'post_status' => 'publish',
                 'posts_per_page' => 3,
                 'no_found_rows' => true,
                 'update_post_meta_cache' => false,

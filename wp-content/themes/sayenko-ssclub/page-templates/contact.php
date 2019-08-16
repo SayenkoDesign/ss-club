@@ -10,21 +10,20 @@ add_filter( 'body_class', function ( $classes ) {
 
 get_header(); ?>
 
-<?php
-_s_get_template_part( 'template-parts/contact', 'hero' );
-?>
-
-
 <div id="primary" class="content-area">
 
     <main id="main" class="site-main" role="main">
-    <?php
-        _s_get_template_part( 'template-parts/contact', 'map' );
-        _s_get_template_part( 'template-parts/contact', 'connect' );
-        _s_get_template_part( 'template-parts/contact', 'people' );
-        _s_get_template_part( 'template-parts/global', 'faq' );
+    <?php		
+                    
+            while ( have_posts() ) :
         
-    ?>
+                the_post();
+                            
+                _s_get_template_part( 'template-parts/contact', 'content' );
+                    
+            endwhile;
+            
+            ?>
     </main>
 
 
