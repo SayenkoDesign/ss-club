@@ -44,7 +44,7 @@
                 
                 </div>
                 
-                <div class="cell large-5">
+                <div class="cell large-5 show-for-large">
                         <div class="panel">
                             <?php
                             the_content();

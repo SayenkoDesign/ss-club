@@ -148,7 +148,7 @@ function _s_get_primary_term( $taxonomy = 'category', $post_id = false, $args = 
 		}
 	}
 	// We don't have a primary, so let's get all the terms.
-	$terms = wp_get_post_terms( $post_id, $taxonomy, $args );
+	$terms = get_the_terms( $post_id, $taxonomy );
 	// Bail if no terms.
 	if ( ! $terms || is_wp_error( $terms ) ) {
 		return false;
@@ -156,6 +156,17 @@ function _s_get_primary_term( $taxonomy = 'category', $post_id = false, $args = 
     
 	// Return the first term.
 	return $terms[0];
+}
+
+
+add_filter('get_the_terms', 'modify_term_list', 1);
+function modify_term_list($terms){
+   foreach($terms as $term_index => $term_object){
+    if($term_object->name == 'Uncategorized'){
+        unset($terms[$term_index]);
+        return $terms;
+    }
+   }
 }
 
 

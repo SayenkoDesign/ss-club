@@ -7,17 +7,11 @@
  * @package _s
  */
 
-
-$terms =  wp_get_post_terms( get_the_ID(), 'category' );
-$terms_string = '';            
-foreach( $terms as $term ) {
-    $terms_string .= ' ' . sanitize_title_with_dashes( $term->name );
-}
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( ['cell', trim( $terms_string ) ] ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( ['cell' ] ); ?>>
     
     <?php     
-    $category = _s_get_primary_term( 'category', get_the_ID(), [ 'exclude' => 1 ] );
+    $category = _s_get_primary_term( 'category', get_the_ID() );
     if( ! is_wp_error( $category ) && ! empty( $category ) ) {
         $first_letter = $category->name[0];
         $category_icon = sprintf( '<span class="category-letter">%s</span>', $first_letter );

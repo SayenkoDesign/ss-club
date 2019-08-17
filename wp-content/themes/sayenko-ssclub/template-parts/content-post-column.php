@@ -7,14 +7,8 @@
  * @package _s
  */
 
-
-$terms =  wp_get_post_terms( get_the_ID(), 'category' );
-$terms_string = '';            
-foreach( $terms as $term ) {
-    $terms_string .= ' ' . sanitize_title_with_dashes( $term->name );
-}
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( ['cell', trim( $terms_string ) ] ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( ['cell' ] ); ?>>
     
     <?php     
     $image = get_the_post_thumbnail_url( get_the_ID(), 'medium' );  

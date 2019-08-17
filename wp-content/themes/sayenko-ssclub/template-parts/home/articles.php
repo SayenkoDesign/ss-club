@@ -64,7 +64,7 @@ if( ! class_exists( 'Articles' ) ) {
         private function get_filters() {
                         
             $terms = $this->terms;
-            
+                        
             if( empty( $terms ) ) {
                 return false;
             }
@@ -80,10 +80,7 @@ if( ! class_exists( 'Articles' ) ) {
             $order = [];
             
             foreach( $categories as $category ) {
-                if( 1 === $category->term_id || $category->parent ) {
-                    continue;
-                }
-                $order[sanitize_title_with_dashes( $category->name )] = $category->name; 
+                $order[sanitize_title_with_dashes( $category->name ) ] = $category->name; 
             }
             
             // Set the sorted order
@@ -93,8 +90,8 @@ if( ! class_exists( 'Articles' ) ) {
             $links = '<li class="active" data-filter="*">All</li>';
             
             foreach( $terms as $term ) {
-                $options .= sprintf( '<option value=".%s*">%s</option>', sanitize_title_with_dashes( $term ), $term );
-                $links   .= sprintf( '<li data-filter=".%s">%s</li>', sanitize_title_with_dashes( $term ), $term );
+                $options .= sprintf( '<option value=".category-%s*">%s</option>', sanitize_title_with_dashes( $term ), $term );
+                $links   .= sprintf( '<li data-filter=".category-%s">%s</li>', sanitize_title_with_dashes( $term ), $term );
             }
             
             $select = sprintf( '<select class="filters-select">%s</select>', $options );
@@ -124,15 +121,18 @@ if( ! class_exists( 'Articles' ) ) {
                 while ( $loop->have_posts() ) :
     
                     $loop->the_post(); 
-                    
-                    $terms =  wp_get_post_terms( get_the_ID(), 'category' );
                                         
-                    foreach( $terms as $term ) {
-                        if( 1 === $term->term_id || $term->parent ) {
-                            continue;
+                    $terms =  get_the_terms( get_the_ID(), 'category' );
+                    
+                    if( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+                        foreach( $terms as $term ) {
+                            if( in_array( $term->name, $this->terms ) || $term->parent ) {
+                                continue;
+                            }
+                            $this->terms[sanitize_title_with_dashes( $term->name )] = $term->name; 
                         }
-                        $this->terms[sanitize_title_with_dashes( $term->name )] = $term->name; 
                     }
+                    
                                         
                     $posts .= _s_get_template_part( 'template-parts', 'content-post-column', [], true );
     
