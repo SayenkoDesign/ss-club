@@ -51,7 +51,7 @@ wp-content/mysql.sql
 
 # wp core (as of 4.9.5)
 /db-config.php
-#/index.php
+/index.php
 /license.txt
 /readme.html
 /wp-activate.php
@@ -87,7 +87,10 @@ wp-content/mysql.sql
 /wp-content/themes/twentyfifteen
 /wp-content/themes/twentysixteen
 /wp-content/themes/twentyseventeen
+/wp-content/themes/twentyeighteen
+/wp-content/themes/twentynineteen
 /wp-content/themes/index.php
+!/wp-content/themes/*/index.php
 /wp-content/plugins/index.php
 /wp-content/plugins/akismet*
 
