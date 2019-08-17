@@ -27,7 +27,7 @@ if( function_exists('acf_add_options_sub_page') ) {
         'parent' 		=> 'theme-settings',
 		'capability' => 'edit_posts',
  		'redirect' 	=> false,
-        'autoload' => true,
+        'autoload' => false,
 	));
     
     acf_add_options_sub_page(array(
@@ -37,7 +37,7 @@ if( function_exists('acf_add_options_sub_page') ) {
         'parent' 		=> 'theme-settings',
 		'capability' => 'edit_posts',
  		'redirect' 	=> false,
-        'autoload' => true,
+        'autoload' => false,
 	));    
 
 }

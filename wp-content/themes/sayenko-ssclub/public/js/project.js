@@ -209,7 +209,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').addClass('window-loaded'); // Blog filters
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').addClass('window-loaded');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('article.post-background h3').matchHeight({
+      row: true
+    }); // Blog filters
 
     var detectWrap = function detectWrap(element) {
       var wrappedItems = [];
@@ -235,9 +238,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (wrappedItems.length) {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('.category-filters .categories').addClass('mobile');
-      }
-
-      if (!wrappedItems.length) {
+      } else {
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('.category-filters .categories').removeClass('mobile');
       }
 
@@ -271,6 +272,7 @@ __webpack_require__.r(__webpack_exports__);
     if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.isotope-grid').length) {
       jquery_bridget__WEBPACK_IMPORTED_MODULE_1___default()('isotope', isotope_layout__WEBPACK_IMPORTED_MODULE_2___default.a, jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
       var $grid = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".isotope-grid").isotope({
+        layoutMode: 'fitRows',
         itemSelector: ".cell",
         percentPosition: true,
         masonry: {

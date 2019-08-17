@@ -48,7 +48,7 @@ if( ! class_exists( 'Articles' ) ) {
                                  </div>', $filters );  
             
             $posts = sprintf( '<div class="grid-container full">
-                                <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xlarge-up-4 isotope-grid">
+                                <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xxxlarge-up-4 isotope-grid">
                                     %s
                                 </div>
                              </div>', $posts );  
@@ -77,6 +77,10 @@ if( ! class_exists( 'Articles' ) ) {
                 'parent' => 0
             ) );
             
+            if( is_wp_error( $categories ) || empty( $categories ) ) {
+                return false;
+            }
+            
             $order = [];
             
             foreach( $categories as $category ) {
@@ -90,12 +94,15 @@ if( ! class_exists( 'Articles' ) ) {
             $links = '<li class="active" data-filter="*">All</li>';
             
             foreach( $terms as $term ) {
+                if( 'Uncategorized' == $term ) { // Remove uncategorized
+                    continue;   
+                }
                 $options .= sprintf( '<option value=".category-%s*">%s</option>', sanitize_title_with_dashes( $term ), $term );
                 $links   .= sprintf( '<li data-filter=".category-%s">%s</li>', sanitize_title_with_dashes( $term ), $term );
             }
             
             $select = sprintf( '<select class="filters-select">%s</select>', $options );
-            $menu = sprintf( '<ul class="filters">%s</ul>', $links );
+            $menu = sprintf( '<ul class="filters menu">%s</ul>', $links );
                         
             return sprintf( '<div class="category-filters"><div class="categories">%s%s</div></div>', $select, $menu );
         }
@@ -108,7 +115,7 @@ if( ! class_exists( 'Articles' ) ) {
             $args = array(
                 'post_type' => ['post', 'case_study'],
                 'post_status' => 'publish',
-                'posts_per_page' => 24,
+                'posts_per_page' => 12,
                 'no_found_rows' => true,
             );
             

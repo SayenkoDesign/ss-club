@@ -4,6 +4,10 @@ export default {
 	init() {
 
 		$('html').addClass('window-loaded');
+        
+        
+            $('article.post-background h3').matchHeight({row:true});
+            
                     
             // Blog filters
             var detectWrap = function(element) {
@@ -30,8 +34,7 @@ export default {
                 var wrappedItems = detectWrap('.category-filters .menu');
                 if(wrappedItems.length) {
                   $('.category-filters .categories').addClass('mobile');
-                }
-                if(! wrappedItems.length) {
+                } else {
                   $('.category-filters .categories').removeClass('mobile');
                 }
                 

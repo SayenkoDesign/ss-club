@@ -10,6 +10,7 @@ export default {
             
             jQueryBridget('isotope', isotope, $);
             let $grid = $(".isotope-grid").isotope({
+              layoutMode: 'fitRows',
               itemSelector: ".cell",
               percentPosition: true,
               masonry: {

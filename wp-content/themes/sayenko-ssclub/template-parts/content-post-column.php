@@ -8,7 +8,7 @@
  */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( ['cell' ] ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( ['cell', 'post-background' ] ); ?>>
     
     <?php     
     $image = get_the_post_thumbnail_url( get_the_ID(), 'medium' );  
@@ -19,17 +19,24 @@
     
     $excerpt = '';
     if( has_excerpt() ) {
-        $excerpt = apply_filters( 'the_content', get_the_excerpt() );
+        $excerpt = get_the_excerpt();
+        $excerpt = trim( preg_replace( '/\s+/', ' ', $excerpt ) );
+        if ( strlen( $excerpt ) > 100 ){
+            $excerpt = substr($excerpt, 0, strpos($excerpt, ' ', 100) );
+            $excerpt =  $excerpt . '...';
+        }
+        
+        $excerpt = sprintf( '<div class="excerpt">%s</div>', apply_filters( 'the_content', $excerpt ) );
     }
     
     $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
    
-    printf( '%s<a href="%s" rel="bookmark">%s%s%s</a>', 
-                        $image,
+    printf( '<a href="%s" class="permalink" rel="bookmark"><div class="entry">%s%s%s</div></a>%s', 
                         get_permalink(),
                         $title,
                         $excerpt,
-                        $link
+                        $link,
+                        $image
                      );
 
     ?>

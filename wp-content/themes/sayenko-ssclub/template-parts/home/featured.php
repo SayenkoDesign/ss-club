@@ -32,6 +32,14 @@ if( ! class_exists( 'Featured' ) ) {
                      $this->get_name() . '-featured'
                 ]
             ); 
+            
+            $layout = strtolower( $this->get_fields( 'layout' ) ); 
+            
+            $this->add_render_attribute(
+                'wrapper', 'class', [
+                     'layout-' . $layout
+                ]
+            ); 
         } 
         
                    

@@ -159,14 +159,16 @@ function _s_get_primary_term( $taxonomy = 'category', $post_id = false, $args = 
 }
 
 
-add_filter('get_the_terms', 'modify_term_list', 1);
-function modify_term_list($terms){
-   foreach($terms as $term_index => $term_object){
-    if($term_object->name == 'Uncategorized'){
-        unset($terms[$term_index]);
-        return $terms;
+//add_filter('get_the_terms', 'modify_term_list', 1);
+function modify_term_list( $terms ){
+    if (!is_admin() && is_array($terms)) {
+        foreach($terms as $term_index => $term_object){
+            if($term_object->name == 'Uncategorized'){
+                unset($terms[$term_index]);
+                return $terms;
+            }       
+        }
     }
-   }
 }
 
 
@@ -457,6 +459,57 @@ function _s_getarchives_where_filter( $where , $r ) {
 } 
 add_filter( 'getarchives_where' , '_s_getarchives_where_filter' , 10 , 2 ); 
 
+
+
+
+add_filter( 'query_vars', function ( $vars ) {
+
+    $query_vars = [
+        '_category'  
+    ];
+    $vars = array_merge( $vars, $query_vars );
+
+    return $vars;
+
+});
+
+
+add_filter( 'get_archives_link', function ( $link_html ) {
+
+    if( is_category() ) {
+
+        preg_match ( "/href='(.+?)'/", $link_html, $url );
+
+        $old_url = $url[1];
+        $new_url = add_query_arg( ['_category' => get_queried_object_id() ], $old_url );
+        $link_html = str_replace( $old_url, $new_url, $link_html );
+
+    } else if( get_query_var( '_category' ) ) {
+        preg_match ( "/href='(.+?)'/", $link_html, $url );
+
+        $old_url = $url[1];
+        $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
+        $new_url = add_query_arg( ['_category' => $cat_id ], $old_url );
+        $link_html = str_replace( $old_url, $new_url, $link_html );
+    }
+
+    return $link_html;
+
+});
+
+add_action( 'pre_get_posts', function ( $q ) {
+
+    $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
+    if(     !is_admin() // Target only the front end
+         && $q->is_main_query() // Target only the main query
+         && $q->is_date() // Only target the date archive pages
+         && $cat_id // Only run the condition if we have a valid ID
+    ) {
+
+        $q->set( 'cat', $cat_id );
+
+    }
+});
 
 
 

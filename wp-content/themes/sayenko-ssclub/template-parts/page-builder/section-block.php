@@ -86,7 +86,7 @@ if( ! class_exists( 'Block_Section' ) ) {
             $cells .= sprintf( '<div class="cell%s">%s%s</div>', $columns, $this->get_fields( 'editor' ), $button  );
                                                 
             return sprintf( '<div class="grid-container">
-                                <div class="grid-x grid-margin-x">
+                                <div class="grid-x grid-padding-x">
                                 %s
                                 </div>
                             </div>',
