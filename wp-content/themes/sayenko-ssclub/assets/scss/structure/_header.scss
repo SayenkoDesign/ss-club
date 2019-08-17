@@ -23,7 +23,7 @@ Header
 .site-header {
         
     @include breakpoint(large down) {
-        .site-title {
+        .site-branding .site-title {
             width: rem-calc(249);
         }
     }

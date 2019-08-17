@@ -65,6 +65,13 @@
                     </button>
                     
                     
+                    <div class="site-title">
+                        <?php
+                            printf('<img src="%slogo-white.svg" alt="site logo" class="logo-white" />', trailingslashit( THEME_IMG ) );
+                        ?>
+                    </div>
+                    
+                    
                     <nav class="nav-primary" role="navigation" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement">  
                         <?php
                         

@@ -31,12 +31,12 @@
     
     $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
    
-    printf( '<a href="%s" class="permalink" rel="bookmark"><div class="entry">%s%s%s</div></a>%s', 
+    printf( '%s<a href="%s" class="permalink" rel="bookmark"><div class="entry">%s%s%s</div></a>', 
+                        $image,
                         get_permalink(),
                         $title,
                         $excerpt,
-                        $link,
-                        $image
+                        $link
                      );
 
     ?>

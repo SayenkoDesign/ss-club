@@ -36,6 +36,7 @@
                 background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.5) 100%);
                 opacity: 1;
                 visibility: visible;
+                z-index: 1;
             }
         }
         
@@ -46,9 +47,10 @@
             left: 0;
             height: 100%;
             width: 100%; 
-            //opacity: 0;
-            //visibility: hidden; 
+            opacity: 0;
+            visibility: hidden; 
             transition: opacity .2s ease-out,visibility .2s ease-out;
+            z-index: -1;
         }
         
         .entry {

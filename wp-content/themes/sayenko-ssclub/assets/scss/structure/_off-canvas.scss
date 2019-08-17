@@ -1,5 +1,14 @@
 // Off Canvas
 
 #site-navigation .off-canvas.position-left {
-    padding-top: rem-calc(200);
+    
+    .close-button {
+        color: #fff;   
+    }
+    
+    .site-title {
+        background-color: $blue;
+        padding: rem-calc(16 40 16 16);
+        margin-bottom: rem-calc(40);
+    }
 }

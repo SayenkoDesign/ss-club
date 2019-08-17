@@ -86,7 +86,7 @@ if( ! class_exists( 'Featured' ) ) {
             }
             
             $title = sprintf( '<a href="%s" rel="bookmark">%s</a>', get_permalink( $_post ), get_the_title( $_post ) );
-            $title = _s_format_string( $title, 'h2' );
+            $title = _s_format_string( $title, 'h2', [ 'class' => 'h1' ] );
             
             $excerpt = apply_filters( 'the_content', get_the_excerpt( $_post ) );
             

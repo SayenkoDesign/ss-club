@@ -32,6 +32,11 @@ section {
     margin-right: auto;
 }
 
+button,
+input[type="submit"] {
+    cursor: pointer;   
+}
+
 input[type="search"] {
 	 @include box-sizing(border-box);
 }
