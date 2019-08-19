@@ -4,52 +4,75 @@
 .share-icons {
     
     $share-icon-size: 48;
-
-	margin: 0 auto 40px;
-	vertical-align: middle;
-	
-	li {
-		list-style-type: none;
-		display: inline-block;
-		margin: 0 0 0 15px;
-		vertical-align: middle;
-		
-		&:first-child {
-			margin-left: 0;	
-		}
-		
-		a {
-			width: #{$share-icon-size}px;
-			height: #{$share-icon-size}px;
-			display: block;
-			position: relative;
-            background-color: rgba(#010717, .1);
-            border-radius: 50%;
-            transition: 250ms;
-
-            &:hover {
-			    background-color: #010717;
-				border-radius: 50%;
-
-				&:hover {
-					svg {
-						fill: $white;
-					}
-				}
-			}
-		}
-		
-		svg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 28px;
-			height: auto;
-			fill: $dark-gray;
-            transform: translate(-50%,-50%); 
-        }
-	
-		
-	}
     
+    @include list-reset;
+    height: #{$share-icon-size}px;
+    margin-bottom: rem-calc(30);
+
+    li {
+        display: inline-block;
+        padding: 0;
+        height: #{$share-icon-size}px;        
+    }
+    
+    a {
+        transition: 250ms;
+        width: #{$share-icon-size}px;
+        height: #{$share-icon-size}px;
+        display: block;
+        position: relative;
+        
+        &.a2a_button_facebook {
+            background-color: #3C5A99; 
+            &:hover {
+                background-color: scale-color(#3C5A99, $lightness: 10%);   
+            }
+        }
+        
+        &.a2a_button_twitter {
+            background-color: #1DA1F2; 
+            &:hover {
+                background-color: scale-color(#1DA1F2, $lightness: 10%);   
+            }
+        }
+        
+        &.a2a_button_linkedin {
+            background-color: #0077b5;
+            &:hover {
+                background-color: scale-color(#0077b5, $lightness: 10%);   
+            }
+        }
+
+        &:hover {
+            svg {
+                fill: $white;
+            }
+        }
+    }
+
+    svg {
+        width: 28px;
+        height: auto;
+        fill: $white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+}
+
+
+.share-icons {
+    
+    @include breakpoint(large) {
+        
+        position: fixed;
+        top: 25%;
+        right: 0;
+        
+        li {
+            display: block;   
+        }
+    }   
 }

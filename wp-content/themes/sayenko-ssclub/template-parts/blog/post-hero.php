@@ -15,11 +15,11 @@ if( ! class_exists( 'Hero_Post' ) ) {
             $fields = get_field( 'hero' );
             $this->set_fields( $fields );
                                     
-            if( empty( $this->get_fields( 'background_image' ) ) )  {
+            if( empty( $this->get_fields( 'image' ) ) )  {
                 return false;
             }
             
-            if( 'Wide' != $this->get_fields( 'layout' ) )  {
+            if( 'wide' != strtolower( $this->get_fields( 'layout' ) ) )  {
                 return false;
             }
             
@@ -38,34 +38,21 @@ if( ! class_exists( 'Hero_Post' ) ) {
                      $this->get_name() . '-hero'
                 ]
             );
-            
-            
-            
-            $background_image = $this->get_fields( 'background_image' );
-            
-            if( empty( $background_image ) ) {
-                return false;
-            }
-            
-            $background_image = _s_get_acf_image( $background_image, 'hero', true );
-            
-            $background_position_x  = strtolower( $this->get_fields( 'background_position_x' ) ) ?: 'center';
-            $background_position_y  = strtolower( $this->get_fields( 'background_position_y' ) ) ?: 'center';
-            $background_overlay     = $this->get_fields( 'background_overlay' );
-            
-            $this->add_render_attribute( 'wrapper', 'class', 'has-background' );
-            $this->add_render_attribute( 'wrapper', 'class', 'background-image' );
-            $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-image: url(%s);', $background_image ) );
-            $this->add_render_attribute( 'wrapper', 'style', sprintf( 'background-position: %s %s;', 
-                                                                      $background_position_x, $background_position_y ) );
-                                                                          
+                                                      
         }
 
         
         // Add content
         public function render() {
             
-            return '<div class="spacer"></div>';
+            $image = $this->get_fields( 'image' );
+            
+            if( empty( $image ) ) {
+                return false;
+            }
+            
+            return _s_get_acf_image( $image, 'hero' );
+            
         }
     }
 }

@@ -72,13 +72,17 @@ if( ! class_exists( 'Block_Section' ) ) {
             $button = $this->get_fields( 'button' );
             
             if( ! empty( $button['link'] ) ) {
-                                
+                
+                $style = empty( $button['style'] ) ? '' : $button['style'];
+                        
                 $args = [
                     'link' => $button['link'],
                     'echo' => false,
-                    'classes' => 'Button' == $button['style'] ? 'button' : 'button',
+                    'classes' => 'Button' == $style ? 'button' : 'button',
                 ];
                 $button  = sprintf( '<p class="button-wrapper">%s</p>', _s_acf_button( $args ) );
+            } else {
+                $button = '';   
             }
             
             

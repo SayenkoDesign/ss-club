@@ -212,6 +212,10 @@ __webpack_require__.r(__webpack_exports__);
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').addClass('window-loaded');
     jquery__WEBPACK_IMPORTED_MODULE_0___default()('article.post-background h3').matchHeight({
       row: true
+    }); //$('.slider article').matchHeight({row:true});
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slider article h3').matchHeight({
+      row: true
     }); // Blog filters
 
     var detectWrap = function detectWrap(element) {

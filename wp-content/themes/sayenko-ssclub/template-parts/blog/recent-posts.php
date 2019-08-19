@@ -99,16 +99,16 @@ if( ! class_exists( 'Recent_Posts' ) ) {
         
         
         // Related posts query args based on categories
-        private function _s_get_recent_posts_query_args( $related_count = 24, $args = array() ) {
+        private function _s_get_recent_posts_query_args( $post_count = 24, $args = array() ) {
             
             $default_args = array(
                 'post_type' => [ 'post', 'case_study' ],
-                'posts_per_page' => $related_count,
+                'posts_per_page' => $post_count,
                 'post_status' => 'publish',
                 'no_found_rows' => true,
                 'fields' => 'ids',
-                'meta_key' => 'post_author',
-                'meta_value'  => get_the_ID()
+                'meta_key' => 'views',
+                'orderby'  => 'meta_value_num comment_count date'
                 
             );
             

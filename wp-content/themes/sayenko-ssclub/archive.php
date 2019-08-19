@@ -22,7 +22,8 @@ get_header(); ?>
     
         <main id="main" class="site-main" role="main">
                    
-            <?php            
+            <?php 
+                       
             $args = array(
                 'type'            => 'monthly',
                 'limit'           => '10',
@@ -36,16 +37,22 @@ get_header(); ?>
             );
             
             // Date/Category for filters
-            
+            $all_class = false;
+            $title = '';
             if( is_date() && get_query_var( '_category' ) ) {
                 $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
                 $all = get_category_link( $cat_id );
+                $title = sprintf( '<h1>%s</h1>', get_cat_name( $cat_id ) );
             } else if( is_category() ) {
                 $all = get_category_link( get_queried_object_id() );
+                $all_class = true;
+                $title = sprintf( '<h1>%s</h1>', single_cat_title( '', '' ) );
             } else {
                 $all = get_permalink( get_option( 'page_for_posts' ) );   
+                $all_class = true;
+                $title = sprintf( '<h1>%s</h1>', get_the_title( get_option( 'page_for_posts' ) ) );
             }
-            
+                        
             $select = sprintf( '<select class="filters-select" onchange="if (this.value) window.location.href=this.value">
                                     <option value="%s">%s</option>%s
                                 </select>', 
@@ -65,18 +72,24 @@ get_header(); ?>
                 'order'           => 'DESC',
                 'post_type'     => 'post'
             );
-            $menu = sprintf( '<ul class="menu filters"><li><a href="%s">%s</a></li>%s</ul>', $all, __( 'All' ), _s_get_archives( $args ) );             
+            $menu = sprintf( '<ul class="menu filters"><li%s><a href="%s">%s</a></li>%s</ul>', 
+                              $all_class ? ' class="current-archive"' : '',
+                              $all, 
+                              __( 'All' ), 
+                              _s_get_archives( $args ) );             
 
                               
             printf( '<div class="grid-container">
                         <div class="grid-x grid-margin-x">
                             <div class="cell">
+                                %s
                                 <div class="category-filters">
                                     <div class="categories">%s%s</div>
                                 </div>
                             </div>
                        </div> 
                     </div>', 
+                                $title,
                                 $select, 
                                 $menu 
                   );

@@ -7,6 +7,8 @@ export default {
         
         
             $('article.post-background h3').matchHeight({row:true});
+            //$('.slider article').matchHeight({row:true});
+            $('.slider article h3').matchHeight({row:true});
             
                     
             // Blog filters

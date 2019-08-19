@@ -33,7 +33,7 @@ function _s_get_social_icons( $profiles = array(), $post_id = 'options' ) {
         $icon = get_svg( $type );
         
         if( !empty( $icon ) ) {
-			$out .= sprintf( '<li class="social-icon"><a href="%s" title="%s">%s</a></li>', $url, ucwords( $type ), $icon );
+			$out .= sprintf( '<li class="social-icon"><a href="%s" class="%s" title="%s">%s</a></li>', $url, $type, ucwords( $type ), $icon );
 		}
 	}
 	

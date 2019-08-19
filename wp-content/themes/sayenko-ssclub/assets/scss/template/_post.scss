@@ -3,12 +3,11 @@
 .single-post {
         
     .section-hero {        
-        padding-top: 38.1944444%;
-        
-        @include breakpoint(1900) {
-            //padding-top: 28%;
+        img {
+            margin: 0 auto;   
         }
         
+       
     }
     
     .content-area {
@@ -18,8 +17,45 @@
     }
                 
     article {
-                        
-        .entry-content {
+        
+        .entry-header {
+            text-align: center;   
+            margin-top: rem-calc(50);
+            
+            .post-categories {
+                @include list-reset;
+                margin-bottom: rem-calc(15);
+                
+                li {
+                    display: inline-block;
+                    margin-bottom: rem-calc(10);   
+                }
+                
+                a {
+                    color: #252B33;
+                    font-family: $playfair;
+                    font-size: rem-calc(15);
+                    line-height: 1.666666667;
+                    text-align: center;
+                    text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+                    text-transform: uppercase;
+                }
+            }
+            
+            h2 {
+                marghin-bottom: rem-calc(30);   
+            }
+            
+            .entry-author {
+                font-family: $nunito;
+                font-size: rem-calc(20);
+                line-height: 1.45;
+                margin-bottom: rem-calc(10);
+                
+                a {
+                    color: $gray;   
+                }
+            }
             
             .posted-on {
                 margin-top: rem-calc(25);
@@ -27,8 +63,18 @@
                 font-family: $nunito;
                 font-size: rem-calc(15);
                 line-height: 1.333333333;
+                text-align: center;
             }
-            
+        }
+        
+        .post-hero {
+            margin-top: rem-calc(40);   
+        }
+                        
+        .entry-content {   
+        
+            margin-top: rem-calc(40);   
+                    
             img {
                 box-shadow: $box-shadow;              
             }
@@ -37,6 +83,14 @@
                 img {
                     margin-bottom: $global-margin;   
                 }
+            }
+            
+            p.has-drop-cap:not(:focus):first-letter {
+               font-family: $playfair;
+               font-size: rem-calc(76);
+               line-height:.68;
+               font-weight: 700;
+               margin:.05em .1em 0 0;
             }
             
             @include breakpoint(xxlarge) {

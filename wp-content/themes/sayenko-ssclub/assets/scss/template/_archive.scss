@@ -20,19 +20,14 @@ $nav-arrow-color-hover: $blue;
 }
 
 .archive {
-    
-    .section-hero {
-        background-color: $blue;
-        padding-top: rem-calc(35);
         
-        h1 {
-            color: #fff;   
-        }
-    }
-    
     .site-main {
         padding-top: rem-calc(75);
-        padding-bottom: rem-calc(45);   
+        padding-bottom: rem-calc(15);   
+        
+        h2 {
+            text-align: center;   
+        }
     }
     
     .grid {
@@ -165,7 +160,7 @@ $nav-arrow-color-hover: $blue;
 
 
 .category-filters {
-    margin-bottom: rem-calc(40);   
+    margin-bottom: rem-calc(10);   
 }
 
 .category-filters .categories {
@@ -180,6 +175,7 @@ $nav-arrow-color-hover: $blue;
         
         @include breakpoint(medium-large) {
             display: flex;
+            justify-content: center;
         }
                 
         margin: rem-calc(0 -12);
@@ -188,17 +184,39 @@ $nav-arrow-color-hover: $blue;
             padding: rem-calc(6 12);  
             
             a {
-                color: $dark-gray;  
-                letter-spacing: 0.3px;
-                font-size: rem-calc(17); 
+                color: $black;
+                font-size: rem-calc(15);
+                letter-spacing: 0.26px;
+                line-height: 1.2;
+                text-transform: uppercase;
                 
-                &:hover {
-                    color: $blue;   
-                }
+                .no-touchevents & {
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: 0;
+                        height: rem-calc(2);
+                        background-color: $black;   
+                        transition: width .3s; 
+                        margin-top: 3px;
+                    }
+                    
+                    &:hover:after {
+                        width: 100%;
+                    }
+                }                
             }
             
-            &.current-menu-item a {
-                color: $blue;   
+            &.current-menu-item a,
+            &.current-archive a,
+            &.active a {
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: rem-calc(2);
+                    background-color: $black;   
+                } 
             }
         }
     }

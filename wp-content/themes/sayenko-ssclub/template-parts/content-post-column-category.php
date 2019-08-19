@@ -15,7 +15,7 @@
     if( ! is_wp_error( $category ) && ! empty( $category ) ) {
         $first_letter = $category->name[0];
         $category_icon = sprintf( '<span class="category-letter">%s</span>', $first_letter );
-        $category = sprintf( '<div class="entry-category"><a href="%s">%s &mdash; %s</a></div>', get_term_link( $category ), $category_icon, $category->name );
+        $category = sprintf( '<div class="entry-category"><a href="%s">%s &nbsp;&mdash;&nbsp; %s</a></div>', get_term_link( $category ), $category_icon, $category->name );
     }
     
     $title = get_the_title();
@@ -28,16 +28,13 @@
     if( has_excerpt() ) {
         $excerpt = apply_filters( 'the_content', get_the_excerpt() );
     }
-    
-    $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
-   
-    printf( '<a href="%s" rel="bookmark">%s%s%s%s%s</a>', 
-                        get_permalink(),
+       
+    printf( '<div class="panel">%s<a href="%s" rel="bookmark"></a><div class="entry">%s%s%s</div></div>', 
                         $category,
+                        get_permalink(),
                         $title,
                         $date,
-                        $excerpt,
-                        $link
+                        $excerpt
                      );
 
     ?>

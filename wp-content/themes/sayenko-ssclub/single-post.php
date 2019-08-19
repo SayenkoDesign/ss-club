@@ -32,4 +32,6 @@ _s_get_template_part( 'template-parts/blog', 'post-hero' );
 
 <?php
 
+_s_get_template_part( 'template-parts/blog', 'recent-posts' );
+
 get_footer();

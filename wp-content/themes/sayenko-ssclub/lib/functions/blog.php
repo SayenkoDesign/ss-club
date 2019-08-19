@@ -128,7 +128,7 @@ function _s_get_the_post_navigation( $args = array() ) {
  *
  * @return   WP_Term|bool  The term object or false if no terms.
  */
-function _s_get_primary_term( $taxonomy = 'category', $post_id = false, $args = false ) {
+function _s_get_primary_term( $taxonomy = 'category', $post_id = false ) {
 	// Bail if no taxonomy.
 	if ( ! $taxonomy ) {
 		return false;
@@ -149,6 +149,7 @@ function _s_get_primary_term( $taxonomy = 'category', $post_id = false, $args = 
 	}
 	// We don't have a primary, so let's get all the terms.
 	$terms = get_the_terms( $post_id, $taxonomy );
+    
 	// Bail if no terms.
 	if ( ! $terms || is_wp_error( $terms ) ) {
 		return false;
@@ -479,23 +480,53 @@ add_filter( 'get_archives_link', function ( $link_html ) {
     if( is_category() ) {
 
         preg_match ( "/href='(.+?)'/", $link_html, $url );
-
-        $old_url = $url[1];
-        $new_url = add_query_arg( ['_category' => get_queried_object_id() ], $old_url );
-        $link_html = str_replace( $old_url, $new_url, $link_html );
+        $old_url = '';
+        if( ! empty( $url[1] ) ) {
+            $old_url = $url[1];
+            $new_url = add_query_arg( ['_category' => get_queried_object_id() ], $old_url );
+            $link_html = str_replace( $old_url, $new_url, $link_html );
+        }
 
     } else if( get_query_var( '_category' ) ) {
         preg_match ( "/href='(.+?)'/", $link_html, $url );
-
-        $old_url = $url[1];
-        $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
-        $new_url = add_query_arg( ['_category' => $cat_id ], $old_url );
-        $link_html = str_replace( $old_url, $new_url, $link_html );
+        
+        if( ! empty( $url[1] ) ) {
+            $old_url = $url[1];
+            $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
+            $new_url = add_query_arg( ['_category' => $cat_id ], $old_url );
+            $link_html = str_replace( $old_url, $new_url, $link_html );
+        }
     }
 
     return $link_html;
 
 });
+
+
+/* Add a class to the archive link if it is the current one
+   so we can, e.g. highlight it */
+
+function _s_get_archives_link( $link_html, $url ) {
+    	
+   global $wp;
+
+   static $current_url;
+		
+    if( empty( $current_url ) ) {
+        $current_url = add_query_arg( $_SERVER['QUERY_STRING'], '', trailingslashit( home_url( $wp->request) ) );
+    }
+
+    if ( strpos( $current_url, $url ) !== false ) {
+        
+        $link_html = str_replace( '<li', '<li class="current-archive"', $link_html );
+    }
+        
+    return $link_html;
+}
+
+/* and of course you need to add the following hook */
+add_filter('get_archives_link', '_s_get_archives_link', 2, 10 );
+
 
 add_action( 'pre_get_posts', function ( $q ) {
 
@@ -512,7 +543,7 @@ add_action( 'pre_get_posts', function ( $q ) {
 });
 
 
-
+// Add Post Author to Posts Edit Screen
 add_filter('manage_posts_columns', 'wpse_3531_add_seo_columns', 10, 2);
 function wpse_3531_add_seo_columns($posts_columns, $post_type)
 {
@@ -533,88 +564,4 @@ function wpse_3531_display_seo_columns($column_name, $post_id)
             printf( '<a href="%s">%s</a>', admin_url( sprintf( 'post.php?post=%s&action=edit', $post_author ) ), get_the_title( $post_author ) );
         }
     }
-}
-
-
-/**
- * Filter slugs
- * @since 1.1.0
- * @return void
- */
-/**
- * Add extra dropdowns to the List Tables
- *
- * @param required string $post_type    The Post Type that is being displayed
- */
-//add_action('restrict_manage_posts', 'add_extra_tablenav');
-function add_extra_tablenav($post_type){
-
-    global $wpdb;
-
-    /** Ensure this is the correct Post Type*/
-    if($post_type !== 'post')
-        return;
-
-    $results = [];
-    
-    /** Grab the results from the DB */
-    $results = $wpdb->get_col( $wpdb->prepare( "
-        SELECT ID FROM {$wpdb->posts}
-        WHERE post_status = '%s' 
-        AND post_type = '%s'
-    ", 'publish', 'post_author' ) );
-
-    /** Ensure there are options to show */
-    if(empty($results))
-        return;
-    
-    if( empty( $results ) ) {
-        return false;
-    }
-
-    // get selected option if there is one selected
-    if (isset( $_GET['post-author'] ) && $_GET['post-author'] != '') {
-        $selected = $_GET['post-author'];
-    } else {
-        $selected = -1;
-    }
-
-    /** Grab all of the options that should be shown */
-    $options[] = sprintf('<option value="">%1$s</option>', __('All Post Authors', '_s'));
-    foreach($results as $key ) :
-        if ( $key == $selected ) {
-            $options[] = sprintf('<option value="%1$s" selected>%2$s</option>', absint( $key ), get_the_title( $key ) );
-        } else {
-            $options[] = sprintf('<option value="%1$s">%2$s</option>', absint( $key ), get_the_title( $key ) );
-        }
-    endforeach;
-
-    /** Output the dropdown menu */
-    echo '<select class="" id="post-author" name="post-author">';
-    echo join("\n", $options);
-    echo '</select>';
-
-}
-
-/**
- * Update query
- * @since 1.1.0
- * @return void
- */
-//add_filter( 'parse_query', 'prefix_parse_filter' );
-function  prefix_parse_filter($query) {
-   global $pagenow;
-   $current_page = isset( $_GET['post_type'] ) ? $_GET['post_type'] : '';
-
-   if ( is_admin() && 
-     'post' == $current_page &&
-     'edit.php' == $pagenow && 
-      isset( $_GET['post-author'] ) && 
-      $_GET['post-author'] != '') {
-
-    $post_author = $_GET['post-author'];
-    $query->query_vars['meta_key'] = 'post-author';
-    $query->query_vars['meta_value'] = $post_author;
-    $query->query_vars['meta_compare'] = '=';
-  }
 }

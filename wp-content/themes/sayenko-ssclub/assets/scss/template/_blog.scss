@@ -31,45 +31,73 @@
             padding-top: 95%;
         }
         
-        &:hover {
-            .permalink {
-                background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.5) 100%);
-                opacity: 1;
-                visibility: visible;
-                z-index: 1;
+        @include breakpoint(xlarge) {
+            .no-touchevents & {
+                &:hover {
+                    .permalink {
+                        background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.5) 100%);
+                        opacity: 1;
+                        visibility: visible;
+                        z-index: 1;
+                    }
+                }
             }
         }
         
         .permalink {
             display: block;
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
-            height: 100%;
             width: 100%; 
-            opacity: 0;
-            visibility: hidden; 
-            transition: opacity .2s ease-out,visibility .2s ease-out;
-            z-index: -1;
+            background: rgba(0,0,0,0.5);
+            
+            @include breakpoint(xlarge) {
+                .no-touchevents & {
+                    background: transparent;
+                    top: 0;
+                    left: 0;
+                    height: 100%;
+                    opacity: 0;
+                    visibility: hidden; 
+                    transition: opacity .2s ease-out,visibility .2s ease-out;
+                    z-index: -1;
+                }
+            }
         }
         
         .entry {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            padding: rem-calc(40 40 40 40); 
-            position: relative;   
+            position: relative;  
+            padding: rem-calc(20);
+             
+            @include breakpoint(xlarge) {
+                .no-touchevents & {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    padding: rem-calc(40 40 40 40); 
+                }
+            }
         }
         
-        @include breakpoint(large down) {
-            .excerpt {
-                display: none;   
+        .excerpt {
+            display: none;  
+            
+            @include breakpoint(xxlarge) {
+                .no-touchevents & {
+                    display: block;   
+                }
             }
         }
                 
         h3 {
             color: #FFFFFF;
-            margin-bottom: rem-calc(30);
+            margin-bottom: 0;
+            @include breakpoint(xxlarge) {
+                .no-touchevents & {
+                    margin-bottom: rem-calc(30);
+                }
+            }
         }
         
         p {
@@ -77,13 +105,146 @@
         }
         
         span {
-            margin-top: auto;
-            color: #FFFFFF;
-            font-family: $nunito;
-            font-size: rem-calc(15);
-            line-height: 1.333333333;
-            text-transform: uppercase;
+            
+            display: none;  
+            
+            @include breakpoint(xxlarge) {
+                .no-touchevents & {
+                    display: block; 
+                    margin-top: auto;
+                    color: #FFFFFF;
+                    font-family: $nunito;
+                    font-size: rem-calc(15);
+                    line-height: 1.333333333;
+                    text-transform: uppercase;  
+                }
+            }
+            
+            
         }
     }
 
+}
+
+
+.slider {
+    
+    margin-bottom: rem-calc(100);
+    
+    @include breakpoint(xxlarge) {
+        .slick-next {
+            right: -100px!important;
+        }
+        
+        .slick-prev {
+            left: -100px!important;
+        }
+    }
+    
+    
+    .slick-track {
+        margin: 0 rem-calc(map-get($grid-margin-gutters, large)/2 * -1);
+        
+        .slick-slide {
+            padding-bottom: rem-calc(30);   
+        }
+    }
+    
+    .cell{
+                
+        margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+        padding: rem-calc(map-get($grid-margin-gutters, small)/2);
+        
+        @include breakpoint(large) {
+            margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+            padding: rem-calc(map-get($grid-margin-gutters, large)/2);
+        }      
+        
+    }
+    
+    .panel {
+        border: 1px solid #D7D5D5;
+        border-radius: 2px;
+        background-color: #FFFFFF;
+        height: 100%;
+        padding: rem-calc(40 0 0);
+        
+        position: relative;
+        
+        > a {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;   
+        }
+    }
+    
+    .slick-slide:hover {
+        .panel {
+            box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);   
+        }
+    }
+    
+    article {
+        height: 100%;
+    }
+    
+    .entry-category {
+        
+        padding: rem-calc(0 30);
+                
+        a {
+            color: #252B33;
+            display: inline-block;
+            font-family: $playfair;
+            font-size: rem-calc(15);
+            line-height: 1.666666667;
+            text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .category-letter {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 2px;
+            background: $blue;
+            
+            color: #FFFFFF;
+            font-family: $playfair;
+            font-size: 23px;
+            font-weight: bold;
+            line-height: 40px;
+            text-align: center;
+        }
+    }
+    
+    .entry {
+        padding: rem-calc(30 30 40);      
+        
+        &:hover {
+            h3 {
+                color: $blue;   
+            }
+        }
+    }
+    
+    h3 {
+       margin-bottom: 0;
+    }
+    
+    .entry-meta {
+        padding-top: rem-calc(20);   
+        margin-bottom: rem-calc(30); 
+    }
+    
+    p {
+        color: $dark-gray;
+        
+        &:last-child {
+            margin-bottom: 0;   
+        }
+    }
 }
