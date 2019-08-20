@@ -50,7 +50,7 @@ Header
 .site-header {
     
     .wrap {
-        max-width: $global-width;
+        max-width: rem-calc(1440);
         margin: 0 auto;  
         position: relative;
         
@@ -60,6 +60,11 @@ Header
         @include breakpoint(xlarge) {
             padding-left: rem-calc(map-get($grid-column-gutter, large)/2 + 36px); 
             padding-right: rem-calc(map-get($grid-column-gutter, large)/2 + 36px); 
+        }   
+        
+        @include breakpoint(xxxlarge) {
+            padding-left: rem-calc(map-get($grid-column-gutter, large)/2 + 72px); 
+            padding-right: rem-calc(map-get($grid-column-gutter, large)/2 + 72px); 
         }        
     }
 

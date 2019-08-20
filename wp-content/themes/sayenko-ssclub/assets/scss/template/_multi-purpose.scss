@@ -2,12 +2,18 @@
 
 .template-multi-purpose {
     
-    .section-hero {
-        padding-top: rem-calc(35);
+    .entry-header {
+        h1 {
+            margin-bottom: 0;   
+        }
+    }
+    
+    .site-main {
+        padding-bottom: 0;   
     }
     
     main section:nth-child(even) {
-        background-color: $light-gray;    
+        background-color: #EFF3F1;  
     }
     
     .section-block {
@@ -43,6 +49,10 @@
             
             .button-wrapper {
                 padding-top: rem-calc(25); 
+            }
+            
+            img {
+                border-radius: 1px;   
             }
         }
     }

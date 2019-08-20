@@ -20,7 +20,7 @@
             
             <?php 
             if( is_active_sidebar( 'footer' ) ) {
-                echo '<div class="grid-x grid-padding-x align-center align-middle">';
+                echo '<div class="grid-x grid-padding-x align-middle">';
                 dynamic_sidebar( 'footer' );
                 echo '</div>';
             }

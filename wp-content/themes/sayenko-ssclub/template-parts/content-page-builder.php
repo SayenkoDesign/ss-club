@@ -1,3 +1,17 @@
+
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">    
+        <div class="cell large-auto">
+            <header class="entry-header">
+                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+            </header><!-- .entry-header -->
+        </div>
+    </div>
+</div>
+
+<div class="entry-content">
+
+
 <?php
 
 if ( have_rows('sections') ) {
@@ -13,3 +27,5 @@ if ( have_rows('sections') ) {
     
 
 } // endif have_rows('sections')
+?>
+</div>
