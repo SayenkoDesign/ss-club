@@ -11,7 +11,8 @@ if( ! class_exists( 'Featured' ) ) {
         public function __construct() {
             parent::__construct();
               
-            $fields = get_field( 'featured_post' );           
+            $fields = get_field( 'featured_post' );   
+                             
             $this->set_fields( $fields );
             
             $settings = [];
@@ -59,8 +60,8 @@ if( ! class_exists( 'Featured' ) ) {
             } else {
                 return sprintf( '<div class="grid-container">
                                     <div class="grid-x grid-margin-x">
-                                        <div class="cell">%s</div>
-                                        <div class="cell">%s</div>
+                                        <div class="cell large-auto">%s</div>
+                                        <div class="cell large-4">%s</div>
                                     </div>
                                  </div>',
                                 $featured_post,
@@ -94,7 +95,7 @@ if( ! class_exists( 'Featured' ) ) {
             
             if( ! empty( $post_author ) ) {
                 if( is_string( get_post_status( $post_author ) ) ) {
-                    $post_author = sprintf( '<div class="entry-author"><a href="%s">%s</a></div>', get_permalink( $post_author ), get_the_title( $post_author ) );
+                    $post_author = sprintf( '<div class="entry-author"><a href="%s">By %s</a></div>', get_permalink( $post_author ), get_the_title( $post_author ) );
                 }
             }
             
@@ -107,7 +108,7 @@ if( ! class_exists( 'Featured' ) ) {
                 $grid_close = '</div></div></div>';
             }
                        
-            return sprintf( '%s%s<div class="post">%s%s%s</div>%s', 
+            return sprintf( '<div class="posts featured">%s%s<div class="post">%s%s%s</div>%s</div>', 
                                 $image,
                                 $grid_open,
                                 $title,
@@ -126,11 +127,19 @@ if( ! class_exists( 'Featured' ) ) {
             $cell_close = '';
             $layout = strtolower( $this->get_fields( 'layout' ) );
             
+            $heading = sprintf( '<h2>%s</h2>', __( 'Trending Articles' ) );
+            
             if( 'wide' == $layout ) {
-                $grid_open = '<div class="grid-container"><div class="grid-x grid-margin-x small-up-1 medium-up-3">';
+                $grid_open = '<div class="grid-container full"><div class="grid-x grid-margin-x small-up-1 medium-large-up-3">';
                 $grid_close = '</div></div>';
                 $cell_open = '<div class="cell">';
                 $cell_close = '</div>';
+                
+                $heading = sprintf( '<div class="grid-container">
+                                        <div class="grid-x grid-margin-x">
+                                            <div class="cell text-right">%s</div>
+                                        </div>
+                                     </div>', $heading );
             }
             
             
@@ -170,13 +179,15 @@ if( ! class_exists( 'Featured' ) ) {
             
             
             
-            return sprintf( '<div class="posts trending">%s%s%s</div>', 
+            return sprintf( '<div class="posts trending">%s%s%s%s</div>', 
+                           $heading,
                            $grid_open,
                            $posts, 
                            $grid_close
                          );
             
         }
+        
         
         private function get_post( $number = 0 ) {
             
@@ -188,7 +199,7 @@ if( ! class_exists( 'Featured' ) ) {
             
             $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
            
-            return sprintf( '<div class="post"><a href="%s" rel="bookmark">%s<span class="number">%s</span>%s%s</a></div>', 
+            return sprintf( '<div class="post"><a href="%s" rel="bookmark">%s<div class="number"><span>%s</span></div><div class="entry">%s%s</div></a></div>', 
                                 get_permalink(),
                                 $image,
                                 $number, 

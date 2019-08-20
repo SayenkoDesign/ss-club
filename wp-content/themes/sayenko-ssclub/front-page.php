@@ -27,6 +27,8 @@ get_header(); ?>
 
             _s_get_template_part( 'template-parts/home', 'featured' );
             
+            _s_get_template_part( 'template-parts/home', 'case-study' );
+            
             _s_get_template_part( 'template-parts/home', 'articles' );
                                             
         endwhile;       
