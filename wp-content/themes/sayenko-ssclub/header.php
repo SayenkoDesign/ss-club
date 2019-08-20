@@ -71,12 +71,29 @@
                         ?>
                     </div>
                     
+                    <?php
+                    if( has_nav_menu( 'copyright' ) ) {
+                        $args = array( 
+                        'theme_location'  => 'off-canvas', 
+                        'container'       => false,
+                        'echo'            => false,
+                        'items_wrap'      => '%3$s',
+                        'link_before'     => '<span>',
+                        'link_after'      => '</span>',
+                        'depth'           => 0,
+                        ); 
+                        
+                        printf( '<nav class="nav-off-canvas">%s</nav>', str_replace('<a', '<i>&nbsp;/&nbsp;&nbsp;</i><a', 
+                                strip_tags( wp_nav_menu( $args ), '<a>' ) ) );
+                        
+                    }
+                    
+                    echo get_search_form(false);
+                    ?>
                     
                     <nav class="nav-primary" role="navigation" aria-label="Main" itemscope itemtype="https://schema.org/SiteNavigationElement">  
                         <?php
-                        
-                        get_search_form();
-                        
+                                                
                         // Desktop Menu
                         $args = array(
                             'theme_location'  => 'primary',

@@ -3,16 +3,11 @@
 .template-multi-purpose {
     
     .section-hero {
-        background-color: $blue;
         padding-top: rem-calc(35);
-        
-        h1 {
-            color: #fff;   
-        }
     }
     
     main section:nth-child(even) {
-        background-color: $gray;    
+        background-color: $light-gray;    
     }
     
     .section-block {

@@ -167,7 +167,7 @@
         border-radius: 2px;
         background-color: #FFFFFF;
         height: 100%;
-        padding: rem-calc(40 0 0);
+        padding: rem-calc(30 0 0);
         
         position: relative;
         
@@ -192,7 +192,7 @@
     
     .entry-category {
         
-        padding: rem-calc(0 30);
+        padding: rem-calc(0 12);
                 
         a {
             color: #252B33;
@@ -222,7 +222,7 @@
     }
     
     .entry {
-        padding: rem-calc(30 30 40);      
+        padding: rem-calc(20 12 40);      
         
         &:hover {
             h3 {

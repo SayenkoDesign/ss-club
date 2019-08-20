@@ -1,27 +1,27 @@
 // Buttons
 
-a, button {
+a, button:not(.gform_button) {
     
     &.button {
-        font-weight: 900;
+        @include button(false, $black, $dark-gray, $white, 'hollow');
+        font-size: rem-calc(13);
+        letter-spacing: 1.1px;
+        text-shadow: 0 1px 0 0 rgba(255,255,255,0.5);
+        box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12);
         text-transform: uppercase;
-        line-height: 1.2;
+        min-width: rem-calc(180);
+        max-width: 100%;  
         
-        min-width: rem-calc(280);
-        max-width: 100%;
-        
-        &.small {        
-            min-width: rem-calc(160);
-            padding-top: rem-calc(18.5);
-            padding-bottom: rem-calc(18.5);
-        }   
-        
-        &.large {        
-            @include breakpoint(large) {
-                min-width: rem-calc(320);
-                padding-top: rem-calc(36.5);
-                padding-bottom: rem-calc(36.5);
-            }
-        }   
+        &:hover {
+            @include button(false, $black, $dark-gray, $white, 'solid' );
+            font-size: rem-calc(13);
+            letter-spacing: 1.1px;
+            text-shadow: 0 1px 0 0 rgba(255,255,255,0.5);
+            box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12);
+            text-transform: uppercase;
+            min-width: rem-calc(180);
+            max-width: 100%;  
+            border: 2px solid $dark-gray;
+        }        
     }
 }

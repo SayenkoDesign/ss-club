@@ -1,0 +1,141 @@
+// Forms
+
+form {
+    
+    label {
+        color: #4A4A4A;
+        font-size: rem-calc(12)!important;
+        font-weight: 700!important;
+        line-height: 1.333333333!important;
+    }
+    
+    // Standard fields
+    input[type='text'],
+    input[type='url'],
+    input[type='email'],
+    input[type='tel'],
+    input[type='number'],
+    input[type='password'],
+    input[type='file'],
+    input[type='search'],
+    textarea,
+    select {
+        background: transparent;
+        border-top: transparent;
+        border-right: transparent;
+        border-bottom: 1px solid #979797;
+        border-left: transparent;
+        padding: rem-calc(15 10 15 15) !important;
+    }
+    
+    textarea {
+        width: 100%;
+        border: 1px solid #D7D5D5;
+        border-radius: 3px;
+        background-color: #FFFFFF;
+    }
+    
+    
+    select {
+        padding: rem-calc(15 30 15 15) !important;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        background-image: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='%23444444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+        background-position: 99.8% 50%;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        width: 100%;
+    }
+    
+    ::placeholder {
+        color: #979797;
+        font-size: rem-calc(16);
+        line-height: 1.25;
+    }
+    
+    .gform_footer {
+        input[type="submit"],
+        .button {
+            @include button(false, $black, $black, $white, 'hollow');
+            font-size: rem-calc(13);
+            letter-spacing: 1.1px;
+            text-shadow: 0 1px 0 0 rgba(255,255,255,0.5);
+            box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12);
+            text-transform: uppercase;
+            min-width: rem-calc(180);
+            max-width: 100%;  
+            border: 2px solid $black;
+            
+            
+            &:hover {
+                @include button(false, $black, $black, $white, 'solid' );
+                font-size: rem-calc(13);
+                letter-spacing: 1.1px;
+                text-shadow: 0 1px 0 0 rgba(255,255,255,0.5);
+                box-shadow: 0 11px 12px 0 rgba(0,0,0,0.12);
+                text-transform: uppercase;
+                min-width: rem-calc(180);
+                max-width: 100%;  
+                border: 2px solid $black;
+                
+            }        
+        }
+    }
+}
+
+
+.search-form {
+    padding: rem-calc(0 16 20);
+    
+    .form-input-wrapper {
+       border-bottom: 1px solid #000;
+       margin-bottom: rem-calc(20);
+       
+       &:before,
+       &:after {
+            content: '';
+            width: 1px;
+            height: 16px;
+            bottom: 0;   
+            position: absolute;
+            display: block;
+            background: $black;
+       }
+       
+       &:before {
+            left: 0;   
+       }
+       
+       &:after {
+            right: 0;   
+       }
+       
+       input, 
+       select {
+            border: none;   
+            width: 100%;
+            color: #4A4A4A;
+            font-size: rem-calc(14);
+            line-height: 1.25;
+       }
+       
+       ::placeholder {
+            color: #4A4A4A;
+            font-size: rem-calc(14);
+            line-height: 1.25;
+        }
+       
+       input {
+           width: calc(100% - 40px);  
+       }
+       
+       position: relative;
+       
+       button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 12px;  
+       }
+    }
+}

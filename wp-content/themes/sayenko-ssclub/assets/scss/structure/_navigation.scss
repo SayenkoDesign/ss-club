@@ -1,4 +1,27 @@
 
+.nav-off-canvas {
+    
+    color: #252B33;
+    font-size: rem-calc(30);
+    line-height: 1.333333333;
+    padding: rem-calc(20 16 40);
+    
+    i:first-child {
+        display: none;   
+    }
+    
+    a {
+        color: #252B33;
+        font-family: $playfair;
+        font-size: rem-calc(30);
+        line-height: 1.333333333;
+        
+        &:hover {
+            color: $blue;   
+        }
+    }
+}
+
 .nav-primary {
     
     @include breakpoint(large) {
@@ -9,6 +32,22 @@
     
     ul {
         @include list-reset;   
+        
+        li {
+            a {
+                color: #4A4A4A;
+                
+                &:hover {
+                    color: $blue;   
+                }
+            }
+            
+            &.current-menu-item {
+                > a {
+                  color: $blue;  
+                }
+            }
+        }
     }
     
     .submenu-toggle {

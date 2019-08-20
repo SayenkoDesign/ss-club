@@ -16,7 +16,7 @@
         
             <div class="grid-x grid-margin-x">    
       
-                <div class="cell large-auto large-offset-1">
+                <div class="cell large-auto">
                                 
                     <header class="entry-header">
                         <?php

@@ -75,9 +75,10 @@ if ( ! function_exists( '_s_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary'   => esc_html__( 'Primary Menu', '_s' ),
-			'secondary' => esc_html__( 'Secondary Menu', '_s' ),
-			'copyright'    => esc_html__( 'Copyright Menu', '_s' )
+			'primary'       => esc_html__( 'Primary Menu', '_s' ),
+			'secondary'     => esc_html__( 'Secondary Menu', '_s' ),
+            'off-canvas'    => esc_html__( 'Off Canvas Menu', '_s' ),
+			'copyright'     => esc_html__( 'Copyright Menu', '_s' )
 		) );
 
 		/**

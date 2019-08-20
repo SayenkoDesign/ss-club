@@ -302,24 +302,24 @@ $breadcrumbs-item-separator-color: $medium-gray;
 // ----------
 
 $button-font-family: inherit;
-$button-padding: rem-calc(27.5 20);
+$button-padding: rem-calc(14 20);
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $primary-color;
+$button-background: #000;
 $button-background-hover: $dark-gray;
 $button-color: $white;
 $button-color-alt: $black;
-$button-radius: 0;
-$button-hollow-border-width: 1px;
+$button-radius: 23px;
+$button-hollow-border-width: 2px;
 $button-sizes: (
-	tiny: rem-calc(15),
-	small: rem-calc(15),
-	default: rem-calc(15),
-	large: rem-calc(15),
+	tiny: rem-calc(13),
+	small: rem-calc(13),
+	default: rem-calc(13),
+	large: rem-calc(13),
 );
 $button-palette: $foundation-palette;
 $button-opacity-disabled: 0.25;
-$button-background-hover-lightness: -20%;
+$button-background-hover-lightness: 1%;
 $button-hollow-hover-lightness: -50%;
 $button-transition: background-color 0.25s ease-out, color 0.25s ease-out;
 $button-responsive-expanded: false;
