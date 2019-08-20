@@ -188,7 +188,7 @@ if( ! class_exists( 'Featured' ) ) {
             
             $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
            
-            return sprintf( '<div class="post"><a href="%s" rel="bookmark">%s%s%s%s</a></div>', 
+            return sprintf( '<div class="post"><a href="%s" rel="bookmark">%s<span class="number">%s</span>%s%s</a></div>', 
                                 get_permalink(),
                                 $image,
                                 $number, 

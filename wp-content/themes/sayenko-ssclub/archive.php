@@ -81,7 +81,7 @@ get_header(); ?>
                               
             printf( '<div class="grid-container">
                         <div class="grid-x grid-margin-x">
-                            <div class="cell">
+                            <div class="cell text-center">
                                 %s
                                 <div class="category-filters">
                                     <div class="categories">%s%s</div>
