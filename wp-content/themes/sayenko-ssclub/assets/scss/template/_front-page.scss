@@ -208,6 +208,8 @@
             
             margin-bottom: rem-calc(15);
             
+            justify-content: flex-start;
+            
             li {
                 cursor: pointer; 
                 text-transform: uppercase;
@@ -216,6 +218,53 @@
                 line-height: 1.2;  
             }
         }
+    }
+    
+    .section-case-study {
+        
+        .wrap {
+            position: relative;
+            z-index: 2;
+            padding: rem-calc(60 0);   
+        }
+        
+        @include breakpoint(large) {
+            .grid-x {
+                flex-flow: row nowrap;
+                > .cell:first-child {
+                    margin-left: calc(50% - 50vw);
+                    width: 50vw;
+                    padding: 0; 
+                                        
+                    img {
+                        margin-left: auto;
+                        display: block; 
+                        max-width: rem-calc(800); 
+                    }
+                }
+            }
+        }
+     
+        .grid-x .cell:last-child {
+            position: relative;
+            
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                background-color: #F5F5F5;
+                width: 200vw;
+                height: 100%;
+                left: -50vw;
+                right: -50vw;
+                z-index: -1;
+            }
+            
+            .panel {
+                padding: rem-calc(100 0 75 100);   
+            }
+        }
+        
     }
     
 }

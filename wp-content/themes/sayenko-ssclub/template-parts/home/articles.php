@@ -43,9 +43,11 @@ if( ! class_exists( 'Articles' ) ) {
             
             $filters = sprintf( '<div class="grid-container">
                                     <div class="grid-x grid-margin-x">
-                                        <div class="cell">%s</div>
+                                        <div class="cell"><h2>%s</h2>%s</div>
                                     </div>
-                                 </div>', $filters );  
+                                 </div>', 
+                                 __( 'More Articles' ),
+                                 $filters );  
             
             $posts = sprintf( '<div class="grid-container full">
                                 <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xxxlarge-up-4 isotope-grid">

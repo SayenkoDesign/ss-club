@@ -34,7 +34,7 @@ if( ! class_exists( 'Case_Study' ) ) {
     
             $this->add_render_attribute(
                 'wrapper', 'class', [
-                     $this->get_name() . '-featured'
+                     $this->get_name() . '-case-study'
                 ]
             ); 
         } 
@@ -102,9 +102,9 @@ if( ! class_exists( 'Case_Study' ) ) {
             $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
            
             return sprintf( '<div class="grid-container">
-                                    <div class="grid-x grid-margin-x align-middle">
+                                    <div class="grid-x grid-padding-x align-middle">
                                         <div class="cell large-6">%s</div>
-                                        <div class="cell large-auto">
+                                        <div class="cell large-6">
                                             <div class="panel"><a href="%s" rel="bookmark">%s%s%s%s</a></div>
                                         </div> 
                                      </div> 
