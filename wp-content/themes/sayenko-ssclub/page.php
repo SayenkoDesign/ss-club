@@ -14,10 +14,6 @@
 
 get_header(); ?>
 
-<?php
-_s_get_template_part( 'template-parts/global', 'hero' );
-?>
-
 <div class="grid-container">
 
     <div class="grid-x grid-margin-x">    

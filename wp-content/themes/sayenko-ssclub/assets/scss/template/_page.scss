@@ -4,7 +4,8 @@ body {
 	margin: 0 auto;
 }
 
-.page-template {
+.page-template,
+.error404 {
     
     .entry-header {
         h1 {
@@ -31,11 +32,25 @@ body {
 .error404 {
     
     .site-main {
-        padding-top: rem-calc(50);      
-        padding-bottom: rem-calc(50);
-        
         .button-wrapper {
             padding-top: rem-calc(40);   
+        }
+    }
+    
+    .entry-header {
+        h1 {
+            &:after {
+                content: '';
+                height: 1px;
+                width: 98px;
+                border: 1px solid $blue; 
+                margin-top: rem-calc(10);  
+                margin-left: auto;
+                margin-right: auto;
+                display: block;
+            }
+            
+            margin-bottom: rem-calc(75);
         }
     }
     
