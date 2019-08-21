@@ -5,43 +5,52 @@ import isotope from 'isotope-layout'
 export default {
 	init() {
 		
+        let $isotopeGrid = $('.isotope-grid');
         
-        if($('.isotope-grid').length) {
+        if($isotopeGrid.length) {
             
-            jQueryBridget('isotope', isotope, $);
-            let $grid = $(".isotope-grid").isotope({
-              layoutMode: 'fitRows',
-              itemSelector: ".cell",
-              percentPosition: true,
-              masonry: {
-                columnWidth: ".cell"
-              }
-            });
+            $isotopeGrid.imagesLoaded({ background: '.background' })
             
-            // layout Isotope after each image loads
-            $grid.imagesLoaded({ background: 'article' }).progress( function() {
-              $grid.isotope('layout');
-            });  
+                .done( function( instance ) {
+            
+                    jQueryBridget('isotope', isotope, $);
+                    let $grid = $(".isotope-grid").isotope({
+                      layoutMode: 'fitRows',
+                      itemSelector: ".cell",
+                      percentPosition: true,
+                      masonry: {
+                        columnWidth: ".cell"
+                      }
+                    });
                     
-            // bind filter on select change
-            $('.filters-select').on( 'change', function() {
-              // get filter value from option value
-              var filterValue = this.value;
-              // use filterFn if matches value
-              $grid.isotope({ filter: filterValue });
-            });
+                    // layout Isotope after each image loads
+                    $grid.imagesLoaded({ background: 'article' }).progress( function() {
+                      //$grid.isotope('layout');
+                    });  
+                            
+                    // bind filter on select change
+                    $('.filters-select').on( 'change', function() {
+                      // get filter value from option value
+                      var filterValue = this.value;
+                      // use filterFn if matches value
+                      $grid.isotope({ filter: filterValue });
+                    });
+                            
                     
-            
-            $('.filters li').click(function(){
-              $('.filters li').removeClass('active');
-              $(this).addClass('active');
-              
-              var data = $(this).attr('data-filter');
-              $grid.isotope({
-                filter: data
-              })
-            });
-        }
+                    $('.filters li').click(function(){
+                      $('.filters li').removeClass('active');              
+                      var data = $(this).attr('data-filter');
+                      $grid.isotope({
+                        filter: data
+                      })
+                      
+                      $(this).addClass('active');
+                    });
+                    
+                    $isotopeGrid.addClass('images-loaded');
+               });
+         
+         }
         
         
 	},

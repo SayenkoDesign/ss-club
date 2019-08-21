@@ -273,38 +273,44 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
-    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.isotope-grid').length) {
-      jquery_bridget__WEBPACK_IMPORTED_MODULE_1___default()('isotope', isotope_layout__WEBPACK_IMPORTED_MODULE_2___default.a, jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
-      var $grid = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".isotope-grid").isotope({
-        layoutMode: 'fitRows',
-        itemSelector: ".cell",
-        percentPosition: true,
-        masonry: {
-          columnWidth: ".cell"
-        }
-      }); // layout Isotope after each image loads
+    var $isotopeGrid = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.isotope-grid');
 
-      $grid.imagesLoaded({
-        background: 'article'
-      }).progress(function () {
-        $grid.isotope('layout');
-      }); // bind filter on select change
+    if ($isotopeGrid.length) {
+      $isotopeGrid.imagesLoaded({
+        background: '.background'
+      }).done(function (instance) {
+        jquery_bridget__WEBPACK_IMPORTED_MODULE_1___default()('isotope', isotope_layout__WEBPACK_IMPORTED_MODULE_2___default.a, jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
+        var $grid = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".isotope-grid").isotope({
+          layoutMode: 'fitRows',
+          itemSelector: ".cell",
+          percentPosition: true,
+          masonry: {
+            columnWidth: ".cell"
+          }
+        }); // layout Isotope after each image loads
 
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters-select').on('change', function () {
-        // get filter value from option value
-        var filterValue = this.value; // use filterFn if matches value
+        $grid.imagesLoaded({
+          background: 'article'
+        }).progress(function () {//$grid.isotope('layout');
+        }); // bind filter on select change
 
-        $grid.isotope({
-          filter: filterValue
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters-select').on('change', function () {
+          // get filter value from option value
+          var filterValue = this.value; // use filterFn if matches value
+
+          $grid.isotope({
+            filter: filterValue
+          });
         });
-      });
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').click(function () {
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').removeClass('active');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
-        var data = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('data-filter');
-        $grid.isotope({
-          filter: data
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').click(function () {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').removeClass('active');
+          var data = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('data-filter');
+          $grid.isotope({
+            filter: data
+          });
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
         });
+        $isotopeGrid.addClass('images-loaded');
       });
     }
   }

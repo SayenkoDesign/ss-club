@@ -183,7 +183,8 @@ $nav-arrow-color-hover: $blue;
         li {
             padding: rem-calc(6 12);  
             
-            a {
+            a, 
+            span {
                 color: $black;
                 font-size: rem-calc(15);
                 letter-spacing: 0.26px;
@@ -209,7 +210,8 @@ $nav-arrow-color-hover: $blue;
             
             &.current-menu-item a,
             &.current-archive a,
-            &.active a {
+            &.active a,
+            &.active span {
                 &:after {
                     content: '';
                     display: block;
@@ -250,4 +252,15 @@ $nav-arrow-color-hover: $blue;
         }
     }
 
+}
+
+
+.isotope-grid {
+    opacity: 0;
+    visibility: hidden;
+
+    &.images-loaded {
+        opacity: 1;
+        visibility: visible;
+    }      
 }

@@ -93,14 +93,14 @@ if( ! class_exists( 'Articles' ) ) {
             $terms = array_merge( $order, $terms );
                                       
             $options = '<option value="*">All</option>';
-            $links = '<li class="active" data-filter="*">All</li>';
+            $links = '<li class="active" data-filter="*"><span>All</span></li>';
             
             foreach( $terms as $term ) {
                 if( 'Uncategorized' == $term ) { // Remove uncategorized
                     continue;   
                 }
                 $options .= sprintf( '<option value=".category-%s*">%s</option>', sanitize_title_with_dashes( $term ), $term );
-                $links   .= sprintf( '<li data-filter=".category-%s">%s</li>', sanitize_title_with_dashes( $term ), $term );
+                $links   .= sprintf( '<li data-filter=".category-%s"><span>%s</span></li>', sanitize_title_with_dashes( $term ), $term );
             }
             
             $select = sprintf( '<select class="filters-select">%s</select>', $options );
