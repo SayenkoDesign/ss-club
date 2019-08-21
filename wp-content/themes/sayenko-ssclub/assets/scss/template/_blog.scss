@@ -92,6 +92,7 @@
                 
         h3 {
             color: #FFFFFF;
+            font-family: $nunito;
             margin-bottom: 0;
             @include breakpoint(xxlarge) {
                 .no-touchevents & {
