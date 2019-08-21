@@ -6,7 +6,11 @@
         
     .entry-content {
         background-color: #fff;
-        padding: rem-calc(100 0 100);  
+        padding: rem-calc(50 0); 
+        
+        @include breakpoint(large) {
+            padding: rem-calc(100 0 100); 
+        }
 
         
         h1 {
@@ -29,6 +33,17 @@
                 margin-top: rem-calc(180);
                 margin-left: rem-calc(-28);
                 padding: rem-calc(90 40 60 80);
+                
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 90px;
+                    height: 1px;
+                    background: $blue;
+                    position: relative;
+                    top: -110px;
+                    left: -80px;
+                }
             }
         }
 

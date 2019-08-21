@@ -30,6 +30,10 @@
     
     .widget {
         
+        @include breakpoint(medium down) {
+            text-align: center;
+        }
+        
         margin-bottom: rem-calc(35);
 
 		.widget-title {
