@@ -124,6 +124,20 @@
             }
         }
         
+        #trending {
+            &:before {
+                content:"";
+                display:block;
+                height: calc(68px + 30px);
+                margin-top: calc(-68px - 30px);
+        
+                @include breakpoint(xlarge) {
+                    height: calc(84px + 30px);
+                    margin-top: calc(-68px - 30px);
+                }   
+            }
+        }
+        
         .trending {
             
             pading-top: rem-calc(24);

@@ -179,7 +179,7 @@ if( ! class_exists( 'Featured' ) ) {
             
             
             
-            return sprintf( '<div class="posts trending">%s%s%s%s</div>', 
+            return sprintf( '<div class="posts trending" id="trending">%s%s%s%s</div>', 
                            $heading,
                            $grid_open,
                            $posts, 
