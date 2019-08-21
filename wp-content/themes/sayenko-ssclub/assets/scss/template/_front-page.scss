@@ -204,6 +204,27 @@
     }
     
     .section-articles {
+        
+        h2 {
+            display: inline-block;
+            padding-right: 84px;
+            margin-bottom: rem-calc(40);
+            position: relative;
+            
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                height: 1px;
+                width: 60px;
+                background: #000000;
+            }
+        }
+        
+        
         .menu {
             
             margin-bottom: rem-calc(15);
@@ -249,20 +270,99 @@
         .grid-x .cell:last-child {
             position: relative;
             
-            &:before {
-                content: '';
-                display: block;
-                position: absolute;
-                background-color: #F5F5F5;
-                width: 200vw;
-                height: 100%;
-                left: -50vw;
-                right: -50vw;
-                z-index: -1;
-            }
+           @include breakpoint(large) {
+                 &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    background-color: #F5F5F5;
+                    width: 200vw;
+                    height: 100%;
+                    left: -50vw;
+                    right: -50vw;
+                    z-index: -1;
+                }   
+           }
             
             .panel {
-                padding: rem-calc(100 0 75 75);   
+                padding: rem-calc(100 0 75 75); 
+                
+                h3,
+                p {
+                    color: $dark-gray;   
+                }
+                
+                h3 {
+                    color: #252B33;
+                    text-transform: uppercase;    
+                }
+                
+                a p {
+                    &:last-of-type {
+                        margin-bottom: rem-calc(30);   
+                    }
+                }
+                
+                span {
+                    color: #000;
+                    font-size: rem-calc(15);
+                    line-height: 1.333333333;
+                    text-transform: uppercase;     
+                }
+            }
+            
+            .number {
+                background: #ffffff;
+                border-radius: 100%;
+                width: rem-calc(110);
+                height: rem-calc(110);
+                position: relative;
+                margin: -36px auto;
+                
+                @include breakpoint(large) {
+                    margin: rem-calc(0 0 -75 -155);
+                }
+                
+                span {	
+                    font-size: 34px;
+                    line-height: 46px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    i,
+                    b {
+                        font-style: normal;
+                        font-weight: normal;   
+                    }
+                    
+                    i {
+                        color: #252B33;
+                        font-family: $nunito;
+                        font-size: 18px;
+                        line-height: 24px;
+                        position: relative;
+                        text-transform: uppercase;
+                        
+                        &:after {
+                            content: '';
+                            display: block;
+                            width: 26px;
+                            height: 1px;
+                            background: #000;
+                        }
+                    }
+                    
+                    b {
+                        color: #252B33;
+                        font-size: 34px;
+                        line-height: 46px;
+                    }
+                }
             }
         }
         

@@ -25,7 +25,7 @@
                 </div>
                 
                 <header class="entry-header">
-                    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                    <?php the_title( '<h1 class="entry-title h2">', '</h1>' ); ?>
                     <?php
                         $title = get_field( 'title' );
                         echo _s_format_string( $title, 'p', [ 'class' => 'author-title' ] );

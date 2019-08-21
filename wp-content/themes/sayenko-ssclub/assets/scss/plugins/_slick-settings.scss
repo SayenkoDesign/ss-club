@@ -141,3 +141,22 @@ no-js .slick-arrows {
         @include slick-arrow( $slick-arrow-color-hover, right );
     }
 }
+
+@include breakpoint(xxlarge down) {
+    
+    .slick-arrows {
+        display: flex;
+        justify-content: space-between;
+        margin-top: rem-calc(30);
+        
+        .slick-next {
+            margin-left: auto;   
+        }
+    }
+    .slick-prev, .slick-next {
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;    
+    }
+}

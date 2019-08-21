@@ -1,0 +1,161 @@
+// Post Author
+
+
+.single-post_author {
+    
+    article {
+        padding-top: rem-calc(40);   
+        
+        @include breakpoint(large) {
+            padding-top: rem-calc(90);   
+        }
+    }
+    
+    .entry-content {
+        
+        img {
+            margin-bottom: rem-calc(15);  
+            
+            @include breakpoint(large) {
+                margin-bottom: rem-calc(30);  
+            }
+        }
+        
+        h1 {
+           margin-bottom: rem-calc(5); 
+        }
+        
+        .author-title {
+            color: $medium-gray;
+            font-size: rem-calc(15);
+            line-height: 1.333333333;
+        }
+        
+        .panel {
+            border-radius: 2px;
+            border: 1px solid #000;
+            background-color: rgba(255,255,255,0.9);
+            box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);
+            padding: rem-calc(40 30); 
+            margin-top: rem-calc(35);
+            
+            @include breakpoint(large) {
+                margin-top: rem-calc(35);
+                margin-left: rem-calc(-46);
+                padding: rem-calc(60 80 60 70); 
+            }  
+            
+            h2 {
+                font-size: rem-calc(36);   
+            }
+            
+            p {
+                &:last-of-type {
+                    margin-bottom: rem-calc(36);   
+                }
+            }
+        }   
+    }
+    
+ 
+    .section-featured {
+        
+        .wrap {
+            position: relative;
+            z-index: 2;
+            padding: rem-calc(80 0 60);   
+        }
+        
+        @include breakpoint(large) {
+            .grid-x {
+                flex-flow: row nowrap;
+                > .cell:first-child {
+                    margin-left: calc(50% - 50vw);
+                    width: 50vw;
+                    padding: 0; 
+                                        
+                    img {
+                        margin-left: auto;
+                        display: block; 
+                        width: 50vw;
+                        max-width: rem-calc(800); 
+                    }
+                }
+            }
+        }
+     
+        .grid-x .cell:last-child {
+            position: relative;
+            
+           @include breakpoint(large) {
+                 &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    background-color: #F5F5F5;
+                    width: 200vw;
+                    height: 100%;
+                    left: -50vw;
+                    right: -50vw;
+                    z-index: -1;
+                }   
+           }
+            
+            .panel {
+                padding: rem-calc(40 0); 
+                
+                @include breakpoint(large) {
+                    padding: rem-calc(100 0 75 75);
+                }
+                
+                h3,
+                p {
+                    color: $dark-gray;   
+                }
+                
+                h6 {
+                    color: #000;
+                    text-transform: uppercase;  
+                    
+                    span {
+                        display: inline-block;
+                        padding-right: rem-calc(30);
+                        position: relative;
+            
+                        &:before {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            transform: translateY(-50%);
+                            height: 1px;
+                            width: 20px;
+                            background: #000000;
+                        }   
+                    }
+                }
+                
+                h3 {
+                    color: #252B33;
+                }
+                
+                a p {
+                    &:last-of-type {
+                        margin-bottom: rem-calc(30);   
+                    }
+                }
+                
+                span {
+                    color: #000;
+                    font-size: rem-calc(15);
+                    line-height: 1.333333333;
+                    text-transform: uppercase;     
+                }
+            }
+        }
+        
+    }
+ 
+    
+}

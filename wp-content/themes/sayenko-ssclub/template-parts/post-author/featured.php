@@ -92,16 +92,16 @@ if( ! class_exists( 'Featured' ) ) {
             $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
            
             return sprintf( '<div class="grid-container">
-                                    <div class="grid-x grid-margin-x">
+                                    <div class="grid-x grid-padding-x align-middle">
                                         <div class="cell large-6">%s</div>
-                                        <div class="cell large-auto">
+                                        <div class="cell large-6">
                                             <div class="panel"><a href="%s" rel="bookmark">%s%s%s%s</a></div>
                                         </div> 
                                      </div> 
                             </div>', 
                             $image,
                             get_permalink(),
-                            '<h5>Latest Article</h5>',
+                            '<h6><span>Latest Article</span></h6>',
                             $title,
                             $excerpt,
                             $link
