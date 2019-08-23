@@ -5,8 +5,10 @@ Header
 // Fix for sticky header
 .logged-in .site-header,
 .logged-in .off-canvas {
+    
+    top: 46px!important;
 
-    @include breakpoint(xlarge) {
+    @include breakpoint(783) {
         top: 32px!important;
     } 
  }
