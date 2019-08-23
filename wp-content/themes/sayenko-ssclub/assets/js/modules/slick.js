@@ -39,21 +39,12 @@ export default {
           prevArrow: $('.slick-prev', $sliderEl),
           responsive: [
             {
-              breakpoint: 767,
+              breakpoint: 1023,
               settings: {
                 arrows: false,
                 dots: true,
                 centerMode: false,
         
-                slidesToShow: 1
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                arrows: false,
-                dots: true,
-                centerMode: false,
                 slidesToShow: 1
               }
             }

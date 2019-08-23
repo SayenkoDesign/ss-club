@@ -390,15 +390,7 @@ __webpack_require__.r(__webpack_exports__);
       nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $sliderEl),
       prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $sliderEl),
       responsive: [{
-        breakpoint: 767,
-        settings: {
-          arrows: false,
-          dots: true,
-          centerMode: false,
-          slidesToShow: 1
-        }
-      }, {
-        breakpoint: 480,
+        breakpoint: 1023,
         settings: {
           arrows: false,
           dots: true,
