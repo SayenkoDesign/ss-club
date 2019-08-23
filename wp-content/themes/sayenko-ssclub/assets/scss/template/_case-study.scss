@@ -79,11 +79,18 @@
     }
     
     .slick-slide:not(.slick-active) { 
-      margin: 0; 
+      
     }
     
     .slick-slide:not(.slick-active) { 
-      cursor: pointer; 
+        cursor: pointer; 
+        margin: 0; 
+        
+        .caption {
+            opacity: 0;
+            visibility: hidden;   
+            transition: visibility 0s linear 300ms, opacity 300ms;
+        }
     }
     
     
@@ -93,6 +100,21 @@
     
     .twentytwenty-overlay {
         //visibility: hidden;
+    }
+    
+    .slide {
+        position: relative;
+        
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: rem-calc(10);
+            color: #fff;  
+            opacity: 1;
+            visibility: visible; 
+            z-index: 9;
+        }
     }
     
     article {
