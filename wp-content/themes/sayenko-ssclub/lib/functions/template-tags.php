@@ -153,6 +153,7 @@ function _s_get_template_part( $template_path, $template_name, $data = array(), 
         
         return $content;
     }
+    
         
     include( $template );
     
@@ -441,6 +442,22 @@ function _s_get_post_image_uri( $size = 'thumbnail' ) {
 }
 
 
+/**
+ * Filters WYSIWYG content with the_content filter.
+ *
+ * @param string $content content dump from WYSIWYG.
+ * @return mixed $content.
+ * @author jomurgel
+ */
+function _s_get_the_content( $content ) {
+
+	// Bail if no content exists.
+	if ( empty( $content ) ) {
+		return;
+	}
+	// Returns the content.
+	return apply_filters( 'the_content', $content );
+}
 
 // Convert phone number field to tel: link
 function _s_format_telephone_url( $number = false ) {

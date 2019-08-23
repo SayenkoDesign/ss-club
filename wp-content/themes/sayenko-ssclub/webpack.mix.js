@@ -93,6 +93,7 @@ if (mix.inProduction()) {
  */
 mix.js( `${ devPath }/js/project.js`, 'js' )
 	.js( `${ devPath }/js/modernizr-custom.js`, 'js' )
+    //.js( `${ devPath }/js/jquery.royalslider.custom.min.js`, 'js' )
 	.extract();
 
 

@@ -366,6 +366,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
+    // Case study
+    var $sliderEl = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.single-case_study .section-slideshow');
+    var $slickEl = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick', $sliderEl);
+    $slickEl.on('edge setPosition beforeChange afterChange', function (event, slick, currentSlide, nextSlide) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger("resize.twentytwenty"); //$(".twenty-container").twentytwenty();
+    });
+    $slickEl.on('init reinit breakpoint', function (event, slick, currentSlide, nextSlide) {
+      //$(window).trigger("resize.twentytwenty");
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(".twentytwenty-container").twentytwenty();
+    });
+    $slickEl.slick({
+      centerMode: true,
+      centerPadding: '15%',
+      slidesToShow: 1,
+      focusOnSelect: true,
+      swipe: false,
+      touchMove: false,
+      dots: false,
+      infinite: true,
+      adaptiveHeight: false,
+      //rows: 0,
+      nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $sliderEl),
+      prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $sliderEl),
+      responsive: [{
+        breakpoint: 767,
+        settings: {
+          arrows: false,
+          dots: true,
+          centerMode: false,
+          slidesToShow: 1
+        }
+      }, {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          dots: true,
+          centerMode: false,
+          slidesToShow: 1
+        }
+      }]
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).load(function () {
+      $sliderEl.addClass('images-loaded');
+    });
     var $section = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-recent-posts');
     var $slider = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slider', $section);
 
@@ -508,8 +552,7 @@ var modules = new _loader_ModuleLoader__WEBPACK_IMPORTED_MODULE_1__["default"]({
   // superfish
   //backgroundVideo,
   menuToggle: _modules_menu_toggle__WEBPACK_IMPORTED_MODULE_8__["default"],
-  isotope: _modules_isotope__WEBPACK_IMPORTED_MODULE_9__["default"] //fullScreenScrollingSection
-
+  isotope: _modules_isotope__WEBPACK_IMPORTED_MODULE_9__["default"]
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();

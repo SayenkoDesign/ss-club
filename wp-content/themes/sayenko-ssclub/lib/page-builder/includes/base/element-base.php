@@ -374,21 +374,30 @@ abstract class Element_Base  extends Controls_Stack {
 	 * @since 1.0.0
 	 * @access public
 	 */
-	public function get_element() {        
-		$this->_add_render_attributes();
-        
+	public function get_element() {   
+    
         $output = '';
-		$output .= $this->before_render();
-		$output .= $this->_get_elements();
-		$output .= $this->after_render();
+        
+        ob_start();
+		echo $this->_get_elements();
+		$content = ob_get_clean();
+        
+		$should_render = ( ! empty( $content ) );
 
-		$this->enqueue_scripts();
-		$this->enqueue_styles();
+		if ( $should_render ) {
+            
+            $this->enqueue_styles();
+            
+			$this->_add_render_attributes();
         
-        if( empty( $this->_get_elements() ) ) {
-            $output = '';
-        }
-        
+            $output .= $this->before_render();
+            $output .= $content;
+            $output .= $this->after_render();
+    
+            $this->enqueue_scripts();
+            
+		}
+
         return $output;
 	}
     

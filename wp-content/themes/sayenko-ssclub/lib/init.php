@@ -56,7 +56,7 @@
 
     //include_once( 'functions/facetwp.php' );
 
-    //include_once( 'functions/case-studies.php' );
+    include_once( 'functions/case-studies.php' );
 
 /****************************************
 	ACF Custom Fields

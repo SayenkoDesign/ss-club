@@ -42,5 +42,6 @@ export default {
                 
                 $('.category-filters').css('visibility', 'visible');
             });
+
 	},
 };

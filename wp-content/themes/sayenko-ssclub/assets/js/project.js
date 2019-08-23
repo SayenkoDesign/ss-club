@@ -42,8 +42,7 @@ const modules = new ModuleLoader( {
 	// superfish
 	//backgroundVideo,
 	menuToggle,
-    isotope,
-    //fullScreenScrollingSection
+    isotope
 } );
 
 $( document ).ready( () => {

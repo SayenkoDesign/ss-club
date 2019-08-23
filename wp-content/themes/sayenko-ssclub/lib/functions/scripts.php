@@ -19,7 +19,7 @@ function be_gutenberg_scripts() {
 		true
 	);
 }
-add_action( 'enqueue_block_editor_assets', 'be_gutenberg_scripts' );
+//add_action( 'enqueue_block_editor_assets', 'be_gutenberg_scripts' );
 
 
 
@@ -40,6 +40,7 @@ function _s_register_scripts() {
 			'jquery',
             'jquery-effects-core',
 			'manifest',
+            'twenty-twenty-js',
 			'vendor',
 		),
 		null, true );

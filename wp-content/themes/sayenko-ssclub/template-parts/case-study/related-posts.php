@@ -44,7 +44,7 @@ if( ! class_exists( 'Related_Posts' ) ) {
         // Add content
         public function render() {
                         
-            $heading        = __( 'Related News & Media', '_s' );
+            $heading        = __( 'You might also like', '_s' );
             $heading        = _s_format_string( $heading, 'h2' );
             
             $args = $this->_s_get_related_posts_query_args();
@@ -72,29 +72,11 @@ if( ! class_exists( 'Related_Posts' ) ) {
         // Related posts query args based on categories
         private function _s_get_related_posts_query_args( $post_id = false, $related_count = 12, $args = array() ) {
 	
-            if( empty( $post_id ) ) {
-                $post_id = get_the_ID();
-            }
-            
-            $terms = get_the_terms( $post_id, 'category' );
-            
-            if ( empty( $terms ) || is_wp_error( $terms ) ) return;
-            
-            $term_list = wp_list_pluck( $terms, 'slug' );
             
             $default_args = array(
-                'post_type' => 'post',
+                'post_type' => 'case_study',
                 'posts_per_page' => $related_count,
                 'post_status' => 'publish',
-                'post__not_in' => array( $post_id ),
-                'orderby' => 'rand',
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'category',
-                        'field' => 'slug',
-                        'terms' => $term_list
-                    )
-                )
             );
             
             return wp_parse_args( $args, $default_args );

@@ -8,6 +8,63 @@ export default {
 	init() {
         
         
+        // Case study
+        let $sliderEl = $('.single-case_study .section-slideshow');
+        
+        let $slickEl = $('.slick', $sliderEl);
+        
+        $slickEl.on('edge setPosition beforeChange afterChange', function (event, slick, currentSlide, nextSlide) {
+          $(window).trigger("resize.twentytwenty");
+          //$(".twenty-container").twentytwenty();
+        });
+        
+        $slickEl.on('init reinit breakpoint', function (event, slick, currentSlide, nextSlide) {
+          //$(window).trigger("resize.twentytwenty");
+          $(".twentytwenty-container").twentytwenty();
+        });
+        
+        
+        $slickEl.slick({
+          centerMode: true,
+          centerPadding: '15%',
+          slidesToShow:1,
+          focusOnSelect: true,
+          swipe: false,
+          touchMove: false,
+          dots: false,
+          infinite: true,
+          adaptiveHeight: false,
+          //rows: 0,
+          nextArrow: $('.slick-next', $sliderEl),
+          prevArrow: $('.slick-prev', $sliderEl),
+          responsive: [
+            {
+              breakpoint: 767,
+              settings: {
+                arrows: false,
+                dots: true,
+                centerMode: false,
+        
+                slidesToShow: 1
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                arrows: false,
+                dots: true,
+                centerMode: false,
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+        
+        $(window).load(function() {
+            $sliderEl.addClass( 'images-loaded' );
+        });
+        
+        
         let $section = $('.section-recent-posts');
         
         let $slider = $('.slider', $section );

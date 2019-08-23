@@ -1,38 +1,31 @@
 <?php
+define( 'TWENTY_TWENTY_ASSETS', sprintf( '%slib/includes/twentytwenty', trailingslashit( get_template_directory_uri() ) ) );
+
+
+// Register scripts to load later as needed
+function _s_register_case_study_scripts() {
     
-    
-    function _s_get_relationship_field_list( $rows, $heading, $links = false, $field = false ) {
-                        
-    if( empty( $rows ) ) {
-        return false;
+    wp_register_style( 'twenty-twenty-css', TWENTY_TWENTY_ASSETS . '/css/twentytwenty.css' );
+
+    wp_register_script( 'jquery-event-move', TWENTY_TWENTY_ASSETS . '/js/jquery.event.move.js', false, null, true );
+	
+	wp_register_script( 'twenty-twenty-js', TWENTY_TWENTY_ASSETS . '/js/jquery.twentytwenty-custom.js',
+		array(
+			'jquery',
+            'jquery-event-move',
+		),
+		null, true );
+
+}   
+add_action( 'wp_enqueue_scripts', '_s_register_case_study_scripts' );
+ 
+
+function _s_load_case_study_scripts() {
+
+	if( is_singular( 'case_study' ) ) {
+        wp_enqueue_style( 'twenty-twenty-css' );
+	    wp_enqueue_script( 'twenty-twenty-js' );
     }
-    
-    $list = '';
-    
-    foreach( $rows as $row ) {
-        $title = get_the_title( $row->ID );  
-        $permalink = get_permalink( $row->ID ); 
-        
-        if( $links ) {
-            
-            if( 'technology' == $field ) {
-                $terms = get_the_terms( $row->ID, 'technology_cat' );
-                if( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-                    $permalink = sprintf( '%s#%s', trailingslashit( site_url()), 'section-technologies' /*$terms[0]->slug*/ );
-                }
-                
-            }
-            
-            $list .= sprintf( '<li><a href="%s" target="_blank">%s</a></li>', $permalink, $title ); 
-        } else {
-            $list .= sprintf( '<li><span>%s</span></li>', $title ); 
-        }
-        
-    }
-    
-    if( empty( $list ) ) {
-        return false;
-    }
-                
-    return sprintf( '<div class="panel">%s<ul class="no-bullet">%s</ul></div>', $heading, $list );
 }
+
+add_action( 'wp_enqueue_scripts', '_s_load_case_study_scripts' );
