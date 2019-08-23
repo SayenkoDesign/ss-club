@@ -10,7 +10,15 @@ if( ! class_exists( 'ACF_Blocks' ) ) {
         protected function _add_render_attributes() {
             
             // use parent attributes
-            parent::_add_render_attributes();            
+            parent::_add_render_attributes();  
+            
+            if( $this->get_settings( 'overview' ) ) {
+                $this->add_render_attribute(
+                    'wrapper', 'id', [
+                        sanitize_title_with_dashes( $this->get_settings( 'overview' ) )
+                    ], true
+                );
+            }          
                         
         }    
         
@@ -31,15 +39,11 @@ if ( have_rows( 'sections' ) ) :
         $settings['background_options'] = get_sub_field( 'background_options' );
         $settings['display_options'] = get_sub_field( 'display_options' );
         $settings['row_layout'] = get_row_layout();
+        $settings['overview'] = get_sub_field( 'overview' );
         
         $acf_block = new ACF_Blocks();
-        $acf_block->set_settings( $settings );    
-        $acf_block->add_render_attribute(
-            'wrapper', 'class', [
-                str_replace( '_', '-', get_row_layout() ) . '-' . $acf_block->get_name()
-            ]
-        );
-                
+        $acf_block->set_settings( $settings ); 
+           
         // print the section
         $acf_block->print_element();      
                                     

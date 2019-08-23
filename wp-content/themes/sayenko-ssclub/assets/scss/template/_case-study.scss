@@ -27,7 +27,19 @@
      }
      
      .slick-arrow {
-        // display: block!important;   
+        display: block!important;  
+        z-index: 9;
+        
+        @include breakpoint(xxlarge) {
+            
+            &.slick-prev {
+                left: 5%;   
+            }
+            
+            &.slick-next {
+                right: 5%;  
+            }
+        }
      }
     
     .slick-slide .twentytwenty-container img {
@@ -139,7 +151,15 @@
     
     @include breakpoint(xxlarge) {
         #secondary {
-            width: rem-calc(268);   
+            background-color: #F5F5F5;
+            width: rem-calc(268); 
+            padding: rem-calc(70 30);  
+        }
+    }
+    
+    @include breakpoint(xxxlarge) {
+        #secondary {
+            transform: translateX(-50px); 
         }
     }
 }

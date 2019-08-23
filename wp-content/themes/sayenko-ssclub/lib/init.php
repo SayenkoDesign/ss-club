@@ -21,6 +21,7 @@
     include_once( 'includes/post-views.php' );
     
     include_once( 'includes/theme-functions/array.php' );
+    include_once( 'includes/theme-functions/string.php' );
 
 /****************************************
 	Functions
