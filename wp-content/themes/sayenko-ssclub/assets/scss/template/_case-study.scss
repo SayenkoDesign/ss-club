@@ -87,9 +87,11 @@
         margin: 0; 
         
         .caption {
-            opacity: 0;
-            visibility: hidden;   
-            transition: visibility 0s linear 300ms, opacity 300ms;
+            @include breakpoint(xxlarge) {
+                opacity: 0;
+                visibility: hidden;   
+                transition: visibility 0s linear 300ms, opacity 300ms;   
+            }
         }
     }
     
@@ -106,14 +108,24 @@
         position: relative;
         
         .caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
             padding: rem-calc(10);
-            color: #fff;  
             opacity: 1;
             visibility: visible; 
             z-index: 9;
+            color: #FFFFFF;
+            font-family: Georgia;
+            font-size: 18px;
+            letter-spacing: 0.7px;
+            line-height: 26px;
+            background: #000;
+            
+            @include breakpoint(xxlarge) {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background: transparent;
+            }
+            
         }
     }
     

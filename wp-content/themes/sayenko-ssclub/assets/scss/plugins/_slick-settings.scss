@@ -3,6 +3,8 @@ $slick-arrow-color: #D7D5D5;
 $slick-arrow-color-hover: $blue;
 
 
+.slick-loading .slick-list { background: #fff url("../images/slick/ajax-loader.gif") center center no-repeat; }
+
 .slider {
     position: relative;   
 }
