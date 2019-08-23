@@ -12,8 +12,15 @@
     
     <div class="entry-content">
 	
-		<div class="grid-x grid-margin-x">    
+		<div class="grid-x grid-padding-x">    
             <div class="cell large-auto">
+                
+                <header class="entry-header">
+                    <?php 
+                        printf( '<h1 class="entry-title">Case %s: %s</h1>', _s_get_post_index( get_the_ID() ), get_the_title() ); 
+                    ?>
+                </header><!-- .entry-header -->
+            
                 <?php 
                 the_content(); 		
                 ?>

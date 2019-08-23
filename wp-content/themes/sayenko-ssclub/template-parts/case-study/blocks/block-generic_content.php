@@ -24,7 +24,7 @@ $content         = get_sub_field( 'content' );
         </div>
     </div>
 
-    <div class="grid-x grid-padding-x">    
+    <div class="grid-x grid-padding-x grid-padding-bottom">    
     
         <div class="cell">
             <?php

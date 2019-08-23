@@ -61,7 +61,7 @@ function () {
 /*!*****************************************!*\
   !*** ./assets/js/modules/foundation.js ***!
   \*****************************************/
-/*! exports provided: Foundation, CoreUtils, Box, onImagesLoaded, Keyboard, MediaQuery, Motion, Nest, Timer, Touch, Triggers, AccordionMenu, DropdownMenu, OffCanvas, SmoothScroll, default */
+/*! exports provided: Foundation, CoreUtils, Box, onImagesLoaded, Keyboard, MediaQuery, Motion, Nest, Timer, Touch, Triggers, AccordionMenu, DropdownMenu, OffCanvas, SmoothScroll, Sticky, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -113,6 +113,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! foundation-sites/js/foundation.smoothScroll */ "./node_modules/foundation-sites/js/foundation.smoothScroll.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SmoothScroll", function() { return foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_16__["SmoothScroll"]; });
 
+/* harmony import */ var foundation_sites_js_foundation_sticky__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! foundation-sites/js/foundation.sticky */ "./node_modules/foundation-sites/js/foundation.sticky.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Sticky", function() { return foundation_sites_js_foundation_sticky__WEBPACK_IMPORTED_MODULE_17__["Sticky"]; });
+
 
 
 
@@ -140,8 +143,8 @@ __webpack_require__.r(__webpack_exports__);
 
  // import { Slider } from 'foundation-sites/js/foundation.slider';
 
- // import { Sticky } from 'foundation-sites/js/foundation.sticky';
-//import { Tabs } from 'foundation-sites/js/foundation.tabs';
+
+ //import { Tabs } from 'foundation-sites/js/foundation.tabs';
 //import { Toggler } from 'foundation-sites/js/foundation.toggler';
 // import { Tooltip } from 'foundation-sites/js/foundation.tooltip';
 //import { ResponsiveAccordionTabs } from 'foundation-sites/js/foundation.responsiveAccordionTabs';
@@ -184,8 +187,8 @@ foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].p
 
 foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_reveal__WEBPACK_IMPORTED_MODULE_15__["Reveal"], 'Reveal'); // Foundation.plugin(Slider, 'Slider');
 
-foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_16__["SmoothScroll"], 'SmoothScroll'); // Foundation.plugin(Sticky, 'Sticky');
-//Foundation.plugin(Tabs, 'Tabs');
+foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_smoothScroll__WEBPACK_IMPORTED_MODULE_16__["SmoothScroll"], 'SmoothScroll');
+foundation_sites_js_foundation_core__WEBPACK_IMPORTED_MODULE_1__["Foundation"].plugin(foundation_sites_js_foundation_sticky__WEBPACK_IMPORTED_MODULE_17__["Sticky"], 'Sticky'); //Foundation.plugin(Tabs, 'Tabs');
 //Foundation.plugin(Toggler, 'Toggler');
 // Foundation.plugin(Tooltip, 'Tooltip');
 //Foundation.plugin(ResponsiveAccordionTabs, 'ResponsiveAccordionTabs');

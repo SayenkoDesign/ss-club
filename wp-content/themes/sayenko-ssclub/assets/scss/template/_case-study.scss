@@ -143,23 +143,114 @@
     
     article {
         
+        padding-top: rem-calc(40);
         
+        h1 {
+            font-weight: 700;   
+        }
         
         
     }
     
+    #secondary {
+        
+        .overview {
+            
+            h4 {
+               font-weight: 900;
+               text-transform: uppercase; 
+               font-family: $nunito; 
+               margin-bottom: rem-calc(5); 
+            }
+                
+            ul {
+                padding-top: rem-calc(10);
+                position: relative;
+                
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 0; 
+                    height: 1px;
+                }
+                
+                &:before {
+                    left: 0;
+                    width: 100%;
+                    background-color: #b6b6b6;
+                }
+                
+                &:after {
+                    right: -30px;
+                    width: 60px;
+                    background-color: #000; 
+                }
+                
+                li {
+                    
+                    margin-bottom: rem-calc(9);
+                    
+                    a {
+                        color: #252B33;
+                        font-size: rem-calc(17);
+                        letter-spacing: 0.3px;
+                        line-height: 1.125;   
+                        text-transform: uppercase; 
+                    }
+                }
+            }
+	
+        }
+        
+        .case-study-meta,
+        .treating-clinicians {
+            position: relative;
+             
+            margin-top: rem-calc(6); 
+            
+            &:before {
+                content: '';
+                display: block;
+                width: 70px;
+                height: 1px;
+                background-color: #b6b6b6;   
+                margin-bottom: rem-calc(16); 
+            }
+            
+            li {
+                color: #454C54; 
+                
+                strong {
+                    color: #252B33;
+                }
+            }
+        }
+        
+        .treating-clinicians {
+            h6 {
+                font-weight: 700;   
+            }
+        }
+    }
+    
     
     @include breakpoint(xxlarge) {
+        
         #secondary {
+            width: rem-calc(268);    
+        }
+        
+        .sidebar {
             background-color: #F5F5F5;
-            width: rem-calc(268); 
+            margin-top: rem-calc(20);
             padding: rem-calc(70 30);  
         }
     }
     
     @include breakpoint(xxxlarge) {
-        #secondary {
-            transform: translateX(-50px); 
+        .sidebar {
+            margin-left: -50px;
         }
     }
 }

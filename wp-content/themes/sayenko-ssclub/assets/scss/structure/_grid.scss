@@ -13,4 +13,18 @@
             }
         }
     }
+    
+    &.grid-padding-bottom {
+        > .cell {
+            @each $size, $padding in $grid-padding-gutters {
+                @include breakpoint($size) {
+                    margin-bottom: rem-calc($padding);
+                }  
+            }
+            
+            &.no-margin {
+                margin-bottom: 0;   
+            }
+        }
+    }
 }

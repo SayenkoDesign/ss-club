@@ -48,7 +48,7 @@ _s_get_template_part( 'template-parts/case-study', 'gallery' );
                         
             if( ! empty( $list ) ) {
                 $secondary .= sprintf( '<div class="panel overview show-for-xlarge">
-                <h3>Overview</h3><ul class="no-bullet">%s</ul></div>', $list );
+                <h4>Overview ></h4><ul class="no-bullet"><li><a href="#content" data-smooth-scroll>Gallery</a></li>%s</ul></div>', $list );
             }
             
             // Meta
@@ -74,7 +74,9 @@ _s_get_template_part( 'template-parts/case-study', 'gallery' );
             
             
             if( ! empty( $secondary ) ) {
-                printf( '<div id="secondary" class="cell xlarge-shrink xlarge-order-1" role="complementary">%s</div>', $secondary );
+                printf( '<div id="secondary" class="cell xlarge-shrink xlarge-order-1 sticky-container" role="complementary" data-stick-container>
+                        <div class="sidebar sticky" data-sticky data-top-anchor="section-1:bottom" data-btm-anchor="primary:bottom" data-margin-top="7" data-sticky-on="xlarge">%s</div>
+                        </div>', $secondary );
             }
             ?>
                 

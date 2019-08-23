@@ -23,7 +23,7 @@ $text_secondary  = get_sub_field( 'text_secondary' );
         </div>
     </div>
 
-    <div class="grid-x grid-padding-x media-text">    
+    <div class="grid-x grid-padding-x grid-padding-bottom media-text">    
     
         <div class="cell large-auto">
             <?php

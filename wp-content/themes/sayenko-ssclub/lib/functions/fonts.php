@@ -5,7 +5,7 @@ function _s_load_google_fonts() {
 
 	// change array as needed
 	$font_families = array(
-        'Nunito:400,700',
+        'Nunito:400,700,900',
 		'Playfair+Display:400,700'
 	);
 

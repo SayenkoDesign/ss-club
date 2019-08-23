@@ -1,4 +1,45 @@
 <?php
+
+
+function _s_get_post_index( $post_id = false ) {
+    
+    if( ! absint( $post_id ) ) {
+        return false;
+    }
+    
+    $args = array(
+		'post_type'      => 'case_study',
+		'posts_per_page' => 250,
+		'post_status'    => 'publish',
+        'no_found_rows' => true,
+        'fields' => 'ids',
+        'update_post_meta_cache' => false,
+        'update_post_term_cache' => false
+	);
+
+	$loop = new WP_Query( $args );
+
+	$matched = false;
+    
+	if ( $loop->have_posts() ) : 
+ 		while ( $loop->have_posts() ) : $loop->the_post(); 
+            
+            if( $post_id == get_the_ID() ) {
+                $matched = $loop->current_post +1;
+            }
+
+		endwhile;
+	endif;
+
+	wp_reset_postdata();
+    
+    return $matched;
+}
+
+
+
+
+
 define( 'TWENTY_TWENTY_ASSETS', sprintf( '%slib/includes/twentytwenty', trailingslashit( get_template_directory_uri() ) ) );
 
 
