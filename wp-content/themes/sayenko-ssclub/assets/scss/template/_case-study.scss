@@ -30,7 +30,7 @@
         display: block!important;  
         z-index: 9;
         
-        @include breakpoint(xxlarge) {
+        @include breakpoint(xlarge) {
             
             &.slick-prev {
                 left: 5%;   
@@ -41,6 +41,26 @@
             }
         }
      }
+     
+     @include breakpoint(large down) {
+    
+        .slick-arrows {
+            display: flex;
+            justify-content: space-between;
+            margin-top: rem-calc(30);
+            
+            .slick-next {
+                margin-left: auto;   
+            }
+        }
+        .slick-prev, .slick-next {
+            position: static;
+            top: auto;
+            left: auto;
+            right: auto;  
+            transform: none;    
+        }
+    }
     
     .slick-slide .twentytwenty-container img {
         position: relative;
@@ -99,7 +119,7 @@
         margin: 0; 
         
         .caption {
-            @include breakpoint(xxlarge) {
+            @include breakpoint(xlarge) {
                 opacity: 0;
                 visibility: hidden;   
                 transition: visibility 0s linear 300ms, opacity 300ms;   
@@ -131,7 +151,7 @@
             line-height: 26px;
             background: #000;
             
-            @include breakpoint(xxlarge) {
+            @include breakpoint(xlarge) {
                 position: absolute;
                 bottom: 0;
                 left: 0;
@@ -153,6 +173,12 @@
     }
     
     #secondary {
+        
+        .sidebar {
+            background-color: #F5F5F5;
+            margin-top: rem-calc(20);
+            padding: rem-calc(70 30);  
+        }
         
         .overview {
             
@@ -235,22 +261,26 @@
     }
     
     
-    @include breakpoint(xxlarge) {
+    @include breakpoint(xlarge) {
         
         #secondary {
-            width: rem-calc(268);    
-        }
-        
-        .sidebar {
-            background-color: #F5F5F5;
-            margin-top: rem-calc(20);
-            padding: rem-calc(70 30);  
-        }
+            width: rem-calc(290);    
+        }        
     }
     
     @include breakpoint(xxxlarge) {
         .sidebar {
             margin-left: -50px;
+        }
+    }
+    
+    @include breakpoint(xlarge down) {
+        .sticky-container {
+            height: auto!important;
+            
+            .sticky {
+                top: auto!important;     
+            }
         }
     }
 }

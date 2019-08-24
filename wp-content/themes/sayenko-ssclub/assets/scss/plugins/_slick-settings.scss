@@ -79,7 +79,7 @@ no-js .slick-arrows {
     cursor: pointer;
     background: transparent;
     color: transparent;
-    padding: rem-calc(37 39);
+    padding: rem-calc(10 39);
     
     width: auto;
     height: auto; 
@@ -147,7 +147,7 @@ no-js .slick-arrows {
 
 @include breakpoint(xxlarge down) {
     
-    .slick-arrows {
+    .slick-default .slick-arrows {
         display: flex;
         justify-content: space-between;
         margin-top: rem-calc(30);
@@ -156,10 +156,11 @@ no-js .slick-arrows {
             margin-left: auto;   
         }
     }
-    .slick-prev, .slick-next {
+    .slick-default .slick-prev, .slick-default .slick-next {
         position: static;
         top: auto;
         left: auto;
-        right: auto;    
+        right: auto;  
+        transform: none;  
     }
 }
