@@ -1,1 +1,18976 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{"1x13":function(t,e,i){"use strict";i.d(e,"a",function(){return s});var n=i("xeH2"),o=i.n(n);window.matchMedia||(window.matchMedia=function(){var t=window.styleMedia||window.media;if(!t){var e,i=document.createElement("style"),n=document.getElementsByTagName("script")[0];i.type="text/css",i.id="matchmediajs-test",n?n.parentNode.insertBefore(i,n):document.head.appendChild(i),e="getComputedStyle"in window&&window.getComputedStyle(i,null)||i.currentStyle,t={matchMedium:function(t){var n="@media "+t+"{ #matchmediajs-test { width: 1px; } }";return i.styleSheet?i.styleSheet.cssText=n:i.textContent=n,"1px"===e.width}}}return function(e){return{matches:t.matchMedium(e||"all"),media:e||"all"}}}());var s={queries:[],current:"",_init(){o()("meta.foundation-mq").length||o()('<meta class="foundation-mq">').appendTo(document.head);var t,e=o()(".foundation-mq").css("font-family");for(var i in t=function(t){var e={};if("string"!=typeof t)return e;if(!(t=t.trim().slice(1,-1)))return e;return e=t.split("&").reduce(function(t,e){var i=e.replace(/\+/g," ").split("="),n=i[0],o=i[1];return n=decodeURIComponent(n),o=void 0===o?null:decodeURIComponent(o),t.hasOwnProperty(n)?Array.isArray(t[n])?t[n].push(o):t[n]=[t[n],o]:t[n]=o,t},{})}(e))t.hasOwnProperty(i)&&this.queries.push({name:i,value:`only screen and (min-width: ${t[i]})`});this.current=this._getCurrentSize(),this._watcher()},atLeast(t){var e=this.get(t);return!!e&&window.matchMedia(e).matches},is(t){return(t=t.trim().split(" ")).length>1&&"only"===t[1]?t[0]===this._getCurrentSize():this.atLeast(t[0])},get(t){for(var e in this.queries)if(this.queries.hasOwnProperty(e)){var i=this.queries[e];if(t===i.name)return i.value}return null},_getCurrentSize(){for(var t,e=0;e<this.queries.length;e++){var i=this.queries[e];window.matchMedia(i.value).matches&&(t=i)}return"object"==typeof t?t.name:t},_watcher(){o()(window).off("resize.zf.mediaquery").on("resize.zf.mediaquery",()=>{var t=this._getCurrentSize(),e=this.current;t!==e&&(this.current=t,o()(window).trigger("changed.zf.mediaquery",[t,e]))})}}},"64OR":function(t,e,i){var n,o,s;window,o=[i("JT+M")],void 0===(s="function"==typeof(n=function(t){"use strict";var e=t.create("fitRows"),i=e.prototype;return i._resetLayout=function(){this.x=0,this.y=0,this.maxY=0,this._getMeasurement("gutter","outerWidth")},i._getItemLayoutPosition=function(t){t.getSize();var e=t.size.outerWidth+this.gutter,i=this.isotope.size.innerWidth+this.gutter;0!==this.x&&e+this.x>i&&(this.x=0,this.y=this.maxY);var n={x:this.x,y:this.y};return this.maxY=Math.max(this.maxY,this.y+t.size.outerHeight),this.x+=e,n},i._getContainerSize=function(){return{height:this.maxY}},e})?n.apply(e,o):n)||(t.exports=s)},BFHv:function(t,e,i){var n,o,s;!function(r){"use strict";o=[i("xeH2")],void 0===(s="function"==typeof(n=function(t){var e=-1,i=-1,n=function(t){return parseFloat(t)||0},o=function(e){var i=t(e),o=null,s=[];return i.each(function(){var e=t(this),i=e.offset().top-n(e.css("margin-top")),r=s.length>0?s[s.length-1]:null;null===r?s.push(e):Math.floor(Math.abs(o-i))<=1?s[s.length-1]=r.add(e):s.push(e),o=i}),s},s=function(e){var i={byRow:!0,property:"height",target:null,remove:!1};return"object"==typeof e?t.extend(i,e):("boolean"==typeof e?i.byRow=e:"remove"===e&&(i.remove=!0),i)},r=t.fn.matchHeight=function(e){var i=s(e);if(i.remove){var n=this;return this.css(i.property,""),t.each(r._groups,function(t,e){e.elements=e.elements.not(n)}),this}return this.length<=1&&!i.target?this:(r._groups.push({elements:this,options:i}),r._apply(this,i),this)};r.version="0.7.2",r._groups=[],r._throttle=80,r._maintainScroll=!1,r._beforeUpdate=null,r._afterUpdate=null,r._rows=o,r._parse=n,r._parseOptions=s,r._apply=function(e,i){var a=s(i),l=t(e),c=[l],d=t(window).scrollTop(),h=t("html").outerHeight(!0),u=l.parents().filter(":hidden");return u.each(function(){var e=t(this);e.data("style-cache",e.attr("style"))}),u.css("display","block"),a.byRow&&!a.target&&(l.each(function(){var e=t(this),i=e.css("display");"inline-block"!==i&&"flex"!==i&&"inline-flex"!==i&&(i="block"),e.data("style-cache",e.attr("style")),e.css({display:i,"padding-top":"0","padding-bottom":"0","margin-top":"0","margin-bottom":"0","border-top-width":"0","border-bottom-width":"0",height:"100px",overflow:"hidden"})}),c=o(l),l.each(function(){var e=t(this);e.attr("style",e.data("style-cache")||"")})),t.each(c,function(e,i){var o=t(i),s=0;if(a.target)s=a.target.outerHeight(!1);else{if(a.byRow&&o.length<=1)return void o.css(a.property,"");o.each(function(){var e=t(this),i=e.attr("style"),n=e.css("display");"inline-block"!==n&&"flex"!==n&&"inline-flex"!==n&&(n="block");var o={display:n};o[a.property]="",e.css(o),e.outerHeight(!1)>s&&(s=e.outerHeight(!1)),i?e.attr("style",i):e.css("display","")})}o.each(function(){var e=t(this),i=0;a.target&&e.is(a.target)||("border-box"!==e.css("box-sizing")&&(i+=n(e.css("border-top-width"))+n(e.css("border-bottom-width")),i+=n(e.css("padding-top"))+n(e.css("padding-bottom"))),e.css(a.property,s-i+"px"))})}),u.each(function(){var e=t(this);e.attr("style",e.data("style-cache")||null)}),r._maintainScroll&&t(window).scrollTop(d/h*t("html").outerHeight(!0)),this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").each(function(){var i=t(this),n=i.attr("data-mh")||i.attr("data-match-height");e[n]=n in e?e[n].add(i):i}),t.each(e,function(){this.matchHeight(!0)})};var a=function(e){r._beforeUpdate&&r._beforeUpdate(e,r._groups),t.each(r._groups,function(){r._apply(this.elements,this.options)}),r._afterUpdate&&r._afterUpdate(e,r._groups)};r._update=function(n,o){if(o&&"resize"===o.type){var s=t(window).width();if(s===e)return;e=s}n?-1===i&&(i=setTimeout(function(){a(o),i=-1},r._throttle)):a(o)},t(r._applyDataApi);var l=t.fn.on?"on":"bind";t(window)[l]("load",function(t){r._update(!1,t)}),t(window)[l]("resize orientationchange",function(t){r._update(!0,t)})})?n.apply(e,o):n)||(t.exports=s)}()},CKjC:function(t,e,i){"use strict";i.d(e,"a",function(){return o});i("xeH2");var n=i("l67y");class o{constructor(t,e){this._setup(t,e);var i=r(this);this.uuid=Object(n.a)(6,i),this.$element.attr(`data-${i}`)||this.$element.attr(`data-${i}`,this.uuid),this.$element.data("zfPlugin")||this.$element.data("zfPlugin",this),this.$element.trigger(`init.zf.${i}`)}destroy(){this._destroy();var t=r(this);for(var e in this.$element.removeAttr(`data-${t}`).removeData("zfPlugin").trigger(`destroyed.zf.${t}`),this)this[e]=null}}function s(t){return t.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase()}function r(t){return void 0!==t.constructor.name?s(t.constructor.name):s(t.className)}},CUlp:function(t,e,i){var n,o;"undefined"!=typeof window&&window,void 0===(o="function"==typeof(n=function(){"use strict";function t(){}var e=t.prototype;return e.on=function(t,e){if(t&&e){var i=this._events=this._events||{},n=i[t]=i[t]||[];return-1==n.indexOf(e)&&n.push(e),this}},e.once=function(t,e){if(t&&e){this.on(t,e);var i=this._onceEvents=this._onceEvents||{};return(i[t]=i[t]||{})[e]=!0,this}},e.off=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){var n=i.indexOf(e);return-1!=n&&i.splice(n,1),this}},e.emitEvent=function(t,e){var i=this._events&&this._events[t];if(i&&i.length){i=i.slice(0),e=e||[];for(var n=this._onceEvents&&this._onceEvents[t],o=0;o<i.length;o++){var s=i[o];n&&n[s]&&(this.off(t,s),delete n[s]),s.apply(this,e)}return this}},e.allOff=function(){delete this._events,delete this._onceEvents},t})?n.call(e,i,e,t):n)||(t.exports=o)},FM30:function(t,e,i){"use strict";i.d(e,"a",function(){return d});var n=i("xeH2"),o=i.n(n),s=i("CKjC"),r=i("l67y"),a=i("RnVY"),l=i("sVZ0"),c=i("oMJq");class d extends s.a{_setup(t,e){this.$element=t,this.options=o.a.extend({},d.defaults,this.$element.data(),e),this.className="DropdownMenu",this._init(),a.a.register("DropdownMenu",{ENTER:"open",SPACE:"open",ARROW_RIGHT:"next",ARROW_UP:"up",ARROW_DOWN:"down",ARROW_LEFT:"previous",ESCAPE:"close"})}_init(){l.a.Feather(this.$element,"dropdown");var t=this.$element.find("li.is-dropdown-submenu-parent");this.$element.children(".is-dropdown-submenu-parent").children(".is-dropdown-submenu").addClass("first-sub"),this.$menuItems=this.$element.find('[role="menuitem"]'),this.$tabs=this.$element.children('[role="menuitem"]'),this.$tabs.find("ul.is-dropdown-submenu").addClass(this.options.verticalClass),"auto"===this.options.alignment?this.$element.hasClass(this.options.rightClass)||Object(r.e)()||this.$element.parents(".top-bar-right").is("*")?(this.options.alignment="right",t.addClass("opens-left")):(this.options.alignment="left",t.addClass("opens-right")):"right"===this.options.alignment?t.addClass("opens-left"):t.addClass("opens-right"),this.changed=!1,this._events()}_isVertical(){return"block"===this.$tabs.css("display")||"column"===this.$element.css("flex-direction")}_isRtl(){return this.$element.hasClass("align-right")||Object(r.e)()&&!this.$element.hasClass("align-left")}_events(){var t=this,e="ontouchstart"in window||void 0!==window.ontouchstart,i="is-dropdown-submenu-parent";(this.options.clickOpen||e)&&this.$menuItems.on("click.zf.dropdownmenu touchstart.zf.dropdownmenu",function(n){var s=o()(n.target).parentsUntil("ul",`.${i}`),r=s.hasClass(i),a="true"===s.attr("data-is-click"),l=s.children(".is-dropdown-submenu");if(r)if(a){if(!t.options.closeOnClick||!t.options.clickOpen&&!e||t.options.forceFollow&&e)return;n.stopImmediatePropagation(),n.preventDefault(),t._hide(s)}else n.preventDefault(),n.stopImmediatePropagation(),t._show(l),s.add(s.parentsUntil(t.$element,`.${i}`)).attr("data-is-click",!0)}),t.options.closeOnClickInside&&this.$menuItems.on("click.zf.dropdownmenu",function(e){o()(this).hasClass(i)||t._hide()}),this.options.disableHover||this.$menuItems.on("mouseenter.zf.dropdownmenu",function(e){var n=o()(this);n.hasClass(i)&&(clearTimeout(n.data("_delay")),n.data("_delay",setTimeout(function(){t._show(n.children(".is-dropdown-submenu"))},t.options.hoverDelay)))}).on("mouseleave.zf.dropdownmenu",Object(r.c)(function(e){var n=o()(this);if(n.hasClass(i)&&t.options.autoclose){if("true"===n.attr("data-is-click")&&t.options.clickOpen)return!1;clearTimeout(n.data("_delay")),n.data("_delay",setTimeout(function(){t._hide(n)},t.options.closingTime))}})),this.$menuItems.on("keydown.zf.dropdownmenu",function(e){var i,n,s=o()(e.target).parentsUntil("ul",'[role="menuitem"]'),r=t.$tabs.index(s)>-1,l=r?t.$tabs:s.siblings("li").add(s);l.each(function(t){if(o()(this).is(s))return i=l.eq(t-1),void(n=l.eq(t+1))});var c=function(){n.children("a:first").focus(),e.preventDefault()},d=function(){i.children("a:first").focus(),e.preventDefault()},h=function(){var i=s.children("ul.is-dropdown-submenu");i.length&&(t._show(i),s.find("li > a:first").focus(),e.preventDefault())},u=function(){var i=s.parent("ul").parent("li");i.children("a:first").focus(),t._hide(i),e.preventDefault()},p={open:h,close:function(){t._hide(t.$element),t.$menuItems.eq(0).children("a").focus(),e.preventDefault()},handled:function(){e.stopImmediatePropagation()}};r?t._isVertical()?t._isRtl()?o.a.extend(p,{down:c,up:d,next:u,previous:h}):o.a.extend(p,{down:c,up:d,next:h,previous:u}):t._isRtl()?o.a.extend(p,{next:d,previous:c,down:h,up:u}):o.a.extend(p,{next:c,previous:d,down:h,up:u}):t._isRtl()?o.a.extend(p,{next:u,previous:h,down:c,up:d}):o.a.extend(p,{next:h,previous:u,down:c,up:d}),a.a.handleKey(e,"DropdownMenu",p)})}_addBodyHandler(){var t=o()(document.body),e=this;t.off("mouseup.zf.dropdownmenu touchend.zf.dropdownmenu").on("mouseup.zf.dropdownmenu touchend.zf.dropdownmenu",function(i){e.$element.find(i.target).length||(e._hide(),t.off("mouseup.zf.dropdownmenu touchend.zf.dropdownmenu"))})}_show(t){var e=this.$tabs.index(this.$tabs.filter(function(e,i){return o()(i).find(t).length>0})),i=t.parent("li.is-dropdown-submenu-parent").siblings("li.is-dropdown-submenu-parent");this._hide(i,e),t.css("visibility","hidden").addClass("js-dropdown-active").parent("li.is-dropdown-submenu-parent").addClass("is-active");var n=c.a.ImNotTouchingYou(t,null,!0);if(!n){var s="left"===this.options.alignment?"-right":"-left",r=t.parent(".is-dropdown-submenu-parent");r.removeClass(`opens${s}`).addClass(`opens-${this.options.alignment}`),(n=c.a.ImNotTouchingYou(t,null,!0))||r.removeClass(`opens-${this.options.alignment}`).addClass("opens-inner"),this.changed=!0}t.css("visibility",""),this.options.closeOnClick&&this._addBodyHandler(),this.$element.trigger("show.zf.dropdownmenu",[t])}_hide(t,e){var i;if((i=t&&t.length?t:void 0!==e?this.$tabs.not(function(t,i){return t===e}):this.$element).hasClass("is-active")||i.find(".is-active").length>0){if(i.find("li.is-active").add(i).attr({"data-is-click":!1}).removeClass("is-active"),i.find("ul.js-dropdown-active").removeClass("js-dropdown-active"),this.changed||i.find("opens-inner").length){var n="left"===this.options.alignment?"right":"left";i.find("li.is-dropdown-submenu-parent").add(i).removeClass(`opens-inner opens-${this.options.alignment}`).addClass(`opens-${n}`),this.changed=!1}this.$element.trigger("hide.zf.dropdownmenu",[i])}}_destroy(){this.$menuItems.off(".zf.dropdownmenu").removeAttr("data-is-click").removeClass("is-right-arrow is-left-arrow is-down-arrow opens-right opens-left opens-inner"),o()(document.body).off(".zf.dropdownmenu"),l.a.Burn(this.$element,"dropdown")}}d.defaults={disableHover:!1,autoclose:!0,hoverDelay:50,clickOpen:!1,closingTime:500,alignment:"auto",closeOnClick:!0,closeOnClickInside:!0,verticalClass:"vertical",rightClass:"align-right",forceFollow:!0}},Hy43:function(t,e,i){var n,o;!function(s,r){"use strict";n=[i("CUlp"),i("QK1G"),i("YVj6"),i("KK1e")],void 0===(o=function(t,e,i,n){return function(t,e,i,n,o){var s=t.console,r=t.jQuery,a=function(){},l=0,c={};function d(t,e){var i=n.getQueryElement(t);if(i){this.element=i,r&&(this.$element=r(this.element)),this.options=n.extend({},this.constructor.defaults),this.option(e);var o=++l;this.element.outlayerGUID=o,c[o]=this,this._create();var a=this._getOption("initLayout");a&&this.layout()}else s&&s.error("Bad element for "+this.constructor.namespace+": "+(i||t))}d.namespace="outlayer",d.Item=o,d.defaults={containerStyle:{position:"relative"},initLayout:!0,originLeft:!0,originTop:!0,resize:!0,resizeContainer:!0,transitionDuration:"0.4s",hiddenStyle:{opacity:0,transform:"scale(0.001)"},visibleStyle:{opacity:1,transform:"scale(1)"}};var h=d.prototype;function u(t){function e(){t.apply(this,arguments)}return e.prototype=Object.create(t.prototype),e.prototype.constructor=e,e}n.extend(h,e.prototype),h.option=function(t){n.extend(this.options,t)},h._getOption=function(t){var e=this.constructor.compatOptions[t];return e&&void 0!==this.options[e]?this.options[e]:this.options[t]},d.compatOptions={initLayout:"isInitLayout",horizontal:"isHorizontal",layoutInstant:"isLayoutInstant",originLeft:"isOriginLeft",originTop:"isOriginTop",resize:"isResizeBound",resizeContainer:"isResizingContainer"},h._create=function(){this.reloadItems(),this.stamps=[],this.stamp(this.options.stamp),n.extend(this.element.style,this.options.containerStyle);var t=this._getOption("resize");t&&this.bindResize()},h.reloadItems=function(){this.items=this._itemize(this.element.children)},h._itemize=function(t){for(var e=this._filterFindItemElements(t),i=this.constructor.Item,n=[],o=0;o<e.length;o++){var s=e[o],r=new i(s,this);n.push(r)}return n},h._filterFindItemElements=function(t){return n.filterFindElements(t,this.options.itemSelector)},h.getItemElements=function(){return this.items.map(function(t){return t.element})},h.layout=function(){this._resetLayout(),this._manageStamps();var t=this._getOption("layoutInstant"),e=void 0!==t?t:!this._isLayoutInited;this.layoutItems(this.items,e),this._isLayoutInited=!0},h._init=h.layout,h._resetLayout=function(){this.getSize()},h.getSize=function(){this.size=i(this.element)},h._getMeasurement=function(t,e){var n,o=this.options[t];o?("string"==typeof o?n=this.element.querySelector(o):o instanceof HTMLElement&&(n=o),this[t]=n?i(n)[e]:o):this[t]=0},h.layoutItems=function(t,e){t=this._getItemsForLayout(t),this._layoutItems(t,e),this._postLayout()},h._getItemsForLayout=function(t){return t.filter(function(t){return!t.isIgnored})},h._layoutItems=function(t,e){if(this._emitCompleteOnItems("layout",t),t&&t.length){var i=[];t.forEach(function(t){var n=this._getItemLayoutPosition(t);n.item=t,n.isInstant=e||t.isLayoutInstant,i.push(n)},this),this._processLayoutQueue(i)}},h._getItemLayoutPosition=function(){return{x:0,y:0}},h._processLayoutQueue=function(t){this.updateStagger(),t.forEach(function(t,e){this._positionItem(t.item,t.x,t.y,t.isInstant,e)},this)},h.updateStagger=function(){var t=this.options.stagger;if(null!=t)return this.stagger=function(t){if("number"==typeof t)return t;var e=t.match(/(^\d*\.?\d*)(\w*)/),i=e&&e[1],n=e&&e[2];if(!i.length)return 0;i=parseFloat(i);var o=p[n]||1;return i*o}(t),this.stagger;this.stagger=0},h._positionItem=function(t,e,i,n,o){n?t.goTo(e,i):(t.stagger(o*this.stagger),t.moveTo(e,i))},h._postLayout=function(){this.resizeContainer()},h.resizeContainer=function(){var t=this._getOption("resizeContainer");if(t){var e=this._getContainerSize();e&&(this._setContainerMeasure(e.width,!0),this._setContainerMeasure(e.height,!1))}},h._getContainerSize=a,h._setContainerMeasure=function(t,e){if(void 0!==t){var i=this.size;i.isBorderBox&&(t+=e?i.paddingLeft+i.paddingRight+i.borderLeftWidth+i.borderRightWidth:i.paddingBottom+i.paddingTop+i.borderTopWidth+i.borderBottomWidth),t=Math.max(t,0),this.element.style[e?"width":"height"]=t+"px"}},h._emitCompleteOnItems=function(t,e){var i=this;function n(){i.dispatchEvent(t+"Complete",null,[e])}var o=e.length;if(e&&o){var s=0;e.forEach(function(e){e.once(t,r)})}else n();function r(){++s==o&&n()}},h.dispatchEvent=function(t,e,i){var n=e?[e].concat(i):i;if(this.emitEvent(t,n),r)if(this.$element=this.$element||r(this.element),e){var o=r.Event(e);o.type=t,this.$element.trigger(o,i)}else this.$element.trigger(t,i)},h.ignore=function(t){var e=this.getItem(t);e&&(e.isIgnored=!0)},h.unignore=function(t){var e=this.getItem(t);e&&delete e.isIgnored},h.stamp=function(t){(t=this._find(t))&&(this.stamps=this.stamps.concat(t),t.forEach(this.ignore,this))},h.unstamp=function(t){(t=this._find(t))&&t.forEach(function(t){n.removeFrom(this.stamps,t),this.unignore(t)},this)},h._find=function(t){if(t)return"string"==typeof t&&(t=this.element.querySelectorAll(t)),t=n.makeArray(t)},h._manageStamps=function(){this.stamps&&this.stamps.length&&(this._getBoundingRect(),this.stamps.forEach(this._manageStamp,this))},h._getBoundingRect=function(){var t=this.element.getBoundingClientRect(),e=this.size;this._boundingRect={left:t.left+e.paddingLeft+e.borderLeftWidth,top:t.top+e.paddingTop+e.borderTopWidth,right:t.right-(e.paddingRight+e.borderRightWidth),bottom:t.bottom-(e.paddingBottom+e.borderBottomWidth)}},h._manageStamp=a,h._getElementOffset=function(t){var e=t.getBoundingClientRect(),n=this._boundingRect,o=i(t),s={left:e.left-n.left-o.marginLeft,top:e.top-n.top-o.marginTop,right:n.right-e.right-o.marginRight,bottom:n.bottom-e.bottom-o.marginBottom};return s},h.handleEvent=n.handleEvent,h.bindResize=function(){t.addEventListener("resize",this),this.isResizeBound=!0},h.unbindResize=function(){t.removeEventListener("resize",this),this.isResizeBound=!1},h.onresize=function(){this.resize()},n.debounceMethod(d,"onresize",100),h.resize=function(){this.isResizeBound&&this.needsResizeLayout()&&this.layout()},h.needsResizeLayout=function(){var t=i(this.element),e=this.size&&t;return e&&t.innerWidth!==this.size.innerWidth},h.addItems=function(t){var e=this._itemize(t);return e.length&&(this.items=this.items.concat(e)),e},h.appended=function(t){var e=this.addItems(t);e.length&&(this.layoutItems(e,!0),this.reveal(e))},h.prepended=function(t){var e=this._itemize(t);if(e.length){var i=this.items.slice(0);this.items=e.concat(i),this._resetLayout(),this._manageStamps(),this.layoutItems(e,!0),this.reveal(e),this.layoutItems(i)}},h.reveal=function(t){if(this._emitCompleteOnItems("reveal",t),t&&t.length){var e=this.updateStagger();t.forEach(function(t,i){t.stagger(i*e),t.reveal()})}},h.hide=function(t){if(this._emitCompleteOnItems("hide",t),t&&t.length){var e=this.updateStagger();t.forEach(function(t,i){t.stagger(i*e),t.hide()})}},h.revealItemElements=function(t){var e=this.getItems(t);this.reveal(e)},h.hideItemElements=function(t){var e=this.getItems(t);this.hide(e)},h.getItem=function(t){for(var e=0;e<this.items.length;e++){var i=this.items[e];if(i.element==t)return i}},h.getItems=function(t){t=n.makeArray(t);var e=[];return t.forEach(function(t){var i=this.getItem(t);i&&e.push(i)},this),e},h.remove=function(t){var e=this.getItems(t);this._emitCompleteOnItems("remove",e),e&&e.length&&e.forEach(function(t){t.remove(),n.removeFrom(this.items,t)},this)},h.destroy=function(){var t=this.element.style;t.height="",t.position="",t.width="",this.items.forEach(function(t){t.destroy()}),this.unbindResize();var e=this.element.outlayerGUID;delete c[e],delete this.element.outlayerGUID,r&&r.removeData(this.element,this.constructor.namespace)},d.data=function(t){var e=(t=n.getQueryElement(t))&&t.outlayerGUID;return e&&c[e]},d.create=function(t,e){var i=u(d);return i.defaults=n.extend({},d.defaults),n.extend(i.defaults,e),i.compatOptions=n.extend({},d.compatOptions),i.namespace=t,i.data=d.data,i.Item=u(o),n.htmlInit(i,t),r&&r.bridget&&r.bridget(t,i),i};var p={ms:1,s:1e3};return d.Item=o,d}(s,t,e,i,n)}.apply(e,n))||(t.exports=o)}(window)},"JT+M":function(t,e,i){var n,o,s;window,o=[i("QK1G"),i("Hy43")],void 0===(s="function"==typeof(n=function(t,e){"use strict";function i(t){this.isotope=t,t&&(this.options=t.options[this.namespace],this.element=t.element,this.items=t.filteredItems,this.size=t.size)}var n=i.prototype;return["_resetLayout","_getItemLayoutPosition","_manageStamp","_getContainerSize","_getElementOffset","needsResizeLayout","_getOption"].forEach(function(t){n[t]=function(){return e.prototype[t].apply(this.isotope,arguments)}}),n.needsVerticalResizeLayout=function(){var e=t(this.isotope.element);return this.isotope.size&&e&&e.innerHeight!=this.isotope.size.innerHeight},n._getMeasurement=function(){this.isotope._getMeasurement.apply(this,arguments)},n.getColumnWidth=function(){this.getSegmentSize("column","Width")},n.getRowHeight=function(){this.getSegmentSize("row","Height")},n.getSegmentSize=function(t,e){var i=t+e,n="outer"+e;if(this._getMeasurement(i,n),!this[i]){var o=this.getFirstItemSize();this[i]=o&&o[n]||this.isotope.size["inner"+e]}},n.getFirstItemSize=function(){var e=this.isotope.filteredItems[0];return e&&e.element&&t(e.element)},n.layout=function(){this.isotope.layout.apply(this.isotope,arguments)},n.getSize=function(){this.isotope.getSize(),this.size=this.isotope.size},i.modes={},i.create=function(t,e){function o(){i.apply(this,arguments)}return o.prototype=Object.create(n),o.prototype.constructor=o,e&&(o.options=e),o.prototype.namespace=t,i.modes[t]=o,o},i})?n.apply(e,o):n)||(t.exports=s)},JgzQ:function(t,e,i){"use strict";i.d(e,"a",function(){return a});var n=i("xeH2"),o=i.n(n),s=i("l67y"),r=i("CKjC");class a extends r.a{_setup(t,e){this.$element=t,this.options=o.a.extend({},a.defaults,this.$element.data(),e),this.className="SmoothScroll",this._init()}_init(){const t=this.$element[0].id||Object(s.a)(6,"smooth-scroll");this.$element.attr({id:t}),this._events()}_events(){this._linkClickListener=this._handleLinkClick.bind(this),this.$element.on("click.zf.smoothScroll",this._linkClickListener),this.$element.on("click.zf.smoothScroll",'a[href^="#"]',this._linkClickListener)}_handleLinkClick(t){if(!o()(t.currentTarget).is('a[href^="#"]'))return;const e=t.currentTarget.getAttribute("href");this._inTransition=!0,a.scrollToLoc(e,this.options,()=>{this._inTransition=!1}),t.preventDefault()}static scrollToLoc(t,e=a.defaults,i){const n=o()(t);if(!n.length)return!1;var s=Math.round(n.offset().top-e.threshold/2-e.offset);o()("html, body").stop(!0).animate({scrollTop:s},e.animationDuration,e.animationEasing,()=>{"function"==typeof i&&i()})}_destroy(){this.$element.off("click.zf.smoothScroll",this._linkClickListener),this.$element.off("click.zf.smoothScroll",'a[href^="#"]',this._linkClickListener)}}a.defaults={animationDuration:500,animationEasing:"linear",threshold:50,offset:0}},"K/Xa":function(t,e,i){"use strict";i.d(e,"a",function(){return n});i("xeH2");function n(t,e,i){var n,o,s=this,r=e.duration,a=Object.keys(t.data())[0]||"timer",l=-1;this.isPaused=!1,this.restart=function(){l=-1,clearTimeout(o),this.start()},this.start=function(){this.isPaused=!1,clearTimeout(o),l=l<=0?r:l,t.data("paused",!1),n=Date.now(),o=setTimeout(function(){e.infinite&&s.restart(),i&&"function"==typeof i&&i()},l),t.trigger(`timerstart.zf.${a}`)},this.pause=function(){this.isPaused=!0,clearTimeout(o),t.data("paused",!0);var e=Date.now();l-=e-n,t.trigger(`timerpaused.zf.${a}`)}}},KK1e:function(t,e,i){var n,o,s;window,o=[i("CUlp"),i("QK1G")],void 0===(s="function"==typeof(n=function(t,e){"use strict";var i=document.documentElement.style,n="string"==typeof i.transition?"transition":"WebkitTransition",o="string"==typeof i.transform?"transform":"WebkitTransform",s={WebkitTransition:"webkitTransitionEnd",transition:"transitionend"}[n],r={transform:o,transition:n,transitionDuration:n+"Duration",transitionProperty:n+"Property",transitionDelay:n+"Delay"};function a(t,e){t&&(this.element=t,this.layout=e,this.position={x:0,y:0},this._create())}var l=a.prototype=Object.create(t.prototype);l.constructor=a,l._create=function(){this._transn={ingProperties:{},clean:{},onEnd:{}},this.css({position:"absolute"})},l.handleEvent=function(t){var e="on"+t.type;this[e]&&this[e](t)},l.getSize=function(){this.size=e(this.element)},l.css=function(t){var e=this.element.style;for(var i in t){var n=r[i]||i;e[n]=t[i]}},l.getPosition=function(){var t=getComputedStyle(this.element),e=this.layout._getOption("originLeft"),i=this.layout._getOption("originTop"),n=t[e?"left":"right"],o=t[i?"top":"bottom"],s=parseFloat(n),r=parseFloat(o),a=this.layout.size;-1!=n.indexOf("%")&&(s=s/100*a.width),-1!=o.indexOf("%")&&(r=r/100*a.height),s=isNaN(s)?0:s,r=isNaN(r)?0:r,s-=e?a.paddingLeft:a.paddingRight,r-=i?a.paddingTop:a.paddingBottom,this.position.x=s,this.position.y=r},l.layoutPosition=function(){var t=this.layout.size,e={},i=this.layout._getOption("originLeft"),n=this.layout._getOption("originTop"),o=i?"paddingLeft":"paddingRight",s=i?"left":"right",r=i?"right":"left",a=this.position.x+t[o];e[s]=this.getXValue(a),e[r]="";var l=n?"paddingTop":"paddingBottom",c=n?"top":"bottom",d=n?"bottom":"top",h=this.position.y+t[l];e[c]=this.getYValue(h),e[d]="",this.css(e),this.emitEvent("layout",[this])},l.getXValue=function(t){var e=this.layout._getOption("horizontal");return this.layout.options.percentPosition&&!e?t/this.layout.size.width*100+"%":t+"px"},l.getYValue=function(t){var e=this.layout._getOption("horizontal");return this.layout.options.percentPosition&&e?t/this.layout.size.height*100+"%":t+"px"},l._transitionTo=function(t,e){this.getPosition();var i=this.position.x,n=this.position.y,o=t==this.position.x&&e==this.position.y;if(this.setPosition(t,e),!o||this.isTransitioning){var s=t-i,r=e-n,a={};a.transform=this.getTranslate(s,r),this.transition({to:a,onTransitionEnd:{transform:this.layoutPosition},isCleaning:!0})}else this.layoutPosition()},l.getTranslate=function(t,e){var i=this.layout._getOption("originLeft"),n=this.layout._getOption("originTop");return"translate3d("+(t=i?t:-t)+"px, "+(e=n?e:-e)+"px, 0)"},l.goTo=function(t,e){this.setPosition(t,e),this.layoutPosition()},l.moveTo=l._transitionTo,l.setPosition=function(t,e){this.position.x=parseFloat(t),this.position.y=parseFloat(e)},l._nonTransition=function(t){for(var e in this.css(t.to),t.isCleaning&&this._removeStyles(t.to),t.onTransitionEnd)t.onTransitionEnd[e].call(this)},l.transition=function(t){if(parseFloat(this.layout.options.transitionDuration)){var e=this._transn;for(var i in t.onTransitionEnd)e.onEnd[i]=t.onTransitionEnd[i];for(i in t.to)e.ingProperties[i]=!0,t.isCleaning&&(e.clean[i]=!0);t.from&&(this.css(t.from),this.element.offsetHeight),this.enableTransition(t.to),this.css(t.to),this.isTransitioning=!0}else this._nonTransition(t)};var c="opacity,"+o.replace(/([A-Z])/g,function(t){return"-"+t.toLowerCase()});l.enableTransition=function(){if(!this.isTransitioning){var t=this.layout.options.transitionDuration;t="number"==typeof t?t+"ms":t,this.css({transitionProperty:c,transitionDuration:t,transitionDelay:this.staggerDelay||0}),this.element.addEventListener(s,this,!1)}},l.onwebkitTransitionEnd=function(t){this.ontransitionend(t)},l.onotransitionend=function(t){this.ontransitionend(t)};var d={"-webkit-transform":"transform"};l.ontransitionend=function(t){if(t.target===this.element){var e=this._transn,i=d[t.propertyName]||t.propertyName;if(delete e.ingProperties[i],function(t){for(var e in t)return!1;return!0}(e.ingProperties)&&this.disableTransition(),i in e.clean&&(this.element.style[t.propertyName]="",delete e.clean[i]),i in e.onEnd){var n=e.onEnd[i];n.call(this),delete e.onEnd[i]}this.emitEvent("transitionEnd",[this])}},l.disableTransition=function(){this.removeTransitionStyles(),this.element.removeEventListener(s,this,!1),this.isTransitioning=!1},l._removeStyles=function(t){var e={};for(var i in t)e[i]="";this.css(e)};var h={transitionProperty:"",transitionDuration:"",transitionDelay:""};return l.removeTransitionStyles=function(){this.css(h)},l.stagger=function(t){t=isNaN(t)?0:t,this.staggerDelay=t+"ms"},l.removeElem=function(){this.element.parentNode.removeChild(this.element),this.css({display:""}),this.emitEvent("remove",[this])},l.remove=function(){n&&parseFloat(this.layout.options.transitionDuration)?(this.once("transitionEnd",function(){this.removeElem()}),this.hide()):this.removeElem()},l.reveal=function(){delete this.isHidden,this.css({display:""});var t=this.layout.options,e={};e[this.getHideRevealTransitionEndProperty("visibleStyle")]=this.onRevealTransitionEnd,this.transition({from:t.hiddenStyle,to:t.visibleStyle,isCleaning:!0,onTransitionEnd:e})},l.onRevealTransitionEnd=function(){this.isHidden||this.emitEvent("reveal")},l.getHideRevealTransitionEndProperty=function(t){var e=this.layout.options[t];if(e.opacity)return"opacity";for(var i in e)return i},l.hide=function(){this.isHidden=!0,this.css({display:""});var t=this.layout.options,e={};e[this.getHideRevealTransitionEndProperty("hiddenStyle")]=this.onHideTransitionEnd,this.transition({from:t.visibleStyle,to:t.hiddenStyle,isCleaning:!0,onTransitionEnd:e})},l.onHideTransitionEnd=function(){this.isHidden&&(this.css({display:"none"}),this.emitEvent("hide"))},l.destroy=function(){this.css({position:"",left:"",right:"",top:"",bottom:"",transition:"",transform:""})},a})?n.apply(e,o):n)||(t.exports=s)},LKBu:function(t,e,i){"use strict";i.d(e,"a",function(){return a});var n=i("xeH2"),o=i.n(n),s=i("l67y"),r=i("1x13"),a={version:"6.5.3",_plugins:{},_uuids:[],plugin:function(t,e){var i=e||l(t),n=c(i);this._plugins[n]=this[i]=t},registerPlugin:function(t,e){var i=e?c(e):l(t.constructor).toLowerCase();t.uuid=Object(s.a)(6,i),t.$element.attr(`data-${i}`)||t.$element.attr(`data-${i}`,t.uuid),t.$element.data("zfPlugin")||t.$element.data("zfPlugin",t),t.$element.trigger(`init.zf.${i}`),this._uuids.push(t.uuid)},unregisterPlugin:function(t){var e=c(l(t.$element.data("zfPlugin").constructor));for(var i in this._uuids.splice(this._uuids.indexOf(t.uuid),1),t.$element.removeAttr(`data-${e}`).removeData("zfPlugin").trigger(`destroyed.zf.${e}`),t)t[i]=null},reInit:function(t){var e=t instanceof o.a;try{if(e)t.each(function(){o()(this).data("zfPlugin")._init()});else{var i=this;({object:function(t){t.forEach(function(t){t=c(t),o()("[data-"+t+"]").foundation("_init")})},string:function(){t=c(t),o()("[data-"+t+"]").foundation("_init")},undefined:function(){this.object(Object.keys(i._plugins))}})[typeof t](t)}}catch(t){console.error(t)}finally{return t}},reflow:function(t,e){void 0===e?e=Object.keys(this._plugins):"string"==typeof e&&(e=[e]);var i=this;o.a.each(e,function(e,n){var s=i._plugins[n];o()(t).find("[data-"+n+"]").addBack("[data-"+n+"]").each(function(){var t=o()(this),e={};if(t.data("zfPlugin"))console.warn("Tried to initialize "+n+" on an element that already has a Foundation plugin.");else{if(t.attr("data-options"))t.attr("data-options").split(";").forEach(function(t,i){var n=t.split(":").map(function(t){return t.trim()});n[0]&&(e[n[0]]=function(t){if("true"===t)return!0;if("false"===t)return!1;if(!isNaN(1*t))return parseFloat(t);return t}(n[1]))});try{t.data("zfPlugin",new s(o()(this),e))}catch(t){console.error(t)}finally{return}}})})},getFnName:l,addToJquery:function(t){return t.fn.foundation=function(e){var i=typeof e,n=t(".no-js");if(n.length&&n.removeClass("no-js"),"undefined"===i)r.a._init(),a.reflow(this);else{if("string"!==i)throw new TypeError(`We're sorry, ${i} is not a valid parameter. You must use a string representing the method you wish to invoke.`);var o=Array.prototype.slice.call(arguments,1),s=this.data("zfPlugin");if(void 0===s||void 0===s[e])throw new ReferenceError("We're sorry, '"+e+"' is not an available method for "+(s?l(s):"this element")+".");1===this.length?s[e].apply(s,o):this.each(function(i,n){s[e].apply(t(n).data("zfPlugin"),o)})}return this},t}};function l(t){if(void 0===Function.prototype.name){var e=/function\s([^(]{1,})\(/.exec(t.toString());return e&&e.length>1?e[1].trim():""}return void 0===t.prototype?t.constructor.name:t.prototype.constructor.name}function c(t){return t.replace(/([a-z])([A-Z])/g,"$1-$2").toLowerCase()}a.util={throttle:function(t,e){var i=null;return function(){var n=this,o=arguments;null===i&&(i=setTimeout(function(){t.apply(n,o),i=null},e))}}},window.Foundation=a,function(){Date.now&&window.Date.now||(window.Date.now=Date.now=function(){return(new Date).getTime()});for(var t=["webkit","moz"],e=0;e<t.length&&!window.requestAnimationFrame;++e){var i=t[e];window.requestAnimationFrame=window[i+"RequestAnimationFrame"],window.cancelAnimationFrame=window[i+"CancelAnimationFrame"]||window[i+"CancelRequestAnimationFrame"]}if(/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent)||!window.requestAnimationFrame||!window.cancelAnimationFrame){var n=0;window.requestAnimationFrame=function(t){var e=Date.now(),i=Math.max(n+16,e);return setTimeout(function(){t(n=i)},i-e)},window.cancelAnimationFrame=clearTimeout}window.performance&&window.performance.now||(window.performance={start:Date.now(),now:function(){return Date.now()-this.start}})}(),Function.prototype.bind||(Function.prototype.bind=function(t){if("function"!=typeof this)throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");var e=Array.prototype.slice.call(arguments,1),i=this,n=function(){},o=function(){return i.apply(this instanceof n?this:t,e.concat(Array.prototype.slice.call(arguments)))};return this.prototype&&(n.prototype=this.prototype),o.prototype=new n,o})},NmC5:function(t,e,i){"use strict";i.d(e,"a",function(){return d});var n=i("xeH2"),o=i.n(n),s=i("l67y"),r=i("RnVY"),a=i("1x13"),l=i("CKjC"),c=i("xDCs");class d extends l.a{_setup(t,e){this.className="OffCanvas",this.$element=t,this.options=o.a.extend({},d.defaults,this.$element.data(),e),this.contentClasses={base:[],reveal:[]},this.$lastTrigger=o()(),this.$triggers=o()(),this.position="left",this.$content=o()(),this.nested=!!this.options.nested,o()(["push","overlap"]).each((t,e)=>{this.contentClasses.base.push("has-transition-"+e)}),o()(["left","right","top","bottom"]).each((t,e)=>{this.contentClasses.base.push("has-position-"+e),this.contentClasses.reveal.push("has-reveal-"+e)}),c.a.init(o.a),a.a._init(),this._init(),this._events(),r.a.register("OffCanvas",{ESCAPE:"close"})}_init(){var t=this.$element.attr("id");if(this.$element.attr("aria-hidden","true"),this.options.contentId?this.$content=o()("#"+this.options.contentId):this.$element.siblings("[data-off-canvas-content]").length?this.$content=this.$element.siblings("[data-off-canvas-content]").first():this.$content=this.$element.closest("[data-off-canvas-content]").first(),this.options.contentId?this.options.contentId&&null===this.options.nested&&console.warn("Remember to use the nested option if using the content ID option!"):this.nested=0===this.$element.siblings("[data-off-canvas-content]").length,!0===this.nested&&(this.options.transition="overlap",this.$element.removeClass("is-transition-push")),this.$element.addClass(`is-transition-${this.options.transition} is-closed`),this.$triggers=o()(document).find('[data-open="'+t+'"], [data-close="'+t+'"], [data-toggle="'+t+'"]').attr("aria-expanded","false").attr("aria-controls",t),this.position=this.$element.is(".position-left, .position-top, .position-right, .position-bottom")?this.$element.attr("class").match(/position\-(left|top|right|bottom)/)[1]:this.position,!0===this.options.contentOverlay){var e=document.createElement("div"),i="fixed"===o()(this.$element).css("position")?"is-overlay-fixed":"is-overlay-absolute";e.setAttribute("class","js-off-canvas-overlay "+i),this.$overlay=o()(e),"is-overlay-fixed"===i?o()(this.$overlay).insertAfter(this.$element):this.$content.append(this.$overlay)}var n=new RegExp(Object(s.b)(this.options.revealClass)+"([^\\s]+)","g").exec(this.$element[0].className);n&&(this.options.isRevealed=!0,this.options.revealOn=this.options.revealOn||n[1]),!0===this.options.isRevealed&&this.options.revealOn&&(this.$element.first().addClass(`${this.options.revealClass}${this.options.revealOn}`),this._setMQChecker()),this.options.transitionTime&&this.$element.css("transition-duration",this.options.transitionTime),this._removeContentClasses()}_events(){(this.$element.off(".zf.trigger .zf.offcanvas").on({"open.zf.trigger":this.open.bind(this),"close.zf.trigger":this.close.bind(this),"toggle.zf.trigger":this.toggle.bind(this),"keydown.zf.offcanvas":this._handleKeyboard.bind(this)}),!0===this.options.closeOnClick)&&(this.options.contentOverlay?this.$overlay:this.$content).on({"click.zf.offcanvas":this.close.bind(this)})}_setMQChecker(){var t=this;this.onLoadListener=Object(s.d)(o()(window),function(){a.a.atLeast(t.options.revealOn)&&t.reveal(!0)}),o()(window).on("changed.zf.mediaquery",function(){a.a.atLeast(t.options.revealOn)?t.reveal(!0):t.reveal(!1)})}_removeContentClasses(t){"boolean"!=typeof t?this.$content.removeClass(this.contentClasses.base.join(" ")):!1===t&&this.$content.removeClass(`has-reveal-${this.position}`)}_addContentClasses(t){this._removeContentClasses(t),"boolean"!=typeof t?this.$content.addClass(`has-transition-${this.options.transition} has-position-${this.position}`):!0===t&&this.$content.addClass(`has-reveal-${this.position}`)}reveal(t){t?(this.close(),this.isRevealed=!0,this.$element.attr("aria-hidden","false"),this.$element.off("open.zf.trigger toggle.zf.trigger"),this.$element.removeClass("is-closed")):(this.isRevealed=!1,this.$element.attr("aria-hidden","true"),this.$element.off("open.zf.trigger toggle.zf.trigger").on({"open.zf.trigger":this.open.bind(this),"toggle.zf.trigger":this.toggle.bind(this)}),this.$element.addClass("is-closed")),this._addContentClasses(t)}_stopScrolling(t){return!1}_recordScrollable(t){let e=this;e.scrollHeight!==e.clientHeight&&(0===e.scrollTop&&(e.scrollTop=1),e.scrollTop===e.scrollHeight-e.clientHeight&&(e.scrollTop=e.scrollHeight-e.clientHeight-1)),e.allowUp=e.scrollTop>0,e.allowDown=e.scrollTop<e.scrollHeight-e.clientHeight,e.lastY=t.originalEvent.pageY}_stopScrollPropagation(t){let e=t.pageY<this.lastY,i=!e;this.lastY=t.pageY,e&&this.allowUp||i&&this.allowDown?t.stopPropagation():t.preventDefault()}open(t,e){if(!this.$element.hasClass("is-open")&&!this.isRevealed){var i=this;e&&(this.$lastTrigger=e),"top"===this.options.forceTo?window.scrollTo(0,0):"bottom"===this.options.forceTo&&window.scrollTo(0,document.body.scrollHeight),this.options.transitionTime&&"overlap"!==this.options.transition?this.$element.siblings("[data-off-canvas-content]").css("transition-duration",this.options.transitionTime):this.$element.siblings("[data-off-canvas-content]").css("transition-duration",""),this.$element.addClass("is-open").removeClass("is-closed"),this.$triggers.attr("aria-expanded","true"),this.$element.attr("aria-hidden","false"),this.$content.addClass("is-open-"+this.position),!1===this.options.contentScroll&&(o()("body").addClass("is-off-canvas-open").on("touchmove",this._stopScrolling),this.$element.on("touchstart",this._recordScrollable),this.$element.on("touchmove",this._stopScrollPropagation)),!0===this.options.contentOverlay&&this.$overlay.addClass("is-visible"),!0===this.options.closeOnClick&&!0===this.options.contentOverlay&&this.$overlay.addClass("is-closable"),!0===this.options.autoFocus&&this.$element.one(Object(s.f)(this.$element),function(){if(i.$element.hasClass("is-open")){var t=i.$element.find("[data-autofocus]");t.length?t.eq(0).focus():i.$element.find("a, button").eq(0).focus()}}),!0===this.options.trapFocus&&(this.$content.attr("tabindex","-1"),r.a.trapFocus(this.$element)),this._addContentClasses(),this.$element.trigger("opened.zf.offcanvas")}}close(t){if(this.$element.hasClass("is-open")&&!this.isRevealed){var e=this;this.$element.removeClass("is-open"),this.$element.attr("aria-hidden","true").trigger("closed.zf.offcanvas"),this.$content.removeClass("is-open-left is-open-top is-open-right is-open-bottom"),!1===this.options.contentScroll&&(o()("body").removeClass("is-off-canvas-open").off("touchmove",this._stopScrolling),this.$element.off("touchstart",this._recordScrollable),this.$element.off("touchmove",this._stopScrollPropagation)),!0===this.options.contentOverlay&&this.$overlay.removeClass("is-visible"),!0===this.options.closeOnClick&&!0===this.options.contentOverlay&&this.$overlay.removeClass("is-closable"),this.$triggers.attr("aria-expanded","false"),!0===this.options.trapFocus&&(this.$content.removeAttr("tabindex"),r.a.releaseFocus(this.$element)),this.$element.one(Object(s.f)(this.$element),function(t){e.$element.addClass("is-closed"),e._removeContentClasses()})}}toggle(t,e){this.$element.hasClass("is-open")?this.close(t,e):this.open(t,e)}_handleKeyboard(t){r.a.handleKey(t,"OffCanvas",{close:()=>(this.close(),this.$lastTrigger.focus(),!0),handled:()=>{t.stopPropagation(),t.preventDefault()}})}_destroy(){this.close(),this.$element.off(".zf.trigger .zf.offcanvas"),this.$overlay.off(".zf.offcanvas"),this.onLoadListener&&o()(window).off(this.onLoadListener)}}d.defaults={closeOnClick:!0,contentOverlay:!0,contentId:null,nested:null,contentScroll:!0,transitionTime:null,transition:"push",forceTo:null,isRevealed:!1,revealOn:null,autoFocus:!0,revealClass:"reveal-for-",trapFocus:!1}},OWSx:function(t,e){!function(t,e,i,n){"use strict";if(t.console=t.console||{info:function(t){}},i)if(i.fn.fancybox)console.info("fancyBox already initialized");else{var o,s,r={closeExisting:!1,loop:!1,gutter:50,keyboard:!0,preventCaptionOverlap:!0,arrows:!0,infobar:!0,smallBtn:"auto",toolbar:"auto",buttons:["zoom","slideShow","thumbs","close"],idleTime:3,protect:!1,modal:!1,image:{preload:!1},ajax:{settings:{data:{fancybox:!0}}},iframe:{tpl:'<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen" src=""></iframe>',preload:!0,css:{},attr:{scrolling:"auto"}},video:{tpl:'<video class="fancybox-video" controls controlsList="nodownload" poster="{{poster}}"><source src="{{src}}" type="{{format}}" />Sorry, your browser doesn\'t support embedded videos, <a href="{{src}}">download</a> and watch with your favorite video player!</video>',format:"",autoStart:!0},defaultType:"image",animationEffect:"zoom",animationDuration:366,zoomOpacity:"auto",transitionEffect:"fade",transitionDuration:366,slideClass:"",baseClass:"",baseTpl:'<div class="fancybox-container" role="dialog" tabindex="-1"><div class="fancybox-bg"></div><div class="fancybox-inner"><div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div><div class="fancybox-toolbar">{{buttons}}</div><div class="fancybox-navigation">{{arrows}}</div><div class="fancybox-stage"></div><div class="fancybox-caption"><div class="fancybox-caption__body"></div></div></div></div>',spinnerTpl:'<div class="fancybox-loading"></div>',errorTpl:'<div class="fancybox-error"><p>{{ERROR}}</p></div>',btnTpl:{download:'<a download data-fancybox-download class="fancybox-button fancybox-button--download" title="{{DOWNLOAD}}" href="javascript:;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.62 17.09V19H5.38v-1.91zm-2.97-6.96L17 11.45l-5 4.87-5-4.87 1.36-1.32 2.68 2.64V5h1.92v7.77z"/></svg></a>',zoom:'<button data-fancybox-zoom class="fancybox-button fancybox-button--zoom" title="{{ZOOM}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.7 17.3l-3-3a5.9 5.9 0 0 0-.6-7.6 5.9 5.9 0 0 0-8.4 0 5.9 5.9 0 0 0 0 8.4 5.9 5.9 0 0 0 7.7.7l3 3a1 1 0 0 0 1.3 0c.4-.5.4-1 0-1.5zM8.1 13.8a4 4 0 0 1 0-5.7 4 4 0 0 1 5.7 0 4 4 0 0 1 0 5.7 4 4 0 0 1-5.7 0z"/></svg></button>',close:'<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10.6L6.6 5.2 5.2 6.6l5.4 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"/></svg></button>',arrowLeft:'<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}"><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.28 15.7l-1.34 1.37L5 12l4.94-5.07 1.34 1.38-2.68 2.72H19v1.94H8.6z"/></svg></div></button>',arrowRight:'<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}"><div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.4 12.97l-2.68 2.72 1.34 1.38L19 12l-4.94-5.07-1.34 1.38 2.68 2.72H5v1.94z"/></svg></div></button>',smallBtn:'<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}"><svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24"><path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"/></svg></button>'},parentEl:"body",hideScrollbar:!0,autoFocus:!0,backFocus:!0,trapFocus:!0,fullScreen:{autoStart:!1},touch:{vertical:!0,momentum:!0},hash:null,media:{},slideShow:{autoStart:!1,speed:3e3},thumbs:{autoStart:!1,hideOnClose:!0,parentEl:".fancybox-container",axis:"y"},wheel:"auto",onInit:i.noop,beforeLoad:i.noop,afterLoad:i.noop,beforeShow:i.noop,afterShow:i.noop,beforeClose:i.noop,afterClose:i.noop,onActivate:i.noop,onDeactivate:i.noop,clickContent:function(t,e){return"image"===t.type&&"zoom"},clickSlide:"close",clickOutside:"close",dblclickContent:!1,dblclickSlide:!1,dblclickOutside:!1,mobile:{preventCaptionOverlap:!1,idleTime:!1,clickContent:function(t,e){return"image"===t.type&&"toggleControls"},clickSlide:function(t,e){return"image"===t.type?"toggleControls":"close"},dblclickContent:function(t,e){return"image"===t.type&&"zoom"},dblclickSlide:function(t,e){return"image"===t.type&&"zoom"}},lang:"en",i18n:{en:{CLOSE:"Close",NEXT:"Next",PREV:"Previous",ERROR:"The requested content cannot be loaded. <br/> Please try again later.",PLAY_START:"Start slideshow",PLAY_STOP:"Pause slideshow",FULL_SCREEN:"Full screen",THUMBS:"Thumbnails",DOWNLOAD:"Download",SHARE:"Share",ZOOM:"Zoom"},de:{CLOSE:"Schlie&szlig;en",NEXT:"Weiter",PREV:"Zur&uuml;ck",ERROR:"Die angeforderten Daten konnten nicht geladen werden. <br/> Bitte versuchen Sie es sp&auml;ter nochmal.",PLAY_START:"Diaschau starten",PLAY_STOP:"Diaschau beenden",FULL_SCREEN:"Vollbild",THUMBS:"Vorschaubilder",DOWNLOAD:"Herunterladen",SHARE:"Teilen",ZOOM:"Vergr&ouml;&szlig;ern"}}},a=i(t),l=i(e),c=0,d=t.requestAnimationFrame||t.webkitRequestAnimationFrame||t.mozRequestAnimationFrame||t.oRequestAnimationFrame||function(e){return t.setTimeout(e,1e3/60)},h=t.cancelAnimationFrame||t.webkitCancelAnimationFrame||t.mozCancelAnimationFrame||t.oCancelAnimationFrame||function(e){t.clearTimeout(e)},u=function(){var t,i=e.createElement("fakeelement"),n={transition:"transitionend",OTransition:"oTransitionEnd",MozTransition:"transitionend",WebkitTransition:"webkitTransitionEnd"};for(t in n)if(void 0!==i.style[t])return n[t];return"transitionend"}(),p=function(t){return t&&t.length&&t[0].offsetHeight},f=function(t,e){var n=i.extend(!0,{},t,e);return i.each(e,function(t,e){i.isArray(e)&&(n[t]=e)}),n},g=function(t,e,n){this.opts=f({index:n},i.fancybox.defaults),i.isPlainObject(e)&&(this.opts=f(this.opts,e)),i.fancybox.isMobile&&(this.opts=f(this.opts,this.opts.mobile)),this.id=this.opts.id||++c,this.currIndex=parseInt(this.opts.index,10)||0,this.prevIndex=null,this.prevPos=null,this.currPos=0,this.firstRun=!0,this.group=[],this.slides={},this.addContent(t),this.group.length&&this.init()};i.extend(g.prototype,{init:function(){var n,o,s=this,r=s.group[s.currIndex].opts;r.closeExisting&&i.fancybox.close(!0),i("body").addClass("fancybox-active"),!i.fancybox.getInstance()&&!1!==r.hideScrollbar&&!i.fancybox.isMobile&&e.body.scrollHeight>t.innerHeight&&(i("head").append('<style id="fancybox-style-noscroll" type="text/css">.compensate-for-scrollbar{margin-right:'+(t.innerWidth-e.documentElement.clientWidth)+"px;}</style>"),i("body").addClass("compensate-for-scrollbar")),o="",i.each(r.buttons,function(t,e){o+=r.btnTpl[e]||""}),n=i(s.translate(s,r.baseTpl.replace("{{buttons}}",o).replace("{{arrows}}",r.btnTpl.arrowLeft+r.btnTpl.arrowRight))).attr("id","fancybox-container-"+s.id).addClass(r.baseClass).data("FancyBox",s).appendTo(r.parentEl),s.$refs={container:n},["bg","inner","infobar","toolbar","stage","caption","navigation"].forEach(function(t){s.$refs[t]=n.find(".fancybox-"+t)}),s.trigger("onInit"),s.activate(),s.jumpTo(s.currIndex)},translate:function(t,e){var i=t.opts.i18n[t.opts.lang]||t.opts.i18n.en;return e.replace(/\{\{(\w+)\}\}/g,function(t,e){return void 0===i[e]?t:i[e]})},addContent:function(t){var e,n=this,o=i.makeArray(t);i.each(o,function(t,e){var o,s,r,a,l,c={},d={};i.isPlainObject(e)?(c=e,d=e.opts||e):"object"===i.type(e)&&i(e).length?(d=(o=i(e)).data()||{},(d=i.extend(!0,{},d,d.options)).$orig=o,c.src=n.opts.src||d.src||o.attr("href"),c.type||c.src||(c.type="inline",c.src=e)):c={type:"html",src:e+""},c.opts=i.extend(!0,{},n.opts,d),i.isArray(d.buttons)&&(c.opts.buttons=d.buttons),i.fancybox.isMobile&&c.opts.mobile&&(c.opts=f(c.opts,c.opts.mobile)),s=c.type||c.opts.type,a=c.src||"",!s&&a&&((r=a.match(/\.(mp4|mov|ogv|webm)((\?|#).*)?$/i))?(s="video",c.opts.video.format||(c.opts.video.format="video/"+("ogv"===r[1]?"ogg":r[1]))):a.match(/(^data:image\/[a-z0-9+\/=]*,)|(\.(jp(e|g|eg)|gif|png|bmp|webp|svg|ico)((\?|#).*)?$)/i)?s="image":a.match(/\.(pdf)((\?|#).*)?$/i)?(s="iframe",c=i.extend(!0,c,{contentType:"pdf",opts:{iframe:{preload:!1}}})):"#"===a.charAt(0)&&(s="inline")),s?c.type=s:n.trigger("objectNeedsType",c),c.contentType||(c.contentType=i.inArray(c.type,["html","inline","ajax"])>-1?"html":c.type),c.index=n.group.length,"auto"==c.opts.smallBtn&&(c.opts.smallBtn=i.inArray(c.type,["html","inline","ajax"])>-1),"auto"===c.opts.toolbar&&(c.opts.toolbar=!c.opts.smallBtn),c.$thumb=c.opts.$thumb||null,c.opts.$trigger&&c.index===n.opts.index&&(c.$thumb=c.opts.$trigger.find("img:first"),c.$thumb.length&&(c.opts.$orig=c.opts.$trigger)),c.$thumb&&c.$thumb.length||!c.opts.$orig||(c.$thumb=c.opts.$orig.find("img:first")),c.$thumb&&!c.$thumb.length&&(c.$thumb=null),c.thumb=c.opts.thumb||(c.$thumb?c.$thumb[0].src:null),"function"===i.type(c.opts.caption)&&(c.opts.caption=c.opts.caption.apply(e,[n,c])),"function"===i.type(n.opts.caption)&&(c.opts.caption=n.opts.caption.apply(e,[n,c])),c.opts.caption instanceof i||(c.opts.caption=void 0===c.opts.caption?"":c.opts.caption+""),"ajax"===c.type&&(l=a.split(/\s+/,2)).length>1&&(c.src=l.shift(),c.opts.filter=l.shift()),c.opts.modal&&(c.opts=i.extend(!0,c.opts,{trapFocus:!0,infobar:0,toolbar:0,smallBtn:0,keyboard:0,slideShow:0,fullScreen:0,thumbs:0,touch:0,clickContent:!1,clickSlide:!1,clickOutside:!1,dblclickContent:!1,dblclickSlide:!1,dblclickOutside:!1})),n.group.push(c)}),Object.keys(n.slides).length&&(n.updateControls(),(e=n.Thumbs)&&e.isActive&&(e.create(),e.focus()))},addEvents:function(){var e=this;e.removeEvents(),e.$refs.container.on("click.fb-close","[data-fancybox-close]",function(t){t.stopPropagation(),t.preventDefault(),e.close(t)}).on("touchstart.fb-prev click.fb-prev","[data-fancybox-prev]",function(t){t.stopPropagation(),t.preventDefault(),e.previous()}).on("touchstart.fb-next click.fb-next","[data-fancybox-next]",function(t){t.stopPropagation(),t.preventDefault(),e.next()}).on("click.fb","[data-fancybox-zoom]",function(t){e[e.isScaledDown()?"scaleToActual":"scaleToFit"]()}),a.on("orientationchange.fb resize.fb",function(t){t&&t.originalEvent&&"resize"===t.originalEvent.type?(e.requestId&&h(e.requestId),e.requestId=d(function(){e.update(t)})):(e.current&&"iframe"===e.current.type&&e.$refs.stage.hide(),setTimeout(function(){e.$refs.stage.show(),e.update(t)},i.fancybox.isMobile?600:250))}),l.on("keydown.fb",function(t){var n=(i.fancybox?i.fancybox.getInstance():null).current,o=t.keyCode||t.which;if(9!=o){if(!(!n.opts.keyboard||t.ctrlKey||t.altKey||t.shiftKey||i(t.target).is("input,textarea,video,audio,select")))return 8===o||27===o?(t.preventDefault(),void e.close(t)):37===o||38===o?(t.preventDefault(),void e.previous()):39===o||40===o?(t.preventDefault(),void e.next()):void e.trigger("afterKeydown",t,o)}else n.opts.trapFocus&&e.focus(t)}),e.group[e.currIndex].opts.idleTime&&(e.idleSecondsCounter=0,l.on("mousemove.fb-idle mouseleave.fb-idle mousedown.fb-idle touchstart.fb-idle touchmove.fb-idle scroll.fb-idle keydown.fb-idle",function(t){e.idleSecondsCounter=0,e.isIdle&&e.showControls(),e.isIdle=!1}),e.idleInterval=t.setInterval(function(){e.idleSecondsCounter++,e.idleSecondsCounter>=e.group[e.currIndex].opts.idleTime&&!e.isDragging&&(e.isIdle=!0,e.idleSecondsCounter=0,e.hideControls())},1e3))},removeEvents:function(){a.off("orientationchange.fb resize.fb"),l.off("keydown.fb .fb-idle"),this.$refs.container.off(".fb-close .fb-prev .fb-next"),this.idleInterval&&(t.clearInterval(this.idleInterval),this.idleInterval=null)},previous:function(t){return this.jumpTo(this.currPos-1,t)},next:function(t){return this.jumpTo(this.currPos+1,t)},jumpTo:function(t,e){var n,o,s,r,a,l,c,d,h,u=this,f=u.group.length;if(!(u.isDragging||u.isClosing||u.isAnimating&&u.firstRun)){if(t=parseInt(t,10),!(s=u.current?u.current.opts.loop:u.opts.loop)&&(t<0||t>=f))return!1;if(n=u.firstRun=!Object.keys(u.slides).length,a=u.current,u.prevIndex=u.currIndex,u.prevPos=u.currPos,r=u.createSlide(t),f>1&&((s||r.index<f-1)&&u.createSlide(t+1),(s||r.index>0)&&u.createSlide(t-1)),u.current=r,u.currIndex=r.index,u.currPos=r.pos,u.trigger("beforeShow",n),u.updateControls(),r.forcedDuration=void 0,i.isNumeric(e)?r.forcedDuration=e:e=r.opts[n?"animationDuration":"transitionDuration"],e=parseInt(e,10),o=u.isMoved(r),r.$slide.addClass("fancybox-slide--current"),n)return r.opts.animationEffect&&e&&u.$refs.container.css("transition-duration",e+"ms"),u.$refs.container.addClass("fancybox-is-open").trigger("focus"),u.loadSlide(r),void u.preload("image");l=i.fancybox.getTranslate(a.$slide),c=i.fancybox.getTranslate(u.$refs.stage),i.each(u.slides,function(t,e){i.fancybox.stop(e.$slide,!0)}),a.pos!==r.pos&&(a.isComplete=!1),a.$slide.removeClass("fancybox-slide--complete fancybox-slide--current"),o?(h=l.left-(a.pos*l.width+a.pos*a.opts.gutter),i.each(u.slides,function(t,n){n.$slide.removeClass("fancybox-animated").removeClass(function(t,e){return(e.match(/(^|\s)fancybox-fx-\S+/g)||[]).join(" ")});var o=n.pos*l.width+n.pos*n.opts.gutter;i.fancybox.setTranslate(n.$slide,{top:0,left:o-c.left+h}),n.pos!==r.pos&&n.$slide.addClass("fancybox-slide--"+(n.pos>r.pos?"next":"previous")),p(n.$slide),i.fancybox.animate(n.$slide,{top:0,left:(n.pos-r.pos)*l.width+(n.pos-r.pos)*n.opts.gutter},e,function(){n.$slide.css({transform:"",opacity:""}).removeClass("fancybox-slide--next fancybox-slide--previous"),n.pos===u.currPos&&u.complete()})})):e&&r.opts.transitionEffect&&(d="fancybox-animated fancybox-fx-"+r.opts.transitionEffect,a.$slide.addClass("fancybox-slide--"+(a.pos>r.pos?"next":"previous")),i.fancybox.animate(a.$slide,d,e,function(){a.$slide.removeClass(d).removeClass("fancybox-slide--next fancybox-slide--previous")},!1)),r.isLoaded?u.revealContent(r):u.loadSlide(r),u.preload("image")}},createSlide:function(t){var e,n;return n=(n=t%this.group.length)<0?this.group.length+n:n,!this.slides[t]&&this.group[n]&&(e=i('<div class="fancybox-slide"></div>').appendTo(this.$refs.stage),this.slides[t]=i.extend(!0,{},this.group[n],{pos:t,$slide:e,isLoaded:!1}),this.updateSlide(this.slides[t])),this.slides[t]},scaleToActual:function(t,e,n){var o,s,r,a,l,c=this,d=c.current,h=d.$content,u=i.fancybox.getTranslate(d.$slide).width,p=i.fancybox.getTranslate(d.$slide).height,f=d.width,g=d.height;c.isAnimating||c.isMoved()||!h||"image"!=d.type||!d.isLoaded||d.hasError||(c.isAnimating=!0,i.fancybox.stop(h),t=void 0===t?.5*u:t,e=void 0===e?.5*p:e,(o=i.fancybox.getTranslate(h)).top-=i.fancybox.getTranslate(d.$slide).top,o.left-=i.fancybox.getTranslate(d.$slide).left,a=f/o.width,l=g/o.height,s=.5*u-.5*f,r=.5*p-.5*g,f>u&&((s=o.left*a-(t*a-t))>0&&(s=0),s<u-f&&(s=u-f)),g>p&&((r=o.top*l-(e*l-e))>0&&(r=0),r<p-g&&(r=p-g)),c.updateCursor(f,g),i.fancybox.animate(h,{top:r,left:s,scaleX:a,scaleY:l},n||366,function(){c.isAnimating=!1}),c.SlideShow&&c.SlideShow.isActive&&c.SlideShow.stop())},scaleToFit:function(t){var e,n=this,o=n.current,s=o.$content;n.isAnimating||n.isMoved()||!s||"image"!=o.type||!o.isLoaded||o.hasError||(n.isAnimating=!0,i.fancybox.stop(s),e=n.getFitPos(o),n.updateCursor(e.width,e.height),i.fancybox.animate(s,{top:e.top,left:e.left,scaleX:e.width/s.width(),scaleY:e.height/s.height()},t||366,function(){n.isAnimating=!1}))},getFitPos:function(t){var e,n,o,s,r=t.$content,a=t.$slide,l=t.width||t.opts.width,c=t.height||t.opts.height,d={};return!!(t.isLoaded&&r&&r.length)&&(e=i.fancybox.getTranslate(this.$refs.stage).width,n=i.fancybox.getTranslate(this.$refs.stage).height,e-=parseFloat(a.css("paddingLeft"))+parseFloat(a.css("paddingRight"))+parseFloat(r.css("marginLeft"))+parseFloat(r.css("marginRight")),n-=parseFloat(a.css("paddingTop"))+parseFloat(a.css("paddingBottom"))+parseFloat(r.css("marginTop"))+parseFloat(r.css("marginBottom")),l&&c||(l=e,c=n),(l*=o=Math.min(1,e/l,n/c))>e-.5&&(l=e),(c*=o)>n-.5&&(c=n),"image"===t.type?(d.top=Math.floor(.5*(n-c))+parseFloat(a.css("paddingTop")),d.left=Math.floor(.5*(e-l))+parseFloat(a.css("paddingLeft"))):"video"===t.contentType&&(c>l/(s=t.opts.width&&t.opts.height?l/c:t.opts.ratio||16/9)?c=l/s:l>c*s&&(l=c*s)),d.width=l,d.height=c,d)},update:function(t){var e=this;i.each(e.slides,function(i,n){e.updateSlide(n,t)})},updateSlide:function(t,e){var n=t&&t.$content,o=t.width||t.opts.width,s=t.height||t.opts.height,r=t.$slide;this.adjustCaption(t),n&&(o||s||"video"===t.contentType)&&!t.hasError&&(i.fancybox.stop(n),i.fancybox.setTranslate(n,this.getFitPos(t)),t.pos===this.currPos&&(this.isAnimating=!1,this.updateCursor())),this.adjustLayout(t),r.length&&(r.trigger("refresh"),t.pos===this.currPos&&this.$refs.toolbar.add(this.$refs.navigation.find(".fancybox-button--arrow_right")).toggleClass("compensate-for-scrollbar",r.get(0).scrollHeight>r.get(0).clientHeight)),this.trigger("onUpdate",t,e)},centerSlide:function(t){var e=this,n=e.current,o=n.$slide;!e.isClosing&&n&&(o.siblings().css({transform:"",opacity:""}),o.parent().children().removeClass("fancybox-slide--previous fancybox-slide--next"),i.fancybox.animate(o,{top:0,left:0,opacity:1},void 0===t?0:t,function(){o.css({transform:"",opacity:""}),n.isComplete||e.complete()},!1))},isMoved:function(t){var e,n,o=t||this.current;return!!o&&(n=i.fancybox.getTranslate(this.$refs.stage),e=i.fancybox.getTranslate(o.$slide),!o.$slide.hasClass("fancybox-animated")&&(Math.abs(e.top-n.top)>.5||Math.abs(e.left-n.left)>.5))},updateCursor:function(t,e){var n,o,s=this.current,r=this.$refs.container;s&&!this.isClosing&&this.Guestures&&(r.removeClass("fancybox-is-zoomable fancybox-can-zoomIn fancybox-can-zoomOut fancybox-can-swipe fancybox-can-pan"),o=!!(n=this.canPan(t,e))||this.isZoomable(),r.toggleClass("fancybox-is-zoomable",o),i("[data-fancybox-zoom]").prop("disabled",!o),n?r.addClass("fancybox-can-pan"):o&&("zoom"===s.opts.clickContent||i.isFunction(s.opts.clickContent)&&"zoom"==s.opts.clickContent(s))?r.addClass("fancybox-can-zoomIn"):s.opts.touch&&(s.opts.touch.vertical||this.group.length>1)&&"video"!==s.contentType&&r.addClass("fancybox-can-swipe"))},isZoomable:function(){var t,e=this.current;if(e&&!this.isClosing&&"image"===e.type&&!e.hasError){if(!e.isLoaded)return!0;if((t=this.getFitPos(e))&&(e.width>t.width||e.height>t.height))return!0}return!1},isScaledDown:function(t,e){var n=!1,o=this.current,s=o.$content;return void 0!==t&&void 0!==e?n=t<o.width&&e<o.height:s&&(n=(n=i.fancybox.getTranslate(s)).width<o.width&&n.height<o.height),n},canPan:function(t,e){var n=this.current,o=null,s=!1;return"image"===n.type&&(n.isComplete||t&&e)&&!n.hasError&&(s=this.getFitPos(n),void 0!==t&&void 0!==e?o={width:t,height:e}:n.isComplete&&(o=i.fancybox.getTranslate(n.$content)),o&&s&&(s=Math.abs(o.width-s.width)>1.5||Math.abs(o.height-s.height)>1.5)),s},loadSlide:function(t){var e,n,o,s=this;if(!t.isLoading&&!t.isLoaded){if(t.isLoading=!0,!1===s.trigger("beforeLoad",t))return t.isLoading=!1,!1;switch(e=t.type,(n=t.$slide).off("refresh").trigger("onReset").addClass(t.opts.slideClass),e){case"image":s.setImage(t);break;case"iframe":s.setIframe(t);break;case"html":s.setContent(t,t.src||t.content);break;case"video":s.setContent(t,t.opts.video.tpl.replace(/\{\{src\}\}/gi,t.src).replace("{{format}}",t.opts.videoFormat||t.opts.video.format||"").replace("{{poster}}",t.thumb||""));break;case"inline":i(t.src).length?s.setContent(t,i(t.src)):s.setError(t);break;case"ajax":s.showLoading(t),o=i.ajax(i.extend({},t.opts.ajax.settings,{url:t.src,success:function(e,i){"success"===i&&s.setContent(t,e)},error:function(e,i){e&&"abort"!==i&&s.setError(t)}})),n.one("onReset",function(){o.abort()});break;default:s.setError(t)}return!0}},setImage:function(t){var n,o=this;setTimeout(function(){var e=t.$image;o.isClosing||!t.isLoading||e&&e.length&&e[0].complete||t.hasError||o.showLoading(t)},50),o.checkSrcset(t),t.$content=i('<div class="fancybox-content"></div>').addClass("fancybox-is-hidden").appendTo(t.$slide.addClass("fancybox-slide--image")),!1!==t.opts.preload&&t.opts.width&&t.opts.height&&t.thumb&&(t.width=t.opts.width,t.height=t.opts.height,(n=e.createElement("img")).onerror=function(){i(this).remove(),t.$ghost=null},n.onload=function(){o.afterLoad(t)},t.$ghost=i(n).addClass("fancybox-image").appendTo(t.$content).attr("src",t.thumb)),o.setBigImage(t)},checkSrcset:function(e){var i,n,o,s,r=e.opts.srcset||e.opts.image.srcset;if(r){o=t.devicePixelRatio||1,s=t.innerWidth*o,(n=r.split(",").map(function(t){var e={};return t.trim().split(/\s+/).forEach(function(t,i){var n=parseInt(t.substring(0,t.length-1),10);if(0===i)return e.url=t;n&&(e.value=n,e.postfix=t[t.length-1])}),e})).sort(function(t,e){return t.value-e.value});for(var a=0;a<n.length;a++){var l=n[a];if("w"===l.postfix&&l.value>=s||"x"===l.postfix&&l.value>=o){i=l;break}}!i&&n.length&&(i=n[n.length-1]),i&&(e.src=i.url,e.width&&e.height&&"w"==i.postfix&&(e.height=e.width/e.height*i.value,e.width=i.value),e.opts.srcset=r)}},setBigImage:function(t){var n=this,o=e.createElement("img"),s=i(o);t.$image=s.one("error",function(){n.setError(t)}).one("load",function(){var e;t.$ghost||(n.resolveImageSlideSize(t,this.naturalWidth,this.naturalHeight),n.afterLoad(t)),n.isClosing||(t.opts.srcset&&((e=t.opts.sizes)&&"auto"!==e||(e=(t.width/t.height>1&&a.width()/a.height()>1?"100":Math.round(t.width/t.height*100))+"vw"),s.attr("sizes",e).attr("srcset",t.opts.srcset)),t.$ghost&&setTimeout(function(){t.$ghost&&!n.isClosing&&t.$ghost.hide()},Math.min(300,Math.max(1e3,t.height/1600))),n.hideLoading(t))}).addClass("fancybox-image").attr("src",t.src).appendTo(t.$content),(o.complete||"complete"==o.readyState)&&s.naturalWidth&&s.naturalHeight?s.trigger("load"):o.error&&s.trigger("error")},resolveImageSlideSize:function(t,e,i){var n=parseInt(t.opts.width,10),o=parseInt(t.opts.height,10);t.width=e,t.height=i,n>0&&(t.width=n,t.height=Math.floor(n*i/e)),o>0&&(t.width=Math.floor(o*e/i),t.height=o)},setIframe:function(t){var e,n=this,o=t.opts.iframe,s=t.$slide;t.$content=i('<div class="fancybox-content'+(o.preload?" fancybox-is-hidden":"")+'"></div>').css(o.css).appendTo(s),s.addClass("fancybox-slide--"+t.contentType),t.$iframe=e=i(o.tpl.replace(/\{rnd\}/g,(new Date).getTime())).attr(o.attr).appendTo(t.$content),o.preload?(n.showLoading(t),e.on("load.fb error.fb",function(e){this.isReady=1,t.$slide.trigger("refresh"),n.afterLoad(t)}),s.on("refresh.fb",function(){var i,n=t.$content,r=o.css.width,a=o.css.height;if(1===e[0].isReady){try{i=e.contents().find("body")}catch(t){}i&&i.length&&i.children().length&&(s.css("overflow","visible"),n.css({width:"100%","max-width":"100%",height:"9999px"}),void 0===r&&(r=Math.ceil(Math.max(i[0].clientWidth,i.outerWidth(!0)))),n.css("width",r||"").css("max-width",""),void 0===a&&(a=Math.ceil(Math.max(i[0].clientHeight,i.outerHeight(!0)))),n.css("height",a||""),s.css("overflow","auto")),n.removeClass("fancybox-is-hidden")}})):n.afterLoad(t),e.attr("src",t.src),s.one("onReset",function(){try{i(this).find("iframe").hide().unbind().attr("src","//about:blank")}catch(t){}i(this).off("refresh.fb").empty(),t.isLoaded=!1,t.isRevealed=!1})},setContent:function(t,e){var n;this.isClosing||(this.hideLoading(t),t.$content&&i.fancybox.stop(t.$content),t.$slide.empty(),(n=e)&&n.hasOwnProperty&&n instanceof i&&e.parent().length?((e.hasClass("fancybox-content")||e.parent().hasClass("fancybox-content"))&&e.parents(".fancybox-slide").trigger("onReset"),t.$placeholder=i("<div>").hide().insertAfter(e),e.css("display","inline-block")):t.hasError||("string"===i.type(e)&&(e=i("<div>").append(i.trim(e)).contents()),t.opts.filter&&(e=i("<div>").html(e).find(t.opts.filter))),t.$slide.one("onReset",function(){i(this).find("video,audio").trigger("pause"),t.$placeholder&&(t.$placeholder.after(e.removeClass("fancybox-content").hide()).remove(),t.$placeholder=null),t.$smallBtn&&(t.$smallBtn.remove(),t.$smallBtn=null),t.hasError||(i(this).empty(),t.isLoaded=!1,t.isRevealed=!1)}),i(e).appendTo(t.$slide),i(e).is("video,audio")&&(i(e).addClass("fancybox-video"),i(e).wrap("<div></div>"),t.contentType="video",t.opts.width=t.opts.width||i(e).attr("width"),t.opts.height=t.opts.height||i(e).attr("height")),t.$content=t.$slide.children().filter("div,form,main,video,audio,article,.fancybox-content").first(),t.$content.siblings().hide(),t.$content.length||(t.$content=t.$slide.wrapInner("<div></div>").children().first()),t.$content.addClass("fancybox-content"),t.$slide.addClass("fancybox-slide--"+t.contentType),this.afterLoad(t))},setError:function(t){t.hasError=!0,t.$slide.trigger("onReset").removeClass("fancybox-slide--"+t.contentType).addClass("fancybox-slide--error"),t.contentType="html",this.setContent(t,this.translate(t,t.opts.errorTpl)),t.pos===this.currPos&&(this.isAnimating=!1)},showLoading:function(t){(t=t||this.current)&&!t.$spinner&&(t.$spinner=i(this.translate(this,this.opts.spinnerTpl)).appendTo(t.$slide).hide().fadeIn("fast"))},hideLoading:function(t){(t=t||this.current)&&t.$spinner&&(t.$spinner.stop().remove(),delete t.$spinner)},afterLoad:function(t){this.isClosing||(t.isLoading=!1,t.isLoaded=!0,this.trigger("afterLoad",t),this.hideLoading(t),!t.opts.smallBtn||t.$smallBtn&&t.$smallBtn.length||(t.$smallBtn=i(this.translate(t,t.opts.btnTpl.smallBtn)).appendTo(t.$content)),t.opts.protect&&t.$content&&!t.hasError&&(t.$content.on("contextmenu.fb",function(t){return 2==t.button&&t.preventDefault(),!0}),"image"===t.type&&i('<div class="fancybox-spaceball"></div>').appendTo(t.$content)),this.adjustCaption(t),this.adjustLayout(t),t.pos===this.currPos&&this.updateCursor(),this.revealContent(t))},adjustCaption:function(t){var e,i=t||this.current,n=i.opts.caption,o=i.opts.preventCaptionOverlap,s=this.$refs.caption,r=!1;s.toggleClass("fancybox-caption--separate",o),o&&n&&n.length&&(i.pos!==this.currPos?((e=s.clone().appendTo(s.parent())).children().eq(0).empty().html(n),r=e.outerHeight(!0),e.empty().remove()):this.$caption&&(r=this.$caption.outerHeight(!0)),i.$slide.css("padding-bottom",r||""))},adjustLayout:function(t){var e,i,n,o,s=t||this.current;s.isLoaded&&!0!==s.opts.disableLayoutFix&&(s.$content.css("margin-bottom",""),s.$content.outerHeight()>s.$slide.height()+.5&&(n=s.$slide[0].style["padding-bottom"],o=s.$slide.css("padding-bottom"),parseFloat(o)>0&&(e=s.$slide[0].scrollHeight,s.$slide.css("padding-bottom",0),Math.abs(e-s.$slide[0].scrollHeight)<1&&(i=o),s.$slide.css("padding-bottom",n))),s.$content.css("margin-bottom",i))},revealContent:function(t){var e,n,o,s,r=this,a=t.$slide,l=!1,c=!1,d=r.isMoved(t),h=t.isRevealed;return t.isRevealed=!0,e=t.opts[r.firstRun?"animationEffect":"transitionEffect"],o=t.opts[r.firstRun?"animationDuration":"transitionDuration"],o=parseInt(void 0===t.forcedDuration?o:t.forcedDuration,10),!d&&t.pos===r.currPos&&o||(e=!1),"zoom"===e&&(t.pos===r.currPos&&o&&"image"===t.type&&!t.hasError&&(c=r.getThumbPos(t))?l=r.getFitPos(t):e="fade"),"zoom"===e?(r.isAnimating=!0,l.scaleX=l.width/c.width,l.scaleY=l.height/c.height,"auto"==(s=t.opts.zoomOpacity)&&(s=Math.abs(t.width/t.height-c.width/c.height)>.1),s&&(c.opacity=.1,l.opacity=1),i.fancybox.setTranslate(t.$content.removeClass("fancybox-is-hidden"),c),p(t.$content),void i.fancybox.animate(t.$content,l,o,function(){r.isAnimating=!1,r.complete()})):(r.updateSlide(t),e?(i.fancybox.stop(a),n="fancybox-slide--"+(t.pos>=r.prevPos?"next":"previous")+" fancybox-animated fancybox-fx-"+e,a.addClass(n).removeClass("fancybox-slide--current"),t.$content.removeClass("fancybox-is-hidden"),p(a),"image"!==t.type&&t.$content.hide().show(0),void i.fancybox.animate(a,"fancybox-slide--current",o,function(){a.removeClass(n).css({transform:"",opacity:""}),t.pos===r.currPos&&r.complete()},!0)):(t.$content.removeClass("fancybox-is-hidden"),h||!d||"image"!==t.type||t.hasError||t.$content.hide().fadeIn("fast"),void(t.pos===r.currPos&&r.complete())))},getThumbPos:function(t){var n,o,s,r,a,l,c=t.$thumb;return!(!c||!function(t){var n,o;return!(!t||t.ownerDocument!==e)&&(i(".fancybox-container").css("pointer-events","none"),n={x:t.getBoundingClientRect().left+t.offsetWidth/2,y:t.getBoundingClientRect().top+t.offsetHeight/2},o=e.elementFromPoint(n.x,n.y)===t,i(".fancybox-container").css("pointer-events",""),o)}(c[0]))&&(o=i.fancybox.getTranslate(c),s=parseFloat(c.css("border-top-width")||0),r=parseFloat(c.css("border-right-width")||0),a=parseFloat(c.css("border-bottom-width")||0),l=parseFloat(c.css("border-left-width")||0),n={top:o.top+s,left:o.left+l,width:o.width-r-l,height:o.height-s-a,scaleX:1,scaleY:1},o.width>0&&o.height>0&&n)},complete:function(){var t,e=this,n=e.current,o={};!e.isMoved()&&n.isLoaded&&(n.isComplete||(n.isComplete=!0,n.$slide.siblings().trigger("onReset"),e.preload("inline"),p(n.$slide),n.$slide.addClass("fancybox-slide--complete"),i.each(e.slides,function(t,n){n.pos>=e.currPos-1&&n.pos<=e.currPos+1?o[n.pos]=n:n&&(i.fancybox.stop(n.$slide),n.$slide.off().remove())}),e.slides=o),e.isAnimating=!1,e.updateCursor(),e.trigger("afterShow"),n.opts.video.autoStart&&n.$slide.find("video,audio").filter(":visible:first").trigger("play").one("ended",function(){Document.exitFullscreen?Document.exitFullscreen():this.webkitExitFullscreen&&this.webkitExitFullscreen(),e.next()}),n.opts.autoFocus&&"html"===n.contentType&&((t=n.$content.find("input[autofocus]:enabled:visible:first")).length?t.trigger("focus"):e.focus(null,!0)),n.$slide.scrollTop(0).scrollLeft(0))},preload:function(t){var e,i;this.group.length<2||(i=this.slides[this.currPos+1],(e=this.slides[this.currPos-1])&&e.type===t&&this.loadSlide(e),i&&i.type===t&&this.loadSlide(i))},focus:function(t,n){var o,s,r=["a[href]","area[href]",'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',"select:not([disabled]):not([aria-hidden])","textarea:not([disabled]):not([aria-hidden])","button:not([disabled]):not([aria-hidden])","iframe","object","embed","video","audio","[contenteditable]",'[tabindex]:not([tabindex^="-"])'].join(",");this.isClosing||((o=(o=!t&&this.current&&this.current.isComplete?this.current.$slide.find("*:visible"+(n?":not(.fancybox-close-small)":"")):this.$refs.container.find("*:visible")).filter(r).filter(function(){return"hidden"!==i(this).css("visibility")&&!i(this).hasClass("disabled")})).length?(s=o.index(e.activeElement),t&&t.shiftKey?(s<0||0==s)&&(t.preventDefault(),o.eq(o.length-1).trigger("focus")):(s<0||s==o.length-1)&&(t&&t.preventDefault(),o.eq(0).trigger("focus"))):this.$refs.container.trigger("focus"))},activate:function(){var t=this;i(".fancybox-container").each(function(){var e=i(this).data("FancyBox");e&&e.id!==t.id&&!e.isClosing&&(e.trigger("onDeactivate"),e.removeEvents(),e.isVisible=!1)}),t.isVisible=!0,(t.current||t.isIdle)&&(t.update(),t.updateControls()),t.trigger("onActivate"),t.addEvents()},close:function(t,e){var n,o,s,r,a,l,c,h=this,u=h.current,f=function(){h.cleanUp(t)};return!h.isClosing&&(h.isClosing=!0,!1===h.trigger("beforeClose",t)?(h.isClosing=!1,d(function(){h.update()}),!1):(h.removeEvents(),s=u.$content,n=u.opts.animationEffect,o=i.isNumeric(e)?e:n?u.opts.animationDuration:0,u.$slide.removeClass("fancybox-slide--complete fancybox-slide--next fancybox-slide--previous fancybox-animated"),!0!==t?i.fancybox.stop(u.$slide):n=!1,u.$slide.siblings().trigger("onReset").remove(),o&&h.$refs.container.removeClass("fancybox-is-open").addClass("fancybox-is-closing").css("transition-duration",o+"ms"),h.hideLoading(u),h.hideControls(!0),h.updateCursor(),"zoom"!==n||s&&o&&"image"===u.type&&!h.isMoved()&&!u.hasError&&(c=h.getThumbPos(u))||(n="fade"),"zoom"===n?(i.fancybox.stop(s),l={top:(r=i.fancybox.getTranslate(s)).top,left:r.left,scaleX:r.width/c.width,scaleY:r.height/c.height,width:c.width,height:c.height},"auto"==(a=u.opts.zoomOpacity)&&(a=Math.abs(u.width/u.height-c.width/c.height)>.1),a&&(c.opacity=0),i.fancybox.setTranslate(s,l),p(s),i.fancybox.animate(s,c,o,f),!0):(n&&o?i.fancybox.animate(u.$slide.addClass("fancybox-slide--previous").removeClass("fancybox-slide--current"),"fancybox-animated fancybox-fx-"+n,o,f):!0===t?setTimeout(f,o):f(),!0)))},cleanUp:function(e){var n,o,s,r=this.current.opts.$orig;this.current.$slide.trigger("onReset"),this.$refs.container.empty().remove(),this.trigger("afterClose",e),this.current.opts.backFocus&&(r&&r.length&&r.is(":visible")||(r=this.$trigger),r&&r.length&&(o=t.scrollX,s=t.scrollY,r.trigger("focus"),i("html, body").scrollTop(s).scrollLeft(o))),this.current=null,(n=i.fancybox.getInstance())?n.activate():(i("body").removeClass("fancybox-active compensate-for-scrollbar"),i("#fancybox-style-noscroll").remove())},trigger:function(t,e){var n,o=Array.prototype.slice.call(arguments,1),s=this,r=e&&e.opts?e:s.current;if(r?o.unshift(r):r=s,o.unshift(s),i.isFunction(r.opts[t])&&(n=r.opts[t].apply(r,o)),!1===n)return n;"afterClose"!==t&&s.$refs?s.$refs.container.trigger(t+".fb",o):l.trigger(t+".fb",o)},updateControls:function(){var t=this.current,n=t.index,o=this.$refs.container,s=this.$refs.caption,r=t.opts.caption;t.$slide.trigger("refresh"),r&&r.length?(this.$caption=s,s.children().eq(0).html(r)):this.$caption=null,this.hasHiddenControls||this.isIdle||this.showControls(),o.find("[data-fancybox-count]").html(this.group.length),o.find("[data-fancybox-index]").html(n+1),o.find("[data-fancybox-prev]").prop("disabled",!t.opts.loop&&n<=0),o.find("[data-fancybox-next]").prop("disabled",!t.opts.loop&&n>=this.group.length-1),"image"===t.type?o.find("[data-fancybox-zoom]").show().end().find("[data-fancybox-download]").attr("href",t.opts.image.src||t.src).show():t.opts.toolbar&&o.find("[data-fancybox-download],[data-fancybox-zoom]").hide(),i(e.activeElement).is(":hidden,[disabled]")&&this.$refs.container.trigger("focus")},hideControls:function(t){var e=["infobar","toolbar","nav"];!t&&this.current.opts.preventCaptionOverlap||e.push("caption"),this.$refs.container.removeClass(e.map(function(t){return"fancybox-show-"+t}).join(" ")),this.hasHiddenControls=!0},showControls:function(){var t=this.current?this.current.opts:this.opts,e=this.$refs.container;this.hasHiddenControls=!1,this.idleSecondsCounter=0,e.toggleClass("fancybox-show-toolbar",!(!t.toolbar||!t.buttons)).toggleClass("fancybox-show-infobar",!!(t.infobar&&this.group.length>1)).toggleClass("fancybox-show-caption",!!this.$caption).toggleClass("fancybox-show-nav",!!(t.arrows&&this.group.length>1)).toggleClass("fancybox-is-modal",!!t.modal)},toggleControls:function(){this.hasHiddenControls?this.showControls():this.hideControls()}}),i.fancybox={version:"3.5.7",defaults:r,getInstance:function(t){var e=i('.fancybox-container:not(".fancybox-is-closing"):last').data("FancyBox"),n=Array.prototype.slice.call(arguments,1);return e instanceof g&&("string"===i.type(t)?e[t].apply(e,n):"function"===i.type(t)&&t.apply(e,n),e)},open:function(t,e,i){return new g(t,e,i)},close:function(t){var e=this.getInstance();e&&(e.close(),!0===t&&this.close(t))},destroy:function(){this.close(!0),l.add("body").off("click.fb-start","**")},isMobile:/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),use3d:(o=e.createElement("div"),t.getComputedStyle&&t.getComputedStyle(o)&&t.getComputedStyle(o).getPropertyValue("transform")&&!(e.documentMode&&e.documentMode<11)),getTranslate:function(t){var e;return!(!t||!t.length)&&{top:(e=t[0].getBoundingClientRect()).top||0,left:e.left||0,width:e.width,height:e.height,opacity:parseFloat(t.css("opacity"))}},setTranslate:function(t,e){var i="",n={};if(t&&e)return void 0===e.left&&void 0===e.top||(i=(void 0===e.left?t.position().left:e.left)+"px, "+(void 0===e.top?t.position().top:e.top)+"px",i=this.use3d?"translate3d("+i+", 0px)":"translate("+i+")"),void 0!==e.scaleX&&void 0!==e.scaleY?i+=" scale("+e.scaleX+", "+e.scaleY+")":void 0!==e.scaleX&&(i+=" scaleX("+e.scaleX+")"),i.length&&(n.transform=i),void 0!==e.opacity&&(n.opacity=e.opacity),void 0!==e.width&&(n.width=e.width),void 0!==e.height&&(n.height=e.height),t.css(n)},animate:function(t,e,n,o,s){var r,a=this;i.isFunction(n)&&(o=n,n=null),a.stop(t),r=a.getTranslate(t),t.on(u,function(l){(!l||!l.originalEvent||t.is(l.originalEvent.target)&&"z-index"!=l.originalEvent.propertyName)&&(a.stop(t),i.isNumeric(n)&&t.css("transition-duration",""),i.isPlainObject(e)?void 0!==e.scaleX&&void 0!==e.scaleY&&a.setTranslate(t,{top:e.top,left:e.left,width:r.width*e.scaleX,height:r.height*e.scaleY,scaleX:1,scaleY:1}):!0!==s&&t.removeClass(e),i.isFunction(o)&&o(l))}),i.isNumeric(n)&&t.css("transition-duration",n+"ms"),i.isPlainObject(e)?(void 0!==e.scaleX&&void 0!==e.scaleY&&(delete e.width,delete e.height,t.parent().hasClass("fancybox-slide--image")&&t.parent().addClass("fancybox-is-scaling")),i.fancybox.setTranslate(t,e)):t.addClass(e),t.data("timer",setTimeout(function(){t.trigger(u)},n+33))},stop:function(t,e){t&&t.length&&(clearTimeout(t.data("timer")),e&&t.trigger(u),t.off(u).css("transition-duration",""),t.parent().removeClass("fancybox-is-scaling"))}},i.fn.fancybox=function(t){var e;return(e=(t=t||{}).selector||!1)?i("body").off("click.fb-start",e).on("click.fb-start",e,{options:t},m):this.off("click.fb-start").on("click.fb-start",{items:this,options:t},m),this},l.on("click.fb-start","[data-fancybox]",m),l.on("click.fb-start","[data-fancybox-trigger]",function(t){i('[data-fancybox="'+i(this).attr("data-fancybox-trigger")+'"]').eq(i(this).attr("data-fancybox-index")||0).trigger("click.fb-start",{$trigger:i(this)})}),s=null,l.on("mousedown mouseup focus blur",".fancybox-button",function(t){switch(t.type){case"mousedown":s=i(this);break;case"mouseup":s=null;break;case"focusin":i(".fancybox-button").removeClass("fancybox-focus"),i(this).is(s)||i(this).is("[disabled]")||i(this).addClass("fancybox-focus");break;case"focusout":i(".fancybox-button").removeClass("fancybox-focus")}})}function m(t,e){var n,o,s,r=[],a=0;t&&t.isDefaultPrevented()||(t.preventDefault(),e=e||{},t&&t.data&&(e=f(t.data.options,e)),n=e.$target||i(t.currentTarget).trigger("blur"),(s=i.fancybox.getInstance())&&s.$trigger&&s.$trigger.is(n)||(r=e.selector?i(e.selector):(o=n.attr("data-fancybox")||"")?(r=t.data?t.data.items:[]).length?r.filter('[data-fancybox="'+o+'"]'):i('[data-fancybox="'+o+'"]'):[n],(a=i(r).index(n))<0&&(a=0),(s=i.fancybox.open(r,e,a)).$trigger=n))}}(window,document,jQuery),function(t){"use strict";var e={youtube:{matcher:/(youtube\.com|youtu\.be|youtube\-nocookie\.com)\/(watch\?(.*&)?v=|v\/|u\/|embed\/?)?(videoseries\?list=(.*)|[\w-]{11}|\?listType=(.*)&list=(.*))(.*)/i,params:{autoplay:1,autohide:1,fs:1,rel:0,hd:1,wmode:"transparent",enablejsapi:1,html5:1},paramPlace:8,type:"iframe",url:"https://www.youtube-nocookie.com/embed/$4",thumb:"https://img.youtube.com/vi/$4/hqdefault.jpg"},vimeo:{matcher:/^.+vimeo.com\/(.*\/)?([\d]+)(.*)?/,params:{autoplay:1,hd:1,show_title:1,show_byline:1,show_portrait:0,fullscreen:1},paramPlace:3,type:"iframe",url:"//player.vimeo.com/video/$2"},instagram:{matcher:/(instagr\.am|instagram\.com)\/p\/([a-zA-Z0-9_\-]+)\/?/i,type:"image",url:"//$1/p/$2/media/?size=l"},gmap_place:{matcher:/(maps\.)?google\.([a-z]{2,3}(\.[a-z]{2})?)\/(((maps\/(place\/(.*)\/)?\@(.*),(\d+.?\d+?)z))|(\?ll=))(.*)?/i,type:"iframe",url:function(t){return"//maps.google."+t[2]+"/?ll="+(t[9]?t[9]+"&z="+Math.floor(t[10])+(t[12]?t[12].replace(/^\//,"&"):""):t[12]+"").replace(/\?/,"&")+"&output="+(t[12]&&t[12].indexOf("layer=c")>0?"svembed":"embed")}},gmap_search:{matcher:/(maps\.)?google\.([a-z]{2,3}(\.[a-z]{2})?)\/(maps\/search\/)(.*)/i,type:"iframe",url:function(t){return"//maps.google."+t[2]+"/maps?q="+t[5].replace("query=","q=").replace("api=1","")+"&output=embed"}}},i=function(e,i,n){if(e)return n=n||"","object"===t.type(n)&&(n=t.param(n,!0)),t.each(i,function(t,i){e=e.replace("$"+t,i||"")}),n.length&&(e+=(e.indexOf("?")>0?"&":"?")+n),e};t(document).on("objectNeedsType.fb",function(n,o,s){var r,a,l,c,d,h,u,p=s.src||"",f=!1;r=t.extend(!0,{},e,s.opts.media),t.each(r,function(e,n){if(l=p.match(n.matcher)){if(f=n.type,u=e,h={},n.paramPlace&&l[n.paramPlace]){"?"==(d=l[n.paramPlace])[0]&&(d=d.substring(1)),d=d.split("&");for(var o=0;o<d.length;++o){var r=d[o].split("=",2);2==r.length&&(h[r[0]]=decodeURIComponent(r[1].replace(/\+/g," ")))}}return c=t.extend(!0,{},n.params,s.opts[e],h),p="function"===t.type(n.url)?n.url.call(this,l,c,s):i(n.url,l,c),a="function"===t.type(n.thumb)?n.thumb.call(this,l,c,s):i(n.thumb,l),"youtube"===e?p=p.replace(/&t=((\d+)m)?(\d+)s/,function(t,e,i,n){return"&start="+((i?60*parseInt(i,10):0)+parseInt(n,10))}):"vimeo"===e&&(p=p.replace("&%23","#")),!1}}),f?(s.opts.thumb||s.opts.$thumb&&s.opts.$thumb.length||(s.opts.thumb=a),"iframe"===f&&(s.opts=t.extend(!0,s.opts,{iframe:{preload:!1,attr:{scrolling:"no"}}})),t.extend(s,{type:f,src:p,origSrc:s.src,contentSource:u,contentType:"image"===f?"image":"gmap_place"==u||"gmap_search"==u?"map":"video"})):p&&(s.type=s.opts.defaultType)});var n={youtube:{src:"https://www.youtube.com/iframe_api",class:"YT",loading:!1,loaded:!1},vimeo:{src:"https://player.vimeo.com/api/player.js",class:"Vimeo",loading:!1,loaded:!1},load:function(t){var e,i=this;this[t].loaded?setTimeout(function(){i.done(t)}):this[t].loading||(this[t].loading=!0,(e=document.createElement("script")).type="text/javascript",e.src=this[t].src,"youtube"===t?window.onYouTubeIframeAPIReady=function(){i[t].loaded=!0,i.done(t)}:e.onload=function(){i[t].loaded=!0,i.done(t)},document.body.appendChild(e))},done:function(e){var i,n;"youtube"===e&&delete window.onYouTubeIframeAPIReady,(i=t.fancybox.getInstance())&&(n=i.current.$content.find("iframe"),"youtube"===e&&void 0!==YT&&YT?new YT.Player(n.attr("id"),{events:{onStateChange:function(t){0==t.data&&i.next()}}}):"vimeo"===e&&void 0!==Vimeo&&Vimeo&&new Vimeo.Player(n).on("ended",function(){i.next()}))}};t(document).on({"afterShow.fb":function(t,e,i){e.group.length>1&&("youtube"===i.contentSource||"vimeo"===i.contentSource)&&n.load(i.contentSource)}})}(jQuery),function(t,e,i){"use strict";var n=t.requestAnimationFrame||t.webkitRequestAnimationFrame||t.mozRequestAnimationFrame||t.oRequestAnimationFrame||function(e){return t.setTimeout(e,1e3/60)},o=t.cancelAnimationFrame||t.webkitCancelAnimationFrame||t.mozCancelAnimationFrame||t.oCancelAnimationFrame||function(e){t.clearTimeout(e)},s=function(e){var i=[];for(var n in e=(e=e.originalEvent||e||t.e).touches&&e.touches.length?e.touches:e.changedTouches&&e.changedTouches.length?e.changedTouches:[e])e[n].pageX?i.push({x:e[n].pageX,y:e[n].pageY}):e[n].clientX&&i.push({x:e[n].clientX,y:e[n].clientY});return i},r=function(t,e,i){return e&&t?"x"===i?t.x-e.x:"y"===i?t.y-e.y:Math.sqrt(Math.pow(t.x-e.x,2)+Math.pow(t.y-e.y,2)):0},a=function(t){if(t.is('a,area,button,[role="button"],input,label,select,summary,textarea,video,audio,iframe')||i.isFunction(t.get(0).onclick)||t.data("selectable"))return!0;for(var e=0,n=t[0].attributes,o=n.length;e<o;e++)if("data-fancybox-"===n[e].nodeName.substr(0,14))return!0;return!1},l=function(e){for(var i,n,o,s,r,a=!1;i=e.get(0),n=void 0,o=void 0,s=void 0,r=void 0,n=t.getComputedStyle(i)["overflow-y"],o=t.getComputedStyle(i)["overflow-x"],s=("scroll"===n||"auto"===n)&&i.scrollHeight>i.clientHeight,r=("scroll"===o||"auto"===o)&&i.scrollWidth>i.clientWidth,!(a=s||r)&&(e=e.parent()).length&&!e.hasClass("fancybox-stage")&&!e.is("body"););return a},c=function(t){this.instance=t,this.$bg=t.$refs.bg,this.$stage=t.$refs.stage,this.$container=t.$refs.container,this.destroy(),this.$container.on("touchstart.fb.touch mousedown.fb.touch",i.proxy(this,"ontouchstart"))};c.prototype.destroy=function(){this.$container.off(".fb.touch"),i(e).off(".fb.touch"),this.requestId&&(o(this.requestId),this.requestId=null),this.tapped&&(clearTimeout(this.tapped),this.tapped=null)},c.prototype.ontouchstart=function(n){var o=i(n.target),c=this.instance,d=c.current,h=d.$slide,u=d.$content,p="touchstart"==n.type;if(p&&this.$container.off("mousedown.fb.touch"),(!n.originalEvent||2!=n.originalEvent.button)&&h.length&&o.length&&!a(o)&&!a(o.parent())&&(o.is("img")||!(n.originalEvent.clientX>o[0].clientWidth+o.offset().left))){if(!d||c.isAnimating||d.$slide.hasClass("fancybox-animated"))return n.stopPropagation(),void n.preventDefault();this.realPoints=this.startPoints=s(n),this.startPoints.length&&(d.touch&&n.stopPropagation(),this.startEvent=n,this.canTap=!0,this.$target=o,this.$content=u,this.opts=d.opts.touch,this.isPanning=!1,this.isSwiping=!1,this.isZooming=!1,this.isScrolling=!1,this.canPan=c.canPan(),this.startTime=(new Date).getTime(),this.distanceX=this.distanceY=this.distance=0,this.canvasWidth=Math.round(h[0].clientWidth),this.canvasHeight=Math.round(h[0].clientHeight),this.contentLastPos=null,this.contentStartPos=i.fancybox.getTranslate(this.$content)||{top:0,left:0},this.sliderStartPos=i.fancybox.getTranslate(h),this.stagePos=i.fancybox.getTranslate(c.$refs.stage),this.sliderStartPos.top-=this.stagePos.top,this.sliderStartPos.left-=this.stagePos.left,this.contentStartPos.top-=this.stagePos.top,this.contentStartPos.left-=this.stagePos.left,i(e).off(".fb.touch").on(p?"touchend.fb.touch touchcancel.fb.touch":"mouseup.fb.touch mouseleave.fb.touch",i.proxy(this,"ontouchend")).on(p?"touchmove.fb.touch":"mousemove.fb.touch",i.proxy(this,"ontouchmove")),i.fancybox.isMobile&&e.addEventListener("scroll",this.onscroll,!0),((this.opts||this.canPan)&&(o.is(this.$stage)||this.$stage.find(o).length)||(o.is(".fancybox-image")&&n.preventDefault(),i.fancybox.isMobile&&o.parents(".fancybox-caption").length))&&(this.isScrollable=l(o)||l(o.parent()),i.fancybox.isMobile&&this.isScrollable||n.preventDefault(),(1===this.startPoints.length||d.hasError)&&(this.canPan?(i.fancybox.stop(this.$content),this.isPanning=!0):this.isSwiping=!0,this.$container.addClass("fancybox-is-grabbing")),2===this.startPoints.length&&"image"===d.type&&(d.isLoaded||d.$ghost)&&(this.canTap=!1,this.isSwiping=!1,this.isPanning=!1,this.isZooming=!0,i.fancybox.stop(this.$content),this.centerPointStartX=.5*(this.startPoints[0].x+this.startPoints[1].x)-i(t).scrollLeft(),this.centerPointStartY=.5*(this.startPoints[0].y+this.startPoints[1].y)-i(t).scrollTop(),this.percentageOfImageAtPinchPointX=(this.centerPointStartX-this.contentStartPos.left)/this.contentStartPos.width,this.percentageOfImageAtPinchPointY=(this.centerPointStartY-this.contentStartPos.top)/this.contentStartPos.height,this.startDistanceBetweenFingers=r(this.startPoints[0],this.startPoints[1]))))}},c.prototype.onscroll=function(t){this.isScrolling=!0,e.removeEventListener("scroll",this.onscroll,!0)},c.prototype.ontouchmove=function(t){void 0===t.originalEvent.buttons||0!==t.originalEvent.buttons?this.isScrolling?this.canTap=!1:(this.newPoints=s(t),(this.opts||this.canPan)&&this.newPoints.length&&this.newPoints.length&&(this.isSwiping&&!0===this.isSwiping||t.preventDefault(),this.distanceX=r(this.newPoints[0],this.startPoints[0],"x"),this.distanceY=r(this.newPoints[0],this.startPoints[0],"y"),this.distance=r(this.newPoints[0],this.startPoints[0]),this.distance>0&&(this.isSwiping?this.onSwipe(t):this.isPanning?this.onPan():this.isZooming&&this.onZoom()))):this.ontouchend(t)},c.prototype.onSwipe=function(e){var s,r=this,a=r.instance,l=r.isSwiping,c=r.sliderStartPos.left||0;if(!0!==l)"x"==l&&(r.distanceX>0&&(r.instance.group.length<2||0===r.instance.current.index&&!r.instance.current.opts.loop)?c+=Math.pow(r.distanceX,.8):r.distanceX<0&&(r.instance.group.length<2||r.instance.current.index===r.instance.group.length-1&&!r.instance.current.opts.loop)?c-=Math.pow(-r.distanceX,.8):c+=r.distanceX),r.sliderLastPos={top:"x"==l?0:r.sliderStartPos.top+r.distanceY,left:c},r.requestId&&(o(r.requestId),r.requestId=null),r.requestId=n(function(){r.sliderLastPos&&(i.each(r.instance.slides,function(t,e){var n=e.pos-r.instance.currPos;i.fancybox.setTranslate(e.$slide,{top:r.sliderLastPos.top,left:r.sliderLastPos.left+n*r.canvasWidth+n*e.opts.gutter})}),r.$container.addClass("fancybox-is-sliding"))});else if(Math.abs(r.distance)>10){if(r.canTap=!1,a.group.length<2&&r.opts.vertical?r.isSwiping="y":a.isDragging||!1===r.opts.vertical||"auto"===r.opts.vertical&&i(t).width()>800?r.isSwiping="x":(s=Math.abs(180*Math.atan2(r.distanceY,r.distanceX)/Math.PI),r.isSwiping=s>45&&s<135?"y":"x"),"y"===r.isSwiping&&i.fancybox.isMobile&&r.isScrollable)return void(r.isScrolling=!0);a.isDragging=r.isSwiping,r.startPoints=r.newPoints,i.each(a.slides,function(t,e){var n,o;i.fancybox.stop(e.$slide),n=i.fancybox.getTranslate(e.$slide),o=i.fancybox.getTranslate(a.$refs.stage),e.$slide.css({transform:"",opacity:"","transition-duration":""}).removeClass("fancybox-animated").removeClass(function(t,e){return(e.match(/(^|\s)fancybox-fx-\S+/g)||[]).join(" ")}),e.pos===a.current.pos&&(r.sliderStartPos.top=n.top-o.top,r.sliderStartPos.left=n.left-o.left),i.fancybox.setTranslate(e.$slide,{top:n.top-o.top,left:n.left-o.left})}),a.SlideShow&&a.SlideShow.isActive&&a.SlideShow.stop()}},c.prototype.onPan=function(){var t=this;r(t.newPoints[0],t.realPoints[0])<(i.fancybox.isMobile?10:5)?t.startPoints=t.newPoints:(t.canTap=!1,t.contentLastPos=t.limitMovement(),t.requestId&&o(t.requestId),t.requestId=n(function(){i.fancybox.setTranslate(t.$content,t.contentLastPos)}))},c.prototype.limitMovement=function(){var t,e,i,n,o,s,r=this.canvasWidth,a=this.canvasHeight,l=this.distanceX,c=this.distanceY,d=this.contentStartPos,h=d.left,u=d.top,p=d.width,f=d.height;return o=p>r?h+l:h,s=u+c,t=Math.max(0,.5*r-.5*p),e=Math.max(0,.5*a-.5*f),i=Math.min(r-p,.5*r-.5*p),n=Math.min(a-f,.5*a-.5*f),l>0&&o>t&&(o=t-1+Math.pow(-t+h+l,.8)||0),l<0&&o<i&&(o=i+1-Math.pow(i-h-l,.8)||0),c>0&&s>e&&(s=e-1+Math.pow(-e+u+c,.8)||0),c<0&&s<n&&(s=n+1-Math.pow(n-u-c,.8)||0),{top:s,left:o}},c.prototype.limitPosition=function(t,e,i,n){var o=this.canvasWidth,s=this.canvasHeight;return t=i>o?(t=t>0?0:t)<o-i?o-i:t:Math.max(0,o/2-i/2),{top:e=n>s?(e=e>0?0:e)<s-n?s-n:e:Math.max(0,s/2-n/2),left:t}},c.prototype.onZoom=function(){var e=this,s=e.contentStartPos,a=s.width,l=s.height,c=s.left,d=s.top,h=r(e.newPoints[0],e.newPoints[1])/e.startDistanceBetweenFingers,u=Math.floor(a*h),p=Math.floor(l*h),f=(a-u)*e.percentageOfImageAtPinchPointX,g=(l-p)*e.percentageOfImageAtPinchPointY,m=(e.newPoints[0].x+e.newPoints[1].x)/2-i(t).scrollLeft(),v=(e.newPoints[0].y+e.newPoints[1].y)/2-i(t).scrollTop(),y=m-e.centerPointStartX,b={top:d+(g+(v-e.centerPointStartY)),left:c+(f+y),scaleX:h,scaleY:h};e.canTap=!1,e.newWidth=u,e.newHeight=p,e.contentLastPos=b,e.requestId&&o(e.requestId),e.requestId=n(function(){i.fancybox.setTranslate(e.$content,e.contentLastPos)})},c.prototype.ontouchend=function(t){var n=this.isSwiping,r=this.isPanning,a=this.isZooming,l=this.isScrolling;if(this.endPoints=s(t),this.dMs=Math.max((new Date).getTime()-this.startTime,1),this.$container.removeClass("fancybox-is-grabbing"),i(e).off(".fb.touch"),e.removeEventListener("scroll",this.onscroll,!0),this.requestId&&(o(this.requestId),this.requestId=null),this.isSwiping=!1,this.isPanning=!1,this.isZooming=!1,this.isScrolling=!1,this.instance.isDragging=!1,this.canTap)return this.onTap(t);this.speed=100,this.velocityX=this.distanceX/this.dMs*.5,this.velocityY=this.distanceY/this.dMs*.5,r?this.endPanning():a?this.endZooming():this.endSwiping(n,l)},c.prototype.endSwiping=function(t,e){var n=!1,o=this.instance.group.length,s=Math.abs(this.distanceX),r="x"==t&&o>1&&(this.dMs>130&&s>10||s>50);this.sliderLastPos=null,"y"==t&&!e&&Math.abs(this.distanceY)>50?(i.fancybox.animate(this.instance.current.$slide,{top:this.sliderStartPos.top+this.distanceY+150*this.velocityY,opacity:0},200),n=this.instance.close(!0,250)):r&&this.distanceX>0?n=this.instance.previous(300):r&&this.distanceX<0&&(n=this.instance.next(300)),!1!==n||"x"!=t&&"y"!=t||this.instance.centerSlide(200),this.$container.removeClass("fancybox-is-sliding")},c.prototype.endPanning=function(){var t,e,n;this.contentLastPos&&(!1===this.opts.momentum||this.dMs>350?(t=this.contentLastPos.left,e=this.contentLastPos.top):(t=this.contentLastPos.left+500*this.velocityX,e=this.contentLastPos.top+500*this.velocityY),(n=this.limitPosition(t,e,this.contentStartPos.width,this.contentStartPos.height)).width=this.contentStartPos.width,n.height=this.contentStartPos.height,i.fancybox.animate(this.$content,n,366))},c.prototype.endZooming=function(){var t,e,n,o,s=this.instance.current,r=this.newWidth,a=this.newHeight;this.contentLastPos&&(t=this.contentLastPos.left,o={top:e=this.contentLastPos.top,left:t,width:r,height:a,scaleX:1,scaleY:1},i.fancybox.setTranslate(this.$content,o),r<this.canvasWidth&&a<this.canvasHeight?this.instance.scaleToFit(150):r>s.width||a>s.height?this.instance.scaleToActual(this.centerPointStartX,this.centerPointStartY,150):(n=this.limitPosition(t,e,r,a),i.fancybox.animate(this.$content,n,150)))},c.prototype.onTap=function(e){var n,o=this,r=i(e.target),a=o.instance,l=a.current,c=e&&s(e)||o.startPoints,d=c[0]?c[0].x-i(t).scrollLeft()-o.stagePos.left:0,h=c[0]?c[0].y-i(t).scrollTop()-o.stagePos.top:0,u=function(t){var n=l.opts[t];if(i.isFunction(n)&&(n=n.apply(a,[l,e])),n)switch(n){case"close":a.close(o.startEvent);break;case"toggleControls":a.toggleControls();break;case"next":a.next();break;case"nextOrClose":a.group.length>1?a.next():a.close(o.startEvent);break;case"zoom":"image"==l.type&&(l.isLoaded||l.$ghost)&&(a.canPan()?a.scaleToFit():a.isScaledDown()?a.scaleToActual(d,h):a.group.length<2&&a.close(o.startEvent))}};if((!e.originalEvent||2!=e.originalEvent.button)&&(r.is("img")||!(d>r[0].clientWidth+r.offset().left))){if(r.is(".fancybox-bg,.fancybox-inner,.fancybox-outer,.fancybox-container"))n="Outside";else if(r.is(".fancybox-slide"))n="Slide";else{if(!a.current.$content||!a.current.$content.find(r).addBack().filter(r).length)return;n="Content"}if(o.tapped){if(clearTimeout(o.tapped),o.tapped=null,Math.abs(d-o.tapX)>50||Math.abs(h-o.tapY)>50)return this;u("dblclick"+n)}else o.tapX=d,o.tapY=h,l.opts["dblclick"+n]&&l.opts["dblclick"+n]!==l.opts["click"+n]?o.tapped=setTimeout(function(){o.tapped=null,a.isAnimating||u("click"+n)},500):u("click"+n);return this}},i(e).on("onActivate.fb",function(t,e){e&&!e.Guestures&&(e.Guestures=new c(e))}).on("beforeClose.fb",function(t,e){e&&e.Guestures&&e.Guestures.destroy()})}(window,document,jQuery),function(t,e){"use strict";e.extend(!0,e.fancybox.defaults,{btnTpl:{slideShow:'<button data-fancybox-play class="fancybox-button fancybox-button--play" title="{{PLAY_START}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 5.4v13.2l11-6.6z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.33 5.75h2.2v12.5h-2.2V5.75zm5.15 0h2.2v12.5h-2.2V5.75z"/></svg></button>'},slideShow:{autoStart:!1,speed:3e3,progress:!0}});var i=function(t){this.instance=t,this.init()};e.extend(i.prototype,{timer:null,isActive:!1,$button:null,init:function(){var t=this,i=t.instance,n=i.group[i.currIndex].opts.slideShow;t.$button=i.$refs.toolbar.find("[data-fancybox-play]").on("click",function(){t.toggle()}),i.group.length<2||!n?t.$button.hide():n.progress&&(t.$progress=e('<div class="fancybox-progress"></div>').appendTo(i.$refs.inner))},set:function(t){var i=this.instance,n=i.current;n&&(!0===t||n.opts.loop||i.currIndex<i.group.length-1)?this.isActive&&"video"!==n.contentType&&(this.$progress&&e.fancybox.animate(this.$progress.show(),{scaleX:1},n.opts.slideShow.speed),this.timer=setTimeout(function(){i.current.opts.loop||i.current.index!=i.group.length-1?i.next():i.jumpTo(0)},n.opts.slideShow.speed)):(this.stop(),i.idleSecondsCounter=0,i.showControls())},clear:function(){clearTimeout(this.timer),this.timer=null,this.$progress&&this.$progress.removeAttr("style").hide()},start:function(){var t=this.instance.current;t&&(this.$button.attr("title",(t.opts.i18n[t.opts.lang]||t.opts.i18n.en).PLAY_STOP).removeClass("fancybox-button--play").addClass("fancybox-button--pause"),this.isActive=!0,t.isComplete&&this.set(!0),this.instance.trigger("onSlideShowChange",!0))},stop:function(){var t=this.instance.current;this.clear(),this.$button.attr("title",(t.opts.i18n[t.opts.lang]||t.opts.i18n.en).PLAY_START).removeClass("fancybox-button--pause").addClass("fancybox-button--play"),this.isActive=!1,this.instance.trigger("onSlideShowChange",!1),this.$progress&&this.$progress.removeAttr("style").hide()},toggle:function(){this.isActive?this.stop():this.start()}}),e(t).on({"onInit.fb":function(t,e){e&&!e.SlideShow&&(e.SlideShow=new i(e))},"beforeShow.fb":function(t,e,i,n){var o=e&&e.SlideShow;n?o&&i.opts.slideShow.autoStart&&o.start():o&&o.isActive&&o.clear()},"afterShow.fb":function(t,e,i){var n=e&&e.SlideShow;n&&n.isActive&&n.set()},"afterKeydown.fb":function(i,n,o,s,r){var a=n&&n.SlideShow;!a||!o.opts.slideShow||80!==r&&32!==r||e(t.activeElement).is("button,a,input")||(s.preventDefault(),a.toggle())},"beforeClose.fb onDeactivate.fb":function(t,e){var i=e&&e.SlideShow;i&&i.stop()}}),e(t).on("visibilitychange",function(){var i=e.fancybox.getInstance(),n=i&&i.SlideShow;n&&n.isActive&&(t.hidden?n.clear():n.set())})}(document,jQuery),function(t,e){"use strict";var i=function(){for(var e=[["requestFullscreen","exitFullscreen","fullscreenElement","fullscreenEnabled","fullscreenchange","fullscreenerror"],["webkitRequestFullscreen","webkitExitFullscreen","webkitFullscreenElement","webkitFullscreenEnabled","webkitfullscreenchange","webkitfullscreenerror"],["webkitRequestFullScreen","webkitCancelFullScreen","webkitCurrentFullScreenElement","webkitCancelFullScreen","webkitfullscreenchange","webkitfullscreenerror"],["mozRequestFullScreen","mozCancelFullScreen","mozFullScreenElement","mozFullScreenEnabled","mozfullscreenchange","mozfullscreenerror"],["msRequestFullscreen","msExitFullscreen","msFullscreenElement","msFullscreenEnabled","MSFullscreenChange","MSFullscreenError"]],i={},n=0;n<e.length;n++){var o=e[n];if(o&&o[1]in t){for(var s=0;s<o.length;s++)i[e[0][s]]=o[s];return i}}return!1}();if(i){var n={request:function(e){(e=e||t.documentElement)[i.requestFullscreen](e.ALLOW_KEYBOARD_INPUT)},exit:function(){t[i.exitFullscreen]()},toggle:function(e){e=e||t.documentElement,this.isFullscreen()?this.exit():this.request(e)},isFullscreen:function(){return Boolean(t[i.fullscreenElement])},enabled:function(){return Boolean(t[i.fullscreenEnabled])}};e.extend(!0,e.fancybox.defaults,{btnTpl:{fullScreen:'<button data-fancybox-fullscreen class="fancybox-button fancybox-button--fsenter" title="{{FULL_SCREEN}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 16h3v3h2v-5H5zm3-8H5v2h5V5H8zm6 11h2v-3h3v-2h-5zm2-11V5h-2v5h5V8z"/></svg></button>'},fullScreen:{autoStart:!1}}),e(t).on(i.fullscreenchange,function(){var t=n.isFullscreen(),i=e.fancybox.getInstance();i&&(i.current&&"image"===i.current.type&&i.isAnimating&&(i.isAnimating=!1,i.update(!0,!0,0),i.isComplete||i.complete()),i.trigger("onFullscreenChange",t),i.$refs.container.toggleClass("fancybox-is-fullscreen",t),i.$refs.toolbar.find("[data-fancybox-fullscreen]").toggleClass("fancybox-button--fsenter",!t).toggleClass("fancybox-button--fsexit",t))})}e(t).on({"onInit.fb":function(t,e){i?e&&e.group[e.currIndex].opts.fullScreen?(e.$refs.container.on("click.fb-fullscreen","[data-fancybox-fullscreen]",function(t){t.stopPropagation(),t.preventDefault(),n.toggle()}),e.opts.fullScreen&&!0===e.opts.fullScreen.autoStart&&n.request(),e.FullScreen=n):e&&e.$refs.toolbar.find("[data-fancybox-fullscreen]").hide():e.$refs.toolbar.find("[data-fancybox-fullscreen]").remove()},"afterKeydown.fb":function(t,e,i,n,o){e&&e.FullScreen&&70===o&&(n.preventDefault(),e.FullScreen.toggle())},"beforeClose.fb":function(t,e){e&&e.FullScreen&&e.$refs.container.hasClass("fancybox-is-fullscreen")&&n.exit()}})}(document,jQuery),function(t,e){"use strict";var i="fancybox-thumbs";e.fancybox.defaults=e.extend(!0,{btnTpl:{thumbs:'<button data-fancybox-thumbs class="fancybox-button fancybox-button--thumbs" title="{{THUMBS}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.59 14.59h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76H5.65V5.65z"/></svg></button>'},thumbs:{autoStart:!1,hideOnClose:!0,parentEl:".fancybox-container",axis:"y"}},e.fancybox.defaults);var n=function(t){this.init(t)};e.extend(n.prototype,{$button:null,$grid:null,$list:null,isVisible:!1,isActive:!1,init:function(t){var e=this,i=t.group,n=0;e.instance=t,e.opts=i[t.currIndex].opts.thumbs,t.Thumbs=e,e.$button=t.$refs.toolbar.find("[data-fancybox-thumbs]");for(var o=0,s=i.length;o<s&&(i[o].thumb&&n++,!(n>1));o++);n>1&&e.opts?(e.$button.removeAttr("style").on("click",function(){e.toggle()}),e.isActive=!0):e.$button.hide()},create:function(){var t,n=this.instance,o=this.opts.parentEl,s=[];this.$grid||(this.$grid=e('<div class="'+i+" "+i+"-"+this.opts.axis+'"></div>').appendTo(n.$refs.container.find(o).addBack().filter(o)),this.$grid.on("click","a",function(){n.jumpTo(e(this).attr("data-index"))})),this.$list||(this.$list=e('<div class="'+i+'__list">').appendTo(this.$grid)),e.each(n.group,function(e,i){(t=i.thumb)||"image"!==i.type||(t=i.src),s.push('<a href="javascript:;" tabindex="0" data-index="'+e+'"'+(t&&t.length?' style="background-image:url('+t+')"':'class="fancybox-thumbs-missing"')+"></a>")}),this.$list[0].innerHTML=s.join(""),"x"===this.opts.axis&&this.$list.width(parseInt(this.$grid.css("padding-right"),10)+n.group.length*this.$list.children().eq(0).outerWidth(!0))},focus:function(t){var e,i,n=this.$list,o=this.$grid;this.instance.current&&(i=(e=n.children().removeClass("fancybox-thumbs-active").filter('[data-index="'+this.instance.current.index+'"]').addClass("fancybox-thumbs-active")).position(),"y"===this.opts.axis&&(i.top<0||i.top>n.height()-e.outerHeight())?n.stop().animate({scrollTop:n.scrollTop()+i.top},t):"x"===this.opts.axis&&(i.left<o.scrollLeft()||i.left>o.scrollLeft()+(o.width()-e.outerWidth()))&&n.parent().stop().animate({scrollLeft:i.left},t))},update:function(){this.instance.$refs.container.toggleClass("fancybox-show-thumbs",this.isVisible),this.isVisible?(this.$grid||this.create(),this.instance.trigger("onThumbsShow"),this.focus(0)):this.$grid&&this.instance.trigger("onThumbsHide"),this.instance.update()},hide:function(){this.isVisible=!1,this.update()},show:function(){this.isVisible=!0,this.update()},toggle:function(){this.isVisible=!this.isVisible,this.update()}}),e(t).on({"onInit.fb":function(t,e){var i;e&&!e.Thumbs&&(i=new n(e)).isActive&&!0===i.opts.autoStart&&i.show()},"beforeShow.fb":function(t,e,i,n){var o=e&&e.Thumbs;o&&o.isVisible&&o.focus(n?0:250)},"afterKeydown.fb":function(t,e,i,n,o){var s=e&&e.Thumbs;s&&s.isActive&&71===o&&(n.preventDefault(),s.toggle())},"beforeClose.fb":function(t,e){var i=e&&e.Thumbs;i&&i.isVisible&&!1!==i.opts.hideOnClose&&i.$grid.hide()}})}(document,jQuery),function(t,e){"use strict";e.extend(!0,e.fancybox.defaults,{btnTpl:{share:'<button data-fancybox-share class="fancybox-button fancybox-button--share" title="{{SHARE}}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.55 19c1.4-8.4 9.1-9.8 11.9-9.8V5l7 7-7 6.3v-3.5c-2.8 0-10.5 2.1-11.9 4.2z"/></svg></button>'},share:{url:function(t,e){return!t.currentHash&&"inline"!==e.type&&"html"!==e.type&&(e.origSrc||e.src)||window.location},tpl:'<div class="fancybox-share"><h1>{{SHARE}}</h1><p><a class="fancybox-share__button fancybox-share__button--fb" href="https://www.facebook.com/sharer/sharer.php?u={{url}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m287 456v-299c0-21 6-35 35-35h38v-63c-7-1-29-3-55-3-54 0-91 33-91 94v306m143-254h-205v72h196" /></svg><span>Facebook</span></a><a class="fancybox-share__button fancybox-share__button--tw" href="https://twitter.com/intent/tweet?url={{url}}&text={{descr}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z" /></svg><span>Twitter</span></a><a class="fancybox-share__button fancybox-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}&description={{descr}}&media={{media}}"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m265 56c-109 0-164 78-164 144 0 39 15 74 47 87 5 2 10 0 12-5l4-19c2-6 1-8-3-13-9-11-15-25-15-45 0-58 43-110 113-110 62 0 96 38 96 88 0 67-30 122-73 122-24 0-42-19-36-44 6-29 20-60 20-81 0-19-10-35-31-35-25 0-44 26-44 60 0 21 7 36 7 36l-30 125c-8 37-1 83 0 87 0 3 4 4 5 2 2-3 32-39 42-75l16-64c8 16 31 29 56 29 74 0 124-67 124-157 0-69-58-132-146-132z" fill="#fff"/></svg><span>Pinterest</span></a></p><p><input class="fancybox-share__input" type="text" value="{{url_raw}}" onclick="select()" /></p></div>'}}),e(t).on("click","[data-fancybox-share]",function(){var t,i,n,o,s=e.fancybox.getInstance(),r=s.current||null;r&&("function"===e.type(r.opts.share.url)&&(t=r.opts.share.url.apply(r,[s,r])),i=r.opts.share.tpl.replace(/\{\{media\}\}/g,"image"===r.type?encodeURIComponent(r.src):"").replace(/\{\{url\}\}/g,encodeURIComponent(t)).replace(/\{\{url_raw\}\}/g,(n=t,o={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;","/":"&#x2F;","`":"&#x60;","=":"&#x3D;"},String(n).replace(/[&<>"'`=\/]/g,function(t){return o[t]}))).replace(/\{\{descr\}\}/g,s.$caption?encodeURIComponent(s.$caption.text()):""),e.fancybox.open({src:s.translate(s,i),type:"html",opts:{touch:!1,animationEffect:!1,afterLoad:function(t,e){s.$refs.container.one("beforeClose.fb",function(){t.close(null,0)}),e.$content.find(".fancybox-share__button").click(function(){return window.open(this.href,"Share","width=550, height=450"),!1})},mobile:{autoFocus:!1}}}))})}(document,jQuery),function(t,e,i){"use strict";function n(){var e=t.location.hash.substr(1),i=e.split("-"),n=i.length>1&&/^\+?\d+$/.test(i[i.length-1])&&parseInt(i.pop(-1),10)||1;return{hash:e,index:n<1?1:n,gallery:i.join("-")}}function o(t){""!==t.gallery&&i("[data-fancybox='"+i.escapeSelector(t.gallery)+"']").eq(t.index-1).focus().trigger("click.fb-start")}function s(t){var e,i;return!!t&&(""!==(i=(e=t.current?t.current.opts:t.opts).hash||(e.$orig?e.$orig.data("fancybox")||e.$orig.data("fancybox-trigger"):""))&&i)}i.escapeSelector||(i.escapeSelector=function(t){return(t+"").replace(/([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g,function(t,e){return e?"\0"===t?"�":t.slice(0,-1)+"\\"+t.charCodeAt(t.length-1).toString(16)+" ":"\\"+t})}),i(function(){!1!==i.fancybox.defaults.hash&&(i(e).on({"onInit.fb":function(t,e){var i,o;!1!==e.group[e.currIndex].opts.hash&&(i=n(),(o=s(e))&&i.gallery&&o==i.gallery&&(e.currIndex=i.index-1))},"beforeShow.fb":function(i,n,o,r){var a;o&&!1!==o.opts.hash&&(a=s(n))&&(n.currentHash=a+(n.group.length>1?"-"+(o.index+1):""),t.location.hash!=="#"+n.currentHash&&(r&&!n.origHash&&(n.origHash=t.location.hash),n.hashTimer&&clearTimeout(n.hashTimer),n.hashTimer=setTimeout(function(){"replaceState"in t.history?(t.history[r?"pushState":"replaceState"]({},e.title,t.location.pathname+t.location.search+"#"+n.currentHash),r&&(n.hasCreatedHistory=!0)):t.location.hash=n.currentHash,n.hashTimer=null},300)))},"beforeClose.fb":function(i,n,o){o&&!1!==o.opts.hash&&(clearTimeout(n.hashTimer),n.currentHash&&n.hasCreatedHistory?t.history.back():n.currentHash&&("replaceState"in t.history?t.history.replaceState({},e.title,t.location.pathname+t.location.search+(n.origHash||"")):t.location.hash=n.origHash),n.currentHash=null)}}),i(t).on("hashchange.fb",function(){var t=n(),e=null;i.each(i(".fancybox-container").get().reverse(),function(t,n){var o=i(n).data("FancyBox");if(o&&o.currentHash)return e=o,!1}),e?e.currentHash===t.gallery+"-"+t.index||1===t.index&&e.currentHash==t.gallery||(e.currentHash=null,e.close()):""!==t.gallery&&o(t)}),setTimeout(function(){i.fancybox.getInstance()||o(n())},50))})}(window,document,jQuery),function(t,e){"use strict";var i=(new Date).getTime();e(t).on({"onInit.fb":function(t,e,n){e.$refs.stage.on("mousewheel DOMMouseScroll wheel MozMousePixelScroll",function(t){var n=e.current,o=(new Date).getTime();e.group.length<2||!1===n.opts.wheel||"auto"===n.opts.wheel&&"image"!==n.type||(t.preventDefault(),t.stopPropagation(),n.$slide.hasClass("fancybox-animated")||(t=t.originalEvent||t,o-i<250||(i=o,e[(-t.deltaY||-t.deltaX||t.wheelDelta||-t.detail)<0?"next":"previous"]())))})}})}(document,jQuery)},Px4X:function(t,e,i){var n,o;!function(s,r){n=[i("Hy43"),i("QK1G"),i("x0Ue"),i("YVj6"),i("vn07"),i("JT+M"),i("p3L+"),i("64OR"),i("Qc7Q")],void 0===(o=function(t,e,i,n,o,r){return function(t,e,i,n,o,s,r){"use strict";var a=t.jQuery,l=String.prototype.trim?function(t){return t.trim()}:function(t){return t.replace(/^\s+|\s+$/g,"")},c=e.create("isotope",{layoutMode:"masonry",isJQueryFiltering:!0,sortAscending:!0});c.Item=s,c.LayoutMode=r;var d=c.prototype;d._create=function(){for(var t in this.itemGUID=0,this._sorters={},this._getSorters(),e.prototype._create.call(this),this.modes={},this.filteredItems=this.items,this.sortHistory=["original-order"],r.modes)this._initLayoutMode(t)},d.reloadItems=function(){this.itemGUID=0,e.prototype.reloadItems.call(this)},d._itemize=function(){for(var t=e.prototype._itemize.apply(this,arguments),i=0;i<t.length;i++){var n=t[i];n.id=this.itemGUID++}return this._updateItemsSortData(t),t},d._initLayoutMode=function(t){var e=r.modes[t],i=this.options[t]||{};this.options[t]=e.options?o.extend(e.options,i):i,this.modes[t]=new e(this)},d.layout=function(){this._isLayoutInited||!this._getOption("initLayout")?this._layout():this.arrange()},d._layout=function(){var t=this._getIsInstant();this._resetLayout(),this._manageStamps(),this.layoutItems(this.filteredItems,t),this._isLayoutInited=!0},d.arrange=function(t){this.option(t),this._getIsInstant();var e=this._filter(this.items);this.filteredItems=e.matches,this._bindArrangeComplete(),this._isInstant?this._noTransition(this._hideReveal,[e]):this._hideReveal(e),this._sort(),this._layout()},d._init=d.arrange,d._hideReveal=function(t){this.reveal(t.needReveal),this.hide(t.needHide)},d._getIsInstant=function(){var t=this._getOption("layoutInstant"),e=void 0!==t?t:!this._isLayoutInited;return this._isInstant=e,e},d._bindArrangeComplete=function(){var t,e,i,n=this;function o(){t&&e&&i&&n.dispatchEvent("arrangeComplete",null,[n.filteredItems])}this.once("layoutComplete",function(){t=!0,o()}),this.once("hideComplete",function(){e=!0,o()}),this.once("revealComplete",function(){i=!0,o()})},d._filter=function(t){var e=this.options.filter;e=e||"*";for(var i=[],n=[],o=[],s=this._getFilterTest(e),r=0;r<t.length;r++){var a=t[r];if(!a.isIgnored){var l=s(a);l&&i.push(a),l&&a.isHidden?n.push(a):l||a.isHidden||o.push(a)}}return{matches:i,needReveal:n,needHide:o}},d._getFilterTest=function(t){return a&&this.options.isJQueryFiltering?function(e){return a(e.element).is(t)}:"function"==typeof t?function(e){return t(e.element)}:function(e){return n(e.element,t)}},d.updateSortData=function(t){var e;t?(t=o.makeArray(t),e=this.getItems(t)):e=this.items,this._getSorters(),this._updateItemsSortData(e)},d._getSorters=function(){var t=this.options.getSortData;for(var e in t){var i=t[e];this._sorters[e]=h(i)}},d._updateItemsSortData=function(t){for(var e=t&&t.length,i=0;e&&i<e;i++){var n=t[i];n.updateSortData()}};var h=function(t){if("string"!=typeof t)return t;var e=l(t).split(" "),i=e[0],n=i.match(/^\[(.+)\]$/),o=function(t,e){return t?function(e){return e.getAttribute(t)}:function(t){var i=t.querySelector(e);return i&&i.textContent}}(n&&n[1],i),s=c.sortDataParsers[e[1]];return t=s?function(t){return t&&s(o(t))}:function(t){return t&&o(t)}};c.sortDataParsers={parseInt:function(t){return parseInt(t,10)},parseFloat:function(t){return parseFloat(t)}},d._sort=function(){if(this.options.sortBy){var t=o.makeArray(this.options.sortBy);this._getIsSameSortBy(t)||(this.sortHistory=t.concat(this.sortHistory));var e=function(t,e){return function(i,n){for(var o=0;o<t.length;o++){var s=t[o],r=i.sortData[s],a=n.sortData[s];if(r>a||r<a){var l=void 0!==e[s]?e[s]:e,c=l?1:-1;return(r>a?1:-1)*c}}return 0}}(this.sortHistory,this.options.sortAscending);this.filteredItems.sort(e)}},d._getIsSameSortBy=function(t){for(var e=0;e<t.length;e++)if(t[e]!=this.sortHistory[e])return!1;return!0},d._mode=function(){var t=this.options.layoutMode,e=this.modes[t];if(!e)throw new Error("No layout mode: "+t);return e.options=this.options[t],e},d._resetLayout=function(){e.prototype._resetLayout.call(this),this._mode()._resetLayout()},d._getItemLayoutPosition=function(t){return this._mode()._getItemLayoutPosition(t)},d._manageStamp=function(t){this._mode()._manageStamp(t)},d._getContainerSize=function(){return this._mode()._getContainerSize()},d.needsResizeLayout=function(){return this._mode().needsResizeLayout()},d.appended=function(t){var e=this.addItems(t);if(e.length){var i=this._filterRevealAdded(e);this.filteredItems=this.filteredItems.concat(i)}},d.prepended=function(t){var e=this._itemize(t);if(e.length){this._resetLayout(),this._manageStamps();var i=this._filterRevealAdded(e);this.layoutItems(this.filteredItems),this.filteredItems=i.concat(this.filteredItems),this.items=e.concat(this.items)}},d._filterRevealAdded=function(t){var e=this._filter(t);return this.hide(e.needHide),this.reveal(e.matches),this.layoutItems(e.matches,!0),e.matches},d.insert=function(t){var e=this.addItems(t);if(e.length){var i,n,o=e.length;for(i=0;i<o;i++)n=e[i],this.element.appendChild(n.element);var s=this._filter(e).matches;for(i=0;i<o;i++)e[i].isLayoutInstant=!0;for(this.arrange(),i=0;i<o;i++)delete e[i].isLayoutInstant;this.reveal(s)}};var u=d.remove;return d.remove=function(t){t=o.makeArray(t);var e=this.getItems(t);u.call(this,t);for(var i=e&&e.length,n=0;i&&n<i;n++){var s=e[n];o.removeFrom(this.filteredItems,s)}},d.shuffle=function(){for(var t=0;t<this.items.length;t++)this.items[t].sortData.random=Math.random();this.options.sortBy="random",this._sort(),this._layout()},d._noTransition=function(t,e){var i=this.options.transitionDuration;this.options.transitionDuration=0;var n=t.apply(this,e);return this.options.transitionDuration=i,n},d.getFilteredItemElements=function(){return this.filteredItems.map(function(t){return t.element})},c}(s,t,0,i,n,o,r)}.apply(e,n))||(t.exports=o)}(window)},QK1G:function(t,e,i){var n,o;window,void 0===(o="function"==typeof(n=function(){"use strict";function t(t){var e=parseFloat(t),i=-1==t.indexOf("%")&&!isNaN(e);return i&&e}var e="undefined"==typeof console?function(){}:function(t){console.error(t)},i=["paddingLeft","paddingRight","paddingTop","paddingBottom","marginLeft","marginRight","marginTop","marginBottom","borderLeftWidth","borderRightWidth","borderTopWidth","borderBottomWidth"],n=i.length;function o(t){var i=getComputedStyle(t);return i||e("Style returned "+i+". Are you running this code in a hidden iframe on Firefox? See https://bit.ly/getsizebug1"),i}var s,r=!1;function a(e){if(function(){if(!r){r=!0;var e=document.createElement("div");e.style.width="200px",e.style.padding="1px 2px 3px 4px",e.style.borderStyle="solid",e.style.borderWidth="1px 2px 3px 4px",e.style.boxSizing="border-box";var i=document.body||document.documentElement;i.appendChild(e);var n=o(e);s=200==Math.round(t(n.width)),a.isBoxSizeOuter=s,i.removeChild(e)}}(),"string"==typeof e&&(e=document.querySelector(e)),e&&"object"==typeof e&&e.nodeType){var l=o(e);if("none"==l.display)return function(){for(var t={width:0,height:0,innerWidth:0,innerHeight:0,outerWidth:0,outerHeight:0},e=0;e<n;e++){var o=i[e];t[o]=0}return t}();var c={};c.width=e.offsetWidth,c.height=e.offsetHeight;for(var d=c.isBorderBox="border-box"==l.boxSizing,h=0;h<n;h++){var u=i[h],p=l[u],f=parseFloat(p);c[u]=isNaN(f)?0:f}var g=c.paddingLeft+c.paddingRight,m=c.paddingTop+c.paddingBottom,v=c.marginLeft+c.marginRight,y=c.marginTop+c.marginBottom,b=c.borderLeftWidth+c.borderRightWidth,w=c.borderTopWidth+c.borderBottomWidth,$=d&&s,x=t(l.width);!1!==x&&(c.width=x+($?0:g+b));var S=t(l.height);return!1!==S&&(c.height=S+($?0:m+w)),c.innerWidth=c.width-(g+b),c.innerHeight=c.height-(m+w),c.outerWidth=c.width+v,c.outerHeight=c.height+y,c}}return a})?n.call(e,i,e,t):n)||(t.exports=o)},Qc7Q:function(t,e,i){var n,o,s;window,o=[i("JT+M")],void 0===(s="function"==typeof(n=function(t){"use strict";var e=t.create("vertical",{horizontalAlignment:0}),i=e.prototype;return i._resetLayout=function(){this.y=0},i._getItemLayoutPosition=function(t){t.getSize();var e=(this.isotope.size.innerWidth-t.size.outerWidth)*this.options.horizontalAlignment,i=this.y;return this.y+=t.size.outerHeight,{x:e,y:i}},i._getContainerSize=function(){return{height:this.y}},e})?n.apply(e,o):n)||(t.exports=s)},QqA1:function(t,e){var i=9007199254740991,n="[object Arguments]",o="[object Function]",s="[object GeneratorFunction]",r=/^(?:0|[1-9]\d*)$/;function a(t,e,i){switch(i.length){case 0:return t.call(e);case 1:return t.call(e,i[0]);case 2:return t.call(e,i[0],i[1]);case 3:return t.call(e,i[0],i[1],i[2])}return t.apply(e,i)}var l,c,d=Object.prototype,h=d.hasOwnProperty,u=d.toString,p=d.propertyIsEnumerable,f=(l=Object.keys,c=Object,function(t){return l(c(t))}),g=Math.max,m=!p.call({valueOf:1},"valueOf");function v(t,e){var i=x(t)||function(t){return function(t){return function(t){return!!t&&"object"==typeof t}(t)&&S(t)}(t)&&h.call(t,"callee")&&(!p.call(t,"callee")||u.call(t)==n)}(t)?function(t,e){for(var i=-1,n=Array(t);++i<t;)n[i]=e(i);return n}(t.length,String):[],o=i.length,s=!!o;for(var r in t)!e&&!h.call(t,r)||s&&("length"==r||b(r,o))||i.push(r);return i}function y(t,e,i){var n=t[e];h.call(t,e)&&$(n,i)&&(void 0!==i||e in t)||(t[e]=i)}function b(t,e){return!!(e=null==e?i:e)&&("number"==typeof t||r.test(t))&&t>-1&&t%1==0&&t<e}function w(t){var e=t&&t.constructor;return t===("function"==typeof e&&e.prototype||d)}function $(t,e){return t===e||t!=t&&e!=e}var x=Array.isArray;function S(t){return null!=t&&function(t){return"number"==typeof t&&t>-1&&t%1==0&&t<=i}(t.length)&&!function(t){var e=C(t)?u.call(t):"";return e==o||e==s}(t)}function C(t){var e=typeof t;return!!t&&("object"==e||"function"==e)}var T,k=(T=function(t,e){if(m||w(e)||S(e))!function(t,e,i,n){i||(i={});for(var o=-1,s=e.length;++o<s;){var r=e[o],a=n?n(i[r],t[r],r,i,t):void 0;y(i,r,void 0===a?t[r]:a)}}(e,function(t){return S(t)?v(t):function(t){if(!w(t))return f(t);var e=[];for(var i in Object(t))h.call(t,i)&&"constructor"!=i&&e.push(i);return e}(t)}(e),t);else for(var i in e)h.call(e,i)&&y(t,i,e[i])},function(t,e){return e=g(void 0===e?t.length-1:e,0),function(){for(var i=arguments,n=-1,o=g(i.length-e,0),s=Array(o);++n<o;)s[n]=i[e+n];n=-1;for(var r=Array(e+1);++n<e;)r[n]=i[n];return r[e]=s,a(t,this,r)}}(function(t,e){var i=-1,n=e.length,o=n>1?e[n-1]:void 0,s=n>2?e[2]:void 0;for(o=T.length>3&&"function"==typeof o?(n--,o):void 0,s&&function(t,e,i){if(!C(i))return!1;var n=typeof e;return!!("number"==n?S(i)&&b(e,i.length):"string"==n&&e in i)&&$(i[e],t)}(e[0],e[1],s)&&(o=n<3?void 0:o,n=1),t=Object(t);++i<n;){var r=e[i];r&&T(t,r,i,o)}return t}));t.exports=k},RnVY:function(t,e,i){"use strict";i.d(e,"a",function(){return d});var n=i("xeH2"),o=i.n(n),s=i("l67y");const r={9:"TAB",13:"ENTER",27:"ESCAPE",32:"SPACE",35:"END",36:"HOME",37:"ARROW_LEFT",38:"ARROW_UP",39:"ARROW_RIGHT",40:"ARROW_DOWN"};var a={};function l(t){return!!t&&t.find("a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]").filter(function(){return!(!o()(this).is(":visible")||o()(this).attr("tabindex")<0)})}function c(t){var e=r[t.which||t.keyCode]||String.fromCharCode(t.which).toUpperCase();return e=e.replace(/\W+/,""),t.shiftKey&&(e=`SHIFT_${e}`),t.ctrlKey&&(e=`CTRL_${e}`),t.altKey&&(e=`ALT_${e}`),e=e.replace(/_$/,"")}var d={keys:function(t){var e={};for(var i in t)e[t[i]]=t[i];return e}(r),parseKey:c,handleKey(t,e,i){var n,r=a[e],l=this.parseKey(t);if(!r)return console.warn("Component not defined!");if((n=i[(void 0===r.ltr?r:Object(s.e)()?o.a.extend({},r.ltr,r.rtl):o.a.extend({},r.rtl,r.ltr))[l]])&&"function"==typeof n){var c=n.apply();(i.handled||"function"==typeof i.handled)&&i.handled(c)}else(i.unhandled||"function"==typeof i.unhandled)&&i.unhandled()},findFocusable:l,register(t,e){a[t]=e},trapFocus(t){var e=l(t),i=e.eq(0),n=e.eq(-1);t.on("keydown.zf.trapfocus",function(t){t.target===n[0]&&"TAB"===c(t)?(t.preventDefault(),i.focus()):t.target===i[0]&&"SHIFT_TAB"===c(t)&&(t.preventDefault(),n.focus())})},releaseFocus(t){t.off("keydown.zf.trapfocus")}}},SoJo:function(t,e,i){"use strict";i.d(e,"a",function(){return c});var n=i("xeH2"),o=i.n(n),s=i("RnVY"),r=i("sVZ0"),a=i("l67y"),l=i("CKjC");class c extends l.a{_setup(t,e){this.$element=t,this.options=o.a.extend({},c.defaults,this.$element.data(),e),this.className="AccordionMenu",this._init(),s.a.register("AccordionMenu",{ENTER:"toggle",SPACE:"toggle",ARROW_RIGHT:"open",ARROW_UP:"up",ARROW_DOWN:"down",ARROW_LEFT:"close",ESCAPE:"closeAll"})}_init(){r.a.Feather(this.$element,"accordion");var t=this;this.$element.find("[data-submenu]").not(".is-active").slideUp(0),this.$element.attr({role:"tree","aria-multiselectable":this.options.multiOpen}),this.$menuLinks=this.$element.find(".is-accordion-submenu-parent"),this.$menuLinks.each(function(){var e=this.id||Object(a.a)(6,"acc-menu-link"),i=o()(this),n=i.children("[data-submenu]"),s=n[0].id||Object(a.a)(6,"acc-menu"),r=n.hasClass("is-active");if(t.options.parentLink){i.children("a").clone().prependTo(n).wrap('<li data-is-parent-link class="is-submenu-parent-item is-submenu-item is-accordion-submenu-item"></li>')}t.options.submenuToggle?(i.addClass("has-submenu-toggle"),i.children("a").after('<button id="'+e+'" class="submenu-toggle" aria-controls="'+s+'" aria-expanded="'+r+'" title="'+t.options.submenuToggleText+'"><span class="submenu-toggle-text">'+t.options.submenuToggleText+"</span></button>")):i.attr({"aria-controls":s,"aria-expanded":r,id:e}),n.attr({"aria-labelledby":e,"aria-hidden":!r,role:"group",id:s})}),this.$element.find("li").attr({role:"treeitem"});var e=this.$element.find(".is-active");if(e.length){t=this;e.each(function(){t.down(o()(this))})}this._events()}_events(){var t=this;this.$element.find("li").each(function(){var e=o()(this).children("[data-submenu]");e.length&&(t.options.submenuToggle?o()(this).children(".submenu-toggle").off("click.zf.accordionMenu").on("click.zf.accordionMenu",function(i){t.toggle(e)}):o()(this).children("a").off("click.zf.accordionMenu").on("click.zf.accordionMenu",function(i){i.preventDefault(),t.toggle(e)}))}).on("keydown.zf.accordionmenu",function(e){var i,n,r=o()(this),a=r.parent("ul").children("li"),l=r.children("[data-submenu]");a.each(function(t){if(o()(this).is(r))return i=a.eq(Math.max(0,t-1)).find("a").first(),n=a.eq(Math.min(t+1,a.length-1)).find("a").first(),o()(this).children("[data-submenu]:visible").length&&(n=r.find("li:first-child").find("a").first()),o()(this).is(":first-child")?i=r.parents("li").first().find("a").first():i.parents("li").first().children("[data-submenu]:visible").length&&(i=i.parents("li").find("li:last-child").find("a").first()),void(o()(this).is(":last-child")&&(n=r.parents("li").first().next("li").find("a").first()))}),s.a.handleKey(e,"AccordionMenu",{open:function(){l.is(":hidden")&&(t.down(l),l.find("li").first().find("a").first().focus())},close:function(){l.length&&!l.is(":hidden")?t.up(l):r.parent("[data-submenu]").length&&(t.up(r.parent("[data-submenu]")),r.parents("li").first().find("a").first().focus())},up:function(){return i.focus(),!0},down:function(){return n.focus(),!0},toggle:function(){return!t.options.submenuToggle&&(r.children("[data-submenu]").length?(t.toggle(r.children("[data-submenu]")),!0):void 0)},closeAll:function(){t.hideAll()},handled:function(t){t&&e.preventDefault(),e.stopImmediatePropagation()}})})}hideAll(){this.up(this.$element.find("[data-submenu]"))}showAll(){this.down(this.$element.find("[data-submenu]"))}toggle(t){t.is(":animated")||(t.is(":hidden")?this.down(t):this.up(t))}down(t){if(!this.options.multiOpen){const e=t.parentsUntil(this.$element).add(t).add(t.find(".is-active")),i=this.$element.find(".is-active").not(e);this.up(i)}t.addClass("is-active").attr({"aria-hidden":!1}),this.options.submenuToggle?t.prev(".submenu-toggle").attr({"aria-expanded":!0}):t.parent(".is-accordion-submenu-parent").attr({"aria-expanded":!0}),t.slideDown(this.options.slideSpeed,()=>{this.$element.trigger("down.zf.accordionMenu",[t])})}up(t){const e=t.find("[data-submenu]"),i=t.add(e);e.slideUp(0),i.removeClass("is-active").attr("aria-hidden",!0),this.options.submenuToggle?i.prev(".submenu-toggle").attr("aria-expanded",!1):i.parent(".is-accordion-submenu-parent").attr("aria-expanded",!1),t.slideUp(this.options.slideSpeed,()=>{this.$element.trigger("up.zf.accordionMenu",[t])})}_destroy(){this.$element.find("[data-submenu]").slideDown(0).css("display",""),this.$element.find("a").off("click.zf.accordionMenu"),this.$element.find("[data-is-parent-link]").detach(),this.options.submenuToggle&&(this.$element.find(".has-submenu-toggle").removeClass("has-submenu-toggle"),this.$element.find(".submenu-toggle").remove()),r.a.Burn(this.$element,"accordion")}}c.defaults={parentLink:!1,slideSpeed:250,submenuToggle:!1,submenuToggleText:"Toggle menu",multiOpen:!0}},TNtj:function(t,e,i){"use strict";i.d(e,"a",function(){return s});var n=i("xeH2"),o=i.n(n);function s(t,e){var i=t.length;function n(){0===--i&&e()}0===i&&e(),t.each(function(){if(this.complete&&void 0!==this.naturalWidth)n();else{var t=new Image,e="load.zf.images error.zf.images";o()(t).one(e,function t(i){o()(this).off(e,t),n()}),t.src=o()(this).attr("src")}})}},YVj6:function(t,e,i){var n,o;!function(s,r){n=[i("x0Ue")],void 0===(o=function(t){return function(t,e){"use strict";var i={extend:function(t,e){for(var i in e)t[i]=e[i];return t},modulo:function(t,e){return(t%e+e)%e}},n=Array.prototype.slice;i.makeArray=function(t){if(Array.isArray(t))return t;if(null==t)return[];var e="object"==typeof t&&"number"==typeof t.length;return e?n.call(t):[t]},i.removeFrom=function(t,e){var i=t.indexOf(e);-1!=i&&t.splice(i,1)},i.getParent=function(t,i){for(;t.parentNode&&t!=document.body;)if(t=t.parentNode,e(t,i))return t},i.getQueryElement=function(t){return"string"==typeof t?document.querySelector(t):t},i.handleEvent=function(t){var e="on"+t.type;this[e]&&this[e](t)},i.filterFindElements=function(t,n){t=i.makeArray(t);var o=[];return t.forEach(function(t){if(t instanceof HTMLElement)if(n){e(t,n)&&o.push(t);for(var i=t.querySelectorAll(n),s=0;s<i.length;s++)o.push(i[s])}else o.push(t)}),o},i.debounceMethod=function(t,e,i){i=i||100;var n=t.prototype[e],o=e+"Timeout";t.prototype[e]=function(){var t=this[o];clearTimeout(t);var e=arguments,s=this;this[o]=setTimeout(function(){n.apply(s,e),delete s[o]},i)}},i.docReady=function(t){var e=document.readyState;"complete"==e||"interactive"==e?setTimeout(t):document.addEventListener("DOMContentLoaded",t)},i.toDashed=function(t){return t.replace(/(.)([A-Z])/g,function(t,e,i){return e+"-"+i}).toLowerCase()};var o=t.console;return i.htmlInit=function(e,n){i.docReady(function(){var s=i.toDashed(n),r="data-"+s,a=document.querySelectorAll("["+r+"]"),l=document.querySelectorAll(".js-"+s),c=i.makeArray(a).concat(i.makeArray(l)),d=r+"-options",h=t.jQuery;c.forEach(function(t){var i,s=t.getAttribute(r)||t.getAttribute(d);try{i=s&&JSON.parse(s)}catch(e){return void(o&&o.error("Error parsing "+r+" on "+t.className+": "+e))}var a=new e(t,i);h&&h.data(t,n,a)})})},i}(s,t)}.apply(e,n))||(t.exports=o)}(window)},YpPz:function(t,e,i){"use strict";i.d(e,"a",function(){return c});var n,o,s,r,a=i("xeH2"),l=i.n(a),c={},d=!1,h=!1;function u(t){if(this.removeEventListener("touchmove",p),this.removeEventListener("touchend",u),!h){var e=l.a.Event("tap",r||t);l()(this).trigger(e)}r=null,d=!1,h=!1}function p(t){if(l.a.spotSwipe.preventDefault&&t.preventDefault(),d){var e,i=t.touches[0].pageX,r=(t.touches[0].pageY,n-i);h=!0,s=(new Date).getTime()-o,Math.abs(r)>=l.a.spotSwipe.moveThreshold&&s<=l.a.spotSwipe.timeThreshold&&(e=r>0?"left":"right"),e&&(t.preventDefault(),u.apply(this,arguments),l()(this).trigger(l.a.Event("swipe",t),e).trigger(l.a.Event(`swipe${e}`,t)))}}function f(t){1==t.touches.length&&(n=t.touches[0].pageX,t.touches[0].pageY,r=t,d=!0,h=!1,o=(new Date).getTime(),this.addEventListener("touchmove",p,!1),this.addEventListener("touchend",u,!1))}function g(){this.addEventListener&&this.addEventListener("touchstart",f,!1)}class m{constructor(t){this.version="1.0.0",this.enabled="ontouchstart"in document.documentElement,this.preventDefault=!1,this.moveThreshold=75,this.timeThreshold=200,this.$=t,this._init()}_init(){var t=this.$;t.event.special.swipe={setup:g},t.event.special.tap={setup:g},t.each(["left","up","down","right"],function(){t.event.special[`swipe${this}`]={setup:function(){t(this).on("swipe",t.noop)}}})}}c.setupSpotSwipe=function(t){t.spotSwipe=new m(t)},c.setupTouchHandler=function(t){t.fn.addTouch=function(){this.each(function(i,n){t(n).bind("touchstart touchmove touchend touchcancel",function(t){e(t)})});var e=function(t){var e,i=t.changedTouches[0],n={touchstart:"mousedown",touchmove:"mousemove",touchend:"mouseup"}[t.type];"MouseEvent"in window&&"function"==typeof window.MouseEvent?e=new window.MouseEvent(n,{bubbles:!0,cancelable:!0,screenX:i.screenX,screenY:i.screenY,clientX:i.clientX,clientY:i.clientY}):(e=document.createEvent("MouseEvent")).initMouseEvent(n,!0,!0,window,1,i.screenX,i.screenY,i.clientX,i.clientY,!1,!1,!1,!1,0,null),i.target.dispatchEvent(e)}}},c.init=function(t){void 0===t.spotSwipe&&(c.setupSpotSwipe(t),c.setupTouchHandler(t))}},Yu3H:function(t,e,i){var n,o;!function(s,r){n=[i("xeH2")],void 0===(o=function(t){return function(t,e){"use strict";var i=Array.prototype.slice,n=t.console,o=void 0===n?function(){}:function(t){n.error(t)};function s(n,s,a){function l(t,e,i){var s,r="$()."+n+'("'+e+'")';return t.each(function(t,l){var c=a.data(l,n);if(c){var d=c[e];if(d&&"_"!=e.charAt(0)){var h=d.apply(c,i);s=void 0===s?h:s}else o(r+" is not a valid method")}else o(n+" not initialized. Cannot call methods, i.e. "+r)}),void 0!==s?s:t}function c(t,e){t.each(function(t,i){var o=a.data(i,n);o?(o.option(e),o._init()):(o=new s(i,e),a.data(i,n,o))})}(a=a||e||t.jQuery)&&(s.prototype.option||(s.prototype.option=function(t){a.isPlainObject(t)&&(this.options=a.extend(!0,this.options,t))}),a.fn[n]=function(t){if("string"==typeof t){var e=i.call(arguments,1);return l(this,t,e)}return c(this,t),this},r(a))}function r(t){!t||t&&t.bridget||(t.bridget=s)}return r(e||t.jQuery),s}(s,t)}.apply(e,n))||(t.exports=o)}(window)},"Zej/":function(t,e,i){var n,o,s;!function(r){"use strict";o=[i("xeH2")],void 0===(s="function"==typeof(n=function(t){var e=window.Slick||{};(i=0,e=function(e,n){var o,s=this;s.defaults={accessibility:!0,adaptiveHeight:!1,appendArrows:t(e),appendDots:t(e),arrows:!0,asNavFor:null,prevArrow:'<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',nextArrow:'<button class="slick-next" aria-label="Next" type="button">Next</button>',autoplay:!1,autoplaySpeed:3e3,centerMode:!1,centerPadding:"50px",cssEase:"ease",customPaging:function(e,i){return t('<button type="button" />').text(i+1)},dots:!1,dotsClass:"slick-dots",draggable:!0,easing:"linear",edgeFriction:.35,fade:!1,focusOnSelect:!1,focusOnChange:!1,infinite:!0,initialSlide:0,lazyLoad:"ondemand",mobileFirst:!1,pauseOnHover:!0,pauseOnFocus:!0,pauseOnDotsHover:!1,respondTo:"window",responsive:null,rows:1,rtl:!1,slide:"",slidesPerRow:1,slidesToShow:1,slidesToScroll:1,speed:500,swipe:!0,swipeToSlide:!1,touchMove:!0,touchThreshold:5,useCSS:!0,useTransform:!0,variableWidth:!1,vertical:!1,verticalSwiping:!1,waitForAnimate:!0,zIndex:1e3},s.initials={animating:!1,dragging:!1,autoPlayTimer:null,currentDirection:0,currentLeft:null,currentSlide:0,direction:1,$dots:null,listWidth:null,listHeight:null,loadIndex:0,$nextArrow:null,$prevArrow:null,scrolling:!1,slideCount:null,slideWidth:null,$slideTrack:null,$slides:null,sliding:!1,slideOffset:0,swipeLeft:null,swiping:!1,$list:null,touchObject:{},transformsEnabled:!1,unslicked:!1},t.extend(s,s.initials),s.activeBreakpoint=null,s.animType=null,s.animProp=null,s.breakpoints=[],s.breakpointSettings=[],s.cssTransitions=!1,s.focussed=!1,s.interrupted=!1,s.hidden="hidden",s.paused=!0,s.positionProp=null,s.respondTo=null,s.rowCount=1,s.shouldClick=!0,s.$slider=t(e),s.$slidesCache=null,s.transformType=null,s.transitionType=null,s.visibilityChange="visibilitychange",s.windowWidth=0,s.windowTimer=null,o=t(e).data("slick")||{},s.options=t.extend({},s.defaults,n,o),s.currentSlide=s.options.initialSlide,s.originalSettings=s.options,void 0!==document.mozHidden?(s.hidden="mozHidden",s.visibilityChange="mozvisibilitychange"):void 0!==document.webkitHidden&&(s.hidden="webkitHidden",s.visibilityChange="webkitvisibilitychange"),s.autoPlay=t.proxy(s.autoPlay,s),s.autoPlayClear=t.proxy(s.autoPlayClear,s),s.autoPlayIterator=t.proxy(s.autoPlayIterator,s),s.changeSlide=t.proxy(s.changeSlide,s),s.clickHandler=t.proxy(s.clickHandler,s),s.selectHandler=t.proxy(s.selectHandler,s),s.setPosition=t.proxy(s.setPosition,s),s.swipeHandler=t.proxy(s.swipeHandler,s),s.dragHandler=t.proxy(s.dragHandler,s),s.keyHandler=t.proxy(s.keyHandler,s),s.instanceUid=i++,s.htmlExpr=/^(?:\s*(<[\w\W]+>)[^>]*)$/,s.registerBreakpoints(),s.init(!0)}).prototype.activateADA=function(){this.$slideTrack.find(".slick-active").attr({"aria-hidden":"false"}).find("a, input, button, select").attr({tabindex:"0"})},e.prototype.addSlide=e.prototype.slickAdd=function(e,i,n){var o=this;if("boolean"==typeof i)n=i,i=null;else if(i<0||i>=o.slideCount)return!1;o.unload(),"number"==typeof i?0===i&&0===o.$slides.length?t(e).appendTo(o.$slideTrack):n?t(e).insertBefore(o.$slides.eq(i)):t(e).insertAfter(o.$slides.eq(i)):!0===n?t(e).prependTo(o.$slideTrack):t(e).appendTo(o.$slideTrack),o.$slides=o.$slideTrack.children(this.options.slide),o.$slideTrack.children(this.options.slide).detach(),o.$slideTrack.append(o.$slides),o.$slides.each(function(e,i){t(i).attr("data-slick-index",e)}),o.$slidesCache=o.$slides,o.reinit()},e.prototype.animateHeight=function(){var t=this;if(1===t.options.slidesToShow&&!0===t.options.adaptiveHeight&&!1===t.options.vertical){var e=t.$slides.eq(t.currentSlide).outerHeight(!0);t.$list.animate({height:e},t.options.speed)}},e.prototype.animateSlide=function(e,i){var n={},o=this;o.animateHeight(),!0===o.options.rtl&&!1===o.options.vertical&&(e=-e),!1===o.transformsEnabled?!1===o.options.vertical?o.$slideTrack.animate({left:e},o.options.speed,o.options.easing,i):o.$slideTrack.animate({top:e},o.options.speed,o.options.easing,i):!1===o.cssTransitions?(!0===o.options.rtl&&(o.currentLeft=-o.currentLeft),t({animStart:o.currentLeft}).animate({animStart:e},{duration:o.options.speed,easing:o.options.easing,step:function(t){t=Math.ceil(t),!1===o.options.vertical?(n[o.animType]="translate("+t+"px, 0px)",o.$slideTrack.css(n)):(n[o.animType]="translate(0px,"+t+"px)",o.$slideTrack.css(n))},complete:function(){i&&i.call()}})):(o.applyTransition(),e=Math.ceil(e),!1===o.options.vertical?n[o.animType]="translate3d("+e+"px, 0px, 0px)":n[o.animType]="translate3d(0px,"+e+"px, 0px)",o.$slideTrack.css(n),i&&setTimeout(function(){o.disableTransition(),i.call()},o.options.speed))},e.prototype.getNavTarget=function(){var e=this.options.asNavFor;return e&&null!==e&&(e=t(e).not(this.$slider)),e},e.prototype.asNavFor=function(e){var i=this.getNavTarget();null!==i&&"object"==typeof i&&i.each(function(){var i=t(this).slick("getSlick");i.unslicked||i.slideHandler(e,!0)})},e.prototype.applyTransition=function(t){var e=this,i={};!1===e.options.fade?i[e.transitionType]=e.transformType+" "+e.options.speed+"ms "+e.options.cssEase:i[e.transitionType]="opacity "+e.options.speed+"ms "+e.options.cssEase,!1===e.options.fade?e.$slideTrack.css(i):e.$slides.eq(t).css(i)},e.prototype.autoPlay=function(){var t=this;t.autoPlayClear(),t.slideCount>t.options.slidesToShow&&(t.autoPlayTimer=setInterval(t.autoPlayIterator,t.options.autoplaySpeed))},e.prototype.autoPlayClear=function(){this.autoPlayTimer&&clearInterval(this.autoPlayTimer)},e.prototype.autoPlayIterator=function(){var t=this,e=t.currentSlide+t.options.slidesToScroll;t.paused||t.interrupted||t.focussed||(!1===t.options.infinite&&(1===t.direction&&t.currentSlide+1===t.slideCount-1?t.direction=0:0===t.direction&&(e=t.currentSlide-t.options.slidesToScroll,t.currentSlide-1==0&&(t.direction=1))),t.slideHandler(e))},e.prototype.buildArrows=function(){var e=this;!0===e.options.arrows&&(e.$prevArrow=t(e.options.prevArrow).addClass("slick-arrow"),e.$nextArrow=t(e.options.nextArrow).addClass("slick-arrow"),e.slideCount>e.options.slidesToShow?(e.$prevArrow.removeClass("slick-hidden").removeAttr("aria-hidden tabindex"),e.$nextArrow.removeClass("slick-hidden").removeAttr("aria-hidden tabindex"),e.htmlExpr.test(e.options.prevArrow)&&e.$prevArrow.prependTo(e.options.appendArrows),e.htmlExpr.test(e.options.nextArrow)&&e.$nextArrow.appendTo(e.options.appendArrows),!0!==e.options.infinite&&e.$prevArrow.addClass("slick-disabled").attr("aria-disabled","true")):e.$prevArrow.add(e.$nextArrow).addClass("slick-hidden").attr({"aria-disabled":"true",tabindex:"-1"}))},e.prototype.buildDots=function(){var e,i,n=this;if(!0===n.options.dots&&n.slideCount>n.options.slidesToShow){for(n.$slider.addClass("slick-dotted"),i=t("<ul />").addClass(n.options.dotsClass),e=0;e<=n.getDotCount();e+=1)i.append(t("<li />").append(n.options.customPaging.call(this,n,e)));n.$dots=i.appendTo(n.options.appendDots),n.$dots.find("li").first().addClass("slick-active")}},e.prototype.buildOut=function(){var e=this;e.$slides=e.$slider.children(e.options.slide+":not(.slick-cloned)").addClass("slick-slide"),e.slideCount=e.$slides.length,e.$slides.each(function(e,i){t(i).attr("data-slick-index",e).data("originalStyling",t(i).attr("style")||"")}),e.$slider.addClass("slick-slider"),e.$slideTrack=0===e.slideCount?t('<div class="slick-track"/>').appendTo(e.$slider):e.$slides.wrapAll('<div class="slick-track"/>').parent(),e.$list=e.$slideTrack.wrap('<div class="slick-list"/>').parent(),e.$slideTrack.css("opacity",0),!0!==e.options.centerMode&&!0!==e.options.swipeToSlide||(e.options.slidesToScroll=1),t("img[data-lazy]",e.$slider).not("[src]").addClass("slick-loading"),e.setupInfinite(),e.buildArrows(),e.buildDots(),e.updateDots(),e.setSlideClasses("number"==typeof e.currentSlide?e.currentSlide:0),!0===e.options.draggable&&e.$list.addClass("draggable")},e.prototype.buildRows=function(){var t,e,i,n,o,s,r,a=this;if(n=document.createDocumentFragment(),s=a.$slider.children(),a.options.rows>0){for(r=a.options.slidesPerRow*a.options.rows,o=Math.ceil(s.length/r),t=0;t<o;t++){var l=document.createElement("div");for(e=0;e<a.options.rows;e++){var c=document.createElement("div");for(i=0;i<a.options.slidesPerRow;i++){var d=t*r+(e*a.options.slidesPerRow+i);s.get(d)&&c.appendChild(s.get(d))}l.appendChild(c)}n.appendChild(l)}a.$slider.empty().append(n),a.$slider.children().children().children().css({width:100/a.options.slidesPerRow+"%",display:"inline-block"})}},e.prototype.checkResponsive=function(e,i){var n,o,s,r=this,a=!1,l=r.$slider.width(),c=window.innerWidth||t(window).width();if("window"===r.respondTo?s=c:"slider"===r.respondTo?s=l:"min"===r.respondTo&&(s=Math.min(c,l)),r.options.responsive&&r.options.responsive.length&&null!==r.options.responsive){for(n in o=null,r.breakpoints)r.breakpoints.hasOwnProperty(n)&&(!1===r.originalSettings.mobileFirst?s<r.breakpoints[n]&&(o=r.breakpoints[n]):s>r.breakpoints[n]&&(o=r.breakpoints[n]));null!==o?null!==r.activeBreakpoint?(o!==r.activeBreakpoint||i)&&(r.activeBreakpoint=o,"unslick"===r.breakpointSettings[o]?r.unslick(o):(r.options=t.extend({},r.originalSettings,r.breakpointSettings[o]),!0===e&&(r.currentSlide=r.options.initialSlide),r.refresh(e)),a=o):(r.activeBreakpoint=o,"unslick"===r.breakpointSettings[o]?r.unslick(o):(r.options=t.extend({},r.originalSettings,r.breakpointSettings[o]),!0===e&&(r.currentSlide=r.options.initialSlide),r.refresh(e)),a=o):null!==r.activeBreakpoint&&(r.activeBreakpoint=null,r.options=r.originalSettings,!0===e&&(r.currentSlide=r.options.initialSlide),r.refresh(e),a=o),e||!1===a||r.$slider.trigger("breakpoint",[r,a])}},e.prototype.changeSlide=function(e,i){var n,o,s,r=this,a=t(e.currentTarget);switch(a.is("a")&&e.preventDefault(),a.is("li")||(a=a.closest("li")),s=r.slideCount%r.options.slidesToScroll!=0,n=s?0:(r.slideCount-r.currentSlide)%r.options.slidesToScroll,e.data.message){case"previous":o=0===n?r.options.slidesToScroll:r.options.slidesToShow-n,r.slideCount>r.options.slidesToShow&&r.slideHandler(r.currentSlide-o,!1,i);break;case"next":o=0===n?r.options.slidesToScroll:n,r.slideCount>r.options.slidesToShow&&r.slideHandler(r.currentSlide+o,!1,i);break;case"index":var l=0===e.data.index?0:e.data.index||a.index()*r.options.slidesToScroll;r.slideHandler(r.checkNavigable(l),!1,i),a.children().trigger("focus");break;default:return}},e.prototype.checkNavigable=function(t){var e,i;if(e=this.getNavigableIndexes(),i=0,t>e[e.length-1])t=e[e.length-1];else for(var n in e){if(t<e[n]){t=i;break}i=e[n]}return t},e.prototype.cleanUpEvents=function(){var e=this;e.options.dots&&null!==e.$dots&&(t("li",e.$dots).off("click.slick",e.changeSlide).off("mouseenter.slick",t.proxy(e.interrupt,e,!0)).off("mouseleave.slick",t.proxy(e.interrupt,e,!1)),!0===e.options.accessibility&&e.$dots.off("keydown.slick",e.keyHandler)),e.$slider.off("focus.slick blur.slick"),!0===e.options.arrows&&e.slideCount>e.options.slidesToShow&&(e.$prevArrow&&e.$prevArrow.off("click.slick",e.changeSlide),e.$nextArrow&&e.$nextArrow.off("click.slick",e.changeSlide),!0===e.options.accessibility&&(e.$prevArrow&&e.$prevArrow.off("keydown.slick",e.keyHandler),e.$nextArrow&&e.$nextArrow.off("keydown.slick",e.keyHandler))),e.$list.off("touchstart.slick mousedown.slick",e.swipeHandler),e.$list.off("touchmove.slick mousemove.slick",e.swipeHandler),e.$list.off("touchend.slick mouseup.slick",e.swipeHandler),e.$list.off("touchcancel.slick mouseleave.slick",e.swipeHandler),e.$list.off("click.slick",e.clickHandler),t(document).off(e.visibilityChange,e.visibility),e.cleanUpSlideEvents(),!0===e.options.accessibility&&e.$list.off("keydown.slick",e.keyHandler),!0===e.options.focusOnSelect&&t(e.$slideTrack).children().off("click.slick",e.selectHandler),t(window).off("orientationchange.slick.slick-"+e.instanceUid,e.orientationChange),t(window).off("resize.slick.slick-"+e.instanceUid,e.resize),t("[draggable!=true]",e.$slideTrack).off("dragstart",e.preventDefault),t(window).off("load.slick.slick-"+e.instanceUid,e.setPosition)},e.prototype.cleanUpSlideEvents=function(){var e=this;e.$list.off("mouseenter.slick",t.proxy(e.interrupt,e,!0)),e.$list.off("mouseleave.slick",t.proxy(e.interrupt,e,!1))},e.prototype.cleanUpRows=function(){var t,e=this;e.options.rows>0&&((t=e.$slides.children().children()).removeAttr("style"),e.$slider.empty().append(t))},e.prototype.clickHandler=function(t){!1===this.shouldClick&&(t.stopImmediatePropagation(),t.stopPropagation(),t.preventDefault())},e.prototype.destroy=function(e){var i=this;i.autoPlayClear(),i.touchObject={},i.cleanUpEvents(),t(".slick-cloned",i.$slider).detach(),i.$dots&&i.$dots.remove(),i.$prevArrow&&i.$prevArrow.length&&(i.$prevArrow.removeClass("slick-disabled slick-arrow slick-hidden").removeAttr("aria-hidden aria-disabled tabindex").css("display",""),i.htmlExpr.test(i.options.prevArrow)&&i.$prevArrow.remove()),i.$nextArrow&&i.$nextArrow.length&&(i.$nextArrow.removeClass("slick-disabled slick-arrow slick-hidden").removeAttr("aria-hidden aria-disabled tabindex").css("display",""),i.htmlExpr.test(i.options.nextArrow)&&i.$nextArrow.remove()),i.$slides&&(i.$slides.removeClass("slick-slide slick-active slick-center slick-visible slick-current").removeAttr("aria-hidden").removeAttr("data-slick-index").each(function(){t(this).attr("style",t(this).data("originalStyling"))}),i.$slideTrack.children(this.options.slide).detach(),i.$slideTrack.detach(),i.$list.detach(),i.$slider.append(i.$slides)),i.cleanUpRows(),i.$slider.removeClass("slick-slider"),i.$slider.removeClass("slick-initialized"),i.$slider.removeClass("slick-dotted"),i.unslicked=!0,e||i.$slider.trigger("destroy",[i])},e.prototype.disableTransition=function(t){var e=this,i={};i[e.transitionType]="",!1===e.options.fade?e.$slideTrack.css(i):e.$slides.eq(t).css(i)},e.prototype.fadeSlide=function(t,e){var i=this;!1===i.cssTransitions?(i.$slides.eq(t).css({zIndex:i.options.zIndex}),i.$slides.eq(t).animate({opacity:1},i.options.speed,i.options.easing,e)):(i.applyTransition(t),i.$slides.eq(t).css({opacity:1,zIndex:i.options.zIndex}),e&&setTimeout(function(){i.disableTransition(t),e.call()},i.options.speed))},e.prototype.fadeSlideOut=function(t){var e=this;!1===e.cssTransitions?e.$slides.eq(t).animate({opacity:0,zIndex:e.options.zIndex-2},e.options.speed,e.options.easing):(e.applyTransition(t),e.$slides.eq(t).css({opacity:0,zIndex:e.options.zIndex-2}))},e.prototype.filterSlides=e.prototype.slickFilter=function(t){var e=this;null!==t&&(e.$slidesCache=e.$slides,e.unload(),e.$slideTrack.children(this.options.slide).detach(),e.$slidesCache.filter(t).appendTo(e.$slideTrack),e.reinit())},e.prototype.focusHandler=function(){var e=this;e.$slider.off("focus.slick blur.slick").on("focus.slick blur.slick","*",function(i){i.stopImmediatePropagation();var n=t(this);setTimeout(function(){e.options.pauseOnFocus&&(e.focussed=n.is(":focus"),e.autoPlay())},0)})},e.prototype.getCurrent=e.prototype.slickCurrentSlide=function(){return this.currentSlide},e.prototype.getDotCount=function(){var t=this,e=0,i=0,n=0;if(!0===t.options.infinite)if(t.slideCount<=t.options.slidesToShow)++n;else for(;e<t.slideCount;)++n,e=i+t.options.slidesToScroll,i+=t.options.slidesToScroll<=t.options.slidesToShow?t.options.slidesToScroll:t.options.slidesToShow;else if(!0===t.options.centerMode)n=t.slideCount;else if(t.options.asNavFor)for(;e<t.slideCount;)++n,e=i+t.options.slidesToScroll,i+=t.options.slidesToScroll<=t.options.slidesToShow?t.options.slidesToScroll:t.options.slidesToShow;else n=1+Math.ceil((t.slideCount-t.options.slidesToShow)/t.options.slidesToScroll);return n-1},e.prototype.getLeft=function(t){var e,i,n,o,s=this,r=0;return s.slideOffset=0,i=s.$slides.first().outerHeight(!0),!0===s.options.infinite?(s.slideCount>s.options.slidesToShow&&(s.slideOffset=s.slideWidth*s.options.slidesToShow*-1,o=-1,!0===s.options.vertical&&!0===s.options.centerMode&&(2===s.options.slidesToShow?o=-1.5:1===s.options.slidesToShow&&(o=-2)),r=i*s.options.slidesToShow*o),s.slideCount%s.options.slidesToScroll!=0&&t+s.options.slidesToScroll>s.slideCount&&s.slideCount>s.options.slidesToShow&&(t>s.slideCount?(s.slideOffset=(s.options.slidesToShow-(t-s.slideCount))*s.slideWidth*-1,r=(s.options.slidesToShow-(t-s.slideCount))*i*-1):(s.slideOffset=s.slideCount%s.options.slidesToScroll*s.slideWidth*-1,r=s.slideCount%s.options.slidesToScroll*i*-1))):t+s.options.slidesToShow>s.slideCount&&(s.slideOffset=(t+s.options.slidesToShow-s.slideCount)*s.slideWidth,r=(t+s.options.slidesToShow-s.slideCount)*i),s.slideCount<=s.options.slidesToShow&&(s.slideOffset=0,r=0),!0===s.options.centerMode&&s.slideCount<=s.options.slidesToShow?s.slideOffset=s.slideWidth*Math.floor(s.options.slidesToShow)/2-s.slideWidth*s.slideCount/2:!0===s.options.centerMode&&!0===s.options.infinite?s.slideOffset+=s.slideWidth*Math.floor(s.options.slidesToShow/2)-s.slideWidth:!0===s.options.centerMode&&(s.slideOffset=0,s.slideOffset+=s.slideWidth*Math.floor(s.options.slidesToShow/2)),e=!1===s.options.vertical?t*s.slideWidth*-1+s.slideOffset:t*i*-1+r,!0===s.options.variableWidth&&(n=s.slideCount<=s.options.slidesToShow||!1===s.options.infinite?s.$slideTrack.children(".slick-slide").eq(t):s.$slideTrack.children(".slick-slide").eq(t+s.options.slidesToShow),e=!0===s.options.rtl?n[0]?-1*(s.$slideTrack.width()-n[0].offsetLeft-n.width()):0:n[0]?-1*n[0].offsetLeft:0,!0===s.options.centerMode&&(n=s.slideCount<=s.options.slidesToShow||!1===s.options.infinite?s.$slideTrack.children(".slick-slide").eq(t):s.$slideTrack.children(".slick-slide").eq(t+s.options.slidesToShow+1),e=!0===s.options.rtl?n[0]?-1*(s.$slideTrack.width()-n[0].offsetLeft-n.width()):0:n[0]?-1*n[0].offsetLeft:0,e+=(s.$list.width()-n.outerWidth())/2)),e},e.prototype.getOption=e.prototype.slickGetOption=function(t){return this.options[t]},e.prototype.getNavigableIndexes=function(){var t,e=this,i=0,n=0,o=[];for(!1===e.options.infinite?t=e.slideCount:(i=-1*e.options.slidesToScroll,n=-1*e.options.slidesToScroll,t=2*e.slideCount);i<t;)o.push(i),i=n+e.options.slidesToScroll,n+=e.options.slidesToScroll<=e.options.slidesToShow?e.options.slidesToScroll:e.options.slidesToShow;return o},e.prototype.getSlick=function(){return this},e.prototype.getSlideCount=function(){var e,i,n=this;return i=!0===n.options.centerMode?n.slideWidth*Math.floor(n.options.slidesToShow/2):0,!0===n.options.swipeToSlide?(n.$slideTrack.find(".slick-slide").each(function(o,s){if(s.offsetLeft-i+t(s).outerWidth()/2>-1*n.swipeLeft)return e=s,!1}),Math.abs(t(e).attr("data-slick-index")-n.currentSlide)||1):n.options.slidesToScroll},e.prototype.goTo=e.prototype.slickGoTo=function(t,e){this.changeSlide({data:{message:"index",index:parseInt(t)}},e)},e.prototype.init=function(e){var i=this;t(i.$slider).hasClass("slick-initialized")||(t(i.$slider).addClass("slick-initialized"),i.buildRows(),i.buildOut(),i.setProps(),i.startLoad(),i.loadSlider(),i.initializeEvents(),i.updateArrows(),i.updateDots(),i.checkResponsive(!0),i.focusHandler()),e&&i.$slider.trigger("init",[i]),!0===i.options.accessibility&&i.initADA(),i.options.autoplay&&(i.paused=!1,i.autoPlay())},e.prototype.initADA=function(){var e=this,i=Math.ceil(e.slideCount/e.options.slidesToShow),n=e.getNavigableIndexes().filter(function(t){return t>=0&&t<e.slideCount});e.$slides.add(e.$slideTrack.find(".slick-cloned")).attr({"aria-hidden":"true",tabindex:"-1"}).find("a, input, button, select").attr({tabindex:"-1"}),null!==e.$dots&&(e.$slides.not(e.$slideTrack.find(".slick-cloned")).each(function(i){var o=n.indexOf(i);if(t(this).attr({role:"tabpanel",id:"slick-slide"+e.instanceUid+i,tabindex:-1}),-1!==o){var s="slick-slide-control"+e.instanceUid+o;t("#"+s).length&&t(this).attr({"aria-describedby":s})}}),e.$dots.attr("role","tablist").find("li").each(function(o){var s=n[o];t(this).attr({role:"presentation"}),t(this).find("button").first().attr({role:"tab",id:"slick-slide-control"+e.instanceUid+o,"aria-controls":"slick-slide"+e.instanceUid+s,"aria-label":o+1+" of "+i,"aria-selected":null,tabindex:"-1"})}).eq(e.currentSlide).find("button").attr({"aria-selected":"true",tabindex:"0"}).end());for(var o=e.currentSlide,s=o+e.options.slidesToShow;o<s;o++)e.options.focusOnChange?e.$slides.eq(o).attr({tabindex:"0"}):e.$slides.eq(o).removeAttr("tabindex");e.activateADA()},e.prototype.initArrowEvents=function(){var t=this;!0===t.options.arrows&&t.slideCount>t.options.slidesToShow&&(t.$prevArrow.off("click.slick").on("click.slick",{message:"previous"},t.changeSlide),t.$nextArrow.off("click.slick").on("click.slick",{message:"next"},t.changeSlide),!0===t.options.accessibility&&(t.$prevArrow.on("keydown.slick",t.keyHandler),t.$nextArrow.on("keydown.slick",t.keyHandler)))},e.prototype.initDotEvents=function(){var e=this;!0===e.options.dots&&e.slideCount>e.options.slidesToShow&&(t("li",e.$dots).on("click.slick",{message:"index"},e.changeSlide),!0===e.options.accessibility&&e.$dots.on("keydown.slick",e.keyHandler)),!0===e.options.dots&&!0===e.options.pauseOnDotsHover&&e.slideCount>e.options.slidesToShow&&t("li",e.$dots).on("mouseenter.slick",t.proxy(e.interrupt,e,!0)).on("mouseleave.slick",t.proxy(e.interrupt,e,!1))},e.prototype.initSlideEvents=function(){var e=this;e.options.pauseOnHover&&(e.$list.on("mouseenter.slick",t.proxy(e.interrupt,e,!0)),e.$list.on("mouseleave.slick",t.proxy(e.interrupt,e,!1)))},e.prototype.initializeEvents=function(){var e=this;e.initArrowEvents(),e.initDotEvents(),e.initSlideEvents(),e.$list.on("touchstart.slick mousedown.slick",{action:"start"},e.swipeHandler),e.$list.on("touchmove.slick mousemove.slick",{action:"move"},e.swipeHandler),e.$list.on("touchend.slick mouseup.slick",{action:"end"},e.swipeHandler),e.$list.on("touchcancel.slick mouseleave.slick",{action:"end"},e.swipeHandler),e.$list.on("click.slick",e.clickHandler),t(document).on(e.visibilityChange,t.proxy(e.visibility,e)),!0===e.options.accessibility&&e.$list.on("keydown.slick",e.keyHandler),!0===e.options.focusOnSelect&&t(e.$slideTrack).children().on("click.slick",e.selectHandler),t(window).on("orientationchange.slick.slick-"+e.instanceUid,t.proxy(e.orientationChange,e)),t(window).on("resize.slick.slick-"+e.instanceUid,t.proxy(e.resize,e)),t("[draggable!=true]",e.$slideTrack).on("dragstart",e.preventDefault),t(window).on("load.slick.slick-"+e.instanceUid,e.setPosition),t(e.setPosition)},e.prototype.initUI=function(){var t=this;!0===t.options.arrows&&t.slideCount>t.options.slidesToShow&&(t.$prevArrow.show(),t.$nextArrow.show()),!0===t.options.dots&&t.slideCount>t.options.slidesToShow&&t.$dots.show()},e.prototype.keyHandler=function(t){var e=this;t.target.tagName.match("TEXTAREA|INPUT|SELECT")||(37===t.keyCode&&!0===e.options.accessibility?e.changeSlide({data:{message:!0===e.options.rtl?"next":"previous"}}):39===t.keyCode&&!0===e.options.accessibility&&e.changeSlide({data:{message:!0===e.options.rtl?"previous":"next"}}))},e.prototype.lazyLoad=function(){var e,i,n,o=this;function s(e){t("img[data-lazy]",e).each(function(){var e=t(this),i=t(this).attr("data-lazy"),n=t(this).attr("data-srcset"),s=t(this).attr("data-sizes")||o.$slider.attr("data-sizes"),r=document.createElement("img");r.onload=function(){e.animate({opacity:0},100,function(){n&&(e.attr("srcset",n),s&&e.attr("sizes",s)),e.attr("src",i).animate({opacity:1},200,function(){e.removeAttr("data-lazy data-srcset data-sizes").removeClass("slick-loading")}),o.$slider.trigger("lazyLoaded",[o,e,i])})},r.onerror=function(){e.removeAttr("data-lazy").removeClass("slick-loading").addClass("slick-lazyload-error"),o.$slider.trigger("lazyLoadError",[o,e,i])},r.src=i})}if(!0===o.options.centerMode?!0===o.options.infinite?(i=o.currentSlide+(o.options.slidesToShow/2+1),n=i+o.options.slidesToShow+2):(i=Math.max(0,o.currentSlide-(o.options.slidesToShow/2+1)),n=o.options.slidesToShow/2+1+2+o.currentSlide):(i=o.options.infinite?o.options.slidesToShow+o.currentSlide:o.currentSlide,n=Math.ceil(i+o.options.slidesToShow),!0===o.options.fade&&(i>0&&i--,n<=o.slideCount&&n++)),e=o.$slider.find(".slick-slide").slice(i,n),"anticipated"===o.options.lazyLoad)for(var r=i-1,a=n,l=o.$slider.find(".slick-slide"),c=0;c<o.options.slidesToScroll;c++)r<0&&(r=o.slideCount-1),e=(e=e.add(l.eq(r))).add(l.eq(a)),r--,a++;s(e),o.slideCount<=o.options.slidesToShow?s(o.$slider.find(".slick-slide")):o.currentSlide>=o.slideCount-o.options.slidesToShow?s(o.$slider.find(".slick-cloned").slice(0,o.options.slidesToShow)):0===o.currentSlide&&s(o.$slider.find(".slick-cloned").slice(-1*o.options.slidesToShow))},e.prototype.loadSlider=function(){var t=this;t.setPosition(),t.$slideTrack.css({opacity:1}),t.$slider.removeClass("slick-loading"),t.initUI(),"progressive"===t.options.lazyLoad&&t.progressiveLazyLoad()},e.prototype.next=e.prototype.slickNext=function(){this.changeSlide({data:{message:"next"}})},e.prototype.orientationChange=function(){this.checkResponsive(),this.setPosition()},e.prototype.pause=e.prototype.slickPause=function(){this.autoPlayClear(),this.paused=!0},e.prototype.play=e.prototype.slickPlay=function(){var t=this;t.autoPlay(),t.options.autoplay=!0,t.paused=!1,t.focussed=!1,t.interrupted=!1},e.prototype.postSlide=function(e){var i=this;if(!i.unslicked&&(i.$slider.trigger("afterChange",[i,e]),i.animating=!1,i.slideCount>i.options.slidesToShow&&i.setPosition(),i.swipeLeft=null,i.options.autoplay&&i.autoPlay(),!0===i.options.accessibility&&(i.initADA(),i.options.focusOnChange))){var n=t(i.$slides.get(i.currentSlide));n.attr("tabindex",0).focus()}},e.prototype.prev=e.prototype.slickPrev=function(){this.changeSlide({data:{message:"previous"}})},e.prototype.preventDefault=function(t){t.preventDefault()},e.prototype.progressiveLazyLoad=function(e){e=e||1;var i,n,o,s,r,a=this,l=t("img[data-lazy]",a.$slider);l.length?(i=l.first(),n=i.attr("data-lazy"),o=i.attr("data-srcset"),s=i.attr("data-sizes")||a.$slider.attr("data-sizes"),(r=document.createElement("img")).onload=function(){o&&(i.attr("srcset",o),s&&i.attr("sizes",s)),i.attr("src",n).removeAttr("data-lazy data-srcset data-sizes").removeClass("slick-loading"),!0===a.options.adaptiveHeight&&a.setPosition(),a.$slider.trigger("lazyLoaded",[a,i,n]),a.progressiveLazyLoad()},r.onerror=function(){e<3?setTimeout(function(){a.progressiveLazyLoad(e+1)},500):(i.removeAttr("data-lazy").removeClass("slick-loading").addClass("slick-lazyload-error"),a.$slider.trigger("lazyLoadError",[a,i,n]),a.progressiveLazyLoad())},r.src=n):a.$slider.trigger("allImagesLoaded",[a])},e.prototype.refresh=function(e){var i,n,o=this;n=o.slideCount-o.options.slidesToShow,!o.options.infinite&&o.currentSlide>n&&(o.currentSlide=n),o.slideCount<=o.options.slidesToShow&&(o.currentSlide=0),i=o.currentSlide,o.destroy(!0),t.extend(o,o.initials,{currentSlide:i}),o.init(),e||o.changeSlide({data:{message:"index",index:i}},!1)},e.prototype.registerBreakpoints=function(){var e,i,n,o=this,s=o.options.responsive||null;if("array"===t.type(s)&&s.length){for(e in o.respondTo=o.options.respondTo||"window",s)if(n=o.breakpoints.length-1,s.hasOwnProperty(e)){for(i=s[e].breakpoint;n>=0;)o.breakpoints[n]&&o.breakpoints[n]===i&&o.breakpoints.splice(n,1),n--;o.breakpoints.push(i),o.breakpointSettings[i]=s[e].settings}o.breakpoints.sort(function(t,e){return o.options.mobileFirst?t-e:e-t})}},e.prototype.reinit=function(){var e=this;e.$slides=e.$slideTrack.children(e.options.slide).addClass("slick-slide"),e.slideCount=e.$slides.length,e.currentSlide>=e.slideCount&&0!==e.currentSlide&&(e.currentSlide=e.currentSlide-e.options.slidesToScroll),e.slideCount<=e.options.slidesToShow&&(e.currentSlide=0),e.registerBreakpoints(),e.setProps(),e.setupInfinite(),e.buildArrows(),e.updateArrows(),e.initArrowEvents(),e.buildDots(),e.updateDots(),e.initDotEvents(),e.cleanUpSlideEvents(),e.initSlideEvents(),e.checkResponsive(!1,!0),!0===e.options.focusOnSelect&&t(e.$slideTrack).children().on("click.slick",e.selectHandler),e.setSlideClasses("number"==typeof e.currentSlide?e.currentSlide:0),e.setPosition(),e.focusHandler(),e.paused=!e.options.autoplay,e.autoPlay(),e.$slider.trigger("reInit",[e])},e.prototype.resize=function(){var e=this;t(window).width()!==e.windowWidth&&(clearTimeout(e.windowDelay),e.windowDelay=window.setTimeout(function(){e.windowWidth=t(window).width(),e.checkResponsive(),e.unslicked||e.setPosition()},50))},e.prototype.removeSlide=e.prototype.slickRemove=function(t,e,i){var n=this;if(t="boolean"==typeof t?!0===(e=t)?0:n.slideCount-1:!0===e?--t:t,n.slideCount<1||t<0||t>n.slideCount-1)return!1;n.unload(),!0===i?n.$slideTrack.children().remove():n.$slideTrack.children(this.options.slide).eq(t).remove(),n.$slides=n.$slideTrack.children(this.options.slide),n.$slideTrack.children(this.options.slide).detach(),n.$slideTrack.append(n.$slides),n.$slidesCache=n.$slides,n.reinit()},e.prototype.setCSS=function(t){var e,i,n=this,o={};!0===n.options.rtl&&(t=-t),e="left"==n.positionProp?Math.ceil(t)+"px":"0px",i="top"==n.positionProp?Math.ceil(t)+"px":"0px",o[n.positionProp]=t,!1===n.transformsEnabled?n.$slideTrack.css(o):(o={},!1===n.cssTransitions?(o[n.animType]="translate("+e+", "+i+")",n.$slideTrack.css(o)):(o[n.animType]="translate3d("+e+", "+i+", 0px)",n.$slideTrack.css(o)))},e.prototype.setDimensions=function(){var t=this;!1===t.options.vertical?!0===t.options.centerMode&&t.$list.css({padding:"0px "+t.options.centerPadding}):(t.$list.height(t.$slides.first().outerHeight(!0)*t.options.slidesToShow),!0===t.options.centerMode&&t.$list.css({padding:t.options.centerPadding+" 0px"})),t.listWidth=t.$list.width(),t.listHeight=t.$list.height(),!1===t.options.vertical&&!1===t.options.variableWidth?(t.slideWidth=Math.ceil(t.listWidth/t.options.slidesToShow),t.$slideTrack.width(Math.ceil(t.slideWidth*t.$slideTrack.children(".slick-slide").length))):!0===t.options.variableWidth?t.$slideTrack.width(5e3*t.slideCount):(t.slideWidth=Math.ceil(t.listWidth),t.$slideTrack.height(Math.ceil(t.$slides.first().outerHeight(!0)*t.$slideTrack.children(".slick-slide").length)));var e=t.$slides.first().outerWidth(!0)-t.$slides.first().width();!1===t.options.variableWidth&&t.$slideTrack.children(".slick-slide").width(t.slideWidth-e)},e.prototype.setFade=function(){var e,i=this;i.$slides.each(function(n,o){e=i.slideWidth*n*-1,!0===i.options.rtl?t(o).css({position:"relative",right:e,top:0,zIndex:i.options.zIndex-2,opacity:0}):t(o).css({position:"relative",left:e,top:0,zIndex:i.options.zIndex-2,opacity:0})}),i.$slides.eq(i.currentSlide).css({zIndex:i.options.zIndex-1,opacity:1})},e.prototype.setHeight=function(){var t=this;if(1===t.options.slidesToShow&&!0===t.options.adaptiveHeight&&!1===t.options.vertical){var e=t.$slides.eq(t.currentSlide).outerHeight(!0);t.$list.css("height",e)}},e.prototype.setOption=e.prototype.slickSetOption=function(){var e,i,n,o,s,r=this,a=!1;if("object"===t.type(arguments[0])?(n=arguments[0],a=arguments[1],s="multiple"):"string"===t.type(arguments[0])&&(n=arguments[0],o=arguments[1],a=arguments[2],"responsive"===arguments[0]&&"array"===t.type(arguments[1])?s="responsive":void 0!==arguments[1]&&(s="single")),"single"===s)r.options[n]=o;else if("multiple"===s)t.each(n,function(t,e){r.options[t]=e});else if("responsive"===s)for(i in o)if("array"!==t.type(r.options.responsive))r.options.responsive=[o[i]];else{for(e=r.options.responsive.length-1;e>=0;)r.options.responsive[e].breakpoint===o[i].breakpoint&&r.options.responsive.splice(e,1),e--;r.options.responsive.push(o[i])}a&&(r.unload(),r.reinit())},e.prototype.setPosition=function(){var t=this;t.setDimensions(),t.setHeight(),!1===t.options.fade?t.setCSS(t.getLeft(t.currentSlide)):t.setFade(),t.$slider.trigger("setPosition",[t])},e.prototype.setProps=function(){var t=this,e=document.body.style;t.positionProp=!0===t.options.vertical?"top":"left","top"===t.positionProp?t.$slider.addClass("slick-vertical"):t.$slider.removeClass("slick-vertical"),void 0===e.WebkitTransition&&void 0===e.MozTransition&&void 0===e.msTransition||!0===t.options.useCSS&&(t.cssTransitions=!0),t.options.fade&&("number"==typeof t.options.zIndex?t.options.zIndex<3&&(t.options.zIndex=3):t.options.zIndex=t.defaults.zIndex),void 0!==e.OTransform&&(t.animType="OTransform",t.transformType="-o-transform",t.transitionType="OTransition",void 0===e.perspectiveProperty&&void 0===e.webkitPerspective&&(t.animType=!1)),void 0!==e.MozTransform&&(t.animType="MozTransform",t.transformType="-moz-transform",t.transitionType="MozTransition",void 0===e.perspectiveProperty&&void 0===e.MozPerspective&&(t.animType=!1)),void 0!==e.webkitTransform&&(t.animType="webkitTransform",t.transformType="-webkit-transform",t.transitionType="webkitTransition",void 0===e.perspectiveProperty&&void 0===e.webkitPerspective&&(t.animType=!1)),void 0!==e.msTransform&&(t.animType="msTransform",t.transformType="-ms-transform",t.transitionType="msTransition",void 0===e.msTransform&&(t.animType=!1)),void 0!==e.transform&&!1!==t.animType&&(t.animType="transform",t.transformType="transform",t.transitionType="transition"),t.transformsEnabled=t.options.useTransform&&null!==t.animType&&!1!==t.animType},e.prototype.setSlideClasses=function(t){var e,i,n,o,s=this;if(i=s.$slider.find(".slick-slide").removeClass("slick-active slick-center slick-current").attr("aria-hidden","true"),s.$slides.eq(t).addClass("slick-current"),!0===s.options.centerMode){var r=s.options.slidesToShow%2==0?1:0;e=Math.floor(s.options.slidesToShow/2),!0===s.options.infinite&&(t>=e&&t<=s.slideCount-1-e?s.$slides.slice(t-e+r,t+e+1).addClass("slick-active").attr("aria-hidden","false"):(n=s.options.slidesToShow+t,i.slice(n-e+1+r,n+e+2).addClass("slick-active").attr("aria-hidden","false")),0===t?i.eq(i.length-1-s.options.slidesToShow).addClass("slick-center"):t===s.slideCount-1&&i.eq(s.options.slidesToShow).addClass("slick-center")),s.$slides.eq(t).addClass("slick-center")}else t>=0&&t<=s.slideCount-s.options.slidesToShow?s.$slides.slice(t,t+s.options.slidesToShow).addClass("slick-active").attr("aria-hidden","false"):i.length<=s.options.slidesToShow?i.addClass("slick-active").attr("aria-hidden","false"):(o=s.slideCount%s.options.slidesToShow,n=!0===s.options.infinite?s.options.slidesToShow+t:t,s.options.slidesToShow==s.options.slidesToScroll&&s.slideCount-t<s.options.slidesToShow?i.slice(n-(s.options.slidesToShow-o),n+o).addClass("slick-active").attr("aria-hidden","false"):i.slice(n,n+s.options.slidesToShow).addClass("slick-active").attr("aria-hidden","false"));"ondemand"!==s.options.lazyLoad&&"anticipated"!==s.options.lazyLoad||s.lazyLoad()},e.prototype.setupInfinite=function(){var e,i,n,o=this;if(!0===o.options.fade&&(o.options.centerMode=!1),!0===o.options.infinite&&!1===o.options.fade&&(i=null,o.slideCount>o.options.slidesToShow)){for(n=!0===o.options.centerMode?o.options.slidesToShow+1:o.options.slidesToShow,e=o.slideCount;e>o.slideCount-n;e-=1)i=e-1,t(o.$slides[i]).clone(!0).attr("id","").attr("data-slick-index",i-o.slideCount).prependTo(o.$slideTrack).addClass("slick-cloned");for(e=0;e<n+o.slideCount;e+=1)i=e,t(o.$slides[i]).clone(!0).attr("id","").attr("data-slick-index",i+o.slideCount).appendTo(o.$slideTrack).addClass("slick-cloned");o.$slideTrack.find(".slick-cloned").find("[id]").each(function(){t(this).attr("id","")})}},e.prototype.interrupt=function(t){t||this.autoPlay(),this.interrupted=t},e.prototype.selectHandler=function(e){var i=this,n=t(e.target).is(".slick-slide")?t(e.target):t(e.target).parents(".slick-slide"),o=parseInt(n.attr("data-slick-index"));o||(o=0),i.slideCount<=i.options.slidesToShow?i.slideHandler(o,!1,!0):i.slideHandler(o)},e.prototype.slideHandler=function(t,e,i){var n,o,s,r,a,l=null,c=this;if(e=e||!1,!(!0===c.animating&&!0===c.options.waitForAnimate||!0===c.options.fade&&c.currentSlide===t))if(!1===e&&c.asNavFor(t),n=t,l=c.getLeft(n),r=c.getLeft(c.currentSlide),c.currentLeft=null===c.swipeLeft?r:c.swipeLeft,!1===c.options.infinite&&!1===c.options.centerMode&&(t<0||t>c.getDotCount()*c.options.slidesToScroll))!1===c.options.fade&&(n=c.currentSlide,!0!==i&&c.slideCount>c.options.slidesToShow?c.animateSlide(r,function(){c.postSlide(n)}):c.postSlide(n));else if(!1===c.options.infinite&&!0===c.options.centerMode&&(t<0||t>c.slideCount-c.options.slidesToScroll))!1===c.options.fade&&(n=c.currentSlide,!0!==i&&c.slideCount>c.options.slidesToShow?c.animateSlide(r,function(){c.postSlide(n)}):c.postSlide(n));else{if(c.options.autoplay&&clearInterval(c.autoPlayTimer),o=n<0?c.slideCount%c.options.slidesToScroll!=0?c.slideCount-c.slideCount%c.options.slidesToScroll:c.slideCount+n:n>=c.slideCount?c.slideCount%c.options.slidesToScroll!=0?0:n-c.slideCount:n,c.animating=!0,c.$slider.trigger("beforeChange",[c,c.currentSlide,o]),s=c.currentSlide,c.currentSlide=o,c.setSlideClasses(c.currentSlide),c.options.asNavFor&&(a=(a=c.getNavTarget()).slick("getSlick")).slideCount<=a.options.slidesToShow&&a.setSlideClasses(c.currentSlide),c.updateDots(),c.updateArrows(),!0===c.options.fade)return!0!==i?(c.fadeSlideOut(s),c.fadeSlide(o,function(){c.postSlide(o)})):c.postSlide(o),void c.animateHeight();!0!==i&&c.slideCount>c.options.slidesToShow?c.animateSlide(l,function(){c.postSlide(o)}):c.postSlide(o)}},e.prototype.startLoad=function(){var t=this;!0===t.options.arrows&&t.slideCount>t.options.slidesToShow&&(t.$prevArrow.hide(),t.$nextArrow.hide()),!0===t.options.dots&&t.slideCount>t.options.slidesToShow&&t.$dots.hide(),t.$slider.addClass("slick-loading")},e.prototype.swipeDirection=function(){var t,e,i,n,o=this;return t=o.touchObject.startX-o.touchObject.curX,e=o.touchObject.startY-o.touchObject.curY,i=Math.atan2(e,t),(n=Math.round(180*i/Math.PI))<0&&(n=360-Math.abs(n)),n<=45&&n>=0?!1===o.options.rtl?"left":"right":n<=360&&n>=315?!1===o.options.rtl?"left":"right":n>=135&&n<=225?!1===o.options.rtl?"right":"left":!0===o.options.verticalSwiping?n>=35&&n<=135?"down":"up":"vertical"},e.prototype.swipeEnd=function(t){var e,i,n=this;if(n.dragging=!1,n.swiping=!1,n.scrolling)return n.scrolling=!1,!1;if(n.interrupted=!1,n.shouldClick=!(n.touchObject.swipeLength>10),void 0===n.touchObject.curX)return!1;if(!0===n.touchObject.edgeHit&&n.$slider.trigger("edge",[n,n.swipeDirection()]),n.touchObject.swipeLength>=n.touchObject.minSwipe){switch(i=n.swipeDirection()){case"left":case"down":e=n.options.swipeToSlide?n.checkNavigable(n.currentSlide+n.getSlideCount()):n.currentSlide+n.getSlideCount(),n.currentDirection=0;break;case"right":case"up":e=n.options.swipeToSlide?n.checkNavigable(n.currentSlide-n.getSlideCount()):n.currentSlide-n.getSlideCount(),n.currentDirection=1}"vertical"!=i&&(n.slideHandler(e),n.touchObject={},n.$slider.trigger("swipe",[n,i]))}else n.touchObject.startX!==n.touchObject.curX&&(n.slideHandler(n.currentSlide),n.touchObject={})},e.prototype.swipeHandler=function(t){var e=this;if(!(!1===e.options.swipe||"ontouchend"in document&&!1===e.options.swipe||!1===e.options.draggable&&-1!==t.type.indexOf("mouse")))switch(e.touchObject.fingerCount=t.originalEvent&&void 0!==t.originalEvent.touches?t.originalEvent.touches.length:1,e.touchObject.minSwipe=e.listWidth/e.options.touchThreshold,!0===e.options.verticalSwiping&&(e.touchObject.minSwipe=e.listHeight/e.options.touchThreshold),t.data.action){case"start":e.swipeStart(t);break;case"move":e.swipeMove(t);break;case"end":e.swipeEnd(t)}},e.prototype.swipeMove=function(t){var e,i,n,o,s,r,a=this;return s=void 0!==t.originalEvent?t.originalEvent.touches:null,!(!a.dragging||a.scrolling||s&&1!==s.length)&&(e=a.getLeft(a.currentSlide),a.touchObject.curX=void 0!==s?s[0].pageX:t.clientX,a.touchObject.curY=void 0!==s?s[0].pageY:t.clientY,a.touchObject.swipeLength=Math.round(Math.sqrt(Math.pow(a.touchObject.curX-a.touchObject.startX,2))),r=Math.round(Math.sqrt(Math.pow(a.touchObject.curY-a.touchObject.startY,2))),!a.options.verticalSwiping&&!a.swiping&&r>4?(a.scrolling=!0,!1):(!0===a.options.verticalSwiping&&(a.touchObject.swipeLength=r),i=a.swipeDirection(),void 0!==t.originalEvent&&a.touchObject.swipeLength>4&&(a.swiping=!0,t.preventDefault()),o=(!1===a.options.rtl?1:-1)*(a.touchObject.curX>a.touchObject.startX?1:-1),!0===a.options.verticalSwiping&&(o=a.touchObject.curY>a.touchObject.startY?1:-1),n=a.touchObject.swipeLength,a.touchObject.edgeHit=!1,!1===a.options.infinite&&(0===a.currentSlide&&"right"===i||a.currentSlide>=a.getDotCount()&&"left"===i)&&(n=a.touchObject.swipeLength*a.options.edgeFriction,a.touchObject.edgeHit=!0),!1===a.options.vertical?a.swipeLeft=e+n*o:a.swipeLeft=e+n*(a.$list.height()/a.listWidth)*o,!0===a.options.verticalSwiping&&(a.swipeLeft=e+n*o),!0!==a.options.fade&&!1!==a.options.touchMove&&(!0===a.animating?(a.swipeLeft=null,!1):void a.setCSS(a.swipeLeft))))},e.prototype.swipeStart=function(t){var e,i=this;if(i.interrupted=!0,1!==i.touchObject.fingerCount||i.slideCount<=i.options.slidesToShow)return i.touchObject={},!1;void 0!==t.originalEvent&&void 0!==t.originalEvent.touches&&(e=t.originalEvent.touches[0]),i.touchObject.startX=i.touchObject.curX=void 0!==e?e.pageX:t.clientX,i.touchObject.startY=i.touchObject.curY=void 0!==e?e.pageY:t.clientY,i.dragging=!0},e.prototype.unfilterSlides=e.prototype.slickUnfilter=function(){var t=this;null!==t.$slidesCache&&(t.unload(),t.$slideTrack.children(this.options.slide).detach(),t.$slidesCache.appendTo(t.$slideTrack),t.reinit())},e.prototype.unload=function(){var e=this;t(".slick-cloned",e.$slider).remove(),e.$dots&&e.$dots.remove(),e.$prevArrow&&e.htmlExpr.test(e.options.prevArrow)&&e.$prevArrow.remove(),e.$nextArrow&&e.htmlExpr.test(e.options.nextArrow)&&e.$nextArrow.remove(),e.$slides.removeClass("slick-slide slick-active slick-visible slick-current").attr("aria-hidden","true").css("width","")},e.prototype.unslick=function(t){var e=this;e.$slider.trigger("unslick",[e,t]),e.destroy()},e.prototype.updateArrows=function(){var t=this;Math.floor(t.options.slidesToShow/2),!0===t.options.arrows&&t.slideCount>t.options.slidesToShow&&!t.options.infinite&&(t.$prevArrow.removeClass("slick-disabled").attr("aria-disabled","false"),t.$nextArrow.removeClass("slick-disabled").attr("aria-disabled","false"),0===t.currentSlide?(t.$prevArrow.addClass("slick-disabled").attr("aria-disabled","true"),t.$nextArrow.removeClass("slick-disabled").attr("aria-disabled","false")):t.currentSlide>=t.slideCount-t.options.slidesToShow&&!1===t.options.centerMode?(t.$nextArrow.addClass("slick-disabled").attr("aria-disabled","true"),t.$prevArrow.removeClass("slick-disabled").attr("aria-disabled","false")):t.currentSlide>=t.slideCount-1&&!0===t.options.centerMode&&(t.$nextArrow.addClass("slick-disabled").attr("aria-disabled","true"),t.$prevArrow.removeClass("slick-disabled").attr("aria-disabled","false")))},e.prototype.updateDots=function(){var t=this;null!==t.$dots&&(t.$dots.find("li").removeClass("slick-active").end(),t.$dots.find("li").eq(Math.floor(t.currentSlide/t.options.slidesToScroll)).addClass("slick-active"))},e.prototype.visibility=function(){var t=this;t.options.autoplay&&(document[t.hidden]?t.interrupted=!0:t.interrupted=!1)},t.fn.slick=function(){var t,i,n=this,o=arguments[0],s=Array.prototype.slice.call(arguments,1),r=n.length;for(t=0;t<r;t++)if("object"==typeof o||void 0===o?n[t].slick=new e(n[t],o):i=n[t].slick[o].apply(n[t].slick,s),void 0!==i)return i;return n};var i})?n.apply(e,o):n)||(t.exports=s)}()},aTr9:function(t,e,i){"use strict";i.d(e,"a",function(){return c});var n=i("xeH2"),o=i.n(n),s=i("l67y"),r=i("1x13"),a=i("CKjC"),l=i("xDCs");class c extends a.a{_setup(t,e){this.$element=t,this.options=o.a.extend({},c.defaults,this.$element.data(),e),this.className="Sticky",l.a.init(o.a),this._init()}_init(){r.a._init();var t=this.$element.parent("[data-sticky-container]"),e=this.$element[0].id||Object(s.a)(6,"sticky"),i=this;t.length?this.$container=t:(this.wasWrapped=!0,this.$element.wrap(this.options.container),this.$container=this.$element.parent()),this.$container.addClass(this.options.containerClass),this.$element.addClass(this.options.stickyClass).attr({"data-resize":e,"data-mutate":e}),""!==this.options.anchor&&o()("#"+i.options.anchor).attr({"data-mutate":e}),this.scrollCount=this.options.checkEvery,this.isStuck=!1,this.onLoadListener=Object(s.d)(o()(window),function(){i.containerHeight="none"==i.$element.css("display")?0:i.$element[0].getBoundingClientRect().height,i.$container.css("height",i.containerHeight),i.elemHeight=i.containerHeight,""!==i.options.anchor?i.$anchor=o()("#"+i.options.anchor):i._parsePoints(),i._setSizes(function(){var t=window.pageYOffset;i._calc(!1,t),i.isStuck||i._removeSticky(!(t>=i.topPoint))}),i._events(e.split("-").reverse().join("-"))})}_parsePoints(){for(var t=[""==this.options.topAnchor?1:this.options.topAnchor,""==this.options.btmAnchor?document.documentElement.scrollHeight:this.options.btmAnchor],e={},i=0,n=t.length;i<n&&t[i];i++){var s;if("number"==typeof t[i])s=t[i];else{var r=t[i].split(":"),a=o()(`#${r[0]}`);s=a.offset().top,r[1]&&"bottom"===r[1].toLowerCase()&&(s+=a[0].getBoundingClientRect().height)}e[i]=s}this.points=e}_events(t){var e=this,i=this.scrollListener=`scroll.zf.${t}`;this.isOn||(this.canStick&&(this.isOn=!0,o()(window).off(i).on(i,function(t){0===e.scrollCount?(e.scrollCount=e.options.checkEvery,e._setSizes(function(){e._calc(!1,window.pageYOffset)})):(e.scrollCount--,e._calc(!1,window.pageYOffset))})),this.$element.off("resizeme.zf.trigger").on("resizeme.zf.trigger",function(i,n){e._eventsHandler(t)}),this.$element.on("mutateme.zf.trigger",function(i,n){e._eventsHandler(t)}),this.$anchor&&this.$anchor.on("mutateme.zf.trigger",function(i,n){e._eventsHandler(t)}))}_eventsHandler(t){var e=this,i=this.scrollListener=`scroll.zf.${t}`;e._setSizes(function(){e._calc(!1),e.canStick?e.isOn||e._events(t):e.isOn&&e._pauseListeners(i)})}_pauseListeners(t){this.isOn=!1,o()(window).off(t),this.$element.trigger("pause.zf.sticky")}_calc(t,e){if(t&&this._setSizes(),!this.canStick)return this.isStuck&&this._removeSticky(!0),!1;e||(e=window.pageYOffset),e>=this.topPoint?e<=this.bottomPoint?this.isStuck||this._setSticky():this.isStuck&&this._removeSticky(!1):this.isStuck&&this._removeSticky(!0)}_setSticky(){var t=this,e=this.options.stickTo,i="top"===e?"marginTop":"marginBottom",n="top"===e?"bottom":"top",o={};o[i]=`${this.options[i]}em`,o[e]=0,o[n]="auto",this.isStuck=!0,this.$element.removeClass(`is-anchored is-at-${n}`).addClass(`is-stuck is-at-${e}`).css(o).trigger(`sticky.zf.stuckto:${e}`),this.$element.on("transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd",function(){t._setSizes()})}_removeSticky(t){var e=this.options.stickTo,i="top"===e,n={},o=(this.points?this.points[1]-this.points[0]:this.anchorHeight)-this.elemHeight,s=t?"top":"bottom";n[i?"marginTop":"marginBottom"]=0,n.bottom="auto",n.top=t?0:o,this.isStuck=!1,this.$element.removeClass(`is-stuck is-at-${e}`).addClass(`is-anchored is-at-${s}`).css(n).trigger(`sticky.zf.unstuckfrom:${s}`)}_setSizes(t){this.canStick=r.a.is(this.options.stickyOn),this.canStick||t&&"function"==typeof t&&t();var e=this.$container[0].getBoundingClientRect().width,i=window.getComputedStyle(this.$container[0]),n=parseInt(i["padding-left"],10),o=parseInt(i["padding-right"],10);this.$anchor&&this.$anchor.length?this.anchorHeight=this.$anchor[0].getBoundingClientRect().height:this._parsePoints(),this.$element.css({"max-width":`${e-n-o}px`});var s=this.$element[0].getBoundingClientRect().height||this.containerHeight;if("none"==this.$element.css("display")&&(s=0),this.containerHeight=s,this.$container.css({height:s}),this.elemHeight=s,!this.isStuck&&this.$element.hasClass("is-at-bottom")){var a=(this.points?this.points[1]-this.$container.offset().top:this.anchorHeight)-this.elemHeight;this.$element.css("top",a)}this._setBreakPoints(s,function(){t&&"function"==typeof t&&t()})}_setBreakPoints(t,e){if(!this.canStick){if(!e||"function"!=typeof e)return!1;e()}var i=d(this.options.marginTop),n=d(this.options.marginBottom),o=this.points?this.points[0]:this.$anchor.offset().top,s=this.points?this.points[1]:o+this.anchorHeight,r=window.innerHeight;"top"===this.options.stickTo?(o-=i,s-=t+i):"bottom"===this.options.stickTo&&(o-=r-(t+n),s-=r-n),this.topPoint=o,this.bottomPoint=s,e&&"function"==typeof e&&e()}_destroy(){this._removeSticky(!0),this.$element.removeClass(`${this.options.stickyClass} is-anchored is-at-top`).css({height:"",top:"",bottom:"","max-width":""}).off("resizeme.zf.trigger").off("mutateme.zf.trigger"),this.$anchor&&this.$anchor.length&&this.$anchor.off("change.zf.sticky"),this.scrollListener&&o()(window).off(this.scrollListener),this.onLoadListener&&o()(window).off(this.onLoadListener),this.wasWrapped?this.$element.unwrap():this.$container.removeClass(this.options.containerClass).css({height:""})}}function d(t){return parseInt(window.getComputedStyle(document.body,null).fontSize,10)*t}c.defaults={container:"<div data-sticky-container></div>",stickTo:"top",anchor:"",topAnchor:"",btmAnchor:"",marginTop:1,marginBottom:1,stickyOn:"medium",stickyClass:"sticky",containerClass:"sticky-container",checkEvery:-1}},brbW:function(t,e,i){"use strict";i.d(e,"a",function(){return h});var n=i("xeH2"),o=i.n(n),s=i("l67y"),r=i("RnVY"),a=i("1x13"),l=i("jS+n"),c=i("CKjC"),d=i("xDCs");i("YpPz");class h extends c.a{_setup(t,e){this.$element=t,this.options=o.a.extend({},h.defaults,this.$element.data(),e),this.className="Reveal",this._init(),d.a.init(o.a),r.a.register("Reveal",{ESCAPE:"close"})}_init(){a.a._init(),this.id=this.$element.attr("id"),this.isActive=!1,this.cached={mq:a.a.current},this.$anchor=o()(`[data-open="${this.id}"]`).length?o()(`[data-open="${this.id}"]`):o()(`[data-toggle="${this.id}"]`),this.$anchor.attr({"aria-controls":this.id,"aria-haspopup":!0,tabindex:0}),(this.options.fullScreen||this.$element.hasClass("full"))&&(this.options.fullScreen=!0,this.options.overlay=!1),this.options.overlay&&!this.$overlay&&(this.$overlay=this._makeOverlay(this.id)),this.$element.attr({role:"dialog","aria-hidden":!0,"data-yeti-box":this.id,"data-resize":this.id}),this.$overlay?this.$element.detach().appendTo(this.$overlay):(this.$element.detach().appendTo(o()(this.options.appendTo)),this.$element.addClass("without-overlay")),this._events(),this.options.deepLink&&window.location.hash===`#${this.id}`&&(this.onLoadListener=Object(s.d)(o()(window),()=>this.open()))}_makeOverlay(){var t="";return this.options.additionalOverlayClasses&&(t=" "+this.options.additionalOverlayClasses),o()("<div></div>").addClass("reveal-overlay"+t).appendTo(this.options.appendTo)}_updatePosition(){var t,e=this.$element.outerWidth(),i=o()(window).width(),n=this.$element.outerHeight(),s=o()(window).height(),r=null;t="auto"===this.options.hOffset?parseInt((i-e)/2,10):parseInt(this.options.hOffset,10),"auto"===this.options.vOffset?r=n>s?parseInt(Math.min(100,s/10),10):parseInt((s-n)/4,10):null!==this.options.vOffset&&(r=parseInt(this.options.vOffset,10)),null!==r&&this.$element.css({top:r+"px"}),this.$overlay&&"auto"===this.options.hOffset||(this.$element.css({left:t+"px"}),this.$element.css({margin:"0px"}))}_events(){var t=this;this.$element.on({"open.zf.trigger":this.open.bind(this),"close.zf.trigger":(e,i)=>{if(e.target===t.$element[0]||o()(e.target).parents("[data-closable]")[0]===i)return this.close.apply(this)},"toggle.zf.trigger":this.toggle.bind(this),"resizeme.zf.trigger":function(){t._updatePosition()}}),this.options.closeOnClick&&this.options.overlay&&this.$overlay.off(".zf.reveal").on("click.zf.reveal",function(e){e.target!==t.$element[0]&&!o.a.contains(t.$element[0],e.target)&&o.a.contains(document,e.target)&&t.close()}),this.options.deepLink&&o()(window).on(`hashchange.zf.reveal:${this.id}`,this._handleState.bind(this))}_handleState(t){window.location.hash!=="#"+this.id||this.isActive?this.close():this.open()}_disableScroll(t){t=t||o()(window).scrollTop(),o()(document).height()>o()(window).height()&&o()("html").css("top",-t)}_enableScroll(t){t=t||parseInt(o()("html").css("top")),o()(document).height()>o()(window).height()&&(o()("html").css("top",""),o()(window).scrollTop(-t))}open(){const t=`#${this.id}`;this.options.deepLink&&window.location.hash!==t&&(window.history.pushState?this.options.updateHistory?window.history.pushState({},"",t):window.history.replaceState({},"",t):window.location.hash=t),this.$activeAnchor=o()(document.activeElement).is(this.$anchor)?o()(document.activeElement):this.$anchor,this.isActive=!0,this.$element.css({visibility:"hidden"}).show().scrollTop(0),this.options.overlay&&this.$overlay.css({visibility:"hidden"}).show(),this._updatePosition(),this.$element.hide().css({visibility:""}),this.$overlay&&(this.$overlay.css({visibility:""}).hide(),this.$element.hasClass("fast")?this.$overlay.addClass("fast"):this.$element.hasClass("slow")&&this.$overlay.addClass("slow")),this.options.multipleOpened||this.$element.trigger("closeme.zf.reveal",this.id),this._disableScroll();var e=this;if(this.options.animationIn){this.options.overlay&&l.a.animateIn(this.$overlay,"fade-in"),l.a.animateIn(this.$element,this.options.animationIn,()=>{this.$element&&(this.focusableElements=r.a.findFocusable(this.$element),e.$element.attr({"aria-hidden":!1,tabindex:-1}).focus(),e._addGlobalClasses(),r.a.trapFocus(e.$element))})}else this.options.overlay&&this.$overlay.show(0),this.$element.show(this.options.showDelay);this.$element.attr({"aria-hidden":!1,tabindex:-1}).focus(),r.a.trapFocus(this.$element),this._addGlobalClasses(),this._addGlobalListeners(),this.$element.trigger("open.zf.reveal")}_addGlobalClasses(){const t=()=>{o()("html").toggleClass("zf-has-scroll",!!(o()(document).height()>o()(window).height()))};this.$element.on("resizeme.zf.trigger.revealScrollbarListener",()=>t()),t(),o()("html").addClass("is-reveal-open")}_removeGlobalClasses(){this.$element.off("resizeme.zf.trigger.revealScrollbarListener"),o()("html").removeClass("is-reveal-open"),o()("html").removeClass("zf-has-scroll")}_addGlobalListeners(){var t=this;this.$element&&(this.focusableElements=r.a.findFocusable(this.$element),this.options.overlay||!this.options.closeOnClick||this.options.fullScreen||o()("body").on("click.zf.reveal",function(e){e.target!==t.$element[0]&&!o.a.contains(t.$element[0],e.target)&&o.a.contains(document,e.target)&&t.close()}),this.options.closeOnEsc&&o()(window).on("keydown.zf.reveal",function(e){r.a.handleKey(e,"Reveal",{close:function(){t.options.closeOnEsc&&t.close()}})}))}close(){if(!this.isActive||!this.$element.is(":visible"))return!1;var t=this;function e(){var e=parseInt(o()("html").css("top"));0===o()(".reveal:visible").length&&t._removeGlobalClasses(),r.a.releaseFocus(t.$element),t.$element.attr("aria-hidden",!0),t._enableScroll(e),t.$element.trigger("closed.zf.reveal")}if(this.options.animationOut?(this.options.overlay&&l.a.animateOut(this.$overlay,"fade-out"),l.a.animateOut(this.$element,this.options.animationOut,e)):(this.$element.hide(this.options.hideDelay),this.options.overlay?this.$overlay.hide(0,e):e()),this.options.closeOnEsc&&o()(window).off("keydown.zf.reveal"),!this.options.overlay&&this.options.closeOnClick&&o()("body").off("click.zf.reveal"),this.$element.off("keydown.zf.reveal"),this.options.resetOnClose&&this.$element.html(this.$element.html()),this.isActive=!1,t.options.deepLink&&window.location.hash===`#${this.id}`)if(window.history.replaceState){const t=window.location.pathname+window.location.search;this.options.updateHistory?window.history.pushState({},"",t):window.history.replaceState("",document.title,t)}else window.location.hash="";this.$activeAnchor.focus()}toggle(){this.isActive?this.close():this.open()}_destroy(){this.options.overlay&&(this.$element.appendTo(o()(this.options.appendTo)),this.$overlay.hide().off().remove()),this.$element.hide().off(),this.$anchor.off(".zf"),o()(window).off(`.zf.reveal:${this.id}`),this.onLoadListener&&o()(window).off(this.onLoadListener),0===o()(".reveal:visible").length&&this._removeGlobalClasses()}}h.defaults={animationIn:"",animationOut:"",showDelay:0,hideDelay:0,closeOnClick:!0,closeOnEsc:!0,multipleOpened:!1,vOffset:"auto",hOffset:"auto",fullScreen:!1,overlay:!0,resetOnClose:!1,deepLink:!1,updateHistory:!1,appendTo:"body",additionalOverlayClasses:""}},hNNL:function(t,e,i){var n,o,s;window,o=[i("Hy43"),i("QK1G")],void 0===(s="function"==typeof(n=function(t,e){"use strict";var i=t.create("masonry");i.compatOptions.fitWidth="isFitWidth";var n=i.prototype;return n._resetLayout=function(){this.getSize(),this._getMeasurement("columnWidth","outerWidth"),this._getMeasurement("gutter","outerWidth"),this.measureColumns(),this.colYs=[];for(var t=0;t<this.cols;t++)this.colYs.push(0);this.maxY=0,this.horizontalColIndex=0},n.measureColumns=function(){if(this.getContainerWidth(),!this.columnWidth){var t=this.items[0],i=t&&t.element;this.columnWidth=i&&e(i).outerWidth||this.containerWidth}var n=this.columnWidth+=this.gutter,o=this.containerWidth+this.gutter,s=o/n,r=n-o%n;s=Math[r&&r<1?"round":"floor"](s),this.cols=Math.max(s,1)},n.getContainerWidth=function(){var t=this._getOption("fitWidth")?this.element.parentNode:this.element,i=e(t);this.containerWidth=i&&i.innerWidth},n._getItemLayoutPosition=function(t){t.getSize();var e=t.size.outerWidth%this.columnWidth,i=Math[e&&e<1?"round":"ceil"](t.size.outerWidth/this.columnWidth);i=Math.min(i,this.cols);for(var n=this[this.options.horizontalOrder?"_getHorizontalColPosition":"_getTopColPosition"](i,t),o={x:this.columnWidth*n.col,y:n.y},s=n.y+t.size.outerHeight,r=i+n.col,a=n.col;a<r;a++)this.colYs[a]=s;return o},n._getTopColPosition=function(t){var e=this._getTopColGroup(t),i=Math.min.apply(Math,e);return{col:e.indexOf(i),y:i}},n._getTopColGroup=function(t){if(t<2)return this.colYs;for(var e=[],i=this.cols+1-t,n=0;n<i;n++)e[n]=this._getColGroupY(n,t);return e},n._getColGroupY=function(t,e){if(e<2)return this.colYs[t];var i=this.colYs.slice(t,t+e);return Math.max.apply(Math,i)},n._getHorizontalColPosition=function(t,e){var i=this.horizontalColIndex%this.cols;i=t>1&&i+t>this.cols?0:i;var n=e.size.outerWidth&&e.size.outerHeight;return this.horizontalColIndex=n?i+t:this.horizontalColIndex,{col:i,y:this._getColGroupY(i,t)}},n._manageStamp=function(t){var i=e(t),n=this._getElementOffset(t),o=this._getOption("originLeft")?n.left:n.right,s=o+i.outerWidth,r=Math.floor(o/this.columnWidth);r=Math.max(0,r);var a=Math.floor(s/this.columnWidth);a-=s%this.columnWidth?0:1,a=Math.min(this.cols-1,a);for(var l=(this._getOption("originTop")?n.top:n.bottom)+i.outerHeight,c=r;c<=a;c++)this.colYs[c]=Math.max(l,this.colYs[c])},n._getContainerSize=function(){this.maxY=Math.max.apply(Math,this.colYs);var t={height:this.maxY};return this._getOption("fitWidth")&&(t.width=this._getContainerFitWidth()),t},n._getContainerFitWidth=function(){for(var t=0,e=this.cols;--e&&0===this.colYs[e];)t++;return(this.cols-t)*this.columnWidth-this.gutter},n.needsResizeLayout=function(){var t=this.containerWidth;return this.getContainerWidth(),t!=this.containerWidth},i})?n.apply(e,o):n)||(t.exports=s)},"jS+n":function(t,e,i){"use strict";i.d(e,"b",function(){return c}),i.d(e,"a",function(){return l});var n=i("xeH2"),o=i.n(n),s=i("l67y");const r=["mui-enter","mui-leave"],a=["mui-enter-active","mui-leave-active"],l={animateIn:function(t,e,i){d(!0,t,e,i)},animateOut:function(t,e,i){d(!1,t,e,i)}};function c(t,e,i){var n,o,s=null;if(0===t)return i.apply(e),void e.trigger("finished.zf.animate",[e]).triggerHandler("finished.zf.animate",[e]);n=window.requestAnimationFrame(function r(a){s||(s=a),o=a-s,i.apply(e),o<t?n=window.requestAnimationFrame(r,e):(window.cancelAnimationFrame(n),e.trigger("finished.zf.animate",[e]).triggerHandler("finished.zf.animate",[e]))})}function d(t,e,i,n){if((e=o()(e).eq(0)).length){var l=t?r[0]:r[1],c=t?a[0]:a[1];d(),e.addClass(i).css("transition","none"),requestAnimationFrame(()=>{e.addClass(l),t&&e.show()}),requestAnimationFrame(()=>{e[0].offsetWidth,e.css("transition","").addClass(c)}),e.one(Object(s.f)(e),function(){t||e.hide();d(),n&&n.apply(e)})}function d(){e[0].style.transitionDuration=0,e.removeClass(`${l} ${c} ${i}`)}}},jjtq:function(t,e,i){var n;n=function(){return function(t){var e={};function i(n){if(e[n])return e[n].exports;var o=e[n]={exports:{},id:n,loaded:!1};return t[n].call(o.exports,o,o.exports,i),o.loaded=!0,o.exports}return i.m=t,i.c=e,i.p="",i(0)}([function(t,e){"use strict";t.exports=function(){if("undefined"==typeof document||"undefined"==typeof window)return{ask:function(){return"initial"},element:function(){return null},ignoreKeys:function(){},specificKeys:function(){},registerOnChange:function(){},unRegisterOnChange:function(){}};var t=document.documentElement,e=null,i="initial",n=i,o=Date.now();try{window.sessionStorage.getItem("what-input")&&(i=window.sessionStorage.getItem("what-input")),window.sessionStorage.getItem("what-intent")&&(n=window.sessionStorage.getItem("what-intent"))}catch(t){}var s=["button","input","select","textarea"],r=[],a=[16,17,18,91,93],l=[],c={keydown:"keyboard",keyup:"keyboard",mousedown:"mouse",mousemove:"mouse",MSPointerDown:"pointer",MSPointerMove:"pointer",pointerdown:"pointer",pointermove:"pointer",touchstart:"touch",touchend:"touch"},d=!1,h={x:null,y:null},u={2:"touch",3:"touch",4:"mouse"},p=!1;try{var f=Object.defineProperty({},"passive",{get:function(){p=!0}});window.addEventListener("test",null,f)}catch(t){}var g=function(){var t=!!p&&{passive:!0};window.PointerEvent?(window.addEventListener("pointerdown",m),window.addEventListener("pointermove",y)):window.MSPointerEvent?(window.addEventListener("MSPointerDown",m),window.addEventListener("MSPointerMove",y)):(window.addEventListener("mousedown",m),window.addEventListener("mousemove",y),"ontouchstart"in window&&(window.addEventListener("touchstart",m,t),window.addEventListener("touchend",m))),window.addEventListener(S(),y,t),window.addEventListener("keydown",m),window.addEventListener("keyup",m),window.addEventListener("focusin",b),window.addEventListener("focusout",w)},m=function(t){var e=t.which,o=c[t.type];"pointer"===o&&(o=$(t));var r=!l.length&&-1===a.indexOf(e),d=l.length&&-1!==l.indexOf(e),h="keyboard"===o&&e&&(r||d)||"mouse"===o||"touch"===o;if(x(o)&&(h=!1),h&&i!==o){i=o;try{window.sessionStorage.setItem("what-input",i)}catch(t){}v("input")}if(h&&n!==o){var u=document.activeElement;if(u&&u.nodeName&&(-1===s.indexOf(u.nodeName.toLowerCase())||"button"===u.nodeName.toLowerCase()&&!k(u,"form"))){n=o;try{window.sessionStorage.setItem("what-intent",n)}catch(t){}v("intent")}}},v=function(e){t.setAttribute("data-what"+e,"input"===e?i:n),C(e)},y=function(t){var e=c[t.type];if("pointer"===e&&(e=$(t)),T(t),(!d&&!x(e)||d&&"wheel"===t.type||"mousewheel"===t.type||"DOMMouseScroll"===t.type)&&n!==e){n=e;try{window.sessionStorage.setItem("what-intent",n)}catch(t){}v("intent")}},b=function(i){i.target.nodeName?(e=i.target.nodeName.toLowerCase(),t.setAttribute("data-whatelement",e),i.target.classList&&i.target.classList.length&&t.setAttribute("data-whatclasses",i.target.classList.toString().replace(" ",","))):w()},w=function(){e=null,t.removeAttribute("data-whatelement"),t.removeAttribute("data-whatclasses")},$=function(t){return"number"==typeof t.pointerType?u[t.pointerType]:"pen"===t.pointerType?"touch":t.pointerType},x=function(t){var e=Date.now(),n="mouse"===t&&"touch"===i&&e-o<200;return o=e,n},S=function(){return"onwheel"in document.createElement("div")?"wheel":void 0!==document.onmousewheel?"mousewheel":"DOMMouseScroll"},C=function(t){for(var e=0,o=r.length;e<o;e++)r[e].type===t&&r[e].fn.call(void 0,"input"===t?i:n)},T=function(t){h.x!==t.screenX||h.y!==t.screenY?(d=!1,h.x=t.screenX,h.y=t.screenY):d=!0},k=function(t,e){var i=window.Element.prototype;if(i.matches||(i.matches=i.msMatchesSelector||i.webkitMatchesSelector),i.closest)return t.closest(e);do{if(t.matches(e))return t;t=t.parentElement||t.parentNode}while(null!==t&&1===t.nodeType);return null};return"addEventListener"in window&&Array.prototype.indexOf&&(c[S()]="mouse",g(),v("input"),v("intent")),{ask:function(t){return"intent"===t?n:i},element:function(){return e},ignoreKeys:function(t){a=t},specificKeys:function(t){l=t},registerOnChange:function(t,e){r.push({fn:t,type:e||"input"})},unRegisterOnChange:function(t){var e=function(t){for(var e=0,i=r.length;e<i;e++)if(r[e].fn===t)return e}(t);(e||0===e)&&r.splice(e,1)}}}()}])},t.exports=n()},l67y:function(t,e,i){"use strict";i.d(e,"e",function(){return s}),i.d(e,"a",function(){return r}),i.d(e,"b",function(){return a}),i.d(e,"f",function(){return l}),i.d(e,"d",function(){return c}),i.d(e,"c",function(){return d});var n=i("xeH2"),o=i.n(n);function s(){return"rtl"===o()("html").attr("dir")}function r(t,e){return t=t||6,Math.round(Math.pow(36,t+1)-Math.random()*Math.pow(36,t)).toString(36).slice(1)+(e?`-${e}`:"")}function a(t){return t.replace(/[-[\]{}()*+?.,\\^$|#\s]/g,"\\$&")}function l(t){var e,i={transition:"transitionend",WebkitTransition:"webkitTransitionEnd",MozTransition:"transitionend",OTransition:"otransitionend"},n=document.createElement("div");for(var o in i)void 0!==n.style[o]&&(e=i[o]);return e||(e=setTimeout(function(){t.triggerHandler("transitionend",[t])},1),"transitionend")}function c(t,e){const i="complete"===document.readyState,n=(i?"_didLoad":"load")+".zf.util.onLoad",s=()=>t.triggerHandler(n);return t&&(e&&t.one(n,e),i?setTimeout(s):o()(window).one("load",s)),n}function d(t,{ignoreLeaveWindow:e=!1,ignoreReappear:i=!1}={}){return function(n,...s){const r=t.bind(this,n,...s);if(null!==n.relatedTarget)return r();setTimeout(function(){if(!e&&document.hasFocus&&!document.hasFocus())return r();i||o()(document).one("mouseenter",function(t){o()(n.currentTarget).has(t.target).length||(n.relatedTarget=t.target,r())})},0)}}},oMJq:function(t,e,i){"use strict";i.d(e,"a",function(){return o});var n=i("l67y"),o={ImNotTouchingYou:function(t,e,i,n,o){return 0===s(t,e,i,n,o)},OverlapArea:s,GetDimensions:r,GetOffsets:function(t,e,i,o,s,r){switch(console.log("NOTE: GetOffsets is deprecated in favor of GetExplicitOffsets and will be removed in 6.5"),i){case"top":return Object(n.e)()?a(t,e,"top","left",o,s,r):a(t,e,"top","right",o,s,r);case"bottom":return Object(n.e)()?a(t,e,"bottom","left",o,s,r):a(t,e,"bottom","right",o,s,r);case"center top":return a(t,e,"top","center",o,s,r);case"center bottom":return a(t,e,"bottom","center",o,s,r);case"center left":return a(t,e,"left","center",o,s,r);case"center right":return a(t,e,"right","center",o,s,r);case"left bottom":return a(t,e,"bottom","left",o,s,r);case"right bottom":return a(t,e,"bottom","right",o,s,r);case"center":return{left:$eleDims.windowDims.offset.left+$eleDims.windowDims.width/2-$eleDims.width/2+s,top:$eleDims.windowDims.offset.top+$eleDims.windowDims.height/2-($eleDims.height/2+o)};case"reveal":return{left:($eleDims.windowDims.width-$eleDims.width)/2+s,top:$eleDims.windowDims.offset.top+o};case"reveal full":return{left:$eleDims.windowDims.offset.left,top:$eleDims.windowDims.offset.top};default:return{left:Object(n.e)()?$anchorDims.offset.left-$eleDims.width+$anchorDims.width-s:$anchorDims.offset.left+s,top:$anchorDims.offset.top+$anchorDims.height+o}}},GetExplicitOffsets:a};function s(t,e,i,n,o){var s,a,l,c,d=r(t);if(e){var h=r(e);a=h.height+h.offset.top-(d.offset.top+d.height),s=d.offset.top-h.offset.top,l=d.offset.left-h.offset.left,c=h.width+h.offset.left-(d.offset.left+d.width)}else a=d.windowDims.height+d.windowDims.offset.top-(d.offset.top+d.height),s=d.offset.top-d.windowDims.offset.top,l=d.offset.left-d.windowDims.offset.left,c=d.windowDims.width-(d.offset.left+d.width);return a=o?0:Math.min(a,0),s=Math.min(s,0),l=Math.min(l,0),c=Math.min(c,0),i?l+c:n?s+a:Math.sqrt(s*s+a*a+l*l+c*c)}function r(t){if((t=t.length?t[0]:t)===window||t===document)throw new Error("I'm sorry, Dave. I'm afraid I can't do that.");var e=t.getBoundingClientRect(),i=t.parentNode.getBoundingClientRect(),n=document.body.getBoundingClientRect(),o=window.pageYOffset,s=window.pageXOffset;return{width:e.width,height:e.height,offset:{top:e.top+o,left:e.left+s},parentDims:{width:i.width,height:i.height,offset:{top:i.top+o,left:i.left+s}},windowDims:{width:n.width,height:n.height,offset:{top:o,left:s}}}}function a(t,e,i,n,o,s,a){var l,c,d=r(t),h=e?r(e):null;switch(i){case"top":l=h.offset.top-(d.height+o);break;case"bottom":l=h.offset.top+h.height+o;break;case"left":c=h.offset.left-(d.width+s);break;case"right":c=h.offset.left+h.width+s}switch(i){case"top":case"bottom":switch(n){case"left":c=h.offset.left+s;break;case"right":c=h.offset.left-d.width+h.width-s;break;case"center":c=a?s:h.offset.left+h.width/2-d.width/2+s}break;case"right":case"left":switch(n){case"bottom":l=h.offset.top-o+h.height-d.height;break;case"top":l=h.offset.top+o;break;case"center":l=h.offset.top+o+h.height/2-d.height/2}}return{top:l,left:c}}},"p3L+":function(t,e,i){var n,o,s;window,o=[i("JT+M"),i("hNNL")],void 0===(s="function"==typeof(n=function(t,e){"use strict";var i=t.create("masonry"),n=i.prototype,o={_getElementOffset:!0,layout:!0,_getMeasurement:!0};for(var s in e.prototype)o[s]||(n[s]=e.prototype[s]);var r=n.measureColumns;n.measureColumns=function(){this.items=this.isotope.filteredItems,r.call(this)};var a=n._getOption;return n._getOption=function(t){return"fitWidth"==t?void 0!==this.options.isFitWidth?this.options.isFitWidth:this.options.fitWidth:a.apply(this.isotope,arguments)},i})?n.apply(e,o):n)||(t.exports=s)},sVZ0:function(t,e,i){"use strict";i.d(e,"a",function(){return s});var n=i("xeH2"),o=i.n(n);const s={Feather(t,e="zf"){t.attr("role","menubar");var i=t.find("li").attr({role:"menuitem"}),n=`is-${e}-submenu`,s=`${n}-item`,r=`is-${e}-submenu-parent`,a="accordion"!==e;i.each(function(){var t=o()(this),i=t.children("ul");i.length&&(t.addClass(r),a&&(t.attr({"aria-haspopup":!0,"aria-label":t.children("a:first").text()}),"drilldown"===e&&t.attr({"aria-expanded":!1})),i.addClass(`submenu ${n}`).attr({"data-submenu":"",role:"menubar"}),"drilldown"===e&&i.attr({"aria-hidden":!0})),t.parent("[data-submenu]").length&&t.addClass(`is-submenu-item ${s}`)})},Burn(t,e){var i=`is-${e}-submenu`,n=`${i}-item`,o=`is-${e}-submenu-parent`;t.find(">li, > li > ul, .menu, .menu > li, [data-submenu] > li").removeClass(`${i} ${n} ${o} is-submenu-item submenu is-active`).removeAttr("data-submenu").css("display","")}}},vX6Q:function(t,e,i){var n,o;!function(s,r){"use strict";n=[i("CUlp")],void 0===(o=function(t){return function(t,e){var i=t.jQuery,n=t.console;function o(t,e){for(var i in e)t[i]=e[i];return t}var s=Array.prototype.slice;function r(t,e,a){if(!(this instanceof r))return new r(t,e,a);var l=t;"string"==typeof t&&(l=document.querySelectorAll(t)),l?(this.elements=function(t){if(Array.isArray(t))return t;if("object"==typeof t&&"number"==typeof t.length)return s.call(t);return[t]}(l),this.options=o({},this.options),"function"==typeof e?a=e:o(this.options,e),a&&this.on("always",a),this.getImages(),i&&(this.jqDeferred=new i.Deferred),setTimeout(this.check.bind(this))):n.error("Bad element for imagesLoaded "+(l||t))}r.prototype=Object.create(e.prototype),r.prototype.options={},r.prototype.getImages=function(){this.images=[],this.elements.forEach(this.addElementImages,this)},r.prototype.addElementImages=function(t){"IMG"==t.nodeName&&this.addImage(t),!0===this.options.background&&this.addElementBackgroundImages(t);var e=t.nodeType;if(e&&a[e]){for(var i=t.querySelectorAll("img"),n=0;n<i.length;n++){var o=i[n];this.addImage(o)}if("string"==typeof this.options.background){var s=t.querySelectorAll(this.options.background);for(n=0;n<s.length;n++){var r=s[n];this.addElementBackgroundImages(r)}}}};var a={1:!0,9:!0,11:!0};function l(t){this.img=t}function c(t,e){this.url=t,this.element=e,this.img=new Image}return r.prototype.addElementBackgroundImages=function(t){var e=getComputedStyle(t);if(e)for(var i=/url\((['"])?(.*?)\1\)/gi,n=i.exec(e.backgroundImage);null!==n;){var o=n&&n[2];o&&this.addBackground(o,t),n=i.exec(e.backgroundImage)}},r.prototype.addImage=function(t){var e=new l(t);this.images.push(e)},r.prototype.addBackground=function(t,e){var i=new c(t,e);this.images.push(i)},r.prototype.check=function(){var t=this;function e(e,i,n){setTimeout(function(){t.progress(e,i,n)})}this.progressedCount=0,this.hasAnyBroken=!1,this.images.length?this.images.forEach(function(t){t.once("progress",e),t.check()}):this.complete()},r.prototype.progress=function(t,e,i){this.progressedCount++,this.hasAnyBroken=this.hasAnyBroken||!t.isLoaded,this.emitEvent("progress",[this,t,e]),this.jqDeferred&&this.jqDeferred.notify&&this.jqDeferred.notify(this,t),this.progressedCount==this.images.length&&this.complete(),this.options.debug&&n&&n.log("progress: "+i,t,e)},r.prototype.complete=function(){var t=this.hasAnyBroken?"fail":"done";if(this.isComplete=!0,this.emitEvent(t,[this]),this.emitEvent("always",[this]),this.jqDeferred){var e=this.hasAnyBroken?"reject":"resolve";this.jqDeferred[e](this)}},l.prototype=Object.create(e.prototype),l.prototype.check=function(){this.getIsImageComplete()?this.confirm(0!==this.img.naturalWidth,"naturalWidth"):(this.proxyImage=new Image,this.proxyImage.addEventListener("load",this),this.proxyImage.addEventListener("error",this),this.img.addEventListener("load",this),this.img.addEventListener("error",this),this.proxyImage.src=this.img.src)},l.prototype.getIsImageComplete=function(){return this.img.complete&&this.img.naturalWidth},l.prototype.confirm=function(t,e){this.isLoaded=t,this.emitEvent("progress",[this,this.img,e])},l.prototype.handleEvent=function(t){var e="on"+t.type;this[e]&&this[e](t)},l.prototype.onload=function(){this.confirm(!0,"onload"),this.unbindEvents()},l.prototype.onerror=function(){this.confirm(!1,"onerror"),this.unbindEvents()},l.prototype.unbindEvents=function(){this.proxyImage.removeEventListener("load",this),this.proxyImage.removeEventListener("error",this),this.img.removeEventListener("load",this),this.img.removeEventListener("error",this)},c.prototype=Object.create(l.prototype),c.prototype.check=function(){this.img.addEventListener("load",this),this.img.addEventListener("error",this),this.img.src=this.url,this.getIsImageComplete()&&(this.confirm(0!==this.img.naturalWidth,"naturalWidth"),this.unbindEvents())},c.prototype.unbindEvents=function(){this.img.removeEventListener("load",this),this.img.removeEventListener("error",this)},c.prototype.confirm=function(t,e){this.isLoaded=t,this.emitEvent("progress",[this,this.element,e])},r.makeJQueryPlugin=function(e){(e=e||t.jQuery)&&((i=e).fn.imagesLoaded=function(t,e){return new r(this,t,e).jqDeferred.promise(i(this))})},r.makeJQueryPlugin(),r}(s,t)}.apply(e,n))||(t.exports=o)}("undefined"!=typeof window?window:this)},vn07:function(t,e,i){var n,o,s;window,o=[i("Hy43")],void 0===(s="function"==typeof(n=function(t){"use strict";function e(){t.Item.apply(this,arguments)}var i=e.prototype=Object.create(t.Item.prototype),n=i._create;i._create=function(){this.id=this.layout.itemGUID++,n.call(this),this.sortData={}},i.updateSortData=function(){if(!this.isIgnored){this.sortData.id=this.id,this.sortData["original-order"]=this.id,this.sortData.random=Math.random();var t=this.layout.options.getSortData,e=this.layout._sorters;for(var i in t){var n=e[i];this.sortData[i]=n(this.element,this)}}};var o=i.destroy;return i.destroy=function(){o.apply(this,arguments),this.css({display:""})},e})?n.apply(e,o):n)||(t.exports=s)},x0Ue:function(t,e,i){var n,o;!function(s,r){"use strict";void 0===(o="function"==typeof(n=r)?n.call(e,i,e,t):n)||(t.exports=o)}(window,function(){"use strict";var t=function(){var t=window.Element.prototype;if(t.matches)return"matches";if(t.matchesSelector)return"matchesSelector";for(var e=["webkit","moz","ms","o"],i=0;i<e.length;i++){var n=e[i]+"MatchesSelector";if(t[n])return n}}();return function(e,i){return e[t](i)}})},xDCs:function(t,e,i){"use strict";i.d(e,"a",function(){return c});var n=i("xeH2"),o=i.n(n),s=i("l67y"),r=i("jS+n");const a=function(){for(var t=["WebKit","Moz","O","Ms",""],e=0;e<t.length;e++)if(`${t[e]}MutationObserver`in window)return window[`${t[e]}MutationObserver`];return!1}(),l=(t,e)=>{t.data(e).split(" ").forEach(i=>{o()(`#${i}`)["close"===e?"trigger":"triggerHandler"](`${e}.zf.trigger`,[t])})};var c={Listeners:{Basic:{},Global:{}},Initializers:{}};function d(t,e,i){let n,s=Array.prototype.slice.call(arguments,3);o()(window).off(e).on(e,function(e){n&&clearTimeout(n),n=setTimeout(function(){i.apply(null,s)},t||10)})}c.Listeners.Basic={openListener:function(){l(o()(this),"open")},closeListener:function(){o()(this).data("close")?l(o()(this),"close"):o()(this).trigger("close.zf.trigger")},toggleListener:function(){o()(this).data("toggle")?l(o()(this),"toggle"):o()(this).trigger("toggle.zf.trigger")},closeableListener:function(t){t.stopPropagation();let e=o()(this).data("closable");""!==e?r.a.animateOut(o()(this),e,function(){o()(this).trigger("closed.zf")}):o()(this).fadeOut().trigger("closed.zf")},toggleFocusListener:function(){let t=o()(this).data("toggle-focus");o()(`#${t}`).triggerHandler("toggle.zf.trigger",[o()(this)])}},c.Initializers.addOpenListener=t=>{t.off("click.zf.trigger",c.Listeners.Basic.openListener),t.on("click.zf.trigger","[data-open]",c.Listeners.Basic.openListener)},c.Initializers.addCloseListener=t=>{t.off("click.zf.trigger",c.Listeners.Basic.closeListener),t.on("click.zf.trigger","[data-close]",c.Listeners.Basic.closeListener)},c.Initializers.addToggleListener=t=>{t.off("click.zf.trigger",c.Listeners.Basic.toggleListener),t.on("click.zf.trigger","[data-toggle]",c.Listeners.Basic.toggleListener)},c.Initializers.addCloseableListener=t=>{t.off("close.zf.trigger",c.Listeners.Basic.closeableListener),t.on("close.zf.trigger","[data-closeable], [data-closable]",c.Listeners.Basic.closeableListener)},c.Initializers.addToggleFocusListener=t=>{t.off("focus.zf.trigger blur.zf.trigger",c.Listeners.Basic.toggleFocusListener),t.on("focus.zf.trigger blur.zf.trigger","[data-toggle-focus]",c.Listeners.Basic.toggleFocusListener)},c.Listeners.Global={resizeListener:function(t){a||t.each(function(){o()(this).triggerHandler("resizeme.zf.trigger")}),t.attr("data-events","resize")},scrollListener:function(t){a||t.each(function(){o()(this).triggerHandler("scrollme.zf.trigger")}),t.attr("data-events","scroll")},closeMeListener:function(t,e){let i=t.namespace.split(".")[0];o()(`[data-${i}]`).not(`[data-yeti-box="${e}"]`).each(function(){let t=o()(this);t.triggerHandler("close.zf.trigger",[t])})}},c.Initializers.addClosemeListener=function(t){var e=o()("[data-yeti-box]"),i=["dropdown","tooltip","reveal"];if(t&&("string"==typeof t?i.push(t):"object"==typeof t&&"string"==typeof t[0]?i=i.concat(t):console.error("Plugin names must be strings")),e.length){let t=i.map(t=>`closeme.zf.${t}`).join(" ");o()(window).off(t).on(t,c.Listeners.Global.closeMeListener)}},c.Initializers.addResizeListener=function(t){let e=o()("[data-resize]");e.length&&d(t,"resize.zf.trigger",c.Listeners.Global.resizeListener,e)},c.Initializers.addScrollListener=function(t){let e=o()("[data-scroll]");e.length&&d(t,"scroll.zf.trigger",c.Listeners.Global.scrollListener,e)},c.Initializers.addMutationEventsListener=function(t){if(!a)return!1;let e=t.find("[data-resize], [data-scroll], [data-mutate]");var i=function(t){var e=o()(t[0].target);switch(t[0].type){case"attributes":"scroll"===e.attr("data-events")&&"data-events"===t[0].attributeName&&e.triggerHandler("scrollme.zf.trigger",[e,window.pageYOffset]),"resize"===e.attr("data-events")&&"data-events"===t[0].attributeName&&e.triggerHandler("resizeme.zf.trigger",[e]),"style"===t[0].attributeName&&(e.closest("[data-mutate]").attr("data-events","mutate"),e.closest("[data-mutate]").triggerHandler("mutateme.zf.trigger",[e.closest("[data-mutate]")]));break;case"childList":e.closest("[data-mutate]").attr("data-events","mutate"),e.closest("[data-mutate]").triggerHandler("mutateme.zf.trigger",[e.closest("[data-mutate]")]);break;default:return!1}};if(e.length)for(var n=0;n<=e.length-1;n++){new a(i).observe(e[n],{attributes:!0,childList:!0,characterData:!1,subtree:!0,attributeFilter:["data-events","style"]})}},c.Initializers.addSimpleListeners=function(){let t=o()(document);c.Initializers.addOpenListener(t),c.Initializers.addCloseListener(t),c.Initializers.addToggleListener(t),c.Initializers.addCloseableListener(t),c.Initializers.addToggleFocusListener(t)},c.Initializers.addGlobalListeners=function(){let t=o()(document);c.Initializers.addMutationEventsListener(t),c.Initializers.addResizeListener(),c.Initializers.addScrollListener(),c.Initializers.addClosemeListener()},c.init=function(t,e){Object(s.d)(t(window),function(){!0!==t.triggersInitialized&&(c.Initializers.addSimpleListeners(),c.Initializers.addGlobalListeners(),t.triggersInitialized=!0)}),e&&(e.Triggers=c,e.IHearYou=c.Initializers.addGlobalListeners)}}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/vendor"],{
+
+/***/ "./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// ==================================================
+// fancyBox v3.5.7
+//
+// Licensed GPLv3 for open source use
+// or fancyBox Commercial License for commercial use
+//
+// http://fancyapps.com/fancybox/
+// Copyright 2019 fancyApps
+//
+// ==================================================
+(function (window, document, $, undefined) {
+  "use strict";
+
+  window.console = window.console || {
+    info: function (stuff) {}
+  };
+
+  // If there's no jQuery, fancyBox can't work
+  // =========================================
+
+  if (!$) {
+    return;
+  }
+
+  // Check if fancyBox is already initialized
+  // ========================================
+
+  if ($.fn.fancybox) {
+    console.info("fancyBox already initialized");
+
+    return;
+  }
+
+  // Private default settings
+  // ========================
+
+  var defaults = {
+    // Close existing modals
+    // Set this to false if you do not need to stack multiple instances
+    closeExisting: false,
+
+    // Enable infinite gallery navigation
+    loop: false,
+
+    // Horizontal space between slides
+    gutter: 50,
+
+    // Enable keyboard navigation
+    keyboard: true,
+
+    // Should allow caption to overlap the content
+    preventCaptionOverlap: true,
+
+    // Should display navigation arrows at the screen edges
+    arrows: true,
+
+    // Should display counter at the top left corner
+    infobar: true,
+
+    // Should display close button (using `btnTpl.smallBtn` template) over the content
+    // Can be true, false, "auto"
+    // If "auto" - will be automatically enabled for "html", "inline" or "ajax" items
+    smallBtn: "auto",
+
+    // Should display toolbar (buttons at the top)
+    // Can be true, false, "auto"
+    // If "auto" - will be automatically hidden if "smallBtn" is enabled
+    toolbar: "auto",
+
+    // What buttons should appear in the top right corner.
+    // Buttons will be created using templates from `btnTpl` option
+    // and they will be placed into toolbar (class="fancybox-toolbar"` element)
+    buttons: [
+      "zoom",
+      //"share",
+      "slideShow",
+      //"fullScreen",
+      //"download",
+      "thumbs",
+      "close"
+    ],
+
+    // Detect "idle" time in seconds
+    idleTime: 3,
+
+    // Disable right-click and use simple image protection for images
+    protect: false,
+
+    // Shortcut to make content "modal" - disable keyboard navigtion, hide buttons, etc
+    modal: false,
+
+    image: {
+      // Wait for images to load before displaying
+      //   true  - wait for image to load and then display;
+      //   false - display thumbnail and load the full-sized image over top,
+      //           requires predefined image dimensions (`data-width` and `data-height` attributes)
+      preload: false
+    },
+
+    ajax: {
+      // Object containing settings for ajax request
+      settings: {
+        // This helps to indicate that request comes from the modal
+        // Feel free to change naming
+        data: {
+          fancybox: true
+        }
+      }
+    },
+
+    iframe: {
+      // Iframe template
+      tpl: '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" allowfullscreen="allowfullscreen" allow="autoplay; fullscreen" src=""></iframe>',
+
+      // Preload iframe before displaying it
+      // This allows to calculate iframe content width and height
+      // (note: Due to "Same Origin Policy", you can't get cross domain data).
+      preload: true,
+
+      // Custom CSS styling for iframe wrapping element
+      // You can use this to set custom iframe dimensions
+      css: {},
+
+      // Iframe tag attributes
+      attr: {
+        scrolling: "auto"
+      }
+    },
+
+    // For HTML5 video only
+    video: {
+      tpl: '<video class="fancybox-video" controls controlsList="nodownload" poster="{{poster}}">' +
+        '<source src="{{src}}" type="{{format}}" />' +
+        'Sorry, your browser doesn\'t support embedded videos, <a href="{{src}}">download</a> and watch with your favorite video player!' +
+        "</video>",
+      format: "", // custom video format
+      autoStart: true
+    },
+
+    // Default content type if cannot be detected automatically
+    defaultType: "image",
+
+    // Open/close animation type
+    // Possible values:
+    //   false            - disable
+    //   "zoom"           - zoom images from/to thumbnail
+    //   "fade"
+    //   "zoom-in-out"
+    //
+    animationEffect: "zoom",
+
+    // Duration in ms for open/close animation
+    animationDuration: 366,
+
+    // Should image change opacity while zooming
+    // If opacity is "auto", then opacity will be changed if image and thumbnail have different aspect ratios
+    zoomOpacity: "auto",
+
+    // Transition effect between slides
+    //
+    // Possible values:
+    //   false            - disable
+    //   "fade'
+    //   "slide'
+    //   "circular'
+    //   "tube'
+    //   "zoom-in-out'
+    //   "rotate'
+    //
+    transitionEffect: "fade",
+
+    // Duration in ms for transition animation
+    transitionDuration: 366,
+
+    // Custom CSS class for slide element
+    slideClass: "",
+
+    // Custom CSS class for layout
+    baseClass: "",
+
+    // Base template for layout
+    baseTpl: '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+      '<div class="fancybox-bg"></div>' +
+      '<div class="fancybox-inner">' +
+      '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
+      '<div class="fancybox-toolbar">{{buttons}}</div>' +
+      '<div class="fancybox-navigation">{{arrows}}</div>' +
+      '<div class="fancybox-stage"></div>' +
+      '<div class="fancybox-caption"><div class="fancybox-caption__body"></div></div>' +
+      "</div>" +
+      "</div>",
+
+    // Loading indicator template
+    spinnerTpl: '<div class="fancybox-loading"></div>',
+
+    // Error message template
+    errorTpl: '<div class="fancybox-error"><p>{{ERROR}}</p></div>',
+
+    btnTpl: {
+      download: '<a download data-fancybox-download class="fancybox-button fancybox-button--download" title="{{DOWNLOAD}}" href="javascript:;">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.62 17.09V19H5.38v-1.91zm-2.97-6.96L17 11.45l-5 4.87-5-4.87 1.36-1.32 2.68 2.64V5h1.92v7.77z"/></svg>' +
+        "</a>",
+
+      zoom: '<button data-fancybox-zoom class="fancybox-button fancybox-button--zoom" title="{{ZOOM}}">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.7 17.3l-3-3a5.9 5.9 0 0 0-.6-7.6 5.9 5.9 0 0 0-8.4 0 5.9 5.9 0 0 0 0 8.4 5.9 5.9 0 0 0 7.7.7l3 3a1 1 0 0 0 1.3 0c.4-.5.4-1 0-1.5zM8.1 13.8a4 4 0 0 1 0-5.7 4 4 0 0 1 5.7 0 4 4 0 0 1 0 5.7 4 4 0 0 1-5.7 0z"/></svg>' +
+        "</button>",
+
+      close: '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="{{CLOSE}}">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 10.6L6.6 5.2 5.2 6.6l5.4 5.4-5.4 5.4 1.4 1.4 5.4-5.4 5.4 5.4 1.4-1.4-5.4-5.4 5.4-5.4-1.4-1.4-5.4 5.4z"/></svg>' +
+        "</button>",
+
+      // Arrows
+      arrowLeft: '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
+        '<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.28 15.7l-1.34 1.37L5 12l4.94-5.07 1.34 1.38-2.68 2.72H19v1.94H8.6z"/></svg></div>' +
+        "</button>",
+
+      arrowRight: '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right" title="{{NEXT}}">' +
+        '<div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.4 12.97l-2.68 2.72 1.34 1.38L19 12l-4.94-5.07-1.34 1.38 2.68 2.72H5v1.94z"/></svg></div>' +
+        "</button>",
+
+      // This small close button will be appended to your html/inline/ajax content by default,
+      // if "smallBtn" option is not set to false
+      smallBtn: '<button type="button" data-fancybox-close class="fancybox-button fancybox-close-small" title="{{CLOSE}}">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24"><path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"/></svg>' +
+        "</button>"
+    },
+
+    // Container is injected into this element
+    parentEl: "body",
+
+    // Hide browser vertical scrollbars; use at your own risk
+    hideScrollbar: true,
+
+    // Focus handling
+    // ==============
+
+    // Try to focus on the first focusable element after opening
+    autoFocus: true,
+
+    // Put focus back to active element after closing
+    backFocus: true,
+
+    // Do not let user to focus on element outside modal content
+    trapFocus: true,
+
+    // Module specific options
+    // =======================
+
+    fullScreen: {
+      autoStart: false
+    },
+
+    // Set `touch: false` to disable panning/swiping
+    touch: {
+      vertical: true, // Allow to drag content vertically
+      momentum: true // Continue movement after releasing mouse/touch when panning
+    },
+
+    // Hash value when initializing manually,
+    // set `false` to disable hash change
+    hash: null,
+
+    // Customize or add new media types
+    // Example:
+    /*
+      media : {
+        youtube : {
+          params : {
+            autoplay : 0
+          }
+        }
+      }
+    */
+    media: {},
+
+    slideShow: {
+      autoStart: false,
+      speed: 3000
+    },
+
+    thumbs: {
+      autoStart: false, // Display thumbnails on opening
+      hideOnClose: true, // Hide thumbnail grid when closing animation starts
+      parentEl: ".fancybox-container", // Container is injected into this element
+      axis: "y" // Vertical (y) or horizontal (x) scrolling
+    },
+
+    // Use mousewheel to navigate gallery
+    // If 'auto' - enabled for images only
+    wheel: "auto",
+
+    // Callbacks
+    //==========
+
+    // See Documentation/API/Events for more information
+    // Example:
+    /*
+      afterShow: function( instance, current ) {
+        console.info( 'Clicked element:' );
+        console.info( current.opts.$orig );
+      }
+    */
+
+    onInit: $.noop, // When instance has been initialized
+
+    beforeLoad: $.noop, // Before the content of a slide is being loaded
+    afterLoad: $.noop, // When the content of a slide is done loading
+
+    beforeShow: $.noop, // Before open animation starts
+    afterShow: $.noop, // When content is done loading and animating
+
+    beforeClose: $.noop, // Before the instance attempts to close. Return false to cancel the close.
+    afterClose: $.noop, // After instance has been closed
+
+    onActivate: $.noop, // When instance is brought to front
+    onDeactivate: $.noop, // When other instance has been activated
+
+    // Interaction
+    // ===========
+
+    // Use options below to customize taken action when user clicks or double clicks on the fancyBox area,
+    // each option can be string or method that returns value.
+    //
+    // Possible values:
+    //   "close"           - close instance
+    //   "next"            - move to next gallery item
+    //   "nextOrClose"     - move to next gallery item or close if gallery has only one item
+    //   "toggleControls"  - show/hide controls
+    //   "zoom"            - zoom image (if loaded)
+    //   false             - do nothing
+
+    // Clicked on the content
+    clickContent: function (current, event) {
+      return current.type === "image" ? "zoom" : false;
+    },
+
+    // Clicked on the slide
+    clickSlide: "close",
+
+    // Clicked on the background (backdrop) element;
+    // if you have not changed the layout, then most likely you need to use `clickSlide` option
+    clickOutside: "close",
+
+    // Same as previous two, but for double click
+    dblclickContent: false,
+    dblclickSlide: false,
+    dblclickOutside: false,
+
+    // Custom options when mobile device is detected
+    // =============================================
+
+    mobile: {
+      preventCaptionOverlap: false,
+      idleTime: false,
+      clickContent: function (current, event) {
+        return current.type === "image" ? "toggleControls" : false;
+      },
+      clickSlide: function (current, event) {
+        return current.type === "image" ? "toggleControls" : "close";
+      },
+      dblclickContent: function (current, event) {
+        return current.type === "image" ? "zoom" : false;
+      },
+      dblclickSlide: function (current, event) {
+        return current.type === "image" ? "zoom" : false;
+      }
+    },
+
+    // Internationalization
+    // ====================
+
+    lang: "en",
+    i18n: {
+      en: {
+        CLOSE: "Close",
+        NEXT: "Next",
+        PREV: "Previous",
+        ERROR: "The requested content cannot be loaded. <br/> Please try again later.",
+        PLAY_START: "Start slideshow",
+        PLAY_STOP: "Pause slideshow",
+        FULL_SCREEN: "Full screen",
+        THUMBS: "Thumbnails",
+        DOWNLOAD: "Download",
+        SHARE: "Share",
+        ZOOM: "Zoom"
+      },
+      de: {
+        CLOSE: "Schlie&szlig;en",
+        NEXT: "Weiter",
+        PREV: "Zur&uuml;ck",
+        ERROR: "Die angeforderten Daten konnten nicht geladen werden. <br/> Bitte versuchen Sie es sp&auml;ter nochmal.",
+        PLAY_START: "Diaschau starten",
+        PLAY_STOP: "Diaschau beenden",
+        FULL_SCREEN: "Vollbild",
+        THUMBS: "Vorschaubilder",
+        DOWNLOAD: "Herunterladen",
+        SHARE: "Teilen",
+        ZOOM: "Vergr&ouml;&szlig;ern"
+      }
+    }
+  };
+
+  // Few useful variables and methods
+  // ================================
+
+  var $W = $(window);
+  var $D = $(document);
+
+  var called = 0;
+
+  // Check if an object is a jQuery object and not a native JavaScript object
+  // ========================================================================
+  var isQuery = function (obj) {
+    return obj && obj.hasOwnProperty && obj instanceof $;
+  };
+
+  // Handle multiple browsers for "requestAnimationFrame" and "cancelAnimationFrame"
+  // ===============================================================================
+  var requestAFrame = (function () {
+    return (
+      window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      // if all else fails, use setTimeout
+      function (callback) {
+        return window.setTimeout(callback, 1000 / 60);
+      }
+    );
+  })();
+
+  var cancelAFrame = (function () {
+    return (
+      window.cancelAnimationFrame ||
+      window.webkitCancelAnimationFrame ||
+      window.mozCancelAnimationFrame ||
+      window.oCancelAnimationFrame ||
+      function (id) {
+        window.clearTimeout(id);
+      }
+    );
+  })();
+
+  // Detect the supported transition-end event property name
+  // =======================================================
+  var transitionEnd = (function () {
+    var el = document.createElement("fakeelement"),
+      t;
+
+    var transitions = {
+      transition: "transitionend",
+      OTransition: "oTransitionEnd",
+      MozTransition: "transitionend",
+      WebkitTransition: "webkitTransitionEnd"
+    };
+
+    for (t in transitions) {
+      if (el.style[t] !== undefined) {
+        return transitions[t];
+      }
+    }
+
+    return "transitionend";
+  })();
+
+  // Force redraw on an element.
+  // This helps in cases where the browser doesn't redraw an updated element properly
+  // ================================================================================
+  var forceRedraw = function ($el) {
+    return $el && $el.length && $el[0].offsetHeight;
+  };
+
+  // Exclude array (`buttons`) options from deep merging
+  // ===================================================
+  var mergeOpts = function (opts1, opts2) {
+    var rez = $.extend(true, {}, opts1, opts2);
+
+    $.each(opts2, function (key, value) {
+      if ($.isArray(value)) {
+        rez[key] = value;
+      }
+    });
+
+    return rez;
+  };
+
+  // How much of an element is visible in viewport
+  // =============================================
+
+  var inViewport = function (elem) {
+    var elemCenter, rez;
+
+    if (!elem || elem.ownerDocument !== document) {
+      return false;
+    }
+
+    $(".fancybox-container").css("pointer-events", "none");
+
+    elemCenter = {
+      x: elem.getBoundingClientRect().left + elem.offsetWidth / 2,
+      y: elem.getBoundingClientRect().top + elem.offsetHeight / 2
+    };
+
+    rez = document.elementFromPoint(elemCenter.x, elemCenter.y) === elem;
+
+    $(".fancybox-container").css("pointer-events", "");
+
+    return rez;
+  };
+
+  // Class definition
+  // ================
+
+  var FancyBox = function (content, opts, index) {
+    var self = this;
+
+    self.opts = mergeOpts({
+      index: index
+    }, $.fancybox.defaults);
+
+    if ($.isPlainObject(opts)) {
+      self.opts = mergeOpts(self.opts, opts);
+    }
+
+    if ($.fancybox.isMobile) {
+      self.opts = mergeOpts(self.opts, self.opts.mobile);
+    }
+
+    self.id = self.opts.id || ++called;
+
+    self.currIndex = parseInt(self.opts.index, 10) || 0;
+    self.prevIndex = null;
+
+    self.prevPos = null;
+    self.currPos = 0;
+
+    self.firstRun = true;
+
+    // All group items
+    self.group = [];
+
+    // Existing slides (for current, next and previous gallery items)
+    self.slides = {};
+
+    // Create group elements
+    self.addContent(content);
+
+    if (!self.group.length) {
+      return;
+    }
+
+    self.init();
+  };
+
+  $.extend(FancyBox.prototype, {
+    // Create DOM structure
+    // ====================
+
+    init: function () {
+      var self = this,
+        firstItem = self.group[self.currIndex],
+        firstItemOpts = firstItem.opts,
+        $container,
+        buttonStr;
+
+      if (firstItemOpts.closeExisting) {
+        $.fancybox.close(true);
+      }
+
+      // Hide scrollbars
+      // ===============
+
+      $("body").addClass("fancybox-active");
+
+      if (
+        !$.fancybox.getInstance() &&
+        firstItemOpts.hideScrollbar !== false &&
+        !$.fancybox.isMobile &&
+        document.body.scrollHeight > window.innerHeight
+      ) {
+        $("head").append(
+          '<style id="fancybox-style-noscroll" type="text/css">.compensate-for-scrollbar{margin-right:' +
+          (window.innerWidth - document.documentElement.clientWidth) +
+          "px;}</style>"
+        );
+
+        $("body").addClass("compensate-for-scrollbar");
+      }
+
+      // Build html markup and set references
+      // ====================================
+
+      // Build html code for buttons and insert into main template
+      buttonStr = "";
+
+      $.each(firstItemOpts.buttons, function (index, value) {
+        buttonStr += firstItemOpts.btnTpl[value] || "";
+      });
+
+      // Create markup from base template, it will be initially hidden to
+      // avoid unnecessary work like painting while initializing is not complete
+      $container = $(
+          self.translate(
+            self,
+            firstItemOpts.baseTpl
+            .replace("{{buttons}}", buttonStr)
+            .replace("{{arrows}}", firstItemOpts.btnTpl.arrowLeft + firstItemOpts.btnTpl.arrowRight)
+          )
+        )
+        .attr("id", "fancybox-container-" + self.id)
+        .addClass(firstItemOpts.baseClass)
+        .data("FancyBox", self)
+        .appendTo(firstItemOpts.parentEl);
+
+      // Create object holding references to jQuery wrapped nodes
+      self.$refs = {
+        container: $container
+      };
+
+      ["bg", "inner", "infobar", "toolbar", "stage", "caption", "navigation"].forEach(function (item) {
+        self.$refs[item] = $container.find(".fancybox-" + item);
+      });
+
+      self.trigger("onInit");
+
+      // Enable events, deactive previous instances
+      self.activate();
+
+      // Build slides, load and reveal content
+      self.jumpTo(self.currIndex);
+    },
+
+    // Simple i18n support - replaces object keys found in template
+    // with corresponding values
+    // ============================================================
+
+    translate: function (obj, str) {
+      var arr = obj.opts.i18n[obj.opts.lang] || obj.opts.i18n.en;
+
+      return str.replace(/\{\{(\w+)\}\}/g, function (match, n) {
+        return arr[n] === undefined ? match : arr[n];
+      });
+    },
+
+    // Populate current group with fresh content
+    // Check if each object has valid type and content
+    // ===============================================
+
+    addContent: function (content) {
+      var self = this,
+        items = $.makeArray(content),
+        thumbs;
+
+      $.each(items, function (i, item) {
+        var obj = {},
+          opts = {},
+          $item,
+          type,
+          found,
+          src,
+          srcParts;
+
+        // Step 1 - Make sure we have an object
+        // ====================================
+
+        if ($.isPlainObject(item)) {
+          // We probably have manual usage here, something like
+          // $.fancybox.open( [ { src : "image.jpg", type : "image" } ] )
+
+          obj = item;
+          opts = item.opts || item;
+        } else if ($.type(item) === "object" && $(item).length) {
+          // Here we probably have jQuery collection returned by some selector
+          $item = $(item);
+
+          // Support attributes like `data-options='{"touch" : false}'` and `data-touch='false'`
+          opts = $item.data() || {};
+          opts = $.extend(true, {}, opts, opts.options);
+
+          // Here we store clicked element
+          opts.$orig = $item;
+
+          obj.src = self.opts.src || opts.src || $item.attr("href");
+
+          // Assume that simple syntax is used, for example:
+          //   `$.fancybox.open( $("#test"), {} );`
+          if (!obj.type && !obj.src) {
+            obj.type = "inline";
+            obj.src = item;
+          }
+        } else {
+          // Assume we have a simple html code, for example:
+          //   $.fancybox.open( '<div><h1>Hi!</h1></div>' );
+          obj = {
+            type: "html",
+            src: item + ""
+          };
+        }
+
+        // Each gallery object has full collection of options
+        obj.opts = $.extend(true, {}, self.opts, opts);
+
+        // Do not merge buttons array
+        if ($.isArray(opts.buttons)) {
+          obj.opts.buttons = opts.buttons;
+        }
+
+        if ($.fancybox.isMobile && obj.opts.mobile) {
+          obj.opts = mergeOpts(obj.opts, obj.opts.mobile);
+        }
+
+        // Step 2 - Make sure we have content type, if not - try to guess
+        // ==============================================================
+
+        type = obj.type || obj.opts.type;
+        src = obj.src || "";
+
+        if (!type && src) {
+          if ((found = src.match(/\.(mp4|mov|ogv|webm)((\?|#).*)?$/i))) {
+            type = "video";
+
+            if (!obj.opts.video.format) {
+              obj.opts.video.format = "video/" + (found[1] === "ogv" ? "ogg" : found[1]);
+            }
+          } else if (src.match(/(^data:image\/[a-z0-9+\/=]*,)|(\.(jp(e|g|eg)|gif|png|bmp|webp|svg|ico)((\?|#).*)?$)/i)) {
+            type = "image";
+          } else if (src.match(/\.(pdf)((\?|#).*)?$/i)) {
+            type = "iframe";
+            obj = $.extend(true, obj, {
+              contentType: "pdf",
+              opts: {
+                iframe: {
+                  preload: false
+                }
+              }
+            });
+          } else if (src.charAt(0) === "#") {
+            type = "inline";
+          }
+        }
+
+        if (type) {
+          obj.type = type;
+        } else {
+          self.trigger("objectNeedsType", obj);
+        }
+
+        if (!obj.contentType) {
+          obj.contentType = $.inArray(obj.type, ["html", "inline", "ajax"]) > -1 ? "html" : obj.type;
+        }
+
+        // Step 3 - Some adjustments
+        // =========================
+
+        obj.index = self.group.length;
+
+        if (obj.opts.smallBtn == "auto") {
+          obj.opts.smallBtn = $.inArray(obj.type, ["html", "inline", "ajax"]) > -1;
+        }
+
+        if (obj.opts.toolbar === "auto") {
+          obj.opts.toolbar = !obj.opts.smallBtn;
+        }
+
+        // Find thumbnail image, check if exists and if is in the viewport
+        obj.$thumb = obj.opts.$thumb || null;
+
+        if (obj.opts.$trigger && obj.index === self.opts.index) {
+          obj.$thumb = obj.opts.$trigger.find("img:first");
+
+          if (obj.$thumb.length) {
+            obj.opts.$orig = obj.opts.$trigger;
+          }
+        }
+
+        if (!(obj.$thumb && obj.$thumb.length) && obj.opts.$orig) {
+          obj.$thumb = obj.opts.$orig.find("img:first");
+        }
+
+        if (obj.$thumb && !obj.$thumb.length) {
+          obj.$thumb = null;
+        }
+
+        obj.thumb = obj.opts.thumb || (obj.$thumb ? obj.$thumb[0].src : null);
+
+        // "caption" is a "special" option, it can be used to customize caption per gallery item
+        if ($.type(obj.opts.caption) === "function") {
+          obj.opts.caption = obj.opts.caption.apply(item, [self, obj]);
+        }
+
+        if ($.type(self.opts.caption) === "function") {
+          obj.opts.caption = self.opts.caption.apply(item, [self, obj]);
+        }
+
+        // Make sure we have caption as a string or jQuery object
+        if (!(obj.opts.caption instanceof $)) {
+          obj.opts.caption = obj.opts.caption === undefined ? "" : obj.opts.caption + "";
+        }
+
+        // Check if url contains "filter" used to filter the content
+        // Example: "ajax.html #something"
+        if (obj.type === "ajax") {
+          srcParts = src.split(/\s+/, 2);
+
+          if (srcParts.length > 1) {
+            obj.src = srcParts.shift();
+
+            obj.opts.filter = srcParts.shift();
+          }
+        }
+
+        // Hide all buttons and disable interactivity for modal items
+        if (obj.opts.modal) {
+          obj.opts = $.extend(true, obj.opts, {
+            trapFocus: true,
+            // Remove buttons
+            infobar: 0,
+            toolbar: 0,
+
+            smallBtn: 0,
+
+            // Disable keyboard navigation
+            keyboard: 0,
+
+            // Disable some modules
+            slideShow: 0,
+            fullScreen: 0,
+            thumbs: 0,
+            touch: 0,
+
+            // Disable click event handlers
+            clickContent: false,
+            clickSlide: false,
+            clickOutside: false,
+            dblclickContent: false,
+            dblclickSlide: false,
+            dblclickOutside: false
+          });
+        }
+
+        // Step 4 - Add processed object to group
+        // ======================================
+
+        self.group.push(obj);
+      });
+
+      // Update controls if gallery is already opened
+      if (Object.keys(self.slides).length) {
+        self.updateControls();
+
+        // Update thumbnails, if needed
+        thumbs = self.Thumbs;
+
+        if (thumbs && thumbs.isActive) {
+          thumbs.create();
+
+          thumbs.focus();
+        }
+      }
+    },
+
+    // Attach an event handler functions for:
+    //   - navigation buttons
+    //   - browser scrolling, resizing;
+    //   - focusing
+    //   - keyboard
+    //   - detecting inactivity
+    // ======================================
+
+    addEvents: function () {
+      var self = this;
+
+      self.removeEvents();
+
+      // Make navigation elements clickable
+      // ==================================
+
+      self.$refs.container
+        .on("click.fb-close", "[data-fancybox-close]", function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          self.close(e);
+        })
+        .on("touchstart.fb-prev click.fb-prev", "[data-fancybox-prev]", function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          self.previous();
+        })
+        .on("touchstart.fb-next click.fb-next", "[data-fancybox-next]", function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          self.next();
+        })
+        .on("click.fb", "[data-fancybox-zoom]", function (e) {
+          // Click handler for zoom button
+          self[self.isScaledDown() ? "scaleToActual" : "scaleToFit"]();
+        });
+
+      // Handle page scrolling and browser resizing
+      // ==========================================
+
+      $W.on("orientationchange.fb resize.fb", function (e) {
+        if (e && e.originalEvent && e.originalEvent.type === "resize") {
+          if (self.requestId) {
+            cancelAFrame(self.requestId);
+          }
+
+          self.requestId = requestAFrame(function () {
+            self.update(e);
+          });
+        } else {
+          if (self.current && self.current.type === "iframe") {
+            self.$refs.stage.hide();
+          }
+
+          setTimeout(
+            function () {
+              self.$refs.stage.show();
+
+              self.update(e);
+            },
+            $.fancybox.isMobile ? 600 : 250
+          );
+        }
+      });
+
+      $D.on("keydown.fb", function (e) {
+        var instance = $.fancybox ? $.fancybox.getInstance() : null,
+          current = instance.current,
+          keycode = e.keyCode || e.which;
+
+        // Trap keyboard focus inside of the modal
+        // =======================================
+
+        if (keycode == 9) {
+          if (current.opts.trapFocus) {
+            self.focus(e);
+          }
+
+          return;
+        }
+
+        // Enable keyboard navigation
+        // ==========================
+
+        if (!current.opts.keyboard || e.ctrlKey || e.altKey || e.shiftKey || $(e.target).is("input,textarea,video,audio,select")) {
+          return;
+        }
+
+        // Backspace and Esc keys
+        if (keycode === 8 || keycode === 27) {
+          e.preventDefault();
+
+          self.close(e);
+
+          return;
+        }
+
+        // Left arrow and Up arrow
+        if (keycode === 37 || keycode === 38) {
+          e.preventDefault();
+
+          self.previous();
+
+          return;
+        }
+
+        // Righ arrow and Down arrow
+        if (keycode === 39 || keycode === 40) {
+          e.preventDefault();
+
+          self.next();
+
+          return;
+        }
+
+        self.trigger("afterKeydown", e, keycode);
+      });
+
+      // Hide controls after some inactivity period
+      if (self.group[self.currIndex].opts.idleTime) {
+        self.idleSecondsCounter = 0;
+
+        $D.on(
+          "mousemove.fb-idle mouseleave.fb-idle mousedown.fb-idle touchstart.fb-idle touchmove.fb-idle scroll.fb-idle keydown.fb-idle",
+          function (e) {
+            self.idleSecondsCounter = 0;
+
+            if (self.isIdle) {
+              self.showControls();
+            }
+
+            self.isIdle = false;
+          }
+        );
+
+        self.idleInterval = window.setInterval(function () {
+          self.idleSecondsCounter++;
+
+          if (self.idleSecondsCounter >= self.group[self.currIndex].opts.idleTime && !self.isDragging) {
+            self.isIdle = true;
+            self.idleSecondsCounter = 0;
+
+            self.hideControls();
+          }
+        }, 1000);
+      }
+    },
+
+    // Remove events added by the core
+    // ===============================
+
+    removeEvents: function () {
+      var self = this;
+
+      $W.off("orientationchange.fb resize.fb");
+      $D.off("keydown.fb .fb-idle");
+
+      this.$refs.container.off(".fb-close .fb-prev .fb-next");
+
+      if (self.idleInterval) {
+        window.clearInterval(self.idleInterval);
+
+        self.idleInterval = null;
+      }
+    },
+
+    // Change to previous gallery item
+    // ===============================
+
+    previous: function (duration) {
+      return this.jumpTo(this.currPos - 1, duration);
+    },
+
+    // Change to next gallery item
+    // ===========================
+
+    next: function (duration) {
+      return this.jumpTo(this.currPos + 1, duration);
+    },
+
+    // Switch to selected gallery item
+    // ===============================
+
+    jumpTo: function (pos, duration) {
+      var self = this,
+        groupLen = self.group.length,
+        firstRun,
+        isMoved,
+        loop,
+        current,
+        previous,
+        slidePos,
+        stagePos,
+        prop,
+        diff;
+
+      if (self.isDragging || self.isClosing || (self.isAnimating && self.firstRun)) {
+        return;
+      }
+
+      // Should loop?
+      pos = parseInt(pos, 10);
+      loop = self.current ? self.current.opts.loop : self.opts.loop;
+
+      if (!loop && (pos < 0 || pos >= groupLen)) {
+        return false;
+      }
+
+      // Check if opening for the first time; this helps to speed things up
+      firstRun = self.firstRun = !Object.keys(self.slides).length;
+
+      // Create slides
+      previous = self.current;
+
+      self.prevIndex = self.currIndex;
+      self.prevPos = self.currPos;
+
+      current = self.createSlide(pos);
+
+      if (groupLen > 1) {
+        if (loop || current.index < groupLen - 1) {
+          self.createSlide(pos + 1);
+        }
+
+        if (loop || current.index > 0) {
+          self.createSlide(pos - 1);
+        }
+      }
+
+      self.current = current;
+      self.currIndex = current.index;
+      self.currPos = current.pos;
+
+      self.trigger("beforeShow", firstRun);
+
+      self.updateControls();
+
+      // Validate duration length
+      current.forcedDuration = undefined;
+
+      if ($.isNumeric(duration)) {
+        current.forcedDuration = duration;
+      } else {
+        duration = current.opts[firstRun ? "animationDuration" : "transitionDuration"];
+      }
+
+      duration = parseInt(duration, 10);
+
+      // Check if user has swiped the slides or if still animating
+      isMoved = self.isMoved(current);
+
+      // Make sure current slide is visible
+      current.$slide.addClass("fancybox-slide--current");
+
+      // Fresh start - reveal container, current slide and start loading content
+      if (firstRun) {
+        if (current.opts.animationEffect && duration) {
+          self.$refs.container.css("transition-duration", duration + "ms");
+        }
+
+        self.$refs.container.addClass("fancybox-is-open").trigger("focus");
+
+        // Attempt to load content into slide
+        // This will later call `afterLoad` -> `revealContent`
+        self.loadSlide(current);
+
+        self.preload("image");
+
+        return;
+      }
+
+      // Get actual slide/stage positions (before cleaning up)
+      slidePos = $.fancybox.getTranslate(previous.$slide);
+      stagePos = $.fancybox.getTranslate(self.$refs.stage);
+
+      // Clean up all slides
+      $.each(self.slides, function (index, slide) {
+        $.fancybox.stop(slide.$slide, true);
+      });
+
+      if (previous.pos !== current.pos) {
+        previous.isComplete = false;
+      }
+
+      previous.$slide.removeClass("fancybox-slide--complete fancybox-slide--current");
+
+      // If slides are out of place, then animate them to correct position
+      if (isMoved) {
+        // Calculate horizontal swipe distance
+        diff = slidePos.left - (previous.pos * slidePos.width + previous.pos * previous.opts.gutter);
+
+        $.each(self.slides, function (index, slide) {
+          slide.$slide.removeClass("fancybox-animated").removeClass(function (index, className) {
+            return (className.match(/(^|\s)fancybox-fx-\S+/g) || []).join(" ");
+          });
+
+          // Make sure that each slide is in equal distance
+          // This is mostly needed for freshly added slides, because they are not yet positioned
+          var leftPos = slide.pos * slidePos.width + slide.pos * slide.opts.gutter;
+
+          $.fancybox.setTranslate(slide.$slide, {
+            top: 0,
+            left: leftPos - stagePos.left + diff
+          });
+
+          if (slide.pos !== current.pos) {
+            slide.$slide.addClass("fancybox-slide--" + (slide.pos > current.pos ? "next" : "previous"));
+          }
+
+          // Redraw to make sure that transition will start
+          forceRedraw(slide.$slide);
+
+          // Animate the slide
+          $.fancybox.animate(
+            slide.$slide, {
+              top: 0,
+              left: (slide.pos - current.pos) * slidePos.width + (slide.pos - current.pos) * slide.opts.gutter
+            },
+            duration,
+            function () {
+              slide.$slide
+                .css({
+                  transform: "",
+                  opacity: ""
+                })
+                .removeClass("fancybox-slide--next fancybox-slide--previous");
+
+              if (slide.pos === self.currPos) {
+                self.complete();
+              }
+            }
+          );
+        });
+      } else if (duration && current.opts.transitionEffect) {
+        // Set transition effect for previously active slide
+        prop = "fancybox-animated fancybox-fx-" + current.opts.transitionEffect;
+
+        previous.$slide.addClass("fancybox-slide--" + (previous.pos > current.pos ? "next" : "previous"));
+
+        $.fancybox.animate(
+          previous.$slide,
+          prop,
+          duration,
+          function () {
+            previous.$slide.removeClass(prop).removeClass("fancybox-slide--next fancybox-slide--previous");
+          },
+          false
+        );
+      }
+
+      if (current.isLoaded) {
+        self.revealContent(current);
+      } else {
+        self.loadSlide(current);
+      }
+
+      self.preload("image");
+    },
+
+    // Create new "slide" element
+    // These are gallery items  that are actually added to DOM
+    // =======================================================
+
+    createSlide: function (pos) {
+      var self = this,
+        $slide,
+        index;
+
+      index = pos % self.group.length;
+      index = index < 0 ? self.group.length + index : index;
+
+      if (!self.slides[pos] && self.group[index]) {
+        $slide = $('<div class="fancybox-slide"></div>').appendTo(self.$refs.stage);
+
+        self.slides[pos] = $.extend(true, {}, self.group[index], {
+          pos: pos,
+          $slide: $slide,
+          isLoaded: false
+        });
+
+        self.updateSlide(self.slides[pos]);
+      }
+
+      return self.slides[pos];
+    },
+
+    // Scale image to the actual size of the image;
+    // x and y values should be relative to the slide
+    // ==============================================
+
+    scaleToActual: function (x, y, duration) {
+      var self = this,
+        current = self.current,
+        $content = current.$content,
+        canvasWidth = $.fancybox.getTranslate(current.$slide).width,
+        canvasHeight = $.fancybox.getTranslate(current.$slide).height,
+        newImgWidth = current.width,
+        newImgHeight = current.height,
+        imgPos,
+        posX,
+        posY,
+        scaleX,
+        scaleY;
+
+      if (self.isAnimating || self.isMoved() || !$content || !(current.type == "image" && current.isLoaded && !current.hasError)) {
+        return;
+      }
+
+      self.isAnimating = true;
+
+      $.fancybox.stop($content);
+
+      x = x === undefined ? canvasWidth * 0.5 : x;
+      y = y === undefined ? canvasHeight * 0.5 : y;
+
+      imgPos = $.fancybox.getTranslate($content);
+
+      imgPos.top -= $.fancybox.getTranslate(current.$slide).top;
+      imgPos.left -= $.fancybox.getTranslate(current.$slide).left;
+
+      scaleX = newImgWidth / imgPos.width;
+      scaleY = newImgHeight / imgPos.height;
+
+      // Get center position for original image
+      posX = canvasWidth * 0.5 - newImgWidth * 0.5;
+      posY = canvasHeight * 0.5 - newImgHeight * 0.5;
+
+      // Make sure image does not move away from edges
+      if (newImgWidth > canvasWidth) {
+        posX = imgPos.left * scaleX - (x * scaleX - x);
+
+        if (posX > 0) {
+          posX = 0;
+        }
+
+        if (posX < canvasWidth - newImgWidth) {
+          posX = canvasWidth - newImgWidth;
+        }
+      }
+
+      if (newImgHeight > canvasHeight) {
+        posY = imgPos.top * scaleY - (y * scaleY - y);
+
+        if (posY > 0) {
+          posY = 0;
+        }
+
+        if (posY < canvasHeight - newImgHeight) {
+          posY = canvasHeight - newImgHeight;
+        }
+      }
+
+      self.updateCursor(newImgWidth, newImgHeight);
+
+      $.fancybox.animate(
+        $content, {
+          top: posY,
+          left: posX,
+          scaleX: scaleX,
+          scaleY: scaleY
+        },
+        duration || 366,
+        function () {
+          self.isAnimating = false;
+        }
+      );
+
+      // Stop slideshow
+      if (self.SlideShow && self.SlideShow.isActive) {
+        self.SlideShow.stop();
+      }
+    },
+
+    // Scale image to fit inside parent element
+    // ========================================
+
+    scaleToFit: function (duration) {
+      var self = this,
+        current = self.current,
+        $content = current.$content,
+        end;
+
+      if (self.isAnimating || self.isMoved() || !$content || !(current.type == "image" && current.isLoaded && !current.hasError)) {
+        return;
+      }
+
+      self.isAnimating = true;
+
+      $.fancybox.stop($content);
+
+      end = self.getFitPos(current);
+
+      self.updateCursor(end.width, end.height);
+
+      $.fancybox.animate(
+        $content, {
+          top: end.top,
+          left: end.left,
+          scaleX: end.width / $content.width(),
+          scaleY: end.height / $content.height()
+        },
+        duration || 366,
+        function () {
+          self.isAnimating = false;
+        }
+      );
+    },
+
+    // Calculate image size to fit inside viewport
+    // ===========================================
+
+    getFitPos: function (slide) {
+      var self = this,
+        $content = slide.$content,
+        $slide = slide.$slide,
+        width = slide.width || slide.opts.width,
+        height = slide.height || slide.opts.height,
+        maxWidth,
+        maxHeight,
+        minRatio,
+        aspectRatio,
+        rez = {};
+
+      if (!slide.isLoaded || !$content || !$content.length) {
+        return false;
+      }
+
+      maxWidth = $.fancybox.getTranslate(self.$refs.stage).width;
+      maxHeight = $.fancybox.getTranslate(self.$refs.stage).height;
+
+      maxWidth -=
+        parseFloat($slide.css("paddingLeft")) +
+        parseFloat($slide.css("paddingRight")) +
+        parseFloat($content.css("marginLeft")) +
+        parseFloat($content.css("marginRight"));
+
+      maxHeight -=
+        parseFloat($slide.css("paddingTop")) +
+        parseFloat($slide.css("paddingBottom")) +
+        parseFloat($content.css("marginTop")) +
+        parseFloat($content.css("marginBottom"));
+
+      if (!width || !height) {
+        width = maxWidth;
+        height = maxHeight;
+      }
+
+      minRatio = Math.min(1, maxWidth / width, maxHeight / height);
+
+      width = minRatio * width;
+      height = minRatio * height;
+
+      // Adjust width/height to precisely fit into container
+      if (width > maxWidth - 0.5) {
+        width = maxWidth;
+      }
+
+      if (height > maxHeight - 0.5) {
+        height = maxHeight;
+      }
+
+      if (slide.type === "image") {
+        rez.top = Math.floor((maxHeight - height) * 0.5) + parseFloat($slide.css("paddingTop"));
+        rez.left = Math.floor((maxWidth - width) * 0.5) + parseFloat($slide.css("paddingLeft"));
+      } else if (slide.contentType === "video") {
+        // Force aspect ratio for the video
+        // "I say the whole world must learn of our peaceful ways… by force!"
+        aspectRatio = slide.opts.width && slide.opts.height ? width / height : slide.opts.ratio || 16 / 9;
+
+        if (height > width / aspectRatio) {
+          height = width / aspectRatio;
+        } else if (width > height * aspectRatio) {
+          width = height * aspectRatio;
+        }
+      }
+
+      rez.width = width;
+      rez.height = height;
+
+      return rez;
+    },
+
+    // Update content size and position for all slides
+    // ==============================================
+
+    update: function (e) {
+      var self = this;
+
+      $.each(self.slides, function (key, slide) {
+        self.updateSlide(slide, e);
+      });
+    },
+
+    // Update slide content position and size
+    // ======================================
+
+    updateSlide: function (slide, e) {
+      var self = this,
+        $content = slide && slide.$content,
+        width = slide.width || slide.opts.width,
+        height = slide.height || slide.opts.height,
+        $slide = slide.$slide;
+
+      // First, prevent caption overlap, if needed
+      self.adjustCaption(slide);
+
+      // Then resize content to fit inside the slide
+      if ($content && (width || height || slide.contentType === "video") && !slide.hasError) {
+        $.fancybox.stop($content);
+
+        $.fancybox.setTranslate($content, self.getFitPos(slide));
+
+        if (slide.pos === self.currPos) {
+          self.isAnimating = false;
+
+          self.updateCursor();
+        }
+      }
+
+      // Then some adjustments
+      self.adjustLayout(slide);
+
+      if ($slide.length) {
+        $slide.trigger("refresh");
+
+        if (slide.pos === self.currPos) {
+          self.$refs.toolbar
+            .add(self.$refs.navigation.find(".fancybox-button--arrow_right"))
+            .toggleClass("compensate-for-scrollbar", $slide.get(0).scrollHeight > $slide.get(0).clientHeight);
+        }
+      }
+
+      self.trigger("onUpdate", slide, e);
+    },
+
+    // Horizontally center slide
+    // =========================
+
+    centerSlide: function (duration) {
+      var self = this,
+        current = self.current,
+        $slide = current.$slide;
+
+      if (self.isClosing || !current) {
+        return;
+      }
+
+      $slide.siblings().css({
+        transform: "",
+        opacity: ""
+      });
+
+      $slide
+        .parent()
+        .children()
+        .removeClass("fancybox-slide--previous fancybox-slide--next");
+
+      $.fancybox.animate(
+        $slide, {
+          top: 0,
+          left: 0,
+          opacity: 1
+        },
+        duration === undefined ? 0 : duration,
+        function () {
+          // Clean up
+          $slide.css({
+            transform: "",
+            opacity: ""
+          });
+
+          if (!current.isComplete) {
+            self.complete();
+          }
+        },
+        false
+      );
+    },
+
+    // Check if current slide is moved (swiped)
+    // ========================================
+
+    isMoved: function (slide) {
+      var current = slide || this.current,
+        slidePos,
+        stagePos;
+
+      if (!current) {
+        return false;
+      }
+
+      stagePos = $.fancybox.getTranslate(this.$refs.stage);
+      slidePos = $.fancybox.getTranslate(current.$slide);
+
+      return (
+        !current.$slide.hasClass("fancybox-animated") &&
+        (Math.abs(slidePos.top - stagePos.top) > 0.5 || Math.abs(slidePos.left - stagePos.left) > 0.5)
+      );
+    },
+
+    // Update cursor style depending if content can be zoomed
+    // ======================================================
+
+    updateCursor: function (nextWidth, nextHeight) {
+      var self = this,
+        current = self.current,
+        $container = self.$refs.container,
+        canPan,
+        isZoomable;
+
+      if (!current || self.isClosing || !self.Guestures) {
+        return;
+      }
+
+      $container.removeClass("fancybox-is-zoomable fancybox-can-zoomIn fancybox-can-zoomOut fancybox-can-swipe fancybox-can-pan");
+
+      canPan = self.canPan(nextWidth, nextHeight);
+
+      isZoomable = canPan ? true : self.isZoomable();
+
+      $container.toggleClass("fancybox-is-zoomable", isZoomable);
+
+      $("[data-fancybox-zoom]").prop("disabled", !isZoomable);
+
+      if (canPan) {
+        $container.addClass("fancybox-can-pan");
+      } else if (
+        isZoomable &&
+        (current.opts.clickContent === "zoom" || ($.isFunction(current.opts.clickContent) && current.opts.clickContent(current) == "zoom"))
+      ) {
+        $container.addClass("fancybox-can-zoomIn");
+      } else if (current.opts.touch && (current.opts.touch.vertical || self.group.length > 1) && current.contentType !== "video") {
+        $container.addClass("fancybox-can-swipe");
+      }
+    },
+
+    // Check if current slide is zoomable
+    // ==================================
+
+    isZoomable: function () {
+      var self = this,
+        current = self.current,
+        fitPos;
+
+      // Assume that slide is zoomable if:
+      //   - image is still loading
+      //   - actual size of the image is smaller than available area
+      if (current && !self.isClosing && current.type === "image" && !current.hasError) {
+        if (!current.isLoaded) {
+          return true;
+        }
+
+        fitPos = self.getFitPos(current);
+
+        if (fitPos && (current.width > fitPos.width || current.height > fitPos.height)) {
+          return true;
+        }
+      }
+
+      return false;
+    },
+
+    // Check if current image dimensions are smaller than actual
+    // =========================================================
+
+    isScaledDown: function (nextWidth, nextHeight) {
+      var self = this,
+        rez = false,
+        current = self.current,
+        $content = current.$content;
+
+      if (nextWidth !== undefined && nextHeight !== undefined) {
+        rez = nextWidth < current.width && nextHeight < current.height;
+      } else if ($content) {
+        rez = $.fancybox.getTranslate($content);
+        rez = rez.width < current.width && rez.height < current.height;
+      }
+
+      return rez;
+    },
+
+    // Check if image dimensions exceed parent element
+    // ===============================================
+
+    canPan: function (nextWidth, nextHeight) {
+      var self = this,
+        current = self.current,
+        pos = null,
+        rez = false;
+
+      if (current.type === "image" && (current.isComplete || (nextWidth && nextHeight)) && !current.hasError) {
+        rez = self.getFitPos(current);
+
+        if (nextWidth !== undefined && nextHeight !== undefined) {
+          pos = {
+            width: nextWidth,
+            height: nextHeight
+          };
+        } else if (current.isComplete) {
+          pos = $.fancybox.getTranslate(current.$content);
+        }
+
+        if (pos && rez) {
+          rez = Math.abs(pos.width - rez.width) > 1.5 || Math.abs(pos.height - rez.height) > 1.5;
+        }
+      }
+
+      return rez;
+    },
+
+    // Load content into the slide
+    // ===========================
+
+    loadSlide: function (slide) {
+      var self = this,
+        type,
+        $slide,
+        ajaxLoad;
+
+      if (slide.isLoading || slide.isLoaded) {
+        return;
+      }
+
+      slide.isLoading = true;
+
+      if (self.trigger("beforeLoad", slide) === false) {
+        slide.isLoading = false;
+
+        return false;
+      }
+
+      type = slide.type;
+      $slide = slide.$slide;
+
+      $slide
+        .off("refresh")
+        .trigger("onReset")
+        .addClass(slide.opts.slideClass);
+
+      // Create content depending on the type
+      switch (type) {
+        case "image":
+          self.setImage(slide);
+
+          break;
+
+        case "iframe":
+          self.setIframe(slide);
+
+          break;
+
+        case "html":
+          self.setContent(slide, slide.src || slide.content);
+
+          break;
+
+        case "video":
+          self.setContent(
+            slide,
+            slide.opts.video.tpl
+            .replace(/\{\{src\}\}/gi, slide.src)
+            .replace("{{format}}", slide.opts.videoFormat || slide.opts.video.format || "")
+            .replace("{{poster}}", slide.thumb || "")
+          );
+
+          break;
+
+        case "inline":
+          if ($(slide.src).length) {
+            self.setContent(slide, $(slide.src));
+          } else {
+            self.setError(slide);
+          }
+
+          break;
+
+        case "ajax":
+          self.showLoading(slide);
+
+          ajaxLoad = $.ajax(
+            $.extend({}, slide.opts.ajax.settings, {
+              url: slide.src,
+              success: function (data, textStatus) {
+                if (textStatus === "success") {
+                  self.setContent(slide, data);
+                }
+              },
+              error: function (jqXHR, textStatus) {
+                if (jqXHR && textStatus !== "abort") {
+                  self.setError(slide);
+                }
+              }
+            })
+          );
+
+          $slide.one("onReset", function () {
+            ajaxLoad.abort();
+          });
+
+          break;
+
+        default:
+          self.setError(slide);
+
+          break;
+      }
+
+      return true;
+    },
+
+    // Use thumbnail image, if possible
+    // ================================
+
+    setImage: function (slide) {
+      var self = this,
+        ghost;
+
+      // Check if need to show loading icon
+      setTimeout(function () {
+        var $img = slide.$image;
+
+        if (!self.isClosing && slide.isLoading && (!$img || !$img.length || !$img[0].complete) && !slide.hasError) {
+          self.showLoading(slide);
+        }
+      }, 50);
+
+      //Check if image has srcset
+      self.checkSrcset(slide);
+
+      // This will be wrapper containing both ghost and actual image
+      slide.$content = $('<div class="fancybox-content"></div>')
+        .addClass("fancybox-is-hidden")
+        .appendTo(slide.$slide.addClass("fancybox-slide--image"));
+
+      // If we have a thumbnail, we can display it while actual image is loading
+      // Users will not stare at black screen and actual image will appear gradually
+      if (slide.opts.preload !== false && slide.opts.width && slide.opts.height && slide.thumb) {
+        slide.width = slide.opts.width;
+        slide.height = slide.opts.height;
+
+        ghost = document.createElement("img");
+
+        ghost.onerror = function () {
+          $(this).remove();
+
+          slide.$ghost = null;
+        };
+
+        ghost.onload = function () {
+          self.afterLoad(slide);
+        };
+
+        slide.$ghost = $(ghost)
+          .addClass("fancybox-image")
+          .appendTo(slide.$content)
+          .attr("src", slide.thumb);
+      }
+
+      // Start loading actual image
+      self.setBigImage(slide);
+    },
+
+    // Check if image has srcset and get the source
+    // ============================================
+    checkSrcset: function (slide) {
+      var srcset = slide.opts.srcset || slide.opts.image.srcset,
+        found,
+        temp,
+        pxRatio,
+        windowWidth;
+
+      // If we have "srcset", then we need to find first matching "src" value.
+      // This is necessary, because when you set an src attribute, the browser will preload the image
+      // before any javascript or even CSS is applied.
+      if (srcset) {
+        pxRatio = window.devicePixelRatio || 1;
+        windowWidth = window.innerWidth * pxRatio;
+
+        temp = srcset.split(",").map(function (el) {
+          var ret = {};
+
+          el.trim()
+            .split(/\s+/)
+            .forEach(function (el, i) {
+              var value = parseInt(el.substring(0, el.length - 1), 10);
+
+              if (i === 0) {
+                return (ret.url = el);
+              }
+
+              if (value) {
+                ret.value = value;
+                ret.postfix = el[el.length - 1];
+              }
+            });
+
+          return ret;
+        });
+
+        // Sort by value
+        temp.sort(function (a, b) {
+          return a.value - b.value;
+        });
+
+        // Ok, now we have an array of all srcset values
+        for (var j = 0; j < temp.length; j++) {
+          var el = temp[j];
+
+          if ((el.postfix === "w" && el.value >= windowWidth) || (el.postfix === "x" && el.value >= pxRatio)) {
+            found = el;
+            break;
+          }
+        }
+
+        // If not found, take the last one
+        if (!found && temp.length) {
+          found = temp[temp.length - 1];
+        }
+
+        if (found) {
+          slide.src = found.url;
+
+          // If we have default width/height values, we can calculate height for matching source
+          if (slide.width && slide.height && found.postfix == "w") {
+            slide.height = (slide.width / slide.height) * found.value;
+            slide.width = found.value;
+          }
+
+          slide.opts.srcset = srcset;
+        }
+      }
+    },
+
+    // Create full-size image
+    // ======================
+
+    setBigImage: function (slide) {
+      var self = this,
+        img = document.createElement("img"),
+        $img = $(img);
+
+      slide.$image = $img
+        .one("error", function () {
+          self.setError(slide);
+        })
+        .one("load", function () {
+          var sizes;
+
+          if (!slide.$ghost) {
+            self.resolveImageSlideSize(slide, this.naturalWidth, this.naturalHeight);
+
+            self.afterLoad(slide);
+          }
+
+          if (self.isClosing) {
+            return;
+          }
+
+          if (slide.opts.srcset) {
+            sizes = slide.opts.sizes;
+
+            if (!sizes || sizes === "auto") {
+              sizes =
+                (slide.width / slide.height > 1 && $W.width() / $W.height() > 1 ? "100" : Math.round((slide.width / slide.height) * 100)) +
+                "vw";
+            }
+
+            $img.attr("sizes", sizes).attr("srcset", slide.opts.srcset);
+          }
+
+          // Hide temporary image after some delay
+          if (slide.$ghost) {
+            setTimeout(function () {
+              if (slide.$ghost && !self.isClosing) {
+                slide.$ghost.hide();
+              }
+            }, Math.min(300, Math.max(1000, slide.height / 1600)));
+          }
+
+          self.hideLoading(slide);
+        })
+        .addClass("fancybox-image")
+        .attr("src", slide.src)
+        .appendTo(slide.$content);
+
+      if ((img.complete || img.readyState == "complete") && $img.naturalWidth && $img.naturalHeight) {
+        $img.trigger("load");
+      } else if (img.error) {
+        $img.trigger("error");
+      }
+    },
+
+    // Computes the slide size from image size and maxWidth/maxHeight
+    // ==============================================================
+
+    resolveImageSlideSize: function (slide, imgWidth, imgHeight) {
+      var maxWidth = parseInt(slide.opts.width, 10),
+        maxHeight = parseInt(slide.opts.height, 10);
+
+      // Sets the default values from the image
+      slide.width = imgWidth;
+      slide.height = imgHeight;
+
+      if (maxWidth > 0) {
+        slide.width = maxWidth;
+        slide.height = Math.floor((maxWidth * imgHeight) / imgWidth);
+      }
+
+      if (maxHeight > 0) {
+        slide.width = Math.floor((maxHeight * imgWidth) / imgHeight);
+        slide.height = maxHeight;
+      }
+    },
+
+    // Create iframe wrapper, iframe and bindings
+    // ==========================================
+
+    setIframe: function (slide) {
+      var self = this,
+        opts = slide.opts.iframe,
+        $slide = slide.$slide,
+        $iframe;
+
+      slide.$content = $('<div class="fancybox-content' + (opts.preload ? " fancybox-is-hidden" : "") + '"></div>')
+        .css(opts.css)
+        .appendTo($slide);
+
+      $slide.addClass("fancybox-slide--" + slide.contentType);
+
+      slide.$iframe = $iframe = $(opts.tpl.replace(/\{rnd\}/g, new Date().getTime()))
+        .attr(opts.attr)
+        .appendTo(slide.$content);
+
+      if (opts.preload) {
+        self.showLoading(slide);
+
+        // Unfortunately, it is not always possible to determine if iframe is successfully loaded
+        // (due to browser security policy)
+
+        $iframe.on("load.fb error.fb", function (e) {
+          this.isReady = 1;
+
+          slide.$slide.trigger("refresh");
+
+          self.afterLoad(slide);
+        });
+
+        // Recalculate iframe content size
+        // ===============================
+
+        $slide.on("refresh.fb", function () {
+          var $content = slide.$content,
+            frameWidth = opts.css.width,
+            frameHeight = opts.css.height,
+            $contents,
+            $body;
+
+          if ($iframe[0].isReady !== 1) {
+            return;
+          }
+
+          try {
+            $contents = $iframe.contents();
+            $body = $contents.find("body");
+          } catch (ignore) {}
+
+          // Calculate content dimensions, if it is accessible
+          if ($body && $body.length && $body.children().length) {
+            // Avoid scrolling to top (if multiple instances)
+            $slide.css("overflow", "visible");
+
+            $content.css({
+              width: "100%",
+              "max-width": "100%",
+              height: "9999px"
+            });
+
+            if (frameWidth === undefined) {
+              frameWidth = Math.ceil(Math.max($body[0].clientWidth, $body.outerWidth(true)));
+            }
+
+            $content.css("width", frameWidth ? frameWidth : "").css("max-width", "");
+
+            if (frameHeight === undefined) {
+              frameHeight = Math.ceil(Math.max($body[0].clientHeight, $body.outerHeight(true)));
+            }
+
+            $content.css("height", frameHeight ? frameHeight : "");
+
+            $slide.css("overflow", "auto");
+          }
+
+          $content.removeClass("fancybox-is-hidden");
+        });
+      } else {
+        self.afterLoad(slide);
+      }
+
+      $iframe.attr("src", slide.src);
+
+      // Remove iframe if closing or changing gallery item
+      $slide.one("onReset", function () {
+        // This helps IE not to throw errors when closing
+        try {
+          $(this)
+            .find("iframe")
+            .hide()
+            .unbind()
+            .attr("src", "//about:blank");
+        } catch (ignore) {}
+
+        $(this)
+          .off("refresh.fb")
+          .empty();
+
+        slide.isLoaded = false;
+        slide.isRevealed = false;
+      });
+    },
+
+    // Wrap and append content to the slide
+    // ======================================
+
+    setContent: function (slide, content) {
+      var self = this;
+
+      if (self.isClosing) {
+        return;
+      }
+
+      self.hideLoading(slide);
+
+      if (slide.$content) {
+        $.fancybox.stop(slide.$content);
+      }
+
+      slide.$slide.empty();
+
+      // If content is a jQuery object, then it will be moved to the slide.
+      // The placeholder is created so we will know where to put it back.
+      if (isQuery(content) && content.parent().length) {
+        // Make sure content is not already moved to fancyBox
+        if (content.hasClass("fancybox-content") || content.parent().hasClass("fancybox-content")) {
+          content.parents(".fancybox-slide").trigger("onReset");
+        }
+
+        // Create temporary element marking original place of the content
+        slide.$placeholder = $("<div>")
+          .hide()
+          .insertAfter(content);
+
+        // Make sure content is visible
+        content.css("display", "inline-block");
+      } else if (!slide.hasError) {
+        // If content is just a plain text, try to convert it to html
+        if ($.type(content) === "string") {
+          content = $("<div>")
+            .append($.trim(content))
+            .contents();
+        }
+
+        // If "filter" option is provided, then filter content
+        if (slide.opts.filter) {
+          content = $("<div>")
+            .html(content)
+            .find(slide.opts.filter);
+        }
+      }
+
+      slide.$slide.one("onReset", function () {
+        // Pause all html5 video/audio
+        $(this)
+          .find("video,audio")
+          .trigger("pause");
+
+        // Put content back
+        if (slide.$placeholder) {
+          slide.$placeholder.after(content.removeClass("fancybox-content").hide()).remove();
+
+          slide.$placeholder = null;
+        }
+
+        // Remove custom close button
+        if (slide.$smallBtn) {
+          slide.$smallBtn.remove();
+
+          slide.$smallBtn = null;
+        }
+
+        // Remove content and mark slide as not loaded
+        if (!slide.hasError) {
+          $(this).empty();
+
+          slide.isLoaded = false;
+          slide.isRevealed = false;
+        }
+      });
+
+      $(content).appendTo(slide.$slide);
+
+      if ($(content).is("video,audio")) {
+        $(content).addClass("fancybox-video");
+
+        $(content).wrap("<div></div>");
+
+        slide.contentType = "video";
+
+        slide.opts.width = slide.opts.width || $(content).attr("width");
+        slide.opts.height = slide.opts.height || $(content).attr("height");
+      }
+
+      slide.$content = slide.$slide
+        .children()
+        .filter("div,form,main,video,audio,article,.fancybox-content")
+        .first();
+
+      slide.$content.siblings().hide();
+
+      // Re-check if there is a valid content
+      // (in some cases, ajax response can contain various elements or plain text)
+      if (!slide.$content.length) {
+        slide.$content = slide.$slide
+          .wrapInner("<div></div>")
+          .children()
+          .first();
+      }
+
+      slide.$content.addClass("fancybox-content");
+
+      slide.$slide.addClass("fancybox-slide--" + slide.contentType);
+
+      self.afterLoad(slide);
+    },
+
+    // Display error message
+    // =====================
+
+    setError: function (slide) {
+      slide.hasError = true;
+
+      slide.$slide
+        .trigger("onReset")
+        .removeClass("fancybox-slide--" + slide.contentType)
+        .addClass("fancybox-slide--error");
+
+      slide.contentType = "html";
+
+      this.setContent(slide, this.translate(slide, slide.opts.errorTpl));
+
+      if (slide.pos === this.currPos) {
+        this.isAnimating = false;
+      }
+    },
+
+    // Show loading icon inside the slide
+    // ==================================
+
+    showLoading: function (slide) {
+      var self = this;
+
+      slide = slide || self.current;
+
+      if (slide && !slide.$spinner) {
+        slide.$spinner = $(self.translate(self, self.opts.spinnerTpl))
+          .appendTo(slide.$slide)
+          .hide()
+          .fadeIn("fast");
+      }
+    },
+
+    // Remove loading icon from the slide
+    // ==================================
+
+    hideLoading: function (slide) {
+      var self = this;
+
+      slide = slide || self.current;
+
+      if (slide && slide.$spinner) {
+        slide.$spinner.stop().remove();
+
+        delete slide.$spinner;
+      }
+    },
+
+    // Adjustments after slide content has been loaded
+    // ===============================================
+
+    afterLoad: function (slide) {
+      var self = this;
+
+      if (self.isClosing) {
+        return;
+      }
+
+      slide.isLoading = false;
+      slide.isLoaded = true;
+
+      self.trigger("afterLoad", slide);
+
+      self.hideLoading(slide);
+
+      // Add small close button
+      if (slide.opts.smallBtn && (!slide.$smallBtn || !slide.$smallBtn.length)) {
+        slide.$smallBtn = $(self.translate(slide, slide.opts.btnTpl.smallBtn)).appendTo(slide.$content);
+      }
+
+      // Disable right click
+      if (slide.opts.protect && slide.$content && !slide.hasError) {
+        slide.$content.on("contextmenu.fb", function (e) {
+          if (e.button == 2) {
+            e.preventDefault();
+          }
+
+          return true;
+        });
+
+        // Add fake element on top of the image
+        // This makes a bit harder for user to select image
+        if (slide.type === "image") {
+          $('<div class="fancybox-spaceball"></div>').appendTo(slide.$content);
+        }
+      }
+
+      self.adjustCaption(slide);
+
+      self.adjustLayout(slide);
+
+      if (slide.pos === self.currPos) {
+        self.updateCursor();
+      }
+
+      self.revealContent(slide);
+    },
+
+    // Prevent caption overlap,
+    // fix css inconsistency across browsers
+    // =====================================
+
+    adjustCaption: function (slide) {
+      var self = this,
+        current = slide || self.current,
+        caption = current.opts.caption,
+        preventOverlap = current.opts.preventCaptionOverlap,
+        $caption = self.$refs.caption,
+        $clone,
+        captionH = false;
+
+      $caption.toggleClass("fancybox-caption--separate", preventOverlap);
+
+      if (preventOverlap && caption && caption.length) {
+        if (current.pos !== self.currPos) {
+          $clone = $caption.clone().appendTo($caption.parent());
+
+          $clone
+            .children()
+            .eq(0)
+            .empty()
+            .html(caption);
+
+          captionH = $clone.outerHeight(true);
+
+          $clone.empty().remove();
+        } else if (self.$caption) {
+          captionH = self.$caption.outerHeight(true);
+        }
+
+        current.$slide.css("padding-bottom", captionH || "");
+      }
+    },
+
+    // Simple hack to fix inconsistency across browsers, described here (affects Edge, too):
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=748518
+    // ====================================================================================
+
+    adjustLayout: function (slide) {
+      var self = this,
+        current = slide || self.current,
+        scrollHeight,
+        marginBottom,
+        inlinePadding,
+        actualPadding;
+
+      if (current.isLoaded && current.opts.disableLayoutFix !== true) {
+        current.$content.css("margin-bottom", "");
+
+        // If we would always set margin-bottom for the content,
+        // then it would potentially break vertical align
+        if (current.$content.outerHeight() > current.$slide.height() + 0.5) {
+          inlinePadding = current.$slide[0].style["padding-bottom"];
+          actualPadding = current.$slide.css("padding-bottom");
+
+          if (parseFloat(actualPadding) > 0) {
+            scrollHeight = current.$slide[0].scrollHeight;
+
+            current.$slide.css("padding-bottom", 0);
+
+            if (Math.abs(scrollHeight - current.$slide[0].scrollHeight) < 1) {
+              marginBottom = actualPadding;
+            }
+
+            current.$slide.css("padding-bottom", inlinePadding);
+          }
+        }
+
+        current.$content.css("margin-bottom", marginBottom);
+      }
+    },
+
+    // Make content visible
+    // This method is called right after content has been loaded or
+    // user navigates gallery and transition should start
+    // ============================================================
+
+    revealContent: function (slide) {
+      var self = this,
+        $slide = slide.$slide,
+        end = false,
+        start = false,
+        isMoved = self.isMoved(slide),
+        isRevealed = slide.isRevealed,
+        effect,
+        effectClassName,
+        duration,
+        opacity;
+
+      slide.isRevealed = true;
+
+      effect = slide.opts[self.firstRun ? "animationEffect" : "transitionEffect"];
+      duration = slide.opts[self.firstRun ? "animationDuration" : "transitionDuration"];
+
+      duration = parseInt(slide.forcedDuration === undefined ? duration : slide.forcedDuration, 10);
+
+      if (isMoved || slide.pos !== self.currPos || !duration) {
+        effect = false;
+      }
+
+      // Check if can zoom
+      if (effect === "zoom") {
+        if (slide.pos === self.currPos && duration && slide.type === "image" && !slide.hasError && (start = self.getThumbPos(slide))) {
+          end = self.getFitPos(slide);
+        } else {
+          effect = "fade";
+        }
+      }
+
+      // Zoom animation
+      // ==============
+      if (effect === "zoom") {
+        self.isAnimating = true;
+
+        end.scaleX = end.width / start.width;
+        end.scaleY = end.height / start.height;
+
+        // Check if we need to animate opacity
+        opacity = slide.opts.zoomOpacity;
+
+        if (opacity == "auto") {
+          opacity = Math.abs(slide.width / slide.height - start.width / start.height) > 0.1;
+        }
+
+        if (opacity) {
+          start.opacity = 0.1;
+          end.opacity = 1;
+        }
+
+        // Draw image at start position
+        $.fancybox.setTranslate(slide.$content.removeClass("fancybox-is-hidden"), start);
+
+        forceRedraw(slide.$content);
+
+        // Start animation
+        $.fancybox.animate(slide.$content, end, duration, function () {
+          self.isAnimating = false;
+
+          self.complete();
+        });
+
+        return;
+      }
+
+      self.updateSlide(slide);
+
+      // Simply show content if no effect
+      // ================================
+      if (!effect) {
+        slide.$content.removeClass("fancybox-is-hidden");
+
+        if (!isRevealed && isMoved && slide.type === "image" && !slide.hasError) {
+          slide.$content.hide().fadeIn("fast");
+        }
+
+        if (slide.pos === self.currPos) {
+          self.complete();
+        }
+
+        return;
+      }
+
+      // Prepare for CSS transiton
+      // =========================
+      $.fancybox.stop($slide);
+
+      //effectClassName = "fancybox-animated fancybox-slide--" + (slide.pos >= self.prevPos ? "next" : "previous") + " fancybox-fx-" + effect;
+      effectClassName = "fancybox-slide--" + (slide.pos >= self.prevPos ? "next" : "previous") + " fancybox-animated fancybox-fx-" + effect;
+
+      $slide.addClass(effectClassName).removeClass("fancybox-slide--current"); //.addClass(effectClassName);
+
+      slide.$content.removeClass("fancybox-is-hidden");
+
+      // Force reflow
+      forceRedraw($slide);
+
+      if (slide.type !== "image") {
+        slide.$content.hide().show(0);
+      }
+
+      $.fancybox.animate(
+        $slide,
+        "fancybox-slide--current",
+        duration,
+        function () {
+          $slide.removeClass(effectClassName).css({
+            transform: "",
+            opacity: ""
+          });
+
+          if (slide.pos === self.currPos) {
+            self.complete();
+          }
+        },
+        true
+      );
+    },
+
+    // Check if we can and have to zoom from thumbnail
+    //================================================
+
+    getThumbPos: function (slide) {
+      var rez = false,
+        $thumb = slide.$thumb,
+        thumbPos,
+        btw,
+        brw,
+        bbw,
+        blw;
+
+      if (!$thumb || !inViewport($thumb[0])) {
+        return false;
+      }
+
+      thumbPos = $.fancybox.getTranslate($thumb);
+
+      btw = parseFloat($thumb.css("border-top-width") || 0);
+      brw = parseFloat($thumb.css("border-right-width") || 0);
+      bbw = parseFloat($thumb.css("border-bottom-width") || 0);
+      blw = parseFloat($thumb.css("border-left-width") || 0);
+
+      rez = {
+        top: thumbPos.top + btw,
+        left: thumbPos.left + blw,
+        width: thumbPos.width - brw - blw,
+        height: thumbPos.height - btw - bbw,
+        scaleX: 1,
+        scaleY: 1
+      };
+
+      return thumbPos.width > 0 && thumbPos.height > 0 ? rez : false;
+    },
+
+    // Final adjustments after current gallery item is moved to position
+    // and it`s content is loaded
+    // ==================================================================
+
+    complete: function () {
+      var self = this,
+        current = self.current,
+        slides = {},
+        $el;
+
+      if (self.isMoved() || !current.isLoaded) {
+        return;
+      }
+
+      if (!current.isComplete) {
+        current.isComplete = true;
+
+        current.$slide.siblings().trigger("onReset");
+
+        self.preload("inline");
+
+        // Trigger any CSS transiton inside the slide
+        forceRedraw(current.$slide);
+
+        current.$slide.addClass("fancybox-slide--complete");
+
+        // Remove unnecessary slides
+        $.each(self.slides, function (key, slide) {
+          if (slide.pos >= self.currPos - 1 && slide.pos <= self.currPos + 1) {
+            slides[slide.pos] = slide;
+          } else if (slide) {
+            $.fancybox.stop(slide.$slide);
+
+            slide.$slide.off().remove();
+          }
+        });
+
+        self.slides = slides;
+      }
+
+      self.isAnimating = false;
+
+      self.updateCursor();
+
+      self.trigger("afterShow");
+
+      // Autoplay first html5 video/audio
+      if (!!current.opts.video.autoStart) {
+        current.$slide
+          .find("video,audio")
+          .filter(":visible:first")
+          .trigger("play")
+          .one("ended", function () {
+            if (Document.exitFullscreen) {
+              Document.exitFullscreen();
+            } else if (this.webkitExitFullscreen) {
+              this.webkitExitFullscreen();
+            }
+
+            self.next();
+          });
+      }
+
+      // Try to focus on the first focusable element
+      if (current.opts.autoFocus && current.contentType === "html") {
+        // Look for the first input with autofocus attribute
+        $el = current.$content.find("input[autofocus]:enabled:visible:first");
+
+        if ($el.length) {
+          $el.trigger("focus");
+        } else {
+          self.focus(null, true);
+        }
+      }
+
+      // Avoid jumping
+      current.$slide.scrollTop(0).scrollLeft(0);
+    },
+
+    // Preload next and previous slides
+    // ================================
+
+    preload: function (type) {
+      var self = this,
+        prev,
+        next;
+
+      if (self.group.length < 2) {
+        return;
+      }
+
+      next = self.slides[self.currPos + 1];
+      prev = self.slides[self.currPos - 1];
+
+      if (prev && prev.type === type) {
+        self.loadSlide(prev);
+      }
+
+      if (next && next.type === type) {
+        self.loadSlide(next);
+      }
+    },
+
+    // Try to find and focus on the first focusable element
+    // ====================================================
+
+    focus: function (e, firstRun) {
+      var self = this,
+        focusableStr = [
+          "a[href]",
+          "area[href]",
+          'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
+          "select:not([disabled]):not([aria-hidden])",
+          "textarea:not([disabled]):not([aria-hidden])",
+          "button:not([disabled]):not([aria-hidden])",
+          "iframe",
+          "object",
+          "embed",
+          "video",
+          "audio",
+          "[contenteditable]",
+          '[tabindex]:not([tabindex^="-"])'
+        ].join(","),
+        focusableItems,
+        focusedItemIndex;
+
+      if (self.isClosing) {
+        return;
+      }
+
+      if (e || !self.current || !self.current.isComplete) {
+        // Focus on any element inside fancybox
+        focusableItems = self.$refs.container.find("*:visible");
+      } else {
+        // Focus inside current slide
+        focusableItems = self.current.$slide.find("*:visible" + (firstRun ? ":not(.fancybox-close-small)" : ""));
+      }
+
+      focusableItems = focusableItems.filter(focusableStr).filter(function () {
+        return $(this).css("visibility") !== "hidden" && !$(this).hasClass("disabled");
+      });
+
+      if (focusableItems.length) {
+        focusedItemIndex = focusableItems.index(document.activeElement);
+
+        if (e && e.shiftKey) {
+          // Back tab
+          if (focusedItemIndex < 0 || focusedItemIndex == 0) {
+            e.preventDefault();
+
+            focusableItems.eq(focusableItems.length - 1).trigger("focus");
+          }
+        } else {
+          // Outside or Forward tab
+          if (focusedItemIndex < 0 || focusedItemIndex == focusableItems.length - 1) {
+            if (e) {
+              e.preventDefault();
+            }
+
+            focusableItems.eq(0).trigger("focus");
+          }
+        }
+      } else {
+        self.$refs.container.trigger("focus");
+      }
+    },
+
+    // Activates current instance - brings container to the front and enables keyboard,
+    // notifies other instances about deactivating
+    // =================================================================================
+
+    activate: function () {
+      var self = this;
+
+      // Deactivate all instances
+      $(".fancybox-container").each(function () {
+        var instance = $(this).data("FancyBox");
+
+        // Skip self and closing instances
+        if (instance && instance.id !== self.id && !instance.isClosing) {
+          instance.trigger("onDeactivate");
+
+          instance.removeEvents();
+
+          instance.isVisible = false;
+        }
+      });
+
+      self.isVisible = true;
+
+      if (self.current || self.isIdle) {
+        self.update();
+
+        self.updateControls();
+      }
+
+      self.trigger("onActivate");
+
+      self.addEvents();
+    },
+
+    // Start closing procedure
+    // This will start "zoom-out" animation if needed and clean everything up afterwards
+    // =================================================================================
+
+    close: function (e, d) {
+      var self = this,
+        current = self.current,
+        effect,
+        duration,
+        $content,
+        domRect,
+        opacity,
+        start,
+        end;
+
+      var done = function () {
+        self.cleanUp(e);
+      };
+
+      if (self.isClosing) {
+        return false;
+      }
+
+      self.isClosing = true;
+
+      // If beforeClose callback prevents closing, make sure content is centered
+      if (self.trigger("beforeClose", e) === false) {
+        self.isClosing = false;
+
+        requestAFrame(function () {
+          self.update();
+        });
+
+        return false;
+      }
+
+      // Remove all events
+      // If there are multiple instances, they will be set again by "activate" method
+      self.removeEvents();
+
+      $content = current.$content;
+      effect = current.opts.animationEffect;
+      duration = $.isNumeric(d) ? d : effect ? current.opts.animationDuration : 0;
+
+      current.$slide.removeClass("fancybox-slide--complete fancybox-slide--next fancybox-slide--previous fancybox-animated");
+
+      if (e !== true) {
+        $.fancybox.stop(current.$slide);
+      } else {
+        effect = false;
+      }
+
+      // Remove other slides
+      current.$slide
+        .siblings()
+        .trigger("onReset")
+        .remove();
+
+      // Trigger animations
+      if (duration) {
+        self.$refs.container
+          .removeClass("fancybox-is-open")
+          .addClass("fancybox-is-closing")
+          .css("transition-duration", duration + "ms");
+      }
+
+      // Clean up
+      self.hideLoading(current);
+
+      self.hideControls(true);
+
+      self.updateCursor();
+
+      // Check if possible to zoom-out
+      if (
+        effect === "zoom" &&
+        !($content && duration && current.type === "image" && !self.isMoved() && !current.hasError && (end = self.getThumbPos(current)))
+      ) {
+        effect = "fade";
+      }
+
+      if (effect === "zoom") {
+        $.fancybox.stop($content);
+
+        domRect = $.fancybox.getTranslate($content);
+
+        start = {
+          top: domRect.top,
+          left: domRect.left,
+          scaleX: domRect.width / end.width,
+          scaleY: domRect.height / end.height,
+          width: end.width,
+          height: end.height
+        };
+
+        // Check if we need to animate opacity
+        opacity = current.opts.zoomOpacity;
+
+        if (opacity == "auto") {
+          opacity = Math.abs(current.width / current.height - end.width / end.height) > 0.1;
+        }
+
+        if (opacity) {
+          end.opacity = 0;
+        }
+
+        $.fancybox.setTranslate($content, start);
+
+        forceRedraw($content);
+
+        $.fancybox.animate($content, end, duration, done);
+
+        return true;
+      }
+
+      if (effect && duration) {
+        $.fancybox.animate(
+          current.$slide.addClass("fancybox-slide--previous").removeClass("fancybox-slide--current"),
+          "fancybox-animated fancybox-fx-" + effect,
+          duration,
+          done
+        );
+      } else {
+        // If skip animation
+        if (e === true) {
+          setTimeout(done, duration);
+        } else {
+          done();
+        }
+      }
+
+      return true;
+    },
+
+    // Final adjustments after removing the instance
+    // =============================================
+
+    cleanUp: function (e) {
+      var self = this,
+        instance,
+        $focus = self.current.opts.$orig,
+        x,
+        y;
+
+      self.current.$slide.trigger("onReset");
+
+      self.$refs.container.empty().remove();
+
+      self.trigger("afterClose", e);
+
+      // Place back focus
+      if (!!self.current.opts.backFocus) {
+        if (!$focus || !$focus.length || !$focus.is(":visible")) {
+          $focus = self.$trigger;
+        }
+
+        if ($focus && $focus.length) {
+          x = window.scrollX;
+          y = window.scrollY;
+
+          $focus.trigger("focus");
+
+          $("html, body")
+            .scrollTop(y)
+            .scrollLeft(x);
+        }
+      }
+
+      self.current = null;
+
+      // Check if there are other instances
+      instance = $.fancybox.getInstance();
+
+      if (instance) {
+        instance.activate();
+      } else {
+        $("body").removeClass("fancybox-active compensate-for-scrollbar");
+
+        $("#fancybox-style-noscroll").remove();
+      }
+    },
+
+    // Call callback and trigger an event
+    // ==================================
+
+    trigger: function (name, slide) {
+      var args = Array.prototype.slice.call(arguments, 1),
+        self = this,
+        obj = slide && slide.opts ? slide : self.current,
+        rez;
+
+      if (obj) {
+        args.unshift(obj);
+      } else {
+        obj = self;
+      }
+
+      args.unshift(self);
+
+      if ($.isFunction(obj.opts[name])) {
+        rez = obj.opts[name].apply(obj, args);
+      }
+
+      if (rez === false) {
+        return rez;
+      }
+
+      if (name === "afterClose" || !self.$refs) {
+        $D.trigger(name + ".fb", args);
+      } else {
+        self.$refs.container.trigger(name + ".fb", args);
+      }
+    },
+
+    // Update infobar values, navigation button states and reveal caption
+    // ==================================================================
+
+    updateControls: function () {
+      var self = this,
+        current = self.current,
+        index = current.index,
+        $container = self.$refs.container,
+        $caption = self.$refs.caption,
+        caption = current.opts.caption;
+
+      // Recalculate content dimensions
+      current.$slide.trigger("refresh");
+
+      // Set caption
+      if (caption && caption.length) {
+        self.$caption = $caption;
+
+        $caption
+          .children()
+          .eq(0)
+          .html(caption);
+      } else {
+        self.$caption = null;
+      }
+
+      if (!self.hasHiddenControls && !self.isIdle) {
+        self.showControls();
+      }
+
+      // Update info and navigation elements
+      $container.find("[data-fancybox-count]").html(self.group.length);
+      $container.find("[data-fancybox-index]").html(index + 1);
+
+      $container.find("[data-fancybox-prev]").prop("disabled", !current.opts.loop && index <= 0);
+      $container.find("[data-fancybox-next]").prop("disabled", !current.opts.loop && index >= self.group.length - 1);
+
+      if (current.type === "image") {
+        // Re-enable buttons; update download button source
+        $container
+          .find("[data-fancybox-zoom]")
+          .show()
+          .end()
+          .find("[data-fancybox-download]")
+          .attr("href", current.opts.image.src || current.src)
+          .show();
+      } else if (current.opts.toolbar) {
+        $container.find("[data-fancybox-download],[data-fancybox-zoom]").hide();
+      }
+
+      // Make sure focus is not on disabled button/element
+      if ($(document.activeElement).is(":hidden,[disabled]")) {
+        self.$refs.container.trigger("focus");
+      }
+    },
+
+    // Hide toolbar and caption
+    // ========================
+
+    hideControls: function (andCaption) {
+      var self = this,
+        arr = ["infobar", "toolbar", "nav"];
+
+      if (andCaption || !self.current.opts.preventCaptionOverlap) {
+        arr.push("caption");
+      }
+
+      this.$refs.container.removeClass(
+        arr
+        .map(function (i) {
+          return "fancybox-show-" + i;
+        })
+        .join(" ")
+      );
+
+      this.hasHiddenControls = true;
+    },
+
+    showControls: function () {
+      var self = this,
+        opts = self.current ? self.current.opts : self.opts,
+        $container = self.$refs.container;
+
+      self.hasHiddenControls = false;
+      self.idleSecondsCounter = 0;
+
+      $container
+        .toggleClass("fancybox-show-toolbar", !!(opts.toolbar && opts.buttons))
+        .toggleClass("fancybox-show-infobar", !!(opts.infobar && self.group.length > 1))
+        .toggleClass("fancybox-show-caption", !!self.$caption)
+        .toggleClass("fancybox-show-nav", !!(opts.arrows && self.group.length > 1))
+        .toggleClass("fancybox-is-modal", !!opts.modal);
+    },
+
+    // Toggle toolbar and caption
+    // ==========================
+
+    toggleControls: function () {
+      if (this.hasHiddenControls) {
+        this.showControls();
+      } else {
+        this.hideControls();
+      }
+    }
+  });
+
+  $.fancybox = {
+    version: "3.5.7",
+    defaults: defaults,
+
+    // Get current instance and execute a command.
+    //
+    // Examples of usage:
+    //
+    //   $instance = $.fancybox.getInstance();
+    //   $.fancybox.getInstance().jumpTo( 1 );
+    //   $.fancybox.getInstance( 'jumpTo', 1 );
+    //   $.fancybox.getInstance( function() {
+    //       console.info( this.currIndex );
+    //   });
+    // ======================================================
+
+    getInstance: function (command) {
+      var instance = $('.fancybox-container:not(".fancybox-is-closing"):last').data("FancyBox"),
+        args = Array.prototype.slice.call(arguments, 1);
+
+      if (instance instanceof FancyBox) {
+        if ($.type(command) === "string") {
+          instance[command].apply(instance, args);
+        } else if ($.type(command) === "function") {
+          command.apply(instance, args);
+        }
+
+        return instance;
+      }
+
+      return false;
+    },
+
+    // Create new instance
+    // ===================
+
+    open: function (items, opts, index) {
+      return new FancyBox(items, opts, index);
+    },
+
+    // Close current or all instances
+    // ==============================
+
+    close: function (all) {
+      var instance = this.getInstance();
+
+      if (instance) {
+        instance.close();
+
+        // Try to find and close next instance
+        if (all === true) {
+          this.close(all);
+        }
+      }
+    },
+
+    // Close all instances and unbind all events
+    // =========================================
+
+    destroy: function () {
+      this.close(true);
+
+      $D.add("body").off("click.fb-start", "**");
+    },
+
+    // Try to detect mobile devices
+    // ============================
+
+    isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+
+    // Detect if 'translate3d' support is available
+    // ============================================
+
+    use3d: (function () {
+      var div = document.createElement("div");
+
+      return (
+        window.getComputedStyle &&
+        window.getComputedStyle(div) &&
+        window.getComputedStyle(div).getPropertyValue("transform") &&
+        !(document.documentMode && document.documentMode < 11)
+      );
+    })(),
+
+    // Helper function to get current visual state of an element
+    // returns array[ top, left, horizontal-scale, vertical-scale, opacity ]
+    // =====================================================================
+
+    getTranslate: function ($el) {
+      var domRect;
+
+      if (!$el || !$el.length) {
+        return false;
+      }
+
+      domRect = $el[0].getBoundingClientRect();
+
+      return {
+        top: domRect.top || 0,
+        left: domRect.left || 0,
+        width: domRect.width,
+        height: domRect.height,
+        opacity: parseFloat($el.css("opacity"))
+      };
+    },
+
+    // Shortcut for setting "translate3d" properties for element
+    // Can set be used to set opacity, too
+    // ========================================================
+
+    setTranslate: function ($el, props) {
+      var str = "",
+        css = {};
+
+      if (!$el || !props) {
+        return;
+      }
+
+      if (props.left !== undefined || props.top !== undefined) {
+        str =
+          (props.left === undefined ? $el.position().left : props.left) +
+          "px, " +
+          (props.top === undefined ? $el.position().top : props.top) +
+          "px";
+
+        if (this.use3d) {
+          str = "translate3d(" + str + ", 0px)";
+        } else {
+          str = "translate(" + str + ")";
+        }
+      }
+
+      if (props.scaleX !== undefined && props.scaleY !== undefined) {
+        str += " scale(" + props.scaleX + ", " + props.scaleY + ")";
+      } else if (props.scaleX !== undefined) {
+        str += " scaleX(" + props.scaleX + ")";
+      }
+
+      if (str.length) {
+        css.transform = str;
+      }
+
+      if (props.opacity !== undefined) {
+        css.opacity = props.opacity;
+      }
+
+      if (props.width !== undefined) {
+        css.width = props.width;
+      }
+
+      if (props.height !== undefined) {
+        css.height = props.height;
+      }
+
+      return $el.css(css);
+    },
+
+    // Simple CSS transition handler
+    // =============================
+
+    animate: function ($el, to, duration, callback, leaveAnimationName) {
+      var self = this,
+        from;
+
+      if ($.isFunction(duration)) {
+        callback = duration;
+        duration = null;
+      }
+
+      self.stop($el);
+
+      from = self.getTranslate($el);
+
+      $el.on(transitionEnd, function (e) {
+        // Skip events from child elements and z-index change
+        if (e && e.originalEvent && (!$el.is(e.originalEvent.target) || e.originalEvent.propertyName == "z-index")) {
+          return;
+        }
+
+        self.stop($el);
+
+        if ($.isNumeric(duration)) {
+          $el.css("transition-duration", "");
+        }
+
+        if ($.isPlainObject(to)) {
+          if (to.scaleX !== undefined && to.scaleY !== undefined) {
+            self.setTranslate($el, {
+              top: to.top,
+              left: to.left,
+              width: from.width * to.scaleX,
+              height: from.height * to.scaleY,
+              scaleX: 1,
+              scaleY: 1
+            });
+          }
+        } else if (leaveAnimationName !== true) {
+          $el.removeClass(to);
+        }
+
+        if ($.isFunction(callback)) {
+          callback(e);
+        }
+      });
+
+      if ($.isNumeric(duration)) {
+        $el.css("transition-duration", duration + "ms");
+      }
+
+      // Start animation by changing CSS properties or class name
+      if ($.isPlainObject(to)) {
+        if (to.scaleX !== undefined && to.scaleY !== undefined) {
+          delete to.width;
+          delete to.height;
+
+          if ($el.parent().hasClass("fancybox-slide--image")) {
+            $el.parent().addClass("fancybox-is-scaling");
+          }
+        }
+
+        $.fancybox.setTranslate($el, to);
+      } else {
+        $el.addClass(to);
+      }
+
+      // Make sure that `transitionend` callback gets fired
+      $el.data(
+        "timer",
+        setTimeout(function () {
+          $el.trigger(transitionEnd);
+        }, duration + 33)
+      );
+    },
+
+    stop: function ($el, callCallback) {
+      if ($el && $el.length) {
+        clearTimeout($el.data("timer"));
+
+        if (callCallback) {
+          $el.trigger(transitionEnd);
+        }
+
+        $el.off(transitionEnd).css("transition-duration", "");
+
+        $el.parent().removeClass("fancybox-is-scaling");
+      }
+    }
+  };
+
+  // Default click handler for "fancyboxed" links
+  // ============================================
+
+  function _run(e, opts) {
+    var items = [],
+      index = 0,
+      $target,
+      value,
+      instance;
+
+    // Avoid opening multiple times
+    if (e && e.isDefaultPrevented()) {
+      return;
+    }
+
+    e.preventDefault();
+
+    opts = opts || {};
+
+    if (e && e.data) {
+      opts = mergeOpts(e.data.options, opts);
+    }
+
+    $target = opts.$target || $(e.currentTarget).trigger("blur");
+    instance = $.fancybox.getInstance();
+
+    if (instance && instance.$trigger && instance.$trigger.is($target)) {
+      return;
+    }
+
+    if (opts.selector) {
+      items = $(opts.selector);
+    } else {
+      // Get all related items and find index for clicked one
+      value = $target.attr("data-fancybox") || "";
+
+      if (value) {
+        items = e.data ? e.data.items : [];
+        items = items.length ? items.filter('[data-fancybox="' + value + '"]') : $('[data-fancybox="' + value + '"]');
+      } else {
+        items = [$target];
+      }
+    }
+
+    index = $(items).index($target);
+
+    // Sometimes current item can not be found
+    if (index < 0) {
+      index = 0;
+    }
+
+    instance = $.fancybox.open(items, opts, index);
+
+    // Save last active element
+    instance.$trigger = $target;
+  }
+
+  // Create a jQuery plugin
+  // ======================
+
+  $.fn.fancybox = function (options) {
+    var selector;
+
+    options = options || {};
+    selector = options.selector || false;
+
+    if (selector) {
+      // Use body element instead of document so it executes first
+      $("body")
+        .off("click.fb-start", selector)
+        .on("click.fb-start", selector, {
+          options: options
+        }, _run);
+    } else {
+      this.off("click.fb-start").on(
+        "click.fb-start", {
+          items: this,
+          options: options
+        },
+        _run
+      );
+    }
+
+    return this;
+  };
+
+  // Self initializing plugin for all elements having `data-fancybox` attribute
+  // ==========================================================================
+
+  $D.on("click.fb-start", "[data-fancybox]", _run);
+
+  // Enable "trigger elements"
+  // =========================
+
+  $D.on("click.fb-start", "[data-fancybox-trigger]", function (e) {
+    $('[data-fancybox="' + $(this).attr("data-fancybox-trigger") + '"]')
+      .eq($(this).attr("data-fancybox-index") || 0)
+      .trigger("click.fb-start", {
+        $trigger: $(this)
+      });
+  });
+
+  // Track focus event for better accessibility styling
+  // ==================================================
+  (function () {
+    var buttonStr = ".fancybox-button",
+      focusStr = "fancybox-focus",
+      $pressed = null;
+
+    $D.on("mousedown mouseup focus blur", buttonStr, function (e) {
+      switch (e.type) {
+        case "mousedown":
+          $pressed = $(this);
+          break;
+        case "mouseup":
+          $pressed = null;
+          break;
+        case "focusin":
+          $(buttonStr).removeClass(focusStr);
+
+          if (!$(this).is($pressed) && !$(this).is("[disabled]")) {
+            $(this).addClass(focusStr);
+          }
+          break;
+        case "focusout":
+          $(buttonStr).removeClass(focusStr);
+          break;
+      }
+    });
+  })();
+})(window, document, jQuery);
+// ==========================================================================
+//
+// Media
+// Adds additional media type support
+//
+// ==========================================================================
+(function ($) {
+  "use strict";
+
+  // Object containing properties for each media type
+  var defaults = {
+    youtube: {
+      matcher: /(youtube\.com|youtu\.be|youtube\-nocookie\.com)\/(watch\?(.*&)?v=|v\/|u\/|embed\/?)?(videoseries\?list=(.*)|[\w-]{11}|\?listType=(.*)&list=(.*))(.*)/i,
+      params: {
+        autoplay: 1,
+        autohide: 1,
+        fs: 1,
+        rel: 0,
+        hd: 1,
+        wmode: "transparent",
+        enablejsapi: 1,
+        html5: 1
+      },
+      paramPlace: 8,
+      type: "iframe",
+      url: "https://www.youtube-nocookie.com/embed/$4",
+      thumb: "https://img.youtube.com/vi/$4/hqdefault.jpg"
+    },
+
+    vimeo: {
+      matcher: /^.+vimeo.com\/(.*\/)?([\d]+)(.*)?/,
+      params: {
+        autoplay: 1,
+        hd: 1,
+        show_title: 1,
+        show_byline: 1,
+        show_portrait: 0,
+        fullscreen: 1
+      },
+      paramPlace: 3,
+      type: "iframe",
+      url: "//player.vimeo.com/video/$2"
+    },
+
+    instagram: {
+      matcher: /(instagr\.am|instagram\.com)\/p\/([a-zA-Z0-9_\-]+)\/?/i,
+      type: "image",
+      url: "//$1/p/$2/media/?size=l"
+    },
+
+    // Examples:
+    // http://maps.google.com/?ll=48.857995,2.294297&spn=0.007666,0.021136&t=m&z=16
+    // https://www.google.com/maps/@37.7852006,-122.4146355,14.65z
+    // https://www.google.com/maps/@52.2111123,2.9237542,6.61z?hl=en
+    // https://www.google.com/maps/place/Googleplex/@37.4220041,-122.0833494,17z/data=!4m5!3m4!1s0x0:0x6c296c66619367e0!8m2!3d37.4219998!4d-122.0840572
+    gmap_place: {
+      matcher: /(maps\.)?google\.([a-z]{2,3}(\.[a-z]{2})?)\/(((maps\/(place\/(.*)\/)?\@(.*),(\d+.?\d+?)z))|(\?ll=))(.*)?/i,
+      type: "iframe",
+      url: function (rez) {
+        return (
+          "//maps.google." +
+          rez[2] +
+          "/?ll=" +
+          (rez[9] ? rez[9] + "&z=" + Math.floor(rez[10]) + (rez[12] ? rez[12].replace(/^\//, "&") : "") : rez[12] + "").replace(/\?/, "&") +
+          "&output=" +
+          (rez[12] && rez[12].indexOf("layer=c") > 0 ? "svembed" : "embed")
+        );
+      }
+    },
+
+    // Examples:
+    // https://www.google.com/maps/search/Empire+State+Building/
+    // https://www.google.com/maps/search/?api=1&query=centurylink+field
+    // https://www.google.com/maps/search/?api=1&query=47.5951518,-122.3316393
+    gmap_search: {
+      matcher: /(maps\.)?google\.([a-z]{2,3}(\.[a-z]{2})?)\/(maps\/search\/)(.*)/i,
+      type: "iframe",
+      url: function (rez) {
+        return "//maps.google." + rez[2] + "/maps?q=" + rez[5].replace("query=", "q=").replace("api=1", "") + "&output=embed";
+      }
+    }
+  };
+
+  // Formats matching url to final form
+  var format = function (url, rez, params) {
+    if (!url) {
+      return;
+    }
+
+    params = params || "";
+
+    if ($.type(params) === "object") {
+      params = $.param(params, true);
+    }
+
+    $.each(rez, function (key, value) {
+      url = url.replace("$" + key, value || "");
+    });
+
+    if (params.length) {
+      url += (url.indexOf("?") > 0 ? "&" : "?") + params;
+    }
+
+    return url;
+  };
+
+  $(document).on("objectNeedsType.fb", function (e, instance, item) {
+    var url = item.src || "",
+      type = false,
+      media,
+      thumb,
+      rez,
+      params,
+      urlParams,
+      paramObj,
+      provider;
+
+    media = $.extend(true, {}, defaults, item.opts.media);
+
+    // Look for any matching media type
+    $.each(media, function (providerName, providerOpts) {
+      rez = url.match(providerOpts.matcher);
+
+      if (!rez) {
+        return;
+      }
+
+      type = providerOpts.type;
+      provider = providerName;
+      paramObj = {};
+
+      if (providerOpts.paramPlace && rez[providerOpts.paramPlace]) {
+        urlParams = rez[providerOpts.paramPlace];
+
+        if (urlParams[0] == "?") {
+          urlParams = urlParams.substring(1);
+        }
+
+        urlParams = urlParams.split("&");
+
+        for (var m = 0; m < urlParams.length; ++m) {
+          var p = urlParams[m].split("=", 2);
+
+          if (p.length == 2) {
+            paramObj[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+          }
+        }
+      }
+
+      params = $.extend(true, {}, providerOpts.params, item.opts[providerName], paramObj);
+
+      url =
+        $.type(providerOpts.url) === "function" ? providerOpts.url.call(this, rez, params, item) : format(providerOpts.url, rez, params);
+
+      thumb =
+        $.type(providerOpts.thumb) === "function" ? providerOpts.thumb.call(this, rez, params, item) : format(providerOpts.thumb, rez);
+
+      if (providerName === "youtube") {
+        url = url.replace(/&t=((\d+)m)?(\d+)s/, function (match, p1, m, s) {
+          return "&start=" + ((m ? parseInt(m, 10) * 60 : 0) + parseInt(s, 10));
+        });
+      } else if (providerName === "vimeo") {
+        url = url.replace("&%23", "#");
+      }
+
+      return false;
+    });
+
+    // If it is found, then change content type and update the url
+
+    if (type) {
+      if (!item.opts.thumb && !(item.opts.$thumb && item.opts.$thumb.length)) {
+        item.opts.thumb = thumb;
+      }
+
+      if (type === "iframe") {
+        item.opts = $.extend(true, item.opts, {
+          iframe: {
+            preload: false,
+            attr: {
+              scrolling: "no"
+            }
+          }
+        });
+      }
+
+      $.extend(item, {
+        type: type,
+        src: url,
+        origSrc: item.src,
+        contentSource: provider,
+        contentType: type === "image" ? "image" : provider == "gmap_place" || provider == "gmap_search" ? "map" : "video"
+      });
+    } else if (url) {
+      item.type = item.opts.defaultType;
+    }
+  });
+
+  // Load YouTube/Video API on request to detect when video finished playing
+  var VideoAPILoader = {
+    youtube: {
+      src: "https://www.youtube.com/iframe_api",
+      class: "YT",
+      loading: false,
+      loaded: false
+    },
+
+    vimeo: {
+      src: "https://player.vimeo.com/api/player.js",
+      class: "Vimeo",
+      loading: false,
+      loaded: false
+    },
+
+    load: function (vendor) {
+      var _this = this,
+        script;
+
+      if (this[vendor].loaded) {
+        setTimeout(function () {
+          _this.done(vendor);
+        });
+        return;
+      }
+
+      if (this[vendor].loading) {
+        return;
+      }
+
+      this[vendor].loading = true;
+
+      script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src = this[vendor].src;
+
+      if (vendor === "youtube") {
+        window.onYouTubeIframeAPIReady = function () {
+          _this[vendor].loaded = true;
+          _this.done(vendor);
+        };
+      } else {
+        script.onload = function () {
+          _this[vendor].loaded = true;
+          _this.done(vendor);
+        };
+      }
+
+      document.body.appendChild(script);
+    },
+    done: function (vendor) {
+      var instance, $el, player;
+
+      if (vendor === "youtube") {
+        delete window.onYouTubeIframeAPIReady;
+      }
+
+      instance = $.fancybox.getInstance();
+
+      if (instance) {
+        $el = instance.current.$content.find("iframe");
+
+        if (vendor === "youtube" && YT !== undefined && YT) {
+          player = new YT.Player($el.attr("id"), {
+            events: {
+              onStateChange: function (e) {
+                if (e.data == 0) {
+                  instance.next();
+                }
+              }
+            }
+          });
+        } else if (vendor === "vimeo" && Vimeo !== undefined && Vimeo) {
+          player = new Vimeo.Player($el);
+
+          player.on("ended", function () {
+            instance.next();
+          });
+        }
+      }
+    }
+  };
+
+  $(document).on({
+    "afterShow.fb": function (e, instance, current) {
+      if (instance.group.length > 1 && (current.contentSource === "youtube" || current.contentSource === "vimeo")) {
+        VideoAPILoader.load(current.contentSource);
+      }
+    }
+  });
+})(jQuery);
+// ==========================================================================
+//
+// Guestures
+// Adds touch guestures, handles click and tap events
+//
+// ==========================================================================
+(function (window, document, $) {
+  "use strict";
+
+  var requestAFrame = (function () {
+    return (
+      window.requestAnimationFrame ||
+      window.webkitRequestAnimationFrame ||
+      window.mozRequestAnimationFrame ||
+      window.oRequestAnimationFrame ||
+      // if all else fails, use setTimeout
+      function (callback) {
+        return window.setTimeout(callback, 1000 / 60);
+      }
+    );
+  })();
+
+  var cancelAFrame = (function () {
+    return (
+      window.cancelAnimationFrame ||
+      window.webkitCancelAnimationFrame ||
+      window.mozCancelAnimationFrame ||
+      window.oCancelAnimationFrame ||
+      function (id) {
+        window.clearTimeout(id);
+      }
+    );
+  })();
+
+  var getPointerXY = function (e) {
+    var result = [];
+
+    e = e.originalEvent || e || window.e;
+    e = e.touches && e.touches.length ? e.touches : e.changedTouches && e.changedTouches.length ? e.changedTouches : [e];
+
+    for (var key in e) {
+      if (e[key].pageX) {
+        result.push({
+          x: e[key].pageX,
+          y: e[key].pageY
+        });
+      } else if (e[key].clientX) {
+        result.push({
+          x: e[key].clientX,
+          y: e[key].clientY
+        });
+      }
+    }
+
+    return result;
+  };
+
+  var distance = function (point2, point1, what) {
+    if (!point1 || !point2) {
+      return 0;
+    }
+
+    if (what === "x") {
+      return point2.x - point1.x;
+    } else if (what === "y") {
+      return point2.y - point1.y;
+    }
+
+    return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
+  };
+
+  var isClickable = function ($el) {
+    if (
+      $el.is('a,area,button,[role="button"],input,label,select,summary,textarea,video,audio,iframe') ||
+      $.isFunction($el.get(0).onclick) ||
+      $el.data("selectable")
+    ) {
+      return true;
+    }
+
+    // Check for attributes like data-fancybox-next or data-fancybox-close
+    for (var i = 0, atts = $el[0].attributes, n = atts.length; i < n; i++) {
+      if (atts[i].nodeName.substr(0, 14) === "data-fancybox-") {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  var hasScrollbars = function (el) {
+    var overflowY = window.getComputedStyle(el)["overflow-y"],
+      overflowX = window.getComputedStyle(el)["overflow-x"],
+      vertical = (overflowY === "scroll" || overflowY === "auto") && el.scrollHeight > el.clientHeight,
+      horizontal = (overflowX === "scroll" || overflowX === "auto") && el.scrollWidth > el.clientWidth;
+
+    return vertical || horizontal;
+  };
+
+  var isScrollable = function ($el) {
+    var rez = false;
+
+    while (true) {
+      rez = hasScrollbars($el.get(0));
+
+      if (rez) {
+        break;
+      }
+
+      $el = $el.parent();
+
+      if (!$el.length || $el.hasClass("fancybox-stage") || $el.is("body")) {
+        break;
+      }
+    }
+
+    return rez;
+  };
+
+  var Guestures = function (instance) {
+    var self = this;
+
+    self.instance = instance;
+
+    self.$bg = instance.$refs.bg;
+    self.$stage = instance.$refs.stage;
+    self.$container = instance.$refs.container;
+
+    self.destroy();
+
+    self.$container.on("touchstart.fb.touch mousedown.fb.touch", $.proxy(self, "ontouchstart"));
+  };
+
+  Guestures.prototype.destroy = function () {
+    var self = this;
+
+    self.$container.off(".fb.touch");
+
+    $(document).off(".fb.touch");
+
+    if (self.requestId) {
+      cancelAFrame(self.requestId);
+      self.requestId = null;
+    }
+
+    if (self.tapped) {
+      clearTimeout(self.tapped);
+      self.tapped = null;
+    }
+  };
+
+  Guestures.prototype.ontouchstart = function (e) {
+    var self = this,
+      $target = $(e.target),
+      instance = self.instance,
+      current = instance.current,
+      $slide = current.$slide,
+      $content = current.$content,
+      isTouchDevice = e.type == "touchstart";
+
+    // Do not respond to both (touch and mouse) events
+    if (isTouchDevice) {
+      self.$container.off("mousedown.fb.touch");
+    }
+
+    // Ignore right click
+    if (e.originalEvent && e.originalEvent.button == 2) {
+      return;
+    }
+
+    // Ignore taping on links, buttons, input elements
+    if (!$slide.length || !$target.length || isClickable($target) || isClickable($target.parent())) {
+      return;
+    }
+    // Ignore clicks on the scrollbar
+    if (!$target.is("img") && e.originalEvent.clientX > $target[0].clientWidth + $target.offset().left) {
+      return;
+    }
+
+    // Ignore clicks while zooming or closing
+    if (!current || instance.isAnimating || current.$slide.hasClass("fancybox-animated")) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      return;
+    }
+
+    self.realPoints = self.startPoints = getPointerXY(e);
+
+    if (!self.startPoints.length) {
+      return;
+    }
+
+    // Allow other scripts to catch touch event if "touch" is set to false
+    if (current.touch) {
+      e.stopPropagation();
+    }
+
+    self.startEvent = e;
+
+    self.canTap = true;
+    self.$target = $target;
+    self.$content = $content;
+    self.opts = current.opts.touch;
+
+    self.isPanning = false;
+    self.isSwiping = false;
+    self.isZooming = false;
+    self.isScrolling = false;
+    self.canPan = instance.canPan();
+
+    self.startTime = new Date().getTime();
+    self.distanceX = self.distanceY = self.distance = 0;
+
+    self.canvasWidth = Math.round($slide[0].clientWidth);
+    self.canvasHeight = Math.round($slide[0].clientHeight);
+
+    self.contentLastPos = null;
+    self.contentStartPos = $.fancybox.getTranslate(self.$content) || {
+      top: 0,
+      left: 0
+    };
+    self.sliderStartPos = $.fancybox.getTranslate($slide);
+
+    // Since position will be absolute, but we need to make it relative to the stage
+    self.stagePos = $.fancybox.getTranslate(instance.$refs.stage);
+
+    self.sliderStartPos.top -= self.stagePos.top;
+    self.sliderStartPos.left -= self.stagePos.left;
+
+    self.contentStartPos.top -= self.stagePos.top;
+    self.contentStartPos.left -= self.stagePos.left;
+
+    $(document)
+      .off(".fb.touch")
+      .on(isTouchDevice ? "touchend.fb.touch touchcancel.fb.touch" : "mouseup.fb.touch mouseleave.fb.touch", $.proxy(self, "ontouchend"))
+      .on(isTouchDevice ? "touchmove.fb.touch" : "mousemove.fb.touch", $.proxy(self, "ontouchmove"));
+
+    if ($.fancybox.isMobile) {
+      document.addEventListener("scroll", self.onscroll, true);
+    }
+
+    // Skip if clicked outside the sliding area
+    if (!(self.opts || self.canPan) || !($target.is(self.$stage) || self.$stage.find($target).length)) {
+      if ($target.is(".fancybox-image")) {
+        e.preventDefault();
+      }
+
+      if (!($.fancybox.isMobile && $target.parents(".fancybox-caption").length)) {
+        return;
+      }
+    }
+
+    self.isScrollable = isScrollable($target) || isScrollable($target.parent());
+
+    // Check if element is scrollable and try to prevent default behavior (scrolling)
+    if (!($.fancybox.isMobile && self.isScrollable)) {
+      e.preventDefault();
+    }
+
+    // One finger or mouse click - swipe or pan an image
+    if (self.startPoints.length === 1 || current.hasError) {
+      if (self.canPan) {
+        $.fancybox.stop(self.$content);
+
+        self.isPanning = true;
+      } else {
+        self.isSwiping = true;
+      }
+
+      self.$container.addClass("fancybox-is-grabbing");
+    }
+
+    // Two fingers - zoom image
+    if (self.startPoints.length === 2 && current.type === "image" && (current.isLoaded || current.$ghost)) {
+      self.canTap = false;
+      self.isSwiping = false;
+      self.isPanning = false;
+
+      self.isZooming = true;
+
+      $.fancybox.stop(self.$content);
+
+      self.centerPointStartX = (self.startPoints[0].x + self.startPoints[1].x) * 0.5 - $(window).scrollLeft();
+      self.centerPointStartY = (self.startPoints[0].y + self.startPoints[1].y) * 0.5 - $(window).scrollTop();
+
+      self.percentageOfImageAtPinchPointX = (self.centerPointStartX - self.contentStartPos.left) / self.contentStartPos.width;
+      self.percentageOfImageAtPinchPointY = (self.centerPointStartY - self.contentStartPos.top) / self.contentStartPos.height;
+
+      self.startDistanceBetweenFingers = distance(self.startPoints[0], self.startPoints[1]);
+    }
+  };
+
+  Guestures.prototype.onscroll = function (e) {
+    var self = this;
+
+    self.isScrolling = true;
+
+    document.removeEventListener("scroll", self.onscroll, true);
+  };
+
+  Guestures.prototype.ontouchmove = function (e) {
+    var self = this;
+
+    // Make sure user has not released over iframe or disabled element
+    if (e.originalEvent.buttons !== undefined && e.originalEvent.buttons === 0) {
+      self.ontouchend(e);
+      return;
+    }
+
+    if (self.isScrolling) {
+      self.canTap = false;
+      return;
+    }
+
+    self.newPoints = getPointerXY(e);
+
+    if (!(self.opts || self.canPan) || !self.newPoints.length || !self.newPoints.length) {
+      return;
+    }
+
+    if (!(self.isSwiping && self.isSwiping === true)) {
+      e.preventDefault();
+    }
+
+    self.distanceX = distance(self.newPoints[0], self.startPoints[0], "x");
+    self.distanceY = distance(self.newPoints[0], self.startPoints[0], "y");
+
+    self.distance = distance(self.newPoints[0], self.startPoints[0]);
+
+    // Skip false ontouchmove events (Chrome)
+    if (self.distance > 0) {
+      if (self.isSwiping) {
+        self.onSwipe(e);
+      } else if (self.isPanning) {
+        self.onPan();
+      } else if (self.isZooming) {
+        self.onZoom();
+      }
+    }
+  };
+
+  Guestures.prototype.onSwipe = function (e) {
+    var self = this,
+      instance = self.instance,
+      swiping = self.isSwiping,
+      left = self.sliderStartPos.left || 0,
+      angle;
+
+    // If direction is not yet determined
+    if (swiping === true) {
+      // We need at least 10px distance to correctly calculate an angle
+      if (Math.abs(self.distance) > 10) {
+        self.canTap = false;
+
+        if (instance.group.length < 2 && self.opts.vertical) {
+          self.isSwiping = "y";
+        } else if (instance.isDragging || self.opts.vertical === false || (self.opts.vertical === "auto" && $(window).width() > 800)) {
+          self.isSwiping = "x";
+        } else {
+          angle = Math.abs((Math.atan2(self.distanceY, self.distanceX) * 180) / Math.PI);
+
+          self.isSwiping = angle > 45 && angle < 135 ? "y" : "x";
+        }
+
+        if (self.isSwiping === "y" && $.fancybox.isMobile && self.isScrollable) {
+          self.isScrolling = true;
+
+          return;
+        }
+
+        instance.isDragging = self.isSwiping;
+
+        // Reset points to avoid jumping, because we dropped first swipes to calculate the angle
+        self.startPoints = self.newPoints;
+
+        $.each(instance.slides, function (index, slide) {
+          var slidePos, stagePos;
+
+          $.fancybox.stop(slide.$slide);
+
+          slidePos = $.fancybox.getTranslate(slide.$slide);
+          stagePos = $.fancybox.getTranslate(instance.$refs.stage);
+
+          slide.$slide
+            .css({
+              transform: "",
+              opacity: "",
+              "transition-duration": ""
+            })
+            .removeClass("fancybox-animated")
+            .removeClass(function (index, className) {
+              return (className.match(/(^|\s)fancybox-fx-\S+/g) || []).join(" ");
+            });
+
+          if (slide.pos === instance.current.pos) {
+            self.sliderStartPos.top = slidePos.top - stagePos.top;
+            self.sliderStartPos.left = slidePos.left - stagePos.left;
+          }
+
+          $.fancybox.setTranslate(slide.$slide, {
+            top: slidePos.top - stagePos.top,
+            left: slidePos.left - stagePos.left
+          });
+        });
+
+        // Stop slideshow
+        if (instance.SlideShow && instance.SlideShow.isActive) {
+          instance.SlideShow.stop();
+        }
+      }
+
+      return;
+    }
+
+    // Sticky edges
+    if (swiping == "x") {
+      if (
+        self.distanceX > 0 &&
+        (self.instance.group.length < 2 || (self.instance.current.index === 0 && !self.instance.current.opts.loop))
+      ) {
+        left = left + Math.pow(self.distanceX, 0.8);
+      } else if (
+        self.distanceX < 0 &&
+        (self.instance.group.length < 2 ||
+          (self.instance.current.index === self.instance.group.length - 1 && !self.instance.current.opts.loop))
+      ) {
+        left = left - Math.pow(-self.distanceX, 0.8);
+      } else {
+        left = left + self.distanceX;
+      }
+    }
+
+    self.sliderLastPos = {
+      top: swiping == "x" ? 0 : self.sliderStartPos.top + self.distanceY,
+      left: left
+    };
+
+    if (self.requestId) {
+      cancelAFrame(self.requestId);
+
+      self.requestId = null;
+    }
+
+    self.requestId = requestAFrame(function () {
+      if (self.sliderLastPos) {
+        $.each(self.instance.slides, function (index, slide) {
+          var pos = slide.pos - self.instance.currPos;
+
+          $.fancybox.setTranslate(slide.$slide, {
+            top: self.sliderLastPos.top,
+            left: self.sliderLastPos.left + pos * self.canvasWidth + pos * slide.opts.gutter
+          });
+        });
+
+        self.$container.addClass("fancybox-is-sliding");
+      }
+    });
+  };
+
+  Guestures.prototype.onPan = function () {
+    var self = this;
+
+    // Prevent accidental movement (sometimes, when tapping casually, finger can move a bit)
+    if (distance(self.newPoints[0], self.realPoints[0]) < ($.fancybox.isMobile ? 10 : 5)) {
+      self.startPoints = self.newPoints;
+      return;
+    }
+
+    self.canTap = false;
+
+    self.contentLastPos = self.limitMovement();
+
+    if (self.requestId) {
+      cancelAFrame(self.requestId);
+    }
+
+    self.requestId = requestAFrame(function () {
+      $.fancybox.setTranslate(self.$content, self.contentLastPos);
+    });
+  };
+
+  // Make panning sticky to the edges
+  Guestures.prototype.limitMovement = function () {
+    var self = this;
+
+    var canvasWidth = self.canvasWidth;
+    var canvasHeight = self.canvasHeight;
+
+    var distanceX = self.distanceX;
+    var distanceY = self.distanceY;
+
+    var contentStartPos = self.contentStartPos;
+
+    var currentOffsetX = contentStartPos.left;
+    var currentOffsetY = contentStartPos.top;
+
+    var currentWidth = contentStartPos.width;
+    var currentHeight = contentStartPos.height;
+
+    var minTranslateX, minTranslateY, maxTranslateX, maxTranslateY, newOffsetX, newOffsetY;
+
+    if (currentWidth > canvasWidth) {
+      newOffsetX = currentOffsetX + distanceX;
+    } else {
+      newOffsetX = currentOffsetX;
+    }
+
+    newOffsetY = currentOffsetY + distanceY;
+
+    // Slow down proportionally to traveled distance
+    minTranslateX = Math.max(0, canvasWidth * 0.5 - currentWidth * 0.5);
+    minTranslateY = Math.max(0, canvasHeight * 0.5 - currentHeight * 0.5);
+
+    maxTranslateX = Math.min(canvasWidth - currentWidth, canvasWidth * 0.5 - currentWidth * 0.5);
+    maxTranslateY = Math.min(canvasHeight - currentHeight, canvasHeight * 0.5 - currentHeight * 0.5);
+
+    //   ->
+    if (distanceX > 0 && newOffsetX > minTranslateX) {
+      newOffsetX = minTranslateX - 1 + Math.pow(-minTranslateX + currentOffsetX + distanceX, 0.8) || 0;
+    }
+
+    //    <-
+    if (distanceX < 0 && newOffsetX < maxTranslateX) {
+      newOffsetX = maxTranslateX + 1 - Math.pow(maxTranslateX - currentOffsetX - distanceX, 0.8) || 0;
+    }
+
+    //   \/
+    if (distanceY > 0 && newOffsetY > minTranslateY) {
+      newOffsetY = minTranslateY - 1 + Math.pow(-minTranslateY + currentOffsetY + distanceY, 0.8) || 0;
+    }
+
+    //   /\
+    if (distanceY < 0 && newOffsetY < maxTranslateY) {
+      newOffsetY = maxTranslateY + 1 - Math.pow(maxTranslateY - currentOffsetY - distanceY, 0.8) || 0;
+    }
+
+    return {
+      top: newOffsetY,
+      left: newOffsetX
+    };
+  };
+
+  Guestures.prototype.limitPosition = function (newOffsetX, newOffsetY, newWidth, newHeight) {
+    var self = this;
+
+    var canvasWidth = self.canvasWidth;
+    var canvasHeight = self.canvasHeight;
+
+    if (newWidth > canvasWidth) {
+      newOffsetX = newOffsetX > 0 ? 0 : newOffsetX;
+      newOffsetX = newOffsetX < canvasWidth - newWidth ? canvasWidth - newWidth : newOffsetX;
+    } else {
+      // Center horizontally
+      newOffsetX = Math.max(0, canvasWidth / 2 - newWidth / 2);
+    }
+
+    if (newHeight > canvasHeight) {
+      newOffsetY = newOffsetY > 0 ? 0 : newOffsetY;
+      newOffsetY = newOffsetY < canvasHeight - newHeight ? canvasHeight - newHeight : newOffsetY;
+    } else {
+      // Center vertically
+      newOffsetY = Math.max(0, canvasHeight / 2 - newHeight / 2);
+    }
+
+    return {
+      top: newOffsetY,
+      left: newOffsetX
+    };
+  };
+
+  Guestures.prototype.onZoom = function () {
+    var self = this;
+
+    // Calculate current distance between points to get pinch ratio and new width and height
+    var contentStartPos = self.contentStartPos;
+
+    var currentWidth = contentStartPos.width;
+    var currentHeight = contentStartPos.height;
+
+    var currentOffsetX = contentStartPos.left;
+    var currentOffsetY = contentStartPos.top;
+
+    var endDistanceBetweenFingers = distance(self.newPoints[0], self.newPoints[1]);
+
+    var pinchRatio = endDistanceBetweenFingers / self.startDistanceBetweenFingers;
+
+    var newWidth = Math.floor(currentWidth * pinchRatio);
+    var newHeight = Math.floor(currentHeight * pinchRatio);
+
+    // This is the translation due to pinch-zooming
+    var translateFromZoomingX = (currentWidth - newWidth) * self.percentageOfImageAtPinchPointX;
+    var translateFromZoomingY = (currentHeight - newHeight) * self.percentageOfImageAtPinchPointY;
+
+    // Point between the two touches
+    var centerPointEndX = (self.newPoints[0].x + self.newPoints[1].x) / 2 - $(window).scrollLeft();
+    var centerPointEndY = (self.newPoints[0].y + self.newPoints[1].y) / 2 - $(window).scrollTop();
+
+    // And this is the translation due to translation of the centerpoint
+    // between the two fingers
+    var translateFromTranslatingX = centerPointEndX - self.centerPointStartX;
+    var translateFromTranslatingY = centerPointEndY - self.centerPointStartY;
+
+    // The new offset is the old/current one plus the total translation
+    var newOffsetX = currentOffsetX + (translateFromZoomingX + translateFromTranslatingX);
+    var newOffsetY = currentOffsetY + (translateFromZoomingY + translateFromTranslatingY);
+
+    var newPos = {
+      top: newOffsetY,
+      left: newOffsetX,
+      scaleX: pinchRatio,
+      scaleY: pinchRatio
+    };
+
+    self.canTap = false;
+
+    self.newWidth = newWidth;
+    self.newHeight = newHeight;
+
+    self.contentLastPos = newPos;
+
+    if (self.requestId) {
+      cancelAFrame(self.requestId);
+    }
+
+    self.requestId = requestAFrame(function () {
+      $.fancybox.setTranslate(self.$content, self.contentLastPos);
+    });
+  };
+
+  Guestures.prototype.ontouchend = function (e) {
+    var self = this;
+
+    var swiping = self.isSwiping;
+    var panning = self.isPanning;
+    var zooming = self.isZooming;
+    var scrolling = self.isScrolling;
+
+    self.endPoints = getPointerXY(e);
+    self.dMs = Math.max(new Date().getTime() - self.startTime, 1);
+
+    self.$container.removeClass("fancybox-is-grabbing");
+
+    $(document).off(".fb.touch");
+
+    document.removeEventListener("scroll", self.onscroll, true);
+
+    if (self.requestId) {
+      cancelAFrame(self.requestId);
+
+      self.requestId = null;
+    }
+
+    self.isSwiping = false;
+    self.isPanning = false;
+    self.isZooming = false;
+    self.isScrolling = false;
+
+    self.instance.isDragging = false;
+
+    if (self.canTap) {
+      return self.onTap(e);
+    }
+
+    self.speed = 100;
+
+    // Speed in px/ms
+    self.velocityX = (self.distanceX / self.dMs) * 0.5;
+    self.velocityY = (self.distanceY / self.dMs) * 0.5;
+
+    if (panning) {
+      self.endPanning();
+    } else if (zooming) {
+      self.endZooming();
+    } else {
+      self.endSwiping(swiping, scrolling);
+    }
+
+    return;
+  };
+
+  Guestures.prototype.endSwiping = function (swiping, scrolling) {
+    var self = this,
+      ret = false,
+      len = self.instance.group.length,
+      distanceX = Math.abs(self.distanceX),
+      canAdvance = swiping == "x" && len > 1 && ((self.dMs > 130 && distanceX > 10) || distanceX > 50),
+      speedX = 300;
+
+    self.sliderLastPos = null;
+
+    // Close if swiped vertically / navigate if horizontally
+    if (swiping == "y" && !scrolling && Math.abs(self.distanceY) > 50) {
+      // Continue vertical movement
+      $.fancybox.animate(
+        self.instance.current.$slide, {
+          top: self.sliderStartPos.top + self.distanceY + self.velocityY * 150,
+          opacity: 0
+        },
+        200
+      );
+      ret = self.instance.close(true, 250);
+    } else if (canAdvance && self.distanceX > 0) {
+      ret = self.instance.previous(speedX);
+    } else if (canAdvance && self.distanceX < 0) {
+      ret = self.instance.next(speedX);
+    }
+
+    if (ret === false && (swiping == "x" || swiping == "y")) {
+      self.instance.centerSlide(200);
+    }
+
+    self.$container.removeClass("fancybox-is-sliding");
+  };
+
+  // Limit panning from edges
+  // ========================
+  Guestures.prototype.endPanning = function () {
+    var self = this,
+      newOffsetX,
+      newOffsetY,
+      newPos;
+
+    if (!self.contentLastPos) {
+      return;
+    }
+
+    if (self.opts.momentum === false || self.dMs > 350) {
+      newOffsetX = self.contentLastPos.left;
+      newOffsetY = self.contentLastPos.top;
+    } else {
+      // Continue movement
+      newOffsetX = self.contentLastPos.left + self.velocityX * 500;
+      newOffsetY = self.contentLastPos.top + self.velocityY * 500;
+    }
+
+    newPos = self.limitPosition(newOffsetX, newOffsetY, self.contentStartPos.width, self.contentStartPos.height);
+
+    newPos.width = self.contentStartPos.width;
+    newPos.height = self.contentStartPos.height;
+
+    $.fancybox.animate(self.$content, newPos, 366);
+  };
+
+  Guestures.prototype.endZooming = function () {
+    var self = this;
+
+    var current = self.instance.current;
+
+    var newOffsetX, newOffsetY, newPos, reset;
+
+    var newWidth = self.newWidth;
+    var newHeight = self.newHeight;
+
+    if (!self.contentLastPos) {
+      return;
+    }
+
+    newOffsetX = self.contentLastPos.left;
+    newOffsetY = self.contentLastPos.top;
+
+    reset = {
+      top: newOffsetY,
+      left: newOffsetX,
+      width: newWidth,
+      height: newHeight,
+      scaleX: 1,
+      scaleY: 1
+    };
+
+    // Reset scalex/scaleY values; this helps for perfomance and does not break animation
+    $.fancybox.setTranslate(self.$content, reset);
+
+    if (newWidth < self.canvasWidth && newHeight < self.canvasHeight) {
+      self.instance.scaleToFit(150);
+    } else if (newWidth > current.width || newHeight > current.height) {
+      self.instance.scaleToActual(self.centerPointStartX, self.centerPointStartY, 150);
+    } else {
+      newPos = self.limitPosition(newOffsetX, newOffsetY, newWidth, newHeight);
+
+      $.fancybox.animate(self.$content, newPos, 150);
+    }
+  };
+
+  Guestures.prototype.onTap = function (e) {
+    var self = this;
+    var $target = $(e.target);
+
+    var instance = self.instance;
+    var current = instance.current;
+
+    var endPoints = (e && getPointerXY(e)) || self.startPoints;
+
+    var tapX = endPoints[0] ? endPoints[0].x - $(window).scrollLeft() - self.stagePos.left : 0;
+    var tapY = endPoints[0] ? endPoints[0].y - $(window).scrollTop() - self.stagePos.top : 0;
+
+    var where;
+
+    var process = function (prefix) {
+      var action = current.opts[prefix];
+
+      if ($.isFunction(action)) {
+        action = action.apply(instance, [current, e]);
+      }
+
+      if (!action) {
+        return;
+      }
+
+      switch (action) {
+        case "close":
+          instance.close(self.startEvent);
+
+          break;
+
+        case "toggleControls":
+          instance.toggleControls();
+
+          break;
+
+        case "next":
+          instance.next();
+
+          break;
+
+        case "nextOrClose":
+          if (instance.group.length > 1) {
+            instance.next();
+          } else {
+            instance.close(self.startEvent);
+          }
+
+          break;
+
+        case "zoom":
+          if (current.type == "image" && (current.isLoaded || current.$ghost)) {
+            if (instance.canPan()) {
+              instance.scaleToFit();
+            } else if (instance.isScaledDown()) {
+              instance.scaleToActual(tapX, tapY);
+            } else if (instance.group.length < 2) {
+              instance.close(self.startEvent);
+            }
+          }
+
+          break;
+      }
+    };
+
+    // Ignore right click
+    if (e.originalEvent && e.originalEvent.button == 2) {
+      return;
+    }
+
+    // Skip if clicked on the scrollbar
+    if (!$target.is("img") && tapX > $target[0].clientWidth + $target.offset().left) {
+      return;
+    }
+
+    // Check where is clicked
+    if ($target.is(".fancybox-bg,.fancybox-inner,.fancybox-outer,.fancybox-container")) {
+      where = "Outside";
+    } else if ($target.is(".fancybox-slide")) {
+      where = "Slide";
+    } else if (
+      instance.current.$content &&
+      instance.current.$content
+      .find($target)
+      .addBack()
+      .filter($target).length
+    ) {
+      where = "Content";
+    } else {
+      return;
+    }
+
+    // Check if this is a double tap
+    if (self.tapped) {
+      // Stop previously created single tap
+      clearTimeout(self.tapped);
+      self.tapped = null;
+
+      // Skip if distance between taps is too big
+      if (Math.abs(tapX - self.tapX) > 50 || Math.abs(tapY - self.tapY) > 50) {
+        return this;
+      }
+
+      // OK, now we assume that this is a double-tap
+      process("dblclick" + where);
+    } else {
+      // Single tap will be processed if user has not clicked second time within 300ms
+      // or there is no need to wait for double-tap
+      self.tapX = tapX;
+      self.tapY = tapY;
+
+      if (current.opts["dblclick" + where] && current.opts["dblclick" + where] !== current.opts["click" + where]) {
+        self.tapped = setTimeout(function () {
+          self.tapped = null;
+
+          if (!instance.isAnimating) {
+            process("click" + where);
+          }
+        }, 500);
+      } else {
+        process("click" + where);
+      }
+    }
+
+    return this;
+  };
+
+  $(document)
+    .on("onActivate.fb", function (e, instance) {
+      if (instance && !instance.Guestures) {
+        instance.Guestures = new Guestures(instance);
+      }
+    })
+    .on("beforeClose.fb", function (e, instance) {
+      if (instance && instance.Guestures) {
+        instance.Guestures.destroy();
+      }
+    });
+})(window, document, jQuery);
+// ==========================================================================
+//
+// SlideShow
+// Enables slideshow functionality
+//
+// Example of usage:
+// $.fancybox.getInstance().SlideShow.start()
+//
+// ==========================================================================
+(function (document, $) {
+  "use strict";
+
+  $.extend(true, $.fancybox.defaults, {
+    btnTpl: {
+      slideShow: '<button data-fancybox-play class="fancybox-button fancybox-button--play" title="{{PLAY_START}}">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 5.4v13.2l11-6.6z"/></svg>' +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.33 5.75h2.2v12.5h-2.2V5.75zm5.15 0h2.2v12.5h-2.2V5.75z"/></svg>' +
+        "</button>"
+    },
+    slideShow: {
+      autoStart: false,
+      speed: 3000,
+      progress: true
+    }
+  });
+
+  var SlideShow = function (instance) {
+    this.instance = instance;
+    this.init();
+  };
+
+  $.extend(SlideShow.prototype, {
+    timer: null,
+    isActive: false,
+    $button: null,
+
+    init: function () {
+      var self = this,
+        instance = self.instance,
+        opts = instance.group[instance.currIndex].opts.slideShow;
+
+      self.$button = instance.$refs.toolbar.find("[data-fancybox-play]").on("click", function () {
+        self.toggle();
+      });
+
+      if (instance.group.length < 2 || !opts) {
+        self.$button.hide();
+      } else if (opts.progress) {
+        self.$progress = $('<div class="fancybox-progress"></div>').appendTo(instance.$refs.inner);
+      }
+    },
+
+    set: function (force) {
+      var self = this,
+        instance = self.instance,
+        current = instance.current;
+
+      // Check if reached last element
+      if (current && (force === true || current.opts.loop || instance.currIndex < instance.group.length - 1)) {
+        if (self.isActive && current.contentType !== "video") {
+          if (self.$progress) {
+            $.fancybox.animate(self.$progress.show(), {
+              scaleX: 1
+            }, current.opts.slideShow.speed);
+          }
+
+          self.timer = setTimeout(function () {
+            if (!instance.current.opts.loop && instance.current.index == instance.group.length - 1) {
+              instance.jumpTo(0);
+            } else {
+              instance.next();
+            }
+          }, current.opts.slideShow.speed);
+        }
+      } else {
+        self.stop();
+        instance.idleSecondsCounter = 0;
+        instance.showControls();
+      }
+    },
+
+    clear: function () {
+      var self = this;
+
+      clearTimeout(self.timer);
+
+      self.timer = null;
+
+      if (self.$progress) {
+        self.$progress.removeAttr("style").hide();
+      }
+    },
+
+    start: function () {
+      var self = this,
+        current = self.instance.current;
+
+      if (current) {
+        self.$button
+          .attr("title", (current.opts.i18n[current.opts.lang] || current.opts.i18n.en).PLAY_STOP)
+          .removeClass("fancybox-button--play")
+          .addClass("fancybox-button--pause");
+
+        self.isActive = true;
+
+        if (current.isComplete) {
+          self.set(true);
+        }
+
+        self.instance.trigger("onSlideShowChange", true);
+      }
+    },
+
+    stop: function () {
+      var self = this,
+        current = self.instance.current;
+
+      self.clear();
+
+      self.$button
+        .attr("title", (current.opts.i18n[current.opts.lang] || current.opts.i18n.en).PLAY_START)
+        .removeClass("fancybox-button--pause")
+        .addClass("fancybox-button--play");
+
+      self.isActive = false;
+
+      self.instance.trigger("onSlideShowChange", false);
+
+      if (self.$progress) {
+        self.$progress.removeAttr("style").hide();
+      }
+    },
+
+    toggle: function () {
+      var self = this;
+
+      if (self.isActive) {
+        self.stop();
+      } else {
+        self.start();
+      }
+    }
+  });
+
+  $(document).on({
+    "onInit.fb": function (e, instance) {
+      if (instance && !instance.SlideShow) {
+        instance.SlideShow = new SlideShow(instance);
+      }
+    },
+
+    "beforeShow.fb": function (e, instance, current, firstRun) {
+      var SlideShow = instance && instance.SlideShow;
+
+      if (firstRun) {
+        if (SlideShow && current.opts.slideShow.autoStart) {
+          SlideShow.start();
+        }
+      } else if (SlideShow && SlideShow.isActive) {
+        SlideShow.clear();
+      }
+    },
+
+    "afterShow.fb": function (e, instance, current) {
+      var SlideShow = instance && instance.SlideShow;
+
+      if (SlideShow && SlideShow.isActive) {
+        SlideShow.set();
+      }
+    },
+
+    "afterKeydown.fb": function (e, instance, current, keypress, keycode) {
+      var SlideShow = instance && instance.SlideShow;
+
+      // "P" or Spacebar
+      if (SlideShow && current.opts.slideShow && (keycode === 80 || keycode === 32) && !$(document.activeElement).is("button,a,input")) {
+        keypress.preventDefault();
+
+        SlideShow.toggle();
+      }
+    },
+
+    "beforeClose.fb onDeactivate.fb": function (e, instance) {
+      var SlideShow = instance && instance.SlideShow;
+
+      if (SlideShow) {
+        SlideShow.stop();
+      }
+    }
+  });
+
+  // Page Visibility API to pause slideshow when window is not active
+  $(document).on("visibilitychange", function () {
+    var instance = $.fancybox.getInstance(),
+      SlideShow = instance && instance.SlideShow;
+
+    if (SlideShow && SlideShow.isActive) {
+      if (document.hidden) {
+        SlideShow.clear();
+      } else {
+        SlideShow.set();
+      }
+    }
+  });
+})(document, jQuery);
+// ==========================================================================
+//
+// FullScreen
+// Adds fullscreen functionality
+//
+// ==========================================================================
+(function (document, $) {
+  "use strict";
+
+  // Collection of methods supported by user browser
+  var fn = (function () {
+    var fnMap = [
+      ["requestFullscreen", "exitFullscreen", "fullscreenElement", "fullscreenEnabled", "fullscreenchange", "fullscreenerror"],
+      // new WebKit
+      [
+        "webkitRequestFullscreen",
+        "webkitExitFullscreen",
+        "webkitFullscreenElement",
+        "webkitFullscreenEnabled",
+        "webkitfullscreenchange",
+        "webkitfullscreenerror"
+      ],
+      // old WebKit (Safari 5.1)
+      [
+        "webkitRequestFullScreen",
+        "webkitCancelFullScreen",
+        "webkitCurrentFullScreenElement",
+        "webkitCancelFullScreen",
+        "webkitfullscreenchange",
+        "webkitfullscreenerror"
+      ],
+      [
+        "mozRequestFullScreen",
+        "mozCancelFullScreen",
+        "mozFullScreenElement",
+        "mozFullScreenEnabled",
+        "mozfullscreenchange",
+        "mozfullscreenerror"
+      ],
+      ["msRequestFullscreen", "msExitFullscreen", "msFullscreenElement", "msFullscreenEnabled", "MSFullscreenChange", "MSFullscreenError"]
+    ];
+
+    var ret = {};
+
+    for (var i = 0; i < fnMap.length; i++) {
+      var val = fnMap[i];
+
+      if (val && val[1] in document) {
+        for (var j = 0; j < val.length; j++) {
+          ret[fnMap[0][j]] = val[j];
+        }
+
+        return ret;
+      }
+    }
+
+    return false;
+  })();
+
+  if (fn) {
+    var FullScreen = {
+      request: function (elem) {
+        elem = elem || document.documentElement;
+
+        elem[fn.requestFullscreen](elem.ALLOW_KEYBOARD_INPUT);
+      },
+      exit: function () {
+        document[fn.exitFullscreen]();
+      },
+      toggle: function (elem) {
+        elem = elem || document.documentElement;
+
+        if (this.isFullscreen()) {
+          this.exit();
+        } else {
+          this.request(elem);
+        }
+      },
+      isFullscreen: function () {
+        return Boolean(document[fn.fullscreenElement]);
+      },
+      enabled: function () {
+        return Boolean(document[fn.fullscreenEnabled]);
+      }
+    };
+
+    $.extend(true, $.fancybox.defaults, {
+      btnTpl: {
+        fullScreen: '<button data-fancybox-fullscreen class="fancybox-button fancybox-button--fsenter" title="{{FULL_SCREEN}}">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>' +
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 16h3v3h2v-5H5zm3-8H5v2h5V5H8zm6 11h2v-3h3v-2h-5zm2-11V5h-2v5h5V8z"/></svg>' +
+          "</button>"
+      },
+      fullScreen: {
+        autoStart: false
+      }
+    });
+
+    $(document).on(fn.fullscreenchange, function () {
+      var isFullscreen = FullScreen.isFullscreen(),
+        instance = $.fancybox.getInstance();
+
+      if (instance) {
+        // If image is zooming, then force to stop and reposition properly
+        if (instance.current && instance.current.type === "image" && instance.isAnimating) {
+          instance.isAnimating = false;
+
+          instance.update(true, true, 0);
+
+          if (!instance.isComplete) {
+            instance.complete();
+          }
+        }
+
+        instance.trigger("onFullscreenChange", isFullscreen);
+
+        instance.$refs.container.toggleClass("fancybox-is-fullscreen", isFullscreen);
+
+        instance.$refs.toolbar
+          .find("[data-fancybox-fullscreen]")
+          .toggleClass("fancybox-button--fsenter", !isFullscreen)
+          .toggleClass("fancybox-button--fsexit", isFullscreen);
+      }
+    });
+  }
+
+  $(document).on({
+    "onInit.fb": function (e, instance) {
+      var $container;
+
+      if (!fn) {
+        instance.$refs.toolbar.find("[data-fancybox-fullscreen]").remove();
+
+        return;
+      }
+
+      if (instance && instance.group[instance.currIndex].opts.fullScreen) {
+        $container = instance.$refs.container;
+
+        $container.on("click.fb-fullscreen", "[data-fancybox-fullscreen]", function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          FullScreen.toggle();
+        });
+
+        if (instance.opts.fullScreen && instance.opts.fullScreen.autoStart === true) {
+          FullScreen.request();
+        }
+
+        // Expose API
+        instance.FullScreen = FullScreen;
+      } else if (instance) {
+        instance.$refs.toolbar.find("[data-fancybox-fullscreen]").hide();
+      }
+    },
+
+    "afterKeydown.fb": function (e, instance, current, keypress, keycode) {
+      // "F"
+      if (instance && instance.FullScreen && keycode === 70) {
+        keypress.preventDefault();
+
+        instance.FullScreen.toggle();
+      }
+    },
+
+    "beforeClose.fb": function (e, instance) {
+      if (instance && instance.FullScreen && instance.$refs.container.hasClass("fancybox-is-fullscreen")) {
+        FullScreen.exit();
+      }
+    }
+  });
+})(document, jQuery);
+// ==========================================================================
+//
+// Thumbs
+// Displays thumbnails in a grid
+//
+// ==========================================================================
+(function (document, $) {
+  "use strict";
+
+  var CLASS = "fancybox-thumbs",
+    CLASS_ACTIVE = CLASS + "-active";
+
+  // Make sure there are default values
+  $.fancybox.defaults = $.extend(
+    true, {
+      btnTpl: {
+        thumbs: '<button data-fancybox-thumbs class="fancybox-button fancybox-button--thumbs" title="{{THUMBS}}">' +
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.59 14.59h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76h-3.76v-3.76zm-4.47 0h3.76v3.76H5.65v-3.76zm8.94-4.47h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76h-3.76V5.65zm-4.47 0h3.76v3.76H5.65V5.65z"/></svg>' +
+          "</button>"
+      },
+      thumbs: {
+        autoStart: false, // Display thumbnails on opening
+        hideOnClose: true, // Hide thumbnail grid when closing animation starts
+        parentEl: ".fancybox-container", // Container is injected into this element
+        axis: "y" // Vertical (y) or horizontal (x) scrolling
+      }
+    },
+    $.fancybox.defaults
+  );
+
+  var FancyThumbs = function (instance) {
+    this.init(instance);
+  };
+
+  $.extend(FancyThumbs.prototype, {
+    $button: null,
+    $grid: null,
+    $list: null,
+    isVisible: false,
+    isActive: false,
+
+    init: function (instance) {
+      var self = this,
+        group = instance.group,
+        enabled = 0;
+
+      self.instance = instance;
+      self.opts = group[instance.currIndex].opts.thumbs;
+
+      instance.Thumbs = self;
+
+      self.$button = instance.$refs.toolbar.find("[data-fancybox-thumbs]");
+
+      // Enable thumbs if at least two group items have thumbnails
+      for (var i = 0, len = group.length; i < len; i++) {
+        if (group[i].thumb) {
+          enabled++;
+        }
+
+        if (enabled > 1) {
+          break;
+        }
+      }
+
+      if (enabled > 1 && !!self.opts) {
+        self.$button.removeAttr("style").on("click", function () {
+          self.toggle();
+        });
+
+        self.isActive = true;
+      } else {
+        self.$button.hide();
+      }
+    },
+
+    create: function () {
+      var self = this,
+        instance = self.instance,
+        parentEl = self.opts.parentEl,
+        list = [],
+        src;
+
+      if (!self.$grid) {
+        // Create main element
+        self.$grid = $('<div class="' + CLASS + " " + CLASS + "-" + self.opts.axis + '"></div>').appendTo(
+          instance.$refs.container
+          .find(parentEl)
+          .addBack()
+          .filter(parentEl)
+        );
+
+        // Add "click" event that performs gallery navigation
+        self.$grid.on("click", "a", function () {
+          instance.jumpTo($(this).attr("data-index"));
+        });
+      }
+
+      // Build the list
+      if (!self.$list) {
+        self.$list = $('<div class="' + CLASS + '__list">').appendTo(self.$grid);
+      }
+
+      $.each(instance.group, function (i, item) {
+        src = item.thumb;
+
+        if (!src && item.type === "image") {
+          src = item.src;
+        }
+
+        list.push(
+          '<a href="javascript:;" tabindex="0" data-index="' +
+          i +
+          '"' +
+          (src && src.length ? ' style="background-image:url(' + src + ')"' : 'class="fancybox-thumbs-missing"') +
+          "></a>"
+        );
+      });
+
+      self.$list[0].innerHTML = list.join("");
+
+      if (self.opts.axis === "x") {
+        // Set fixed width for list element to enable horizontal scrolling
+        self.$list.width(
+          parseInt(self.$grid.css("padding-right"), 10) +
+          instance.group.length *
+          self.$list
+          .children()
+          .eq(0)
+          .outerWidth(true)
+        );
+      }
+    },
+
+    focus: function (duration) {
+      var self = this,
+        $list = self.$list,
+        $grid = self.$grid,
+        thumb,
+        thumbPos;
+
+      if (!self.instance.current) {
+        return;
+      }
+
+      thumb = $list
+        .children()
+        .removeClass(CLASS_ACTIVE)
+        .filter('[data-index="' + self.instance.current.index + '"]')
+        .addClass(CLASS_ACTIVE);
+
+      thumbPos = thumb.position();
+
+      // Check if need to scroll to make current thumb visible
+      if (self.opts.axis === "y" && (thumbPos.top < 0 || thumbPos.top > $list.height() - thumb.outerHeight())) {
+        $list.stop().animate({
+            scrollTop: $list.scrollTop() + thumbPos.top
+          },
+          duration
+        );
+      } else if (
+        self.opts.axis === "x" &&
+        (thumbPos.left < $grid.scrollLeft() || thumbPos.left > $grid.scrollLeft() + ($grid.width() - thumb.outerWidth()))
+      ) {
+        $list
+          .parent()
+          .stop()
+          .animate({
+              scrollLeft: thumbPos.left
+            },
+            duration
+          );
+      }
+    },
+
+    update: function () {
+      var that = this;
+      that.instance.$refs.container.toggleClass("fancybox-show-thumbs", this.isVisible);
+
+      if (that.isVisible) {
+        if (!that.$grid) {
+          that.create();
+        }
+
+        that.instance.trigger("onThumbsShow");
+
+        that.focus(0);
+      } else if (that.$grid) {
+        that.instance.trigger("onThumbsHide");
+      }
+
+      // Update content position
+      that.instance.update();
+    },
+
+    hide: function () {
+      this.isVisible = false;
+      this.update();
+    },
+
+    show: function () {
+      this.isVisible = true;
+      this.update();
+    },
+
+    toggle: function () {
+      this.isVisible = !this.isVisible;
+      this.update();
+    }
+  });
+
+  $(document).on({
+    "onInit.fb": function (e, instance) {
+      var Thumbs;
+
+      if (instance && !instance.Thumbs) {
+        Thumbs = new FancyThumbs(instance);
+
+        if (Thumbs.isActive && Thumbs.opts.autoStart === true) {
+          Thumbs.show();
+        }
+      }
+    },
+
+    "beforeShow.fb": function (e, instance, item, firstRun) {
+      var Thumbs = instance && instance.Thumbs;
+
+      if (Thumbs && Thumbs.isVisible) {
+        Thumbs.focus(firstRun ? 0 : 250);
+      }
+    },
+
+    "afterKeydown.fb": function (e, instance, current, keypress, keycode) {
+      var Thumbs = instance && instance.Thumbs;
+
+      // "G"
+      if (Thumbs && Thumbs.isActive && keycode === 71) {
+        keypress.preventDefault();
+
+        Thumbs.toggle();
+      }
+    },
+
+    "beforeClose.fb": function (e, instance) {
+      var Thumbs = instance && instance.Thumbs;
+
+      if (Thumbs && Thumbs.isVisible && Thumbs.opts.hideOnClose !== false) {
+        Thumbs.$grid.hide();
+      }
+    }
+  });
+})(document, jQuery);
+//// ==========================================================================
+//
+// Share
+// Displays simple form for sharing current url
+//
+// ==========================================================================
+(function (document, $) {
+  "use strict";
+
+  $.extend(true, $.fancybox.defaults, {
+    btnTpl: {
+      share: '<button data-fancybox-share class="fancybox-button fancybox-button--share" title="{{SHARE}}">' +
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.55 19c1.4-8.4 9.1-9.8 11.9-9.8V5l7 7-7 6.3v-3.5c-2.8 0-10.5 2.1-11.9 4.2z"/></svg>' +
+        "</button>"
+    },
+    share: {
+      url: function (instance, item) {
+        return (
+          (!instance.currentHash && !(item.type === "inline" || item.type === "html") ? item.origSrc || item.src : false) || window.location
+        );
+      },
+      tpl: '<div class="fancybox-share">' +
+        "<h1>{{SHARE}}</h1>" +
+        "<p>" +
+        '<a class="fancybox-share__button fancybox-share__button--fb" href="https://www.facebook.com/sharer/sharer.php?u={{url}}">' +
+        '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m287 456v-299c0-21 6-35 35-35h38v-63c-7-1-29-3-55-3-54 0-91 33-91 94v306m143-254h-205v72h196" /></svg>' +
+        "<span>Facebook</span>" +
+        "</a>" +
+        '<a class="fancybox-share__button fancybox-share__button--tw" href="https://twitter.com/intent/tweet?url={{url}}&text={{descr}}">' +
+        '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m456 133c-14 7-31 11-47 13 17-10 30-27 37-46-15 10-34 16-52 20-61-62-157-7-141 75-68-3-129-35-169-85-22 37-11 86 26 109-13 0-26-4-37-9 0 39 28 72 65 80-12 3-25 4-37 2 10 33 41 57 77 57-42 30-77 38-122 34 170 111 378-32 359-208 16-11 30-25 41-42z" /></svg>' +
+        "<span>Twitter</span>" +
+        "</a>" +
+        '<a class="fancybox-share__button fancybox-share__button--pt" href="https://www.pinterest.com/pin/create/button/?url={{url}}&description={{descr}}&media={{media}}">' +
+        '<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m265 56c-109 0-164 78-164 144 0 39 15 74 47 87 5 2 10 0 12-5l4-19c2-6 1-8-3-13-9-11-15-25-15-45 0-58 43-110 113-110 62 0 96 38 96 88 0 67-30 122-73 122-24 0-42-19-36-44 6-29 20-60 20-81 0-19-10-35-31-35-25 0-44 26-44 60 0 21 7 36 7 36l-30 125c-8 37-1 83 0 87 0 3 4 4 5 2 2-3 32-39 42-75l16-64c8 16 31 29 56 29 74 0 124-67 124-157 0-69-58-132-146-132z" fill="#fff"/></svg>' +
+        "<span>Pinterest</span>" +
+        "</a>" +
+        "</p>" +
+        '<p><input class="fancybox-share__input" type="text" value="{{url_raw}}" onclick="select()" /></p>' +
+        "</div>"
+    }
+  });
+
+  function escapeHtml(string) {
+    var entityMap = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+      "/": "&#x2F;",
+      "`": "&#x60;",
+      "=": "&#x3D;"
+    };
+
+    return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+      return entityMap[s];
+    });
+  }
+
+  $(document).on("click", "[data-fancybox-share]", function () {
+    var instance = $.fancybox.getInstance(),
+      current = instance.current || null,
+      url,
+      tpl;
+
+    if (!current) {
+      return;
+    }
+
+    if ($.type(current.opts.share.url) === "function") {
+      url = current.opts.share.url.apply(current, [instance, current]);
+    }
+
+    tpl = current.opts.share.tpl
+      .replace(/\{\{media\}\}/g, current.type === "image" ? encodeURIComponent(current.src) : "")
+      .replace(/\{\{url\}\}/g, encodeURIComponent(url))
+      .replace(/\{\{url_raw\}\}/g, escapeHtml(url))
+      .replace(/\{\{descr\}\}/g, instance.$caption ? encodeURIComponent(instance.$caption.text()) : "");
+
+    $.fancybox.open({
+      src: instance.translate(instance, tpl),
+      type: "html",
+      opts: {
+        touch: false,
+        animationEffect: false,
+        afterLoad: function (shareInstance, shareCurrent) {
+          // Close self if parent instance is closing
+          instance.$refs.container.one("beforeClose.fb", function () {
+            shareInstance.close(null, 0);
+          });
+
+          // Opening links in a popup window
+          shareCurrent.$content.find(".fancybox-share__button").click(function () {
+            window.open(this.href, "Share", "width=550, height=450");
+            return false;
+          });
+        },
+        mobile: {
+          autoFocus: false
+        }
+      }
+    });
+  });
+})(document, jQuery);
+// ==========================================================================
+//
+// Hash
+// Enables linking to each modal
+//
+// ==========================================================================
+(function (window, document, $) {
+  "use strict";
+
+  // Simple $.escapeSelector polyfill (for jQuery prior v3)
+  if (!$.escapeSelector) {
+    $.escapeSelector = function (sel) {
+      var rcssescape = /([\0-\x1f\x7f]|^-?\d)|^-$|[^\x80-\uFFFF\w-]/g;
+      var fcssescape = function (ch, asCodePoint) {
+        if (asCodePoint) {
+          // U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
+          if (ch === "\0") {
+            return "\uFFFD";
+          }
+
+          // Control characters and (dependent upon position) numbers get escaped as code points
+          return ch.slice(0, -1) + "\\" + ch.charCodeAt(ch.length - 1).toString(16) + " ";
+        }
+
+        // Other potentially-special ASCII characters get backslash-escaped
+        return "\\" + ch;
+      };
+
+      return (sel + "").replace(rcssescape, fcssescape);
+    };
+  }
+
+  // Get info about gallery name and current index from url
+  function parseUrl() {
+    var hash = window.location.hash.substr(1),
+      rez = hash.split("-"),
+      index = rez.length > 1 && /^\+?\d+$/.test(rez[rez.length - 1]) ? parseInt(rez.pop(-1), 10) || 1 : 1,
+      gallery = rez.join("-");
+
+    return {
+      hash: hash,
+      /* Index is starting from 1 */
+      index: index < 1 ? 1 : index,
+      gallery: gallery
+    };
+  }
+
+  // Trigger click evnt on links to open new fancyBox instance
+  function triggerFromUrl(url) {
+    if (url.gallery !== "") {
+      // If we can find element matching 'data-fancybox' atribute,
+      // then triggering click event should start fancyBox
+      $("[data-fancybox='" + $.escapeSelector(url.gallery) + "']")
+        .eq(url.index - 1)
+        .focus()
+        .trigger("click.fb-start");
+    }
+  }
+
+  // Get gallery name from current instance
+  function getGalleryID(instance) {
+    var opts, ret;
+
+    if (!instance) {
+      return false;
+    }
+
+    opts = instance.current ? instance.current.opts : instance.opts;
+    ret = opts.hash || (opts.$orig ? opts.$orig.data("fancybox") || opts.$orig.data("fancybox-trigger") : "");
+
+    return ret === "" ? false : ret;
+  }
+
+  // Start when DOM becomes ready
+  $(function () {
+    // Check if user has disabled this module
+    if ($.fancybox.defaults.hash === false) {
+      return;
+    }
+
+    // Update hash when opening/closing fancyBox
+    $(document).on({
+      "onInit.fb": function (e, instance) {
+        var url, gallery;
+
+        if (instance.group[instance.currIndex].opts.hash === false) {
+          return;
+        }
+
+        url = parseUrl();
+        gallery = getGalleryID(instance);
+
+        // Make sure gallery start index matches index from hash
+        if (gallery && url.gallery && gallery == url.gallery) {
+          instance.currIndex = url.index - 1;
+        }
+      },
+
+      "beforeShow.fb": function (e, instance, current, firstRun) {
+        var gallery;
+
+        if (!current || current.opts.hash === false) {
+          return;
+        }
+
+        // Check if need to update window hash
+        gallery = getGalleryID(instance);
+
+        if (!gallery) {
+          return;
+        }
+
+        // Variable containing last hash value set by fancyBox
+        // It will be used to determine if fancyBox needs to close after hash change is detected
+        instance.currentHash = gallery + (instance.group.length > 1 ? "-" + (current.index + 1) : "");
+
+        // If current hash is the same (this instance most likely is opened by hashchange), then do nothing
+        if (window.location.hash === "#" + instance.currentHash) {
+          return;
+        }
+
+        if (firstRun && !instance.origHash) {
+          instance.origHash = window.location.hash;
+        }
+
+        if (instance.hashTimer) {
+          clearTimeout(instance.hashTimer);
+        }
+
+        // Update hash
+        instance.hashTimer = setTimeout(function () {
+          if ("replaceState" in window.history) {
+            window.history[firstRun ? "pushState" : "replaceState"]({},
+              document.title,
+              window.location.pathname + window.location.search + "#" + instance.currentHash
+            );
+
+            if (firstRun) {
+              instance.hasCreatedHistory = true;
+            }
+          } else {
+            window.location.hash = instance.currentHash;
+          }
+
+          instance.hashTimer = null;
+        }, 300);
+      },
+
+      "beforeClose.fb": function (e, instance, current) {
+        if (!current || current.opts.hash === false) {
+          return;
+        }
+
+        clearTimeout(instance.hashTimer);
+
+        // Goto previous history entry
+        if (instance.currentHash && instance.hasCreatedHistory) {
+          window.history.back();
+        } else if (instance.currentHash) {
+          if ("replaceState" in window.history) {
+            window.history.replaceState({}, document.title, window.location.pathname + window.location.search + (instance.origHash || ""));
+          } else {
+            window.location.hash = instance.origHash;
+          }
+        }
+
+        instance.currentHash = null;
+      }
+    });
+
+    // Check if need to start/close after url has changed
+    $(window).on("hashchange.fb", function () {
+      var url = parseUrl(),
+        fb = null;
+
+      // Find last fancyBox instance that has "hash"
+      $.each(
+        $(".fancybox-container")
+        .get()
+        .reverse(),
+        function (index, value) {
+          var tmp = $(value).data("FancyBox");
+
+          if (tmp && tmp.currentHash) {
+            fb = tmp;
+            return false;
+          }
+        }
+      );
+
+      if (fb) {
+        // Now, compare hash values
+        if (fb.currentHash !== url.gallery + "-" + url.index && !(url.index === 1 && fb.currentHash == url.gallery)) {
+          fb.currentHash = null;
+
+          fb.close();
+        }
+      } else if (url.gallery !== "") {
+        triggerFromUrl(url);
+      }
+    });
+
+    // Check current hash and trigger click event on matching element to start fancyBox, if needed
+    setTimeout(function () {
+      if (!$.fancybox.getInstance()) {
+        triggerFromUrl(parseUrl());
+      }
+    }, 50);
+  });
+})(window, document, jQuery);
+// ==========================================================================
+//
+// Wheel
+// Basic mouse weheel support for gallery navigation
+//
+// ==========================================================================
+(function (document, $) {
+  "use strict";
+
+  var prevTime = new Date().getTime();
+
+  $(document).on({
+    "onInit.fb": function (e, instance, current) {
+      instance.$refs.stage.on("mousewheel DOMMouseScroll wheel MozMousePixelScroll", function (e) {
+        var current = instance.current,
+          currTime = new Date().getTime();
+
+        if (instance.group.length < 2 || current.opts.wheel === false || (current.opts.wheel === "auto" && current.type !== "image")) {
+          return;
+        }
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (current.$slide.hasClass("fancybox-animated")) {
+          return;
+        }
+
+        e = e.originalEvent || e;
+
+        if (currTime - prevTime < 250) {
+          return;
+        }
+
+        prevTime = currTime;
+
+        instance[(-e.deltaY || -e.deltaX || e.wheelDelta || -e.detail) < 0 ? "next" : "previous"]();
+      });
+    }
+  });
+})(document, jQuery);
+
+/***/ }),
+
+/***/ "./node_modules/desandro-matches-selector/matches-selector.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/desandro-matches-selector/matches-selector.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * matchesSelector v2.0.2
+ * matchesSelector( element, '.selector' )
+ * MIT license
+ */
+
+/*jshint browser: true, strict: true, undef: true, unused: true */
+
+( function( window, factory ) {
+  /*global define: false, module: false */
+  'use strict';
+  // universal module definition
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory() {
+  'use strict';
+
+  var matchesMethod = ( function() {
+    var ElemProto = window.Element.prototype;
+    // check for the standard method name first
+    if ( ElemProto.matches ) {
+      return 'matches';
+    }
+    // check un-prefixed
+    if ( ElemProto.matchesSelector ) {
+      return 'matchesSelector';
+    }
+    // check vendor prefixes
+    var prefixes = [ 'webkit', 'moz', 'ms', 'o' ];
+
+    for ( var i=0; i < prefixes.length; i++ ) {
+      var prefix = prefixes[i];
+      var method = prefix + 'MatchesSelector';
+      if ( ElemProto[ method ] ) {
+        return method;
+      }
+    }
+  })();
+
+  return function matchesSelector( elem, selector ) {
+    return elem[ matchesMethod ]( selector );
+  };
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/ev-emitter/ev-emitter.js":
+/*!***********************************************!*\
+  !*** ./node_modules/ev-emitter/ev-emitter.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * EvEmitter v1.1.0
+ * Lil' event emitter
+ * MIT License
+ */
+
+/* jshint unused: true, undef: true, strict: true */
+
+( function( global, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /* globals define, module, window */
+  if ( true ) {
+    // AMD - RequireJS
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( typeof window != 'undefined' ? window : this, function() {
+
+"use strict";
+
+function EvEmitter() {}
+
+var proto = EvEmitter.prototype;
+
+proto.on = function( eventName, listener ) {
+  if ( !eventName || !listener ) {
+    return;
+  }
+  // set events hash
+  var events = this._events = this._events || {};
+  // set listeners array
+  var listeners = events[ eventName ] = events[ eventName ] || [];
+  // only add once
+  if ( listeners.indexOf( listener ) == -1 ) {
+    listeners.push( listener );
+  }
+
+  return this;
+};
+
+proto.once = function( eventName, listener ) {
+  if ( !eventName || !listener ) {
+    return;
+  }
+  // add event
+  this.on( eventName, listener );
+  // set once flag
+  // set onceEvents hash
+  var onceEvents = this._onceEvents = this._onceEvents || {};
+  // set onceListeners object
+  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
+  // set flag
+  onceListeners[ listener ] = true;
+
+  return this;
+};
+
+proto.off = function( eventName, listener ) {
+  var listeners = this._events && this._events[ eventName ];
+  if ( !listeners || !listeners.length ) {
+    return;
+  }
+  var index = listeners.indexOf( listener );
+  if ( index != -1 ) {
+    listeners.splice( index, 1 );
+  }
+
+  return this;
+};
+
+proto.emitEvent = function( eventName, args ) {
+  var listeners = this._events && this._events[ eventName ];
+  if ( !listeners || !listeners.length ) {
+    return;
+  }
+  // copy over to avoid interference if .off() in listener
+  listeners = listeners.slice(0);
+  args = args || [];
+  // once stuff
+  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
+
+  for ( var i=0; i < listeners.length; i++ ) {
+    var listener = listeners[i]
+    var isOnce = onceListeners && onceListeners[ listener ];
+    if ( isOnce ) {
+      // remove listener
+      // remove before trigger to prevent recursion
+      this.off( eventName, listener );
+      // unset once flag
+      delete onceListeners[ listener ];
+    }
+    // trigger listener
+    listener.apply( this, args );
+  }
+
+  return this;
+};
+
+proto.allOff = function() {
+  delete this._events;
+  delete this._onceEvents;
+};
+
+return EvEmitter;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/fizzy-ui-utils/utils.js":
+/*!**********************************************!*\
+  !*** ./node_modules/fizzy-ui-utils/utils.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * Fizzy UI utils v2.0.7
+ * MIT license
+ */
+
+/*jshint browser: true, undef: true, unused: true, strict: true */
+
+( function( window, factory ) {
+  // universal module definition
+  /*jshint strict: false */ /*globals define, module, require */
+
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+      __webpack_require__(/*! desandro-matches-selector/matches-selector */ "./node_modules/desandro-matches-selector/matches-selector.js")
+    ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( matchesSelector ) {
+      return factory( window, matchesSelector );
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( window, matchesSelector ) {
+
+'use strict';
+
+var utils = {};
+
+// ----- extend ----- //
+
+// extends objects
+utils.extend = function( a, b ) {
+  for ( var prop in b ) {
+    a[ prop ] = b[ prop ];
+  }
+  return a;
+};
+
+// ----- modulo ----- //
+
+utils.modulo = function( num, div ) {
+  return ( ( num % div ) + div ) % div;
+};
+
+// ----- makeArray ----- //
+
+var arraySlice = Array.prototype.slice;
+
+// turn element or nodeList into an array
+utils.makeArray = function( obj ) {
+  if ( Array.isArray( obj ) ) {
+    // use object if already an array
+    return obj;
+  }
+  // return empty array if undefined or null. #6
+  if ( obj === null || obj === undefined ) {
+    return [];
+  }
+
+  var isArrayLike = typeof obj == 'object' && typeof obj.length == 'number';
+  if ( isArrayLike ) {
+    // convert nodeList to array
+    return arraySlice.call( obj );
+  }
+
+  // array of single index
+  return [ obj ];
+};
+
+// ----- removeFrom ----- //
+
+utils.removeFrom = function( ary, obj ) {
+  var index = ary.indexOf( obj );
+  if ( index != -1 ) {
+    ary.splice( index, 1 );
+  }
+};
+
+// ----- getParent ----- //
+
+utils.getParent = function( elem, selector ) {
+  while ( elem.parentNode && elem != document.body ) {
+    elem = elem.parentNode;
+    if ( matchesSelector( elem, selector ) ) {
+      return elem;
+    }
+  }
+};
+
+// ----- getQueryElement ----- //
+
+// use element as selector string
+utils.getQueryElement = function( elem ) {
+  if ( typeof elem == 'string' ) {
+    return document.querySelector( elem );
+  }
+  return elem;
+};
+
+// ----- handleEvent ----- //
+
+// enable .ontype to trigger from .addEventListener( elem, 'type' )
+utils.handleEvent = function( event ) {
+  var method = 'on' + event.type;
+  if ( this[ method ] ) {
+    this[ method ]( event );
+  }
+};
+
+// ----- filterFindElements ----- //
+
+utils.filterFindElements = function( elems, selector ) {
+  // make array of elems
+  elems = utils.makeArray( elems );
+  var ffElems = [];
+
+  elems.forEach( function( elem ) {
+    // check that elem is an actual element
+    if ( !( elem instanceof HTMLElement ) ) {
+      return;
+    }
+    // add elem if no selector
+    if ( !selector ) {
+      ffElems.push( elem );
+      return;
+    }
+    // filter & find items if we have a selector
+    // filter
+    if ( matchesSelector( elem, selector ) ) {
+      ffElems.push( elem );
+    }
+    // find children
+    var childElems = elem.querySelectorAll( selector );
+    // concat childElems to filterFound array
+    for ( var i=0; i < childElems.length; i++ ) {
+      ffElems.push( childElems[i] );
+    }
+  });
+
+  return ffElems;
+};
+
+// ----- debounceMethod ----- //
+
+utils.debounceMethod = function( _class, methodName, threshold ) {
+  threshold = threshold || 100;
+  // original method
+  var method = _class.prototype[ methodName ];
+  var timeoutName = methodName + 'Timeout';
+
+  _class.prototype[ methodName ] = function() {
+    var timeout = this[ timeoutName ];
+    clearTimeout( timeout );
+
+    var args = arguments;
+    var _this = this;
+    this[ timeoutName ] = setTimeout( function() {
+      method.apply( _this, args );
+      delete _this[ timeoutName ];
+    }, threshold );
+  };
+};
+
+// ----- docReady ----- //
+
+utils.docReady = function( callback ) {
+  var readyState = document.readyState;
+  if ( readyState == 'complete' || readyState == 'interactive' ) {
+    // do async to allow for other scripts to run. metafizzy/flickity#441
+    setTimeout( callback );
+  } else {
+    document.addEventListener( 'DOMContentLoaded', callback );
+  }
+};
+
+// ----- htmlInit ----- //
+
+// http://jamesroberts.name/blog/2010/02/22/string-functions-for-javascript-trim-to-camel-case-to-dashed-and-to-underscore/
+utils.toDashed = function( str ) {
+  return str.replace( /(.)([A-Z])/g, function( match, $1, $2 ) {
+    return $1 + '-' + $2;
+  }).toLowerCase();
+};
+
+var console = window.console;
+/**
+ * allow user to initialize classes via [data-namespace] or .js-namespace class
+ * htmlInit( Widget, 'widgetName' )
+ * options are parsed from data-namespace-options
+ */
+utils.htmlInit = function( WidgetClass, namespace ) {
+  utils.docReady( function() {
+    var dashedNamespace = utils.toDashed( namespace );
+    var dataAttr = 'data-' + dashedNamespace;
+    var dataAttrElems = document.querySelectorAll( '[' + dataAttr + ']' );
+    var jsDashElems = document.querySelectorAll( '.js-' + dashedNamespace );
+    var elems = utils.makeArray( dataAttrElems )
+      .concat( utils.makeArray( jsDashElems ) );
+    var dataOptionsAttr = dataAttr + '-options';
+    var jQuery = window.jQuery;
+
+    elems.forEach( function( elem ) {
+      var attr = elem.getAttribute( dataAttr ) ||
+        elem.getAttribute( dataOptionsAttr );
+      var options;
+      try {
+        options = attr && JSON.parse( attr );
+      } catch ( error ) {
+        // log error, do not initialize
+        if ( console ) {
+          console.error( 'Error parsing ' + dataAttr + ' on ' + elem.className +
+          ': ' + error );
+        }
+        return;
+      }
+      // initialize
+      var instance = new WidgetClass( elem, options );
+      // make available via $().data('namespace')
+      if ( jQuery ) {
+        jQuery.data( elem, namespace, instance );
+      }
+    });
+
+  });
+};
+
+// -----  ----- //
+
+return utils;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.accordionMenu.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.accordionMenu.js ***!
+  \**********************************************************************/
+/*! exports provided: AccordionMenu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionMenu", function() { return AccordionMenu; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.util.keyboard */ "./node_modules/foundation-sites/js/foundation.util.keyboard.js");
+/* harmony import */ var _foundation_util_nest__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.nest */ "./node_modules/foundation-sites/js/foundation.util.nest.js");
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
+
+
+
+
+
+
+
+
+
+/**
+ * AccordionMenu module.
+ * @module foundation.accordionMenu
+ * @requires foundation.util.keyboard
+ * @requires foundation.util.nest
+ */
+
+class AccordionMenu extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__["Plugin"] {
+  /**
+   * Creates a new instance of an accordion menu.
+   * @class
+   * @name AccordionMenu
+   * @fires AccordionMenu#init
+   * @param {jQuery} element - jQuery object to make into an accordion menu.
+   * @param {Object} options - Overrides to the default plugin settings.
+   */
+  _setup(element, options) {
+    this.$element = element;
+    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, AccordionMenu.defaults, this.$element.data(), options);
+    this.className = 'AccordionMenu'; // ie9 back compat
+
+    this._init();
+
+    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_1__["Keyboard"].register('AccordionMenu', {
+      'ENTER': 'toggle',
+      'SPACE': 'toggle',
+      'ARROW_RIGHT': 'open',
+      'ARROW_UP': 'up',
+      'ARROW_DOWN': 'down',
+      'ARROW_LEFT': 'close',
+      'ESCAPE': 'closeAll'
+    });
+  }
+
+
+
+  /**
+   * Initializes the accordion menu by hiding all nested menus.
+   * @private
+   */
+  _init() {
+    _foundation_util_nest__WEBPACK_IMPORTED_MODULE_2__["Nest"].Feather(this.$element, 'accordion');
+
+    var _this = this;
+
+    this.$element.find('[data-submenu]').not('.is-active').slideUp(0);//.find('a').css('padding-left', '1rem');
+    this.$element.attr({
+      'role': 'tree',
+      'aria-multiselectable': this.options.multiOpen
+    });
+
+    this.$menuLinks = this.$element.find('.is-accordion-submenu-parent');
+    this.$menuLinks.each(function(){
+      var linkId = this.id || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["GetYoDigits"])(6, 'acc-menu-link'),
+          $elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
+          $sub = $elem.children('[data-submenu]'),
+          subId = $sub[0].id || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_3__["GetYoDigits"])(6, 'acc-menu'),
+          isActive = $sub.hasClass('is-active');
+
+      if(_this.options.parentLink) {
+        let $anchor = $elem.children('a');
+        $anchor.clone().prependTo($sub).wrap('<li data-is-parent-link class="is-submenu-parent-item is-submenu-item is-accordion-submenu-item"></li>');
+      }
+
+      if(_this.options.submenuToggle) {
+        $elem.addClass('has-submenu-toggle');
+        $elem.children('a').after('<button id="' + linkId + '" class="submenu-toggle" aria-controls="' + subId + '" aria-expanded="' + isActive + '" title="' + _this.options.submenuToggleText + '"><span class="submenu-toggle-text">' + _this.options.submenuToggleText + '</span></button>');
+      } else {
+        $elem.attr({
+          'aria-controls': subId,
+          'aria-expanded': isActive,
+          'id': linkId
+        });
+      }
+      $sub.attr({
+        'aria-labelledby': linkId,
+        'aria-hidden': !isActive,
+        'role': 'group',
+        'id': subId
+      });
+    });
+    this.$element.find('li').attr({
+      'role': 'treeitem'
+    });
+    var initPanes = this.$element.find('.is-active');
+    if(initPanes.length){
+      var _this = this;
+      initPanes.each(function(){
+        _this.down(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this));
+      });
+    }
+    this._events();
+  }
+
+  /**
+   * Adds event handlers for items within the menu.
+   * @private
+   */
+  _events() {
+    var _this = this;
+
+    this.$element.find('li').each(function() {
+      var $submenu = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('[data-submenu]');
+
+      if ($submenu.length) {
+        if(_this.options.submenuToggle) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('.submenu-toggle').off('click.zf.accordionMenu').on('click.zf.accordionMenu', function(e) {
+            _this.toggle($submenu);
+          });
+        } else {
+            jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('a').off('click.zf.accordionMenu').on('click.zf.accordionMenu', function(e) {
+              e.preventDefault();
+              _this.toggle($submenu);
+            });
+        }
+      }
+    }).on('keydown.zf.accordionmenu', function(e){
+      var $element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
+          $elements = $element.parent('ul').children('li'),
+          $prevElement,
+          $nextElement,
+          $target = $element.children('[data-submenu]');
+
+      $elements.each(function(i) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).is($element)) {
+          $prevElement = $elements.eq(Math.max(0, i-1)).find('a').first();
+          $nextElement = $elements.eq(Math.min(i+1, $elements.length-1)).find('a').first();
+
+          if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).children('[data-submenu]:visible').length) { // has open sub menu
+            $nextElement = $element.find('li:first-child').find('a').first();
+          }
+          if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).is(':first-child')) { // is first element of sub menu
+            $prevElement = $element.parents('li').first().find('a').first();
+          } else if ($prevElement.parents('li').first().children('[data-submenu]:visible').length) { // if previous element has open sub menu
+            $prevElement = $prevElement.parents('li').find('li:last-child').find('a').first();
+          }
+          if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).is(':last-child')) { // is last element of sub menu
+            $nextElement = $element.parents('li').first().next('li').find('a').first();
+          }
+
+          return;
+        }
+      });
+
+      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_1__["Keyboard"].handleKey(e, 'AccordionMenu', {
+        open: function() {
+          if ($target.is(':hidden')) {
+            _this.down($target);
+            $target.find('li').first().find('a').first().focus();
+          }
+        },
+        close: function() {
+          if ($target.length && !$target.is(':hidden')) { // close active sub of this item
+            _this.up($target);
+          } else if ($element.parent('[data-submenu]').length) { // close currently open sub
+            _this.up($element.parent('[data-submenu]'));
+            $element.parents('li').first().find('a').first().focus();
+          }
+        },
+        up: function() {
+          $prevElement.focus();
+          return true;
+        },
+        down: function() {
+          $nextElement.focus();
+          return true;
+        },
+        toggle: function() {
+          if (_this.options.submenuToggle) {
+            return false;
+          }
+          if ($element.children('[data-submenu]').length) {
+            _this.toggle($element.children('[data-submenu]'));
+            return true;
+          }
+        },
+        closeAll: function() {
+          _this.hideAll();
+        },
+        handled: function(preventDefault) {
+          if (preventDefault) {
+            e.preventDefault();
+          }
+          e.stopImmediatePropagation();
+        }
+      });
+    });//.attr('tabindex', 0);
+  }
+
+  /**
+   * Closes all panes of the menu.
+   * @function
+   */
+  hideAll() {
+    this.up(this.$element.find('[data-submenu]'));
+  }
+
+  /**
+   * Opens all panes of the menu.
+   * @function
+   */
+  showAll() {
+    this.down(this.$element.find('[data-submenu]'));
+  }
+
+  /**
+   * Toggles the open/close state of a submenu.
+   * @function
+   * @param {jQuery} $target - the submenu to toggle
+   */
+  toggle($target){
+    if(!$target.is(':animated')) {
+      if (!$target.is(':hidden')) {
+        this.up($target);
+      }
+      else {
+        this.down($target);
+      }
+    }
+  }
+
+  /**
+   * Opens the sub-menu defined by `$target`.
+   * @param {jQuery} $target - Sub-menu to open.
+   * @fires AccordionMenu#down
+   */
+  down($target) {
+    // If having multiple submenus active is disabled, close all the submenus
+    // that are not parents or children of the targeted submenu.
+    if (!this.options.multiOpen) {
+      // The "branch" of the targetted submenu, from the component root to
+      // the active submenus nested in it.
+      const $targetBranch = $target.parentsUntil(this.$element)
+        .add($target)
+        .add($target.find('.is-active'));
+      // All the active submenus that are not in the branch.
+      const $othersActiveSubmenus = this.$element.find('.is-active').not($targetBranch);
+
+      this.up($othersActiveSubmenus);
+    }
+
+    $target
+      .addClass('is-active')
+      .attr({ 'aria-hidden': false });
+
+    if(this.options.submenuToggle) {
+      $target.prev('.submenu-toggle').attr({'aria-expanded': true});
+    }
+    else {
+      $target.parent('.is-accordion-submenu-parent').attr({'aria-expanded': true});
+    }
+
+    $target.slideDown(this.options.slideSpeed, () => {
+      /**
+       * Fires when the menu is done opening.
+       * @event AccordionMenu#down
+       */
+      this.$element.trigger('down.zf.accordionMenu', [$target]);
+    });
+  }
+
+  /**
+   * Closes the sub-menu defined by `$target`. All sub-menus inside the target will be closed as well.
+   * @param {jQuery} $target - Sub-menu to close.
+   * @fires AccordionMenu#up
+   */
+  up($target) {
+    const $submenus = $target.find('[data-submenu]');
+    const $allmenus = $target.add($submenus);
+
+    $submenus.slideUp(0);
+    $allmenus
+      .removeClass('is-active')
+      .attr('aria-hidden', true);
+
+    if(this.options.submenuToggle) {
+      $allmenus.prev('.submenu-toggle').attr('aria-expanded', false);
+    }
+    else {
+      $allmenus.parent('.is-accordion-submenu-parent').attr('aria-expanded', false);
+    }
+
+    $target.slideUp(this.options.slideSpeed, () => {
+      /**
+       * Fires when the menu is done collapsing up.
+       * @event AccordionMenu#up
+       */
+      this.$element.trigger('up.zf.accordionMenu', [$target]);
+    });
+  }
+
+  /**
+   * Destroys an instance of accordion menu.
+   * @fires AccordionMenu#destroyed
+   */
+  _destroy() {
+    this.$element.find('[data-submenu]').slideDown(0).css('display', '');
+    this.$element.find('a').off('click.zf.accordionMenu');
+    this.$element.find('[data-is-parent-link]').detach();
+
+    if(this.options.submenuToggle) {
+      this.$element.find('.has-submenu-toggle').removeClass('has-submenu-toggle');
+      this.$element.find('.submenu-toggle').remove();
+    }
+
+    _foundation_util_nest__WEBPACK_IMPORTED_MODULE_2__["Nest"].Burn(this.$element, 'accordion');
+  }
+}
+
+AccordionMenu.defaults = {
+  /**
+   * Adds the parent link to the submenu.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  parentLink: false,
+  /**
+   * Amount of time to animate the opening of a submenu in ms.
+   * @option
+   * @type {number}
+   * @default 250
+   */
+  slideSpeed: 250,
+  /**
+   * Adds a separate submenu toggle button. This allows the parent item to have a link.
+   * @option
+   * @example true
+   */
+  submenuToggle: false,
+  /**
+   * The text used for the submenu toggle if enabled. This is used for screen readers only.
+   * @option
+   * @example true
+   */
+  submenuToggleText: 'Toggle menu',
+  /**
+   * Allow the menu to have multiple open panes.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  multiOpen: true
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.core.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.core.js ***!
+  \*************************************************************/
+/*! exports provided: Foundation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Foundation", function() { return Foundation; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
+
+
+
+
+
+
+var FOUNDATION_VERSION = '6.5.3';
+
+// Global Foundation object
+// This is attached to the window, or used as a module for AMD/Browserify
+var Foundation = {
+  version: FOUNDATION_VERSION,
+
+  /**
+   * Stores initialized plugins.
+   */
+  _plugins: {},
+
+  /**
+   * Stores generated unique ids for plugin instances
+   */
+  _uuids: [],
+
+  /**
+   * Defines a Foundation plugin, adding it to the `Foundation` namespace and the list of plugins to initialize when reflowing.
+   * @param {Object} plugin - The constructor of the plugin.
+   */
+  plugin: function(plugin, name) {
+    // Object key to use when adding to global Foundation object
+    // Examples: Foundation.Reveal, Foundation.OffCanvas
+    var className = (name || functionName(plugin));
+    // Object key to use when storing the plugin, also used to create the identifying data attribute for the plugin
+    // Examples: data-reveal, data-off-canvas
+    var attrName  = hyphenate(className);
+
+    // Add to the Foundation object and the plugins list (for reflowing)
+    this._plugins[attrName] = this[className] = plugin;
+  },
+  /**
+   * @function
+   * Populates the _uuids array with pointers to each individual plugin instance.
+   * Adds the `zfPlugin` data-attribute to programmatically created plugins to allow use of $(selector).foundation(method) calls.
+   * Also fires the initialization event for each plugin, consolidating repetitive code.
+   * @param {Object} plugin - an instance of a plugin, usually `this` in context.
+   * @param {String} name - the name of the plugin, passed as a camelCased string.
+   * @fires Plugin#init
+   */
+  registerPlugin: function(plugin, name){
+    var pluginName = name ? hyphenate(name) : functionName(plugin.constructor).toLowerCase();
+    plugin.uuid = Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["GetYoDigits"])(6, pluginName);
+
+    if(!plugin.$element.attr(`data-${pluginName}`)){ plugin.$element.attr(`data-${pluginName}`, plugin.uuid); }
+    if(!plugin.$element.data('zfPlugin')){ plugin.$element.data('zfPlugin', plugin); }
+          /**
+           * Fires when the plugin has initialized.
+           * @event Plugin#init
+           */
+    plugin.$element.trigger(`init.zf.${pluginName}`);
+
+    this._uuids.push(plugin.uuid);
+
+    return;
+  },
+  /**
+   * @function
+   * Removes the plugins uuid from the _uuids array.
+   * Removes the zfPlugin data attribute, as well as the data-plugin-name attribute.
+   * Also fires the destroyed event for the plugin, consolidating repetitive code.
+   * @param {Object} plugin - an instance of a plugin, usually `this` in context.
+   * @fires Plugin#destroyed
+   */
+  unregisterPlugin: function(plugin){
+    var pluginName = hyphenate(functionName(plugin.$element.data('zfPlugin').constructor));
+
+    this._uuids.splice(this._uuids.indexOf(plugin.uuid), 1);
+    plugin.$element.removeAttr(`data-${pluginName}`).removeData('zfPlugin')
+          /**
+           * Fires when the plugin has been destroyed.
+           * @event Plugin#destroyed
+           */
+          .trigger(`destroyed.zf.${pluginName}`);
+    for(var prop in plugin){
+      plugin[prop] = null;//clean up script to prep for garbage collection.
+    }
+    return;
+  },
+
+  /**
+   * @function
+   * Causes one or more active plugins to re-initialize, resetting event listeners, recalculating positions, etc.
+   * @param {String} plugins - optional string of an individual plugin key, attained by calling `$(element).data('pluginName')`, or string of a plugin class i.e. `'dropdown'`
+   * @default If no argument is passed, reflow all currently active plugins.
+   */
+   reInit: function(plugins){
+     var isJQ = plugins instanceof jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
+     try{
+       if(isJQ){
+         plugins.each(function(){
+           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('zfPlugin')._init();
+         });
+       }else{
+         var type = typeof plugins,
+         _this = this,
+         fns = {
+           'object': function(plgs){
+             plgs.forEach(function(p){
+               p = hyphenate(p);
+               jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-'+ p +']').foundation('_init');
+             });
+           },
+           'string': function(){
+             plugins = hyphenate(plugins);
+             jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-'+ plugins +']').foundation('_init');
+           },
+           'undefined': function(){
+             this['object'](Object.keys(_this._plugins));
+           }
+         };
+         fns[type](plugins);
+       }
+     }catch(err){
+       console.error(err);
+     }finally{
+       return plugins;
+     }
+   },
+
+  /**
+   * Initialize plugins on any elements within `elem` (and `elem` itself) that aren't already initialized.
+   * @param {Object} elem - jQuery object containing the element to check inside. Also checks the element itself, unless it's the `document` object.
+   * @param {String|Array} plugins - A list of plugins to initialize. Leave this out to initialize everything.
+   */
+  reflow: function(elem, plugins) {
+
+    // If plugins is undefined, just grab everything
+    if (typeof plugins === 'undefined') {
+      plugins = Object.keys(this._plugins);
+    }
+    // If plugins is a string, convert it to an array with one item
+    else if (typeof plugins === 'string') {
+      plugins = [plugins];
+    }
+
+    var _this = this;
+
+    // Iterate through each plugin
+    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(plugins, function(i, name) {
+      // Get the current plugin
+      var plugin = _this._plugins[name];
+
+      // Localize the search to all elements inside elem, as well as elem itself, unless elem === document
+      var $elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(elem).find('[data-'+name+']').addBack('[data-'+name+']');
+
+      // For each plugin found, initialize it
+      $elem.each(function() {
+        var $el = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
+            opts = {};
+        // Don't double-dip on plugins
+        if ($el.data('zfPlugin')) {
+          console.warn("Tried to initialize "+name+" on an element that already has a Foundation plugin.");
+          return;
+        }
+
+        if($el.attr('data-options')){
+          var thing = $el.attr('data-options').split(';').forEach(function(e, i){
+            var opt = e.split(':').map(function(el){ return el.trim(); });
+            if(opt[0]) opts[opt[0]] = parseValue(opt[1]);
+          });
+        }
+        try{
+          $el.data('zfPlugin', new plugin(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this), opts));
+        }catch(er){
+          console.error(er);
+        }finally{
+          return;
+        }
+      });
+    });
+  },
+  getFnName: functionName,
+
+  addToJquery: function($) {
+    // TODO: consider not making this a jQuery function
+    // TODO: need way to reflow vs. re-initialize
+    /**
+     * The Foundation jQuery method.
+     * @param {String|Array} method - An action to perform on the current jQuery object.
+     */
+    var foundation = function(method) {
+      var type = typeof method,
+          $noJS = $('.no-js');
+
+      if($noJS.length){
+        $noJS.removeClass('no-js');
+      }
+
+      if(type === 'undefined'){//needs to initialize the Foundation object, or an individual plugin.
+        _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_2__["MediaQuery"]._init();
+        Foundation.reflow(this);
+      }else if(type === 'string'){//an individual method to invoke on a plugin or group of plugins
+        var args = Array.prototype.slice.call(arguments, 1);//collect all the arguments, if necessary
+        var plugClass = this.data('zfPlugin');//determine the class of plugin
+
+        if(typeof plugClass !== 'undefined' && typeof plugClass[method] !== 'undefined'){//make sure both the class and method exist
+          if(this.length === 1){//if there's only one, call it directly.
+              plugClass[method].apply(plugClass, args);
+          }else{
+            this.each(function(i, el){//otherwise loop through the jQuery collection and invoke the method on each
+              plugClass[method].apply($(el).data('zfPlugin'), args);
+            });
+          }
+        }else{//error for no class or no method
+          throw new ReferenceError("We're sorry, '" + method + "' is not an available method for " + (plugClass ? functionName(plugClass) : 'this element') + '.');
+        }
+      }else{//error for invalid argument type
+        throw new TypeError(`We're sorry, ${type} is not a valid parameter. You must use a string representing the method you wish to invoke.`);
+      }
+      return this;
+    };
+    $.fn.foundation = foundation;
+    return $;
+  }
+};
+
+Foundation.util = {
+  /**
+   * Function for applying a debounce effect to a function call.
+   * @function
+   * @param {Function} func - Function to be called at end of timeout.
+   * @param {Number} delay - Time in ms to delay the call of `func`.
+   * @returns function
+   */
+  throttle: function (func, delay) {
+    var timer = null;
+
+    return function () {
+      var context = this, args = arguments;
+
+      if (timer === null) {
+        timer = setTimeout(function () {
+          func.apply(context, args);
+          timer = null;
+        }, delay);
+      }
+    };
+  }
+};
+
+window.Foundation = Foundation;
+
+// Polyfill for requestAnimationFrame
+(function() {
+  if (!Date.now || !window.Date.now)
+    window.Date.now = Date.now = function() { return new Date().getTime(); };
+
+  var vendors = ['webkit', 'moz'];
+  for (var i = 0; i < vendors.length && !window.requestAnimationFrame; ++i) {
+      var vp = vendors[i];
+      window.requestAnimationFrame = window[vp+'RequestAnimationFrame'];
+      window.cancelAnimationFrame = (window[vp+'CancelAnimationFrame']
+                                 || window[vp+'CancelRequestAnimationFrame']);
+  }
+  if (/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent)
+    || !window.requestAnimationFrame || !window.cancelAnimationFrame) {
+    var lastTime = 0;
+    window.requestAnimationFrame = function(callback) {
+        var now = Date.now();
+        var nextTime = Math.max(lastTime + 16, now);
+        return setTimeout(function() { callback(lastTime = nextTime); },
+                          nextTime - now);
+    };
+    window.cancelAnimationFrame = clearTimeout;
+  }
+  /**
+   * Polyfill for performance.now, required by rAF
+   */
+  if(!window.performance || !window.performance.now){
+    window.performance = {
+      start: Date.now(),
+      now: function(){ return Date.now() - this.start; }
+    };
+  }
+})();
+if (!Function.prototype.bind) {
+  Function.prototype.bind = function(oThis) {
+    if (typeof this !== 'function') {
+      // closest thing possible to the ECMAScript 5
+      // internal IsCallable function
+      throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
+    }
+
+    var aArgs   = Array.prototype.slice.call(arguments, 1),
+        fToBind = this,
+        fNOP    = function() {},
+        fBound  = function() {
+          return fToBind.apply(this instanceof fNOP
+                 ? this
+                 : oThis,
+                 aArgs.concat(Array.prototype.slice.call(arguments)));
+        };
+
+    if (this.prototype) {
+      // native functions don't have a prototype
+      fNOP.prototype = this.prototype;
+    }
+    fBound.prototype = new fNOP();
+
+    return fBound;
+  };
+}
+// Polyfill to get the name of a function in IE9
+function functionName(fn) {
+  if (typeof Function.prototype.name === 'undefined') {
+    var funcNameRegex = /function\s([^(]{1,})\(/;
+    var results = (funcNameRegex).exec((fn).toString());
+    return (results && results.length > 1) ? results[1].trim() : "";
+  }
+  else if (typeof fn.prototype === 'undefined') {
+    return fn.constructor.name;
+  }
+  else {
+    return fn.prototype.constructor.name;
+  }
+}
+function parseValue(str){
+  if ('true' === str) return true;
+  else if ('false' === str) return false;
+  else if (!isNaN(str * 1)) return parseFloat(str);
+  return str;
+}
+// Convert PascalCase to kebab-case
+// Thank you: http://stackoverflow.com/a/8955580
+function hyphenate(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.core.plugin.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.core.plugin.js ***!
+  \********************************************************************/
+/*! exports provided: Plugin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Plugin", function() { return Plugin; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+
+
+
+
+
+// Abstract class for providing lifecycle hooks. Expect plugins to define AT LEAST
+// {function} _setup (replaces previous constructor),
+// {function} _destroy (replaces previous destroy)
+class Plugin {
+
+  constructor(element, options) {
+    this._setup(element, options);
+    var pluginName = getPluginName(this);
+    this.uuid = Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["GetYoDigits"])(6, pluginName);
+
+    if(!this.$element.attr(`data-${pluginName}`)){ this.$element.attr(`data-${pluginName}`, this.uuid); }
+    if(!this.$element.data('zfPlugin')){ this.$element.data('zfPlugin', this); }
+    /**
+     * Fires when the plugin has initialized.
+     * @event Plugin#init
+     */
+    this.$element.trigger(`init.zf.${pluginName}`);
+  }
+
+  destroy() {
+    this._destroy();
+    var pluginName = getPluginName(this);
+    this.$element.removeAttr(`data-${pluginName}`).removeData('zfPlugin')
+        /**
+         * Fires when the plugin has been destroyed.
+         * @event Plugin#destroyed
+         */
+        .trigger(`destroyed.zf.${pluginName}`);
+    for(var prop in this){
+      this[prop] = null;//clean up script to prep for garbage collection.
+    }
+  }
+}
+
+// Convert PascalCase to kebab-case
+// Thank you: http://stackoverflow.com/a/8955580
+function hyphenate(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+function getPluginName(obj) {
+  if(typeof(obj.constructor.name) !== 'undefined') {
+    return hyphenate(obj.constructor.name);
+  } else {
+    return hyphenate(obj.className);
+  }
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.core.utils.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.core.utils.js ***!
+  \*******************************************************************/
+/*! exports provided: rtl, GetYoDigits, RegExpEscape, transitionend, onLoad, ignoreMousedisappear */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rtl", function() { return rtl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GetYoDigits", function() { return GetYoDigits; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegExpEscape", function() { return RegExpEscape; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transitionend", function() { return transitionend; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onLoad", function() { return onLoad; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ignoreMousedisappear", function() { return ignoreMousedisappear; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+
+// Core Foundation Utilities, utilized in a number of places.
+
+  /**
+   * Returns a boolean for RTL support
+   */
+function rtl() {
+  return jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').attr('dir') === 'rtl';
+}
+
+/**
+ * returns a random base-36 uid with namespacing
+ * @function
+ * @param {Number} length - number of random base-36 digits desired. Increase for more random strings.
+ * @param {String} namespace - name of plugin to be incorporated in uid, optional.
+ * @default {String} '' - if no plugin name is provided, nothing is appended to the uid.
+ * @returns {String} - unique id
+ */
+function GetYoDigits(length, namespace){
+  length = length || 6;
+  return Math.round((Math.pow(36, length + 1) - Math.random() * Math.pow(36, length))).toString(36).slice(1) + (namespace ? `-${namespace}` : '');
+}
+
+/**
+ * Escape a string so it can be used as a regexp pattern
+ * @function
+ * @see https://stackoverflow.com/a/9310752/4317384
+ *
+ * @param {String} str - string to escape.
+ * @returns {String} - escaped string
+ */
+function RegExpEscape(str){
+  return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
+
+function transitionend($elem){
+  var transitions = {
+    'transition': 'transitionend',
+    'WebkitTransition': 'webkitTransitionEnd',
+    'MozTransition': 'transitionend',
+    'OTransition': 'otransitionend'
+  };
+  var elem = document.createElement('div'),
+      end;
+
+  for (var t in transitions){
+    if (typeof elem.style[t] !== 'undefined'){
+      end = transitions[t];
+    }
+  }
+  if(end){
+    return end;
+  }else{
+    end = setTimeout(function(){
+      $elem.triggerHandler('transitionend', [$elem]);
+    }, 1);
+    return 'transitionend';
+  }
+}
+
+/**
+ * Return an event type to listen for window load.
+ *
+ * If `$elem` is passed, an event will be triggered on `$elem`. If window is already loaded, the event will still be triggered.
+ * If `handler` is passed, attach it to the event on `$elem`.
+ * Calling `onLoad` without handler allows you to get the event type that will be triggered before attaching the handler by yourself.
+ * @function
+ *
+ * @param {Object} [] $elem - jQuery element on which the event will be triggered if passed.
+ * @param {Function} [] handler - function to attach to the event.
+ * @returns {String} - event type that should or will be triggered.
+ */
+function onLoad($elem, handler) {
+  const didLoad = document.readyState === 'complete';
+  const eventType = (didLoad ? '_didLoad' : 'load') + '.zf.util.onLoad';
+  const cb = () => $elem.triggerHandler(eventType);
+
+  if ($elem) {
+    if (handler) $elem.one(eventType, handler);
+
+    if (didLoad)
+      setTimeout(cb);
+    else
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).one('load', cb);
+  }
+
+  return eventType;
+}
+
+/**
+ * Retuns an handler for the `mouseleave` that ignore disappeared mouses.
+ *
+ * If the mouse "disappeared" from the document (like when going on a browser UI element, See https://git.io/zf-11410),
+ * the event is ignored.
+ * - If the `ignoreLeaveWindow` is `true`, the event is ignored when the user actually left the window
+ *   (like by switching to an other window with [Alt]+[Tab]).
+ * - If the `ignoreReappear` is `true`, the event will be ignored when the mouse will reappear later on the document
+ *   outside of the element it left.
+ *
+ * @function
+ *
+ * @param {Function} [] handler - handler for the filtered `mouseleave` event to watch.
+ * @param {Object} [] options - object of options:
+ * - {Boolean} [false] ignoreLeaveWindow - also ignore when the user switched windows.
+ * - {Boolean} [false] ignoreReappear - also ignore when the mouse reappeared outside of the element it left.
+ * @returns {Function} - filtered handler to use to listen on the `mouseleave` event.
+ */
+function ignoreMousedisappear(handler, { ignoreLeaveWindow = false, ignoreReappear = false } = {}) {
+  return function leaveEventHandler(eLeave, ...rest) {
+    const callback = handler.bind(this, eLeave, ...rest);
+
+    // The mouse left: call the given callback if the mouse entered elsewhere
+    if (eLeave.relatedTarget !== null) {
+      return callback();
+    }
+
+    // Otherwise, check if the mouse actually left the window.
+    // In firefox if the user switched between windows, the window sill have the focus by the time
+    // the event is triggered. We have to debounce the event to test this case.
+    setTimeout(function leaveEventDebouncer() {
+      if (!ignoreLeaveWindow && document.hasFocus && !document.hasFocus()) {
+        return callback();
+      }
+
+      // Otherwise, wait for the mouse to reeapear outside of the element,
+      if (!ignoreReappear) {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).one('mouseenter', function reenterEventHandler(eReenter) {
+          if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()(eLeave.currentTarget).has(eReenter.target).length) {
+            // Fill where the mouse finally entered.
+            eLeave.relatedTarget = eReenter.target;
+            callback();
+          }
+        });
+      }
+
+    }, 0);
+  };
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.dropdownMenu.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.dropdownMenu.js ***!
+  \*********************************************************************/
+/*! exports provided: DropdownMenu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropdownMenu", function() { return DropdownMenu; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.util.keyboard */ "./node_modules/foundation-sites/js/foundation.util.keyboard.js");
+/* harmony import */ var _foundation_util_nest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.util.nest */ "./node_modules/foundation-sites/js/foundation.util.nest.js");
+/* harmony import */ var _foundation_util_box__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./foundation.util.box */ "./node_modules/foundation-sites/js/foundation.util.box.js");
+
+
+
+
+
+
+
+
+
+/**
+ * DropdownMenu module.
+ * @module foundation.dropdown-menu
+ * @requires foundation.util.keyboard
+ * @requires foundation.util.box
+ * @requires foundation.util.nest
+ */
+
+class DropdownMenu extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_1__["Plugin"] {
+  /**
+   * Creates a new instance of DropdownMenu.
+   * @class
+   * @name DropdownMenu
+   * @fires DropdownMenu#init
+   * @param {jQuery} element - jQuery object to make into a dropdown menu.
+   * @param {Object} options - Overrides to the default plugin settings.
+   */
+  _setup(element, options) {
+    this.$element = element;
+    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, DropdownMenu.defaults, this.$element.data(), options);
+    this.className = 'DropdownMenu'; // ie9 back compat
+
+    this._init();
+
+    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].register('DropdownMenu', {
+      'ENTER': 'open',
+      'SPACE': 'open',
+      'ARROW_RIGHT': 'next',
+      'ARROW_UP': 'up',
+      'ARROW_DOWN': 'down',
+      'ARROW_LEFT': 'previous',
+      'ESCAPE': 'close'
+    });
+  }
+
+  /**
+   * Initializes the plugin, and calls _prepareMenu
+   * @private
+   * @function
+   */
+  _init() {
+    _foundation_util_nest__WEBPACK_IMPORTED_MODULE_4__["Nest"].Feather(this.$element, 'dropdown');
+
+    var subs = this.$element.find('li.is-dropdown-submenu-parent');
+    this.$element.children('.is-dropdown-submenu-parent').children('.is-dropdown-submenu').addClass('first-sub');
+
+    this.$menuItems = this.$element.find('[role="menuitem"]');
+    this.$tabs = this.$element.children('[role="menuitem"]');
+    this.$tabs.find('ul.is-dropdown-submenu').addClass(this.options.verticalClass);
+
+    if (this.options.alignment === 'auto') {
+        if (this.$element.hasClass(this.options.rightClass) || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__["rtl"])() || this.$element.parents('.top-bar-right').is('*')) {
+            this.options.alignment = 'right';
+            subs.addClass('opens-left');
+        } else {
+            this.options.alignment = 'left';
+            subs.addClass('opens-right');
+        }
+    } else {
+      if (this.options.alignment === 'right') {
+          subs.addClass('opens-left');
+      } else {
+          subs.addClass('opens-right');
+      }
+    }
+    this.changed = false;
+    this._events();
+  };
+
+  _isVertical() {
+    return this.$tabs.css('display') === 'block' || this.$element.css('flex-direction') === 'column';
+  }
+
+  _isRtl() {
+    return this.$element.hasClass('align-right') || (Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__["rtl"])() && !this.$element.hasClass('align-left'));
+  }
+
+  /**
+   * Adds event listeners to elements within the menu
+   * @private
+   * @function
+   */
+  _events() {
+    var _this = this,
+        hasTouch = 'ontouchstart' in window || (typeof window.ontouchstart !== 'undefined'),
+        parClass = 'is-dropdown-submenu-parent';
+
+    // used for onClick and in the keyboard handlers
+    var handleClickFn = function(e) {
+      var $elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).parentsUntil('ul', `.${parClass}`),
+          hasSub = $elem.hasClass(parClass),
+          hasClicked = $elem.attr('data-is-click') === 'true',
+          $sub = $elem.children('.is-dropdown-submenu');
+
+      if (hasSub) {
+        if (hasClicked) {
+          if (!_this.options.closeOnClick || (!_this.options.clickOpen && !hasTouch) || (_this.options.forceFollow && hasTouch)) { return; }
+          else {
+            e.stopImmediatePropagation();
+            e.preventDefault();
+            _this._hide($elem);
+          }
+        } else {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          _this._show($sub);
+          $elem.add($elem.parentsUntil(_this.$element, `.${parClass}`)).attr('data-is-click', true);
+        }
+      }
+    };
+
+    if (this.options.clickOpen || hasTouch) {
+      this.$menuItems.on('click.zf.dropdownmenu touchstart.zf.dropdownmenu', handleClickFn);
+    }
+
+    // Handle Leaf element Clicks
+    if(_this.options.closeOnClickInside){
+      this.$menuItems.on('click.zf.dropdownmenu', function(e) {
+        var $elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
+            hasSub = $elem.hasClass(parClass);
+        if(!hasSub){
+          _this._hide();
+        }
+      });
+    }
+
+    if (!this.options.disableHover) {
+      this.$menuItems.on('mouseenter.zf.dropdownmenu', function (e) {
+        var $elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
+          hasSub = $elem.hasClass(parClass);
+
+        if (hasSub) {
+          clearTimeout($elem.data('_delay'));
+          $elem.data('_delay', setTimeout(function () {
+            _this._show($elem.children('.is-dropdown-submenu'));
+          }, _this.options.hoverDelay));
+        }
+      }).on('mouseleave.zf.dropdownmenu', Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_2__["ignoreMousedisappear"])(function (e) {
+        var $elem = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
+            hasSub = $elem.hasClass(parClass);
+        if (hasSub && _this.options.autoclose) {
+          if ($elem.attr('data-is-click') === 'true' && _this.options.clickOpen) { return false; }
+
+          clearTimeout($elem.data('_delay'));
+          $elem.data('_delay', setTimeout(function () {
+            _this._hide($elem);
+          }, _this.options.closingTime));
+        }
+      }));
+    }
+    this.$menuItems.on('keydown.zf.dropdownmenu', function(e) {
+      var $element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).parentsUntil('ul', '[role="menuitem"]'),
+          isTab = _this.$tabs.index($element) > -1,
+          $elements = isTab ? _this.$tabs : $element.siblings('li').add($element),
+          $prevElement,
+          $nextElement;
+
+      $elements.each(function(i) {
+        if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).is($element)) {
+          $prevElement = $elements.eq(i-1);
+          $nextElement = $elements.eq(i+1);
+          return;
+        }
+      });
+
+      var nextSibling = function() {
+        $nextElement.children('a:first').focus();
+        e.preventDefault();
+      }, prevSibling = function() {
+        $prevElement.children('a:first').focus();
+        e.preventDefault();
+      }, openSub = function() {
+        var $sub = $element.children('ul.is-dropdown-submenu');
+        if ($sub.length) {
+          _this._show($sub);
+          $element.find('li > a:first').focus();
+          e.preventDefault();
+        } else { return; }
+      }, closeSub = function() {
+        //if ($element.is(':first-child')) {
+        var close = $element.parent('ul').parent('li');
+        close.children('a:first').focus();
+        _this._hide(close);
+        e.preventDefault();
+        //}
+      };
+      var functions = {
+        open: openSub,
+        close: function() {
+          _this._hide(_this.$element);
+          _this.$menuItems.eq(0).children('a').focus(); // focus to first element
+          e.preventDefault();
+        },
+        handled: function() {
+          e.stopImmediatePropagation();
+        }
+      };
+
+      if (isTab) {
+        if (_this._isVertical()) { // vertical menu
+          if (_this._isRtl()) { // right aligned
+            jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(functions, {
+              down: nextSibling,
+              up: prevSibling,
+              next: closeSub,
+              previous: openSub
+            });
+          } else { // left aligned
+            jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(functions, {
+              down: nextSibling,
+              up: prevSibling,
+              next: openSub,
+              previous: closeSub
+            });
+          }
+        } else { // horizontal menu
+          if (_this._isRtl()) { // right aligned
+            jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(functions, {
+              next: prevSibling,
+              previous: nextSibling,
+              down: openSub,
+              up: closeSub
+            });
+          } else { // left aligned
+            jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(functions, {
+              next: nextSibling,
+              previous: prevSibling,
+              down: openSub,
+              up: closeSub
+            });
+          }
+        }
+      } else { // not tabs -> one sub
+        if (_this._isRtl()) { // right aligned
+          jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(functions, {
+            next: closeSub,
+            previous: openSub,
+            down: nextSibling,
+            up: prevSibling
+          });
+        } else { // left aligned
+          jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend(functions, {
+            next: openSub,
+            previous: closeSub,
+            down: nextSibling,
+            up: prevSibling
+          });
+        }
+      }
+      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_3__["Keyboard"].handleKey(e, 'DropdownMenu', functions);
+
+    });
+  }
+
+  /**
+   * Adds an event handler to the body to close any dropdowns on a click.
+   * @function
+   * @private
+   */
+  _addBodyHandler() {
+    var $body = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.body),
+        _this = this;
+    $body.off('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu')
+         .on('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu', function(e) {
+           var $link = _this.$element.find(e.target);
+           if ($link.length) { return; }
+
+           _this._hide();
+           $body.off('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu');
+         });
+  }
+
+  /**
+   * Opens a dropdown pane, and checks for collisions first.
+   * @param {jQuery} $sub - ul element that is a submenu to show
+   * @function
+   * @private
+   * @fires Dropdownmenu#show
+   */
+  _show($sub) {
+    var idx = this.$tabs.index(this.$tabs.filter(function(i, el) {
+      return jquery__WEBPACK_IMPORTED_MODULE_0___default()(el).find($sub).length > 0;
+    }));
+    var $sibs = $sub.parent('li.is-dropdown-submenu-parent').siblings('li.is-dropdown-submenu-parent');
+    this._hide($sibs, idx);
+    $sub.css('visibility', 'hidden').addClass('js-dropdown-active')
+        .parent('li.is-dropdown-submenu-parent').addClass('is-active');
+    var clear = _foundation_util_box__WEBPACK_IMPORTED_MODULE_5__["Box"].ImNotTouchingYou($sub, null, true);
+    if (!clear) {
+      var oldClass = this.options.alignment === 'left' ? '-right' : '-left',
+          $parentLi = $sub.parent('.is-dropdown-submenu-parent');
+      $parentLi.removeClass(`opens${oldClass}`).addClass(`opens-${this.options.alignment}`);
+      clear = _foundation_util_box__WEBPACK_IMPORTED_MODULE_5__["Box"].ImNotTouchingYou($sub, null, true);
+      if (!clear) {
+        $parentLi.removeClass(`opens-${this.options.alignment}`).addClass('opens-inner');
+      }
+      this.changed = true;
+    }
+    $sub.css('visibility', '');
+    if (this.options.closeOnClick) { this._addBodyHandler(); }
+    /**
+     * Fires when the new dropdown pane is visible.
+     * @event Dropdownmenu#show
+     */
+    this.$element.trigger('show.zf.dropdownmenu', [$sub]);
+  }
+
+  /**
+   * Hides a single, currently open dropdown pane, if passed a parameter, otherwise, hides everything.
+   * @function
+   * @param {jQuery} $elem - element with a submenu to hide
+   * @param {Number} idx - index of the $tabs collection to hide
+   * @private
+   */
+  _hide($elem, idx) {
+    var $toClose;
+    if ($elem && $elem.length) {
+      $toClose = $elem;
+    } else if (typeof idx !== 'undefined') {
+      $toClose = this.$tabs.not(function(i, el) {
+        return i === idx;
+      });
+    }
+    else {
+      $toClose = this.$element;
+    }
+    var somethingToClose = $toClose.hasClass('is-active') || $toClose.find('.is-active').length > 0;
+
+    if (somethingToClose) {
+      $toClose.find('li.is-active').add($toClose).attr({
+        'data-is-click': false
+      }).removeClass('is-active');
+
+      $toClose.find('ul.js-dropdown-active').removeClass('js-dropdown-active');
+
+      if (this.changed || $toClose.find('opens-inner').length) {
+        var oldClass = this.options.alignment === 'left' ? 'right' : 'left';
+        $toClose.find('li.is-dropdown-submenu-parent').add($toClose)
+                .removeClass(`opens-inner opens-${this.options.alignment}`)
+                .addClass(`opens-${oldClass}`);
+        this.changed = false;
+      }
+      /**
+       * Fires when the open menus are closed.
+       * @event Dropdownmenu#hide
+       */
+      this.$element.trigger('hide.zf.dropdownmenu', [$toClose]);
+    }
+  }
+
+  /**
+   * Destroys the plugin.
+   * @function
+   */
+  _destroy() {
+    this.$menuItems.off('.zf.dropdownmenu').removeAttr('data-is-click')
+        .removeClass('is-right-arrow is-left-arrow is-down-arrow opens-right opens-left opens-inner');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.body).off('.zf.dropdownmenu');
+    _foundation_util_nest__WEBPACK_IMPORTED_MODULE_4__["Nest"].Burn(this.$element, 'dropdown');
+  }
+}
+
+/**
+ * Default settings for plugin
+ */
+DropdownMenu.defaults = {
+  /**
+   * Disallows hover events from opening submenus
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  disableHover: false,
+  /**
+   * Allow a submenu to automatically close on a mouseleave event, if not clicked open.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  autoclose: true,
+  /**
+   * Amount of time to delay opening a submenu on hover event.
+   * @option
+   * @type {number}
+   * @default 50
+   */
+  hoverDelay: 50,
+  /**
+   * Allow a submenu to open/remain open on parent click event. Allows cursor to move away from menu.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  clickOpen: false,
+  /**
+   * Amount of time to delay closing a submenu on a mouseleave event.
+   * @option
+   * @type {number}
+   * @default 500
+   */
+
+  closingTime: 500,
+  /**
+   * Position of the menu relative to what direction the submenus should open. Handled by JS. Can be `'auto'`, `'left'` or `'right'`.
+   * @option
+   * @type {string}
+   * @default 'auto'
+   */
+  alignment: 'auto',
+  /**
+   * Allow clicks on the body to close any open submenus.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  closeOnClick: true,
+  /**
+   * Allow clicks on leaf anchor links to close any open submenus.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  closeOnClickInside: true,
+  /**
+   * Class applied to vertical oriented menus, Foundation default is `vertical`. Update this if using your own class.
+   * @option
+   * @type {string}
+   * @default 'vertical'
+   */
+  verticalClass: 'vertical',
+  /**
+   * Class applied to right-side oriented menus, Foundation default is `align-right`. Update this if using your own class.
+   * @option
+   * @type {string}
+   * @default 'align-right'
+   */
+  rightClass: 'align-right',
+  /**
+   * Boolean to force overide the clicking of links to perform default action, on second touch event for mobile.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  forceFollow: true
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.offcanvas.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.offcanvas.js ***!
+  \******************************************************************/
+/*! exports provided: OffCanvas */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OffCanvas", function() { return OffCanvas; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.keyboard */ "./node_modules/foundation-sites/js/foundation.util.keyboard.js");
+/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
+/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
+/* harmony import */ var _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./foundation.util.triggers */ "./node_modules/foundation-sites/js/foundation.util.triggers.js");
+
+
+
+
+
+
+
+
+
+
+/**
+ * OffCanvas module.
+ * @module foundation.offcanvas
+ * @requires foundation.util.keyboard
+ * @requires foundation.util.mediaQuery
+ * @requires foundation.util.triggers
+ */
+
+class OffCanvas extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_4__["Plugin"] {
+  /**
+   * Creates a new instance of an off-canvas wrapper.
+   * @class
+   * @name OffCanvas
+   * @fires OffCanvas#init
+   * @param {Object} element - jQuery object to initialize.
+   * @param {Object} options - Overrides to the default plugin settings.
+   */
+  _setup(element, options) {
+    this.className = 'OffCanvas'; // ie9 back compat
+    this.$element = element;
+    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, OffCanvas.defaults, this.$element.data(), options);
+    this.contentClasses = { base: [], reveal: [] };
+    this.$lastTrigger = jquery__WEBPACK_IMPORTED_MODULE_0___default()();
+    this.$triggers = jquery__WEBPACK_IMPORTED_MODULE_0___default()();
+    this.position = 'left';
+    this.$content = jquery__WEBPACK_IMPORTED_MODULE_0___default()();
+    this.nested = !!(this.options.nested);
+
+    // Defines the CSS transition/position classes of the off-canvas content container.
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(['push', 'overlap']).each((index, val) => {
+      this.contentClasses.base.push('has-transition-'+val);
+    });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(['left', 'right', 'top', 'bottom']).each((index, val) => {
+      this.contentClasses.base.push('has-position-'+val);
+      this.contentClasses.reveal.push('has-reveal-'+val);
+    });
+
+    // Triggers init is idempotent, just need to make sure it is initialized
+    _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_5__["Triggers"].init(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
+    _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__["MediaQuery"]._init();
+
+    this._init();
+    this._events();
+
+    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].register('OffCanvas', {
+      'ESCAPE': 'close'
+    });
+
+  }
+
+  /**
+   * Initializes the off-canvas wrapper by adding the exit overlay (if needed).
+   * @function
+   * @private
+   */
+  _init() {
+    var id = this.$element.attr('id');
+
+    this.$element.attr('aria-hidden', 'true');
+
+    // Find off-canvas content, either by ID (if specified), by siblings or by closest selector (fallback)
+    if (this.options.contentId) {
+      this.$content = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#'+this.options.contentId);
+    } else if (this.$element.siblings('[data-off-canvas-content]').length) {
+      this.$content = this.$element.siblings('[data-off-canvas-content]').first();
+    } else {
+      this.$content = this.$element.closest('[data-off-canvas-content]').first();
+    }
+
+    if (!this.options.contentId) {
+      // Assume that the off-canvas element is nested if it isn't a sibling of the content
+      this.nested = this.$element.siblings('[data-off-canvas-content]').length === 0;
+
+    } else if (this.options.contentId && this.options.nested === null) {
+      // Warning if using content ID without setting the nested option
+      // Once the element is nested it is required to work properly in this case
+      console.warn('Remember to use the nested option if using the content ID option!');
+    }
+
+    if (this.nested === true) {
+      // Force transition overlap if nested
+      this.options.transition = 'overlap';
+      // Remove appropriate classes if already assigned in markup
+      this.$element.removeClass('is-transition-push');
+    }
+
+    this.$element.addClass(`is-transition-${this.options.transition} is-closed`);
+
+    // Find triggers that affect this element and add aria-expanded to them
+    this.$triggers = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document)
+      .find('[data-open="'+id+'"], [data-close="'+id+'"], [data-toggle="'+id+'"]')
+      .attr('aria-expanded', 'false')
+      .attr('aria-controls', id);
+
+    // Get position by checking for related CSS class
+    this.position = this.$element.is('.position-left, .position-top, .position-right, .position-bottom') ? this.$element.attr('class').match(/position\-(left|top|right|bottom)/)[1] : this.position;
+
+    // Add an overlay over the content if necessary
+    if (this.options.contentOverlay === true) {
+      var overlay = document.createElement('div');
+      var overlayPosition = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$element).css("position") === 'fixed' ? 'is-overlay-fixed' : 'is-overlay-absolute';
+      overlay.setAttribute('class', 'js-off-canvas-overlay ' + overlayPosition);
+      this.$overlay = jquery__WEBPACK_IMPORTED_MODULE_0___default()(overlay);
+      if(overlayPosition === 'is-overlay-fixed') {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.$overlay).insertAfter(this.$element);
+      } else {
+        this.$content.append(this.$overlay);
+      }
+    }
+
+    // Get the revealOn option from the class.
+    var revealOnRegExp = new RegExp(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["RegExpEscape"])(this.options.revealClass) + '([^\\s]+)', 'g');
+    var revealOnClass = revealOnRegExp.exec(this.$element[0].className);
+    if (revealOnClass) {
+      this.options.isRevealed = true;
+      this.options.revealOn = this.options.revealOn || revealOnClass[1];
+    }
+
+    // Ensure the `reveal-on-*` class is set.
+    if (this.options.isRevealed === true && this.options.revealOn) {
+      this.$element.first().addClass(`${this.options.revealClass}${this.options.revealOn}`);
+      this._setMQChecker();
+    }
+
+    if (this.options.transitionTime) {
+      this.$element.css('transition-duration', this.options.transitionTime);
+    }
+
+    // Initally remove all transition/position CSS classes from off-canvas content container.
+    this._removeContentClasses();
+  }
+
+  /**
+   * Adds event handlers to the off-canvas wrapper and the exit overlay.
+   * @function
+   * @private
+   */
+  _events() {
+    this.$element.off('.zf.trigger .zf.offcanvas').on({
+      'open.zf.trigger': this.open.bind(this),
+      'close.zf.trigger': this.close.bind(this),
+      'toggle.zf.trigger': this.toggle.bind(this),
+      'keydown.zf.offcanvas': this._handleKeyboard.bind(this)
+    });
+
+    if (this.options.closeOnClick === true) {
+      var $target = this.options.contentOverlay ? this.$overlay : this.$content;
+      $target.on({'click.zf.offcanvas': this.close.bind(this)});
+    }
+  }
+
+  /**
+   * Applies event listener for elements that will reveal at certain breakpoints.
+   * @private
+   */
+  _setMQChecker() {
+    var _this = this;
+
+    this.onLoadListener = Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["onLoad"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window), function () {
+      if (_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__["MediaQuery"].atLeast(_this.options.revealOn)) {
+        _this.reveal(true);
+      }
+    });
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('changed.zf.mediaquery', function () {
+      if (_foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__["MediaQuery"].atLeast(_this.options.revealOn)) {
+        _this.reveal(true);
+      } else {
+        _this.reveal(false);
+      }
+    });
+  }
+
+  /**
+   * Removes the CSS transition/position classes of the off-canvas content container.
+   * Removing the classes is important when another off-canvas gets opened that uses the same content container.
+   * @param {Boolean} hasReveal - true if related off-canvas element is revealed.
+   * @private
+   */
+  _removeContentClasses(hasReveal) {
+    if (typeof hasReveal !== 'boolean') {
+      this.$content.removeClass(this.contentClasses.base.join(' '));
+    } else if (hasReveal === false) {
+      this.$content.removeClass(`has-reveal-${this.position}`);
+    }
+  }
+
+  /**
+   * Adds the CSS transition/position classes of the off-canvas content container, based on the opening off-canvas element.
+   * Beforehand any transition/position class gets removed.
+   * @param {Boolean} hasReveal - true if related off-canvas element is revealed.
+   * @private
+   */
+  _addContentClasses(hasReveal) {
+    this._removeContentClasses(hasReveal);
+    if (typeof hasReveal !== 'boolean') {
+      this.$content.addClass(`has-transition-${this.options.transition} has-position-${this.position}`);
+    } else if (hasReveal === true) {
+      this.$content.addClass(`has-reveal-${this.position}`);
+    }
+  }
+
+  /**
+   * Handles the revealing/hiding the off-canvas at breakpoints, not the same as open.
+   * @param {Boolean} isRevealed - true if element should be revealed.
+   * @function
+   */
+  reveal(isRevealed) {
+    if (isRevealed) {
+      this.close();
+      this.isRevealed = true;
+      this.$element.attr('aria-hidden', 'false');
+      this.$element.off('open.zf.trigger toggle.zf.trigger');
+      this.$element.removeClass('is-closed');
+    } else {
+      this.isRevealed = false;
+      this.$element.attr('aria-hidden', 'true');
+      this.$element.off('open.zf.trigger toggle.zf.trigger').on({
+        'open.zf.trigger': this.open.bind(this),
+        'toggle.zf.trigger': this.toggle.bind(this)
+      });
+      this.$element.addClass('is-closed');
+    }
+    this._addContentClasses(isRevealed);
+  }
+
+  /**
+   * Stops scrolling of the body when offcanvas is open on mobile Safari and other troublesome browsers.
+   * @private
+   */
+  _stopScrolling(event) {
+    return false;
+  }
+
+  // Taken and adapted from http://stackoverflow.com/questions/16889447/prevent-full-page-scrolling-ios
+  // Only really works for y, not sure how to extend to x or if we need to.
+  _recordScrollable(event) {
+    let elem = this; // called from event handler context with this as elem
+
+     // If the element is scrollable (content overflows), then...
+    if (elem.scrollHeight !== elem.clientHeight) {
+      // If we're at the top, scroll down one pixel to allow scrolling up
+      if (elem.scrollTop === 0) {
+        elem.scrollTop = 1;
+      }
+      // If we're at the bottom, scroll up one pixel to allow scrolling down
+      if (elem.scrollTop === elem.scrollHeight - elem.clientHeight) {
+        elem.scrollTop = elem.scrollHeight - elem.clientHeight - 1;
+      }
+    }
+    elem.allowUp = elem.scrollTop > 0;
+    elem.allowDown = elem.scrollTop < (elem.scrollHeight - elem.clientHeight);
+    elem.lastY = event.originalEvent.pageY;
+  }
+
+  _stopScrollPropagation(event) {
+    let elem = this; // called from event handler context with this as elem
+    let up = event.pageY < elem.lastY;
+    let down = !up;
+    elem.lastY = event.pageY;
+
+    if((up && elem.allowUp) || (down && elem.allowDown)) {
+      event.stopPropagation();
+    } else {
+      event.preventDefault();
+    }
+  }
+
+  /**
+   * Opens the off-canvas menu.
+   * @function
+   * @param {Object} event - Event object passed from listener.
+   * @param {jQuery} trigger - element that triggered the off-canvas to open.
+   * @fires Offcanvas#opened
+   * @todo also trigger 'open' event?
+   */
+  open(event, trigger) {
+    if (this.$element.hasClass('is-open') || this.isRevealed) { return; }
+    var _this = this;
+
+    if (trigger) {
+      this.$lastTrigger = trigger;
+    }
+
+    if (this.options.forceTo === 'top') {
+      window.scrollTo(0, 0);
+    } else if (this.options.forceTo === 'bottom') {
+      window.scrollTo(0,document.body.scrollHeight);
+    }
+
+    if (this.options.transitionTime && this.options.transition !== 'overlap') {
+      this.$element.siblings('[data-off-canvas-content]').css('transition-duration', this.options.transitionTime);
+    } else {
+      this.$element.siblings('[data-off-canvas-content]').css('transition-duration', '');
+    }
+
+    this.$element.addClass('is-open').removeClass('is-closed');
+
+    this.$triggers.attr('aria-expanded', 'true');
+    this.$element.attr('aria-hidden', 'false');
+
+    this.$content.addClass('is-open-' + this.position);
+
+    // If `contentScroll` is set to false, add class and disable scrolling on touch devices.
+    if (this.options.contentScroll === false) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').addClass('is-off-canvas-open').on('touchmove', this._stopScrolling);
+      this.$element.on('touchstart', this._recordScrollable);
+      this.$element.on('touchmove', this._stopScrollPropagation);
+    }
+
+    if (this.options.contentOverlay === true) {
+      this.$overlay.addClass('is-visible');
+    }
+
+    if (this.options.closeOnClick === true && this.options.contentOverlay === true) {
+      this.$overlay.addClass('is-closable');
+    }
+
+    if (this.options.autoFocus === true) {
+      this.$element.one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["transitionend"])(this.$element), function() {
+        if (!_this.$element.hasClass('is-open')) {
+          return; // exit if prematurely closed
+        }
+        var canvasFocus = _this.$element.find('[data-autofocus]');
+        if (canvasFocus.length) {
+            canvasFocus.eq(0).focus();
+        } else {
+            _this.$element.find('a, button').eq(0).focus();
+        }
+      });
+    }
+
+    if (this.options.trapFocus === true) {
+      this.$content.attr('tabindex', '-1');
+      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].trapFocus(this.$element);
+    }
+
+    this._addContentClasses();
+
+    /**
+     * Fires when the off-canvas menu opens.
+     * @event Offcanvas#opened
+     */
+    this.$element.trigger('opened.zf.offcanvas');
+  }
+
+  /**
+   * Closes the off-canvas menu.
+   * @function
+   * @param {Function} cb - optional cb to fire after closure.
+   * @fires Offcanvas#closed
+   */
+  close(cb) {
+    if (!this.$element.hasClass('is-open') || this.isRevealed) { return; }
+
+    var _this = this;
+
+    this.$element.removeClass('is-open');
+
+    this.$element.attr('aria-hidden', 'true')
+      /**
+       * Fires when the off-canvas menu opens.
+       * @event Offcanvas#closed
+       */
+        .trigger('closed.zf.offcanvas');
+
+    this.$content.removeClass('is-open-left is-open-top is-open-right is-open-bottom');
+
+    // If `contentScroll` is set to false, remove class and re-enable scrolling on touch devices.
+    if (this.options.contentScroll === false) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').removeClass('is-off-canvas-open').off('touchmove', this._stopScrolling);
+      this.$element.off('touchstart', this._recordScrollable);
+      this.$element.off('touchmove', this._stopScrollPropagation);
+    }
+
+    if (this.options.contentOverlay === true) {
+      this.$overlay.removeClass('is-visible');
+    }
+
+    if (this.options.closeOnClick === true && this.options.contentOverlay === true) {
+      this.$overlay.removeClass('is-closable');
+    }
+
+    this.$triggers.attr('aria-expanded', 'false');
+
+    if (this.options.trapFocus === true) {
+      this.$content.removeAttr('tabindex');
+      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].releaseFocus(this.$element);
+    }
+
+    // Listen to transitionEnd and add class when done.
+    this.$element.one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["transitionend"])(this.$element), function(e) {
+      _this.$element.addClass('is-closed');
+      _this._removeContentClasses();
+    });
+  }
+
+  /**
+   * Toggles the off-canvas menu open or closed.
+   * @function
+   * @param {Object} event - Event object passed from listener.
+   * @param {jQuery} trigger - element that triggered the off-canvas to open.
+   */
+  toggle(event, trigger) {
+    if (this.$element.hasClass('is-open')) {
+      this.close(event, trigger);
+    }
+    else {
+      this.open(event, trigger);
+    }
+  }
+
+  /**
+   * Handles keyboard input when detected. When the escape key is pressed, the off-canvas menu closes, and focus is restored to the element that opened the menu.
+   * @function
+   * @private
+   */
+  _handleKeyboard(e) {
+    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].handleKey(e, 'OffCanvas', {
+      close: () => {
+        this.close();
+        this.$lastTrigger.focus();
+        return true;
+      },
+      handled: () => {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    });
+  }
+
+  /**
+   * Destroys the offcanvas plugin.
+   * @function
+   */
+  _destroy() {
+    this.close();
+    this.$element.off('.zf.trigger .zf.offcanvas');
+    this.$overlay.off('.zf.offcanvas');
+    if (this.onLoadListener) jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(this.onLoadListener);
+  }
+}
+
+OffCanvas.defaults = {
+  /**
+   * Allow the user to click outside of the menu to close it.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  closeOnClick: true,
+
+  /**
+   * Adds an overlay on top of `[data-off-canvas-content]`.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  contentOverlay: true,
+
+  /**
+   * Target an off-canvas content container by ID that may be placed anywhere. If null the closest content container will be taken.
+   * @option
+   * @type {?string}
+   * @default null
+   */
+  contentId: null,
+
+  /**
+   * Define the off-canvas element is nested in an off-canvas content. This is required when using the contentId option for a nested element.
+   * @option
+   * @type {boolean}
+   * @default null
+   */
+  nested: null,
+
+  /**
+   * Enable/disable scrolling of the main content when an off canvas panel is open.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  contentScroll: true,
+
+  /**
+   * Amount of time in ms the open and close transition requires. If none selected, pulls from body style.
+   * @option
+   * @type {number}
+   * @default null
+   */
+  transitionTime: null,
+
+  /**
+   * Type of transition for the offcanvas menu. Options are 'push', 'detached' or 'slide'.
+   * @option
+   * @type {string}
+   * @default push
+   */
+  transition: 'push',
+
+  /**
+   * Force the page to scroll to top or bottom on open.
+   * @option
+   * @type {?string}
+   * @default null
+   */
+  forceTo: null,
+
+  /**
+   * Allow the offcanvas to remain open for certain breakpoints.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  isRevealed: false,
+
+  /**
+   * Breakpoint at which to reveal. JS will use a RegExp to target standard classes, if changing classnames, pass your class with the `revealClass` option.
+   * @option
+   * @type {?string}
+   * @default null
+   */
+  revealOn: null,
+
+  /**
+   * Force focus to the offcanvas on open. If true, will focus the opening trigger on close.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  autoFocus: true,
+
+  /**
+   * Class used to force an offcanvas to remain open. Foundation defaults for this are `reveal-for-large` & `reveal-for-medium`.
+   * @option
+   * @type {string}
+   * @default reveal-for-
+   * @todo improve the regex testing for this.
+   */
+  revealClass: 'reveal-for-',
+
+  /**
+   * Triggers optional focus trapping when opening an offcanvas. Sets tabindex of [data-off-canvas-content] to -1 for accessibility purposes.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  trapFocus: false
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.reveal.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.reveal.js ***!
+  \***************************************************************/
+/*! exports provided: Reveal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Reveal", function() { return Reveal; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.keyboard */ "./node_modules/foundation-sites/js/foundation.util.keyboard.js");
+/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
+/* harmony import */ var _foundation_util_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.util.motion */ "./node_modules/foundation-sites/js/foundation.util.motion.js");
+/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
+/* harmony import */ var _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./foundation.util.triggers */ "./node_modules/foundation-sites/js/foundation.util.triggers.js");
+/* harmony import */ var _foundation_util_touch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./foundation.util.touch */ "./node_modules/foundation-sites/js/foundation.util.touch.js");
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Reveal module.
+ * @module foundation.reveal
+ * @requires foundation.util.keyboard
+ * @requires foundation.util.triggers
+ * @requires foundation.util.mediaQuery
+ * @requires foundation.util.motion if using animations
+ */
+
+class Reveal extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_5__["Plugin"] {
+  /**
+   * Creates a new instance of Reveal.
+   * @class
+   * @name Reveal
+   * @param {jQuery} element - jQuery object to use for the modal.
+   * @param {Object} options - optional parameters.
+   */
+  _setup(element, options) {
+    this.$element = element;
+    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, Reveal.defaults, this.$element.data(), options);
+    this.className = 'Reveal'; // ie9 back compat
+    this._init();
+
+    // Triggers init is idempotent, just need to make sure it is initialized
+    _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_6__["Triggers"].init(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].register('Reveal', {
+      'ESCAPE': 'close',
+    });
+  }
+
+  /**
+   * Initializes the modal by adding the overlay and close buttons, (if selected).
+   * @private
+   */
+  _init() {
+    _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__["MediaQuery"]._init();
+    this.id = this.$element.attr('id');
+    this.isActive = false;
+    this.cached = {mq: _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_3__["MediaQuery"].current};
+
+    this.$anchor = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-open="${this.id}"]`).length ? jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-open="${this.id}"]`) : jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-toggle="${this.id}"]`);
+    this.$anchor.attr({
+      'aria-controls': this.id,
+      'aria-haspopup': true,
+      'tabindex': 0
+    });
+
+    if (this.options.fullScreen || this.$element.hasClass('full')) {
+      this.options.fullScreen = true;
+      this.options.overlay = false;
+    }
+    if (this.options.overlay && !this.$overlay) {
+      this.$overlay = this._makeOverlay(this.id);
+    }
+
+    this.$element.attr({
+        'role': 'dialog',
+        'aria-hidden': true,
+        'data-yeti-box': this.id,
+        'data-resize': this.id
+    });
+
+    if(this.$overlay) {
+      this.$element.detach().appendTo(this.$overlay);
+    } else {
+      this.$element.detach().appendTo(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.options.appendTo));
+      this.$element.addClass('without-overlay');
+    }
+    this._events();
+    if (this.options.deepLink && window.location.hash === ( `#${this.id}`)) {
+      this.onLoadListener = Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["onLoad"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window), () => this.open());
+    }
+  }
+
+  /**
+   * Creates an overlay div to display behind the modal.
+   * @private
+   */
+  _makeOverlay() {
+    var additionalOverlayClasses = '';
+
+    if (this.options.additionalOverlayClasses) {
+      additionalOverlayClasses = ' ' + this.options.additionalOverlayClasses;
+    }
+
+    return jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div></div>')
+      .addClass('reveal-overlay' + additionalOverlayClasses)
+      .appendTo(this.options.appendTo);
+  }
+
+  /**
+   * Updates position of modal
+   * TODO:  Figure out if we actually need to cache these values or if it doesn't matter
+   * @private
+   */
+  _updatePosition() {
+    var width = this.$element.outerWidth();
+    var outerWidth = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width();
+    var height = this.$element.outerHeight();
+    var outerHeight = jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height();
+    var left, top = null;
+    if (this.options.hOffset === 'auto') {
+      left = parseInt((outerWidth - width) / 2, 10);
+    } else {
+      left = parseInt(this.options.hOffset, 10);
+    }
+    if (this.options.vOffset === 'auto') {
+      if (height > outerHeight) {
+        top = parseInt(Math.min(100, outerHeight / 10), 10);
+      } else {
+        top = parseInt((outerHeight - height) / 4, 10);
+      }
+    } else if (this.options.vOffset !== null) {
+      top = parseInt(this.options.vOffset, 10);
+    }
+
+    if (top !== null) {
+      this.$element.css({top: top + 'px'});
+    }
+
+    // only worry about left if we don't have an overlay or we have a horizontal offset,
+    // otherwise we're perfectly in the middle
+    if (!this.$overlay || (this.options.hOffset !== 'auto')) {
+      this.$element.css({left: left + 'px'});
+      this.$element.css({margin: '0px'});
+    }
+
+  }
+
+  /**
+   * Adds event handlers for the modal.
+   * @private
+   */
+  _events() {
+    var _this = this;
+
+    this.$element.on({
+      'open.zf.trigger': this.open.bind(this),
+      'close.zf.trigger': (event, $element) => {
+        if ((event.target === _this.$element[0]) ||
+            (jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target).parents('[data-closable]')[0] === $element)) { // only close reveal when it's explicitly called
+          return this.close.apply(this);
+        }
+      },
+      'toggle.zf.trigger': this.toggle.bind(this),
+      'resizeme.zf.trigger': function() {
+        _this._updatePosition();
+      }
+    });
+
+    if (this.options.closeOnClick && this.options.overlay) {
+      this.$overlay.off('.zf.reveal').on('click.zf.reveal', function(e) {
+        if (e.target === _this.$element[0] ||
+          jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(_this.$element[0], e.target) ||
+            !jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(document, e.target)) {
+              return;
+        }
+        _this.close();
+      });
+    }
+    if (this.options.deepLink) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on(`hashchange.zf.reveal:${this.id}`, this._handleState.bind(this));
+    }
+  }
+
+  /**
+   * Handles modal methods on back/forward button clicks or any other event that triggers hashchange.
+   * @private
+   */
+  _handleState(e) {
+    if(window.location.hash === ( '#' + this.id) && !this.isActive){ this.open(); }
+    else{ this.close(); }
+  }
+
+  /**
+  * Disables the scroll when Reveal is shown to prevent the background from shifting
+  * @param {number} scrollTop - Scroll to visually apply, window current scroll by default
+  */
+  _disableScroll(scrollTop) {
+    scrollTop = scrollTop || jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop();
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).height() > jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height()) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("html")
+        .css("top", -scrollTop);
+    }
+  }
+
+  /**
+  * Reenables the scroll when Reveal closes
+  * @param {number} scrollTop - Scroll to restore, html "top" property by default (as set by `_disableScroll`)
+  */
+  _enableScroll(scrollTop) {
+    scrollTop = scrollTop || parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()("html").css("top"));
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).height() > jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height()) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()("html")
+        .css("top", "");
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).scrollTop(-scrollTop);
+    }
+  }
+
+
+  /**
+   * Opens the modal controlled by `this.$anchor`, and closes all others by default.
+   * @function
+   * @fires Reveal#closeme
+   * @fires Reveal#open
+   */
+  open() {
+    // either update or replace browser history
+    const hash = `#${this.id}`;
+    if (this.options.deepLink && window.location.hash !== hash) {
+
+      if (window.history.pushState) {
+        if (this.options.updateHistory) {
+          window.history.pushState({}, '', hash);
+        } else {
+          window.history.replaceState({}, '', hash);
+        }
+      } else {
+        window.location.hash = hash;
+      }
+    }
+
+    // Remember anchor that opened it to set focus back later, have general anchors as fallback
+    this.$activeAnchor = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.activeElement).is(this.$anchor) ? jquery__WEBPACK_IMPORTED_MODULE_0___default()(document.activeElement) : this.$anchor;
+
+    this.isActive = true;
+
+    // Make elements invisible, but remove display: none so we can get size and positioning
+    this.$element
+        .css({ 'visibility': 'hidden' })
+        .show()
+        .scrollTop(0);
+    if (this.options.overlay) {
+      this.$overlay.css({'visibility': 'hidden'}).show();
+    }
+
+    this._updatePosition();
+
+    this.$element
+      .hide()
+      .css({ 'visibility': '' });
+
+    if(this.$overlay) {
+      this.$overlay.css({'visibility': ''}).hide();
+      if(this.$element.hasClass('fast')) {
+        this.$overlay.addClass('fast');
+      } else if (this.$element.hasClass('slow')) {
+        this.$overlay.addClass('slow');
+      }
+    }
+
+
+    if (!this.options.multipleOpened) {
+      /**
+       * Fires immediately before the modal opens.
+       * Closes any other modals that are currently open
+       * @event Reveal#closeme
+       */
+      this.$element.trigger('closeme.zf.reveal', this.id);
+    }
+
+    this._disableScroll();
+
+    var _this = this;
+
+    // Motion UI method of reveal
+    if (this.options.animationIn) {
+      function afterAnimation(){
+        _this.$element
+          .attr({
+            'aria-hidden': false,
+            'tabindex': -1
+          })
+          .focus();
+        _this._addGlobalClasses();
+        _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].trapFocus(_this.$element);
+      }
+      if (this.options.overlay) {
+        _foundation_util_motion__WEBPACK_IMPORTED_MODULE_4__["Motion"].animateIn(this.$overlay, 'fade-in');
+      }
+      _foundation_util_motion__WEBPACK_IMPORTED_MODULE_4__["Motion"].animateIn(this.$element, this.options.animationIn, () => {
+        if(this.$element) { // protect against object having been removed
+          this.focusableElements = _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].findFocusable(this.$element);
+          afterAnimation();
+        }
+      });
+    }
+    // jQuery method of reveal
+    else {
+      if (this.options.overlay) {
+        this.$overlay.show(0);
+      }
+      this.$element.show(this.options.showDelay);
+    }
+
+    // handle accessibility
+    this.$element
+      .attr({
+        'aria-hidden': false,
+        'tabindex': -1
+      })
+      .focus();
+    _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].trapFocus(this.$element);
+
+    this._addGlobalClasses();
+
+    this._addGlobalListeners();
+
+    /**
+     * Fires when the modal has successfully opened.
+     * @event Reveal#open
+     */
+    this.$element.trigger('open.zf.reveal');
+  }
+
+  /**
+   * Adds classes and listeners on document required by open modals.
+   *
+   * The following classes are added and updated:
+   * - `.is-reveal-open` - Prevents the scroll on document
+   * - `.zf-has-scroll`  - Displays a disabled scrollbar on document if required like if the
+   *                       scroll was not disabled. This prevent a "shift" of the page content due
+   *                       the scrollbar disappearing when the modal opens.
+   *
+   * @private
+   */
+  _addGlobalClasses() {
+    const updateScrollbarClass = () => {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').toggleClass('zf-has-scroll', !!(jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).height() > jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).height()));
+    };
+
+    this.$element.on('resizeme.zf.trigger.revealScrollbarListener', () => updateScrollbarClass());
+    updateScrollbarClass();
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').addClass('is-reveal-open');
+  }
+
+  /**
+   * Removes classes and listeners on document that were required by open modals.
+   * @private
+   */
+  _removeGlobalClasses() {
+    this.$element.off('resizeme.zf.trigger.revealScrollbarListener');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').removeClass('is-reveal-open');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('html').removeClass('zf-has-scroll');
+  }
+
+  /**
+   * Adds extra event handlers for the body and window if necessary.
+   * @private
+   */
+  _addGlobalListeners() {
+    var _this = this;
+    if(!this.$element) { return; } // If we're in the middle of cleanup, don't freak out
+    this.focusableElements = _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].findFocusable(this.$element);
+
+    if (!this.options.overlay && this.options.closeOnClick && !this.options.fullScreen) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').on('click.zf.reveal', function(e) {
+        if (e.target === _this.$element[0] ||
+          jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(_this.$element[0], e.target) ||
+            !jquery__WEBPACK_IMPORTED_MODULE_0___default.a.contains(document, e.target)) { return; }
+        _this.close();
+      });
+    }
+
+    if (this.options.closeOnEsc) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).on('keydown.zf.reveal', function(e) {
+        _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].handleKey(e, 'Reveal', {
+          close: function() {
+            if (_this.options.closeOnEsc) {
+              _this.close();
+            }
+          }
+        });
+      });
+    }
+  }
+
+  /**
+   * Closes the modal.
+   * @function
+   * @fires Reveal#closed
+   */
+  close() {
+    if (!this.isActive || !this.$element.is(':visible')) {
+      return false;
+    }
+    var _this = this;
+
+    // Motion UI method of hiding
+    if (this.options.animationOut) {
+      if (this.options.overlay) {
+        _foundation_util_motion__WEBPACK_IMPORTED_MODULE_4__["Motion"].animateOut(this.$overlay, 'fade-out');
+      }
+
+      _foundation_util_motion__WEBPACK_IMPORTED_MODULE_4__["Motion"].animateOut(this.$element, this.options.animationOut, finishUp);
+    }
+    // jQuery method of hiding
+    else {
+      this.$element.hide(this.options.hideDelay);
+
+      if (this.options.overlay) {
+        this.$overlay.hide(0, finishUp);
+      }
+      else {
+        finishUp();
+      }
+    }
+
+    // Conditionals to remove extra event listeners added on open
+    if (this.options.closeOnEsc) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('keydown.zf.reveal');
+    }
+
+    if (!this.options.overlay && this.options.closeOnClick) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').off('click.zf.reveal');
+    }
+
+    this.$element.off('keydown.zf.reveal');
+
+    function finishUp() {
+
+      // Get the current top before the modal is closed and restore the scroll after.
+      // TODO: use component properties instead of HTML properties
+      // See https://github.com/zurb/foundation-sites/pull/10786
+      var scrollTop = parseInt(jquery__WEBPACK_IMPORTED_MODULE_0___default()("html").css("top"));
+
+      if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.reveal:visible').length  === 0) {
+        _this._removeGlobalClasses(); // also remove .is-reveal-open from the html element when there is no opened reveal
+      }
+
+      _foundation_util_keyboard__WEBPACK_IMPORTED_MODULE_2__["Keyboard"].releaseFocus(_this.$element);
+
+      _this.$element.attr('aria-hidden', true);
+
+      _this._enableScroll(scrollTop);
+
+      /**
+      * Fires when the modal is done closing.
+      * @event Reveal#closed
+      */
+      _this.$element.trigger('closed.zf.reveal');
+    }
+
+    /**
+    * Resets the modal content
+    * This prevents a running video to keep going in the background
+    */
+    if (this.options.resetOnClose) {
+      this.$element.html(this.$element.html());
+    }
+
+    this.isActive = false;
+    // If deepLink and we did not switched to an other modal...
+    if (_this.options.deepLink && window.location.hash === `#${this.id}`) {
+      // Remove the history hash
+      if (window.history.replaceState) {
+        const urlWithoutHash = window.location.pathname + window.location.search;
+        if (this.options.updateHistory) {
+          window.history.pushState({}, '', urlWithoutHash); // remove the hash
+        } else {
+          window.history.replaceState('', document.title, urlWithoutHash);
+        }
+      } else {
+        window.location.hash = '';
+      }
+    }
+
+    this.$activeAnchor.focus();
+  }
+
+  /**
+   * Toggles the open/closed state of a modal.
+   * @function
+   */
+  toggle() {
+    if (this.isActive) {
+      this.close();
+    } else {
+      this.open();
+    }
+  };
+
+  /**
+   * Destroys an instance of a modal.
+   * @function
+   */
+  _destroy() {
+    if (this.options.overlay) {
+      this.$element.appendTo(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.options.appendTo)); // move $element outside of $overlay to prevent error unregisterPlugin()
+      this.$overlay.hide().off().remove();
+    }
+    this.$element.hide().off();
+    this.$anchor.off('.zf');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(`.zf.reveal:${this.id}`)
+    if (this.onLoadListener) jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(this.onLoadListener);
+
+    if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.reveal:visible').length  === 0) {
+      this._removeGlobalClasses(); // also remove .is-reveal-open from the html element when there is no opened reveal
+    }
+  };
+}
+
+Reveal.defaults = {
+  /**
+   * Motion-UI class to use for animated elements. If none used, defaults to simple show/hide.
+   * @option
+   * @type {string}
+   * @default ''
+   */
+  animationIn: '',
+  /**
+   * Motion-UI class to use for animated elements. If none used, defaults to simple show/hide.
+   * @option
+   * @type {string}
+   * @default ''
+   */
+  animationOut: '',
+  /**
+   * Time, in ms, to delay the opening of a modal after a click if no animation used.
+   * @option
+   * @type {number}
+   * @default 0
+   */
+  showDelay: 0,
+  /**
+   * Time, in ms, to delay the closing of a modal after a click if no animation used.
+   * @option
+   * @type {number}
+   * @default 0
+   */
+  hideDelay: 0,
+  /**
+   * Allows a click on the body/overlay to close the modal.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  closeOnClick: true,
+  /**
+   * Allows the modal to close if the user presses the `ESCAPE` key.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  closeOnEsc: true,
+  /**
+   * If true, allows multiple modals to be displayed at once.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  multipleOpened: false,
+  /**
+   * Distance, in pixels, the modal should push down from the top of the screen.
+   * @option
+   * @type {number|string}
+   * @default auto
+   */
+  vOffset: 'auto',
+  /**
+   * Distance, in pixels, the modal should push in from the side of the screen.
+   * @option
+   * @type {number|string}
+   * @default auto
+   */
+  hOffset: 'auto',
+  /**
+   * Allows the modal to be fullscreen, completely blocking out the rest of the view. JS checks for this as well.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  fullScreen: false,
+  /**
+   * Allows the modal to generate an overlay div, which will cover the view when modal opens.
+   * @option
+   * @type {boolean}
+   * @default true
+   */
+  overlay: true,
+  /**
+   * Allows the modal to remove and reinject markup on close. Should be true if using video elements w/o using provider's api, otherwise, videos will continue to play in the background.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  resetOnClose: false,
+  /**
+   * Link the location hash to the modal.
+   * Set the location hash when the modal is opened/closed, and open/close the modal when the location changes.
+   * @option
+   * @type {boolean}
+   * @default false
+   */
+  deepLink: false,
+  /**
+   * If `deepLink` is enabled, update the browser history with the open modal
+   * @option
+   * @default false
+   */
+  updateHistory: false,
+    /**
+   * Allows the modal to append to custom div.
+   * @option
+   * @type {string}
+   * @default "body"
+   */
+  appendTo: "body",
+  /**
+   * Allows adding additional class names to the reveal overlay.
+   * @option
+   * @type {string}
+   * @default ''
+   */
+  additionalOverlayClasses: ''
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.smoothScroll.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.smoothScroll.js ***!
+  \*********************************************************************/
+/*! exports provided: SmoothScroll */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SmoothScroll", function() { return SmoothScroll; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
+
+
+
+
+/**
+ * SmoothScroll module.
+ * @module foundation.smooth-scroll
+ */
+class SmoothScroll extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_2__["Plugin"] {
+  /**
+   * Creates a new instance of SmoothScroll.
+   * @class
+   * @name SmoothScroll
+   * @fires SmoothScroll#init
+   * @param {Object} element - jQuery object to add the trigger to.
+   * @param {Object} options - Overrides to the default plugin settings.
+   */
+    _setup(element, options) {
+        this.$element = element;
+        this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, SmoothScroll.defaults, this.$element.data(), options);
+        this.className = 'SmoothScroll'; // ie9 back compat
+
+        this._init();
+    }
+
+    /**
+     * Initialize the SmoothScroll plugin
+     * @private
+     */
+    _init() {
+        const id = this.$element[0].id || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["GetYoDigits"])(6, 'smooth-scroll');
+        this.$element.attr({ id });
+
+        this._events();
+    }
+
+    /**
+     * Initializes events for SmoothScroll.
+     * @private
+     */
+    _events() {
+        this._linkClickListener = this._handleLinkClick.bind(this);
+        this.$element.on('click.zf.smoothScroll', this._linkClickListener);
+        this.$element.on('click.zf.smoothScroll', 'a[href^="#"]', this._linkClickListener);
+    }
+
+    /**
+     * Handle the given event to smoothly scroll to the anchor pointed by the event target.
+     * @param {*} e - event
+     * @function
+     * @private
+     */
+    _handleLinkClick(e) {
+        // Follow the link if it does not point to an anchor.
+        if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.currentTarget).is('a[href^="#"]')) return;
+
+        const arrival = e.currentTarget.getAttribute('href');
+
+        this._inTransition = true;
+
+        SmoothScroll.scrollToLoc(arrival, this.options, () => {
+            this._inTransition = false;
+        });
+
+        e.preventDefault();
+    };
+
+    /**
+     * Function to scroll to a given location on the page.
+     * @param {String} loc - A properly formatted jQuery id selector. Example: '#foo'
+     * @param {Object} options - The options to use.
+     * @param {Function} callback - The callback function.
+     * @static
+     * @function
+     */
+    static scrollToLoc(loc, options = SmoothScroll.defaults, callback) {
+        const $loc = jquery__WEBPACK_IMPORTED_MODULE_0___default()(loc);
+
+        // Do nothing if target does not exist to prevent errors
+        if (!$loc.length) return false;
+
+        var scrollPos = Math.round($loc.offset().top - options.threshold / 2 - options.offset);
+
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('html, body').stop(true).animate(
+            { scrollTop: scrollPos },
+            options.animationDuration,
+            options.animationEasing,
+            () => {
+                if (typeof callback === 'function'){
+                    callback();
+                }
+            }
+        );
+    }
+
+    /**
+     * Destroys the SmoothScroll instance.
+     * @function
+     */
+    _destroy() {
+        this.$element.off('click.zf.smoothScroll', this._linkClickListener)
+        this.$element.off('click.zf.smoothScroll', 'a[href^="#"]', this._linkClickListener);
+    }
+}
+
+/**
+ * Default settings for plugin.
+ */
+SmoothScroll.defaults = {
+  /**
+   * Amount of time, in ms, the animated scrolling should take between locations.
+   * @option
+   * @type {number}
+   * @default 500
+   */
+  animationDuration: 500,
+  /**
+   * Animation style to use when scrolling between locations. Can be `'swing'` or `'linear'`.
+   * @option
+   * @type {string}
+   * @default 'linear'
+   * @see {@link https://api.jquery.com/animate|Jquery animate}
+   */
+  animationEasing: 'linear',
+  /**
+   * Number of pixels to use as a marker for location changes.
+   * @option
+   * @type {number}
+   * @default 50
+   */
+  threshold: 50,
+  /**
+   * Number of pixels to offset the scroll of the page on item click if using a sticky nav bar.
+   * @option
+   * @type {number}
+   * @default 0
+   */
+  offset: 0
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.sticky.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.sticky.js ***!
+  \***************************************************************/
+/*! exports provided: Sticky */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sticky", function() { return Sticky; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.mediaQuery */ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js");
+/* harmony import */ var _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./foundation.core.plugin */ "./node_modules/foundation-sites/js/foundation.core.plugin.js");
+/* harmony import */ var _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./foundation.util.triggers */ "./node_modules/foundation-sites/js/foundation.util.triggers.js");
+
+
+
+
+
+
+
+
+/**
+ * Sticky module.
+ * @module foundation.sticky
+ * @requires foundation.util.triggers
+ * @requires foundation.util.mediaQuery
+ */
+
+class Sticky extends _foundation_core_plugin__WEBPACK_IMPORTED_MODULE_3__["Plugin"] {
+  /**
+   * Creates a new instance of a sticky thing.
+   * @class
+   * @name Sticky
+   * @param {jQuery} element - jQuery object to make sticky.
+   * @param {Object} options - options object passed when creating the element programmatically.
+   */
+  _setup(element, options) {
+    this.$element = element;
+    this.options = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, Sticky.defaults, this.$element.data(), options);
+    this.className = 'Sticky'; // ie9 back compat
+
+    // Triggers init is idempotent, just need to make sure it is initialized
+    _foundation_util_triggers__WEBPACK_IMPORTED_MODULE_4__["Triggers"].init(jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
+
+    this._init();
+  }
+
+  /**
+   * Initializes the sticky element by adding classes, getting/setting dimensions, breakpoints and attributes
+   * @function
+   * @private
+   */
+  _init() {
+    _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_2__["MediaQuery"]._init();
+
+    var $parent = this.$element.parent('[data-sticky-container]'),
+        id = this.$element[0].id || Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["GetYoDigits"])(6, 'sticky'),
+        _this = this;
+
+    if($parent.length){
+      this.$container = $parent;
+    } else {
+      this.wasWrapped = true;
+      this.$element.wrap(this.options.container);
+      this.$container = this.$element.parent();
+    }
+    this.$container.addClass(this.options.containerClass);
+
+    this.$element.addClass(this.options.stickyClass).attr({ 'data-resize': id, 'data-mutate': id });
+    if (this.options.anchor !== '') {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#' + _this.options.anchor).attr({ 'data-mutate': id });
+    }
+
+    this.scrollCount = this.options.checkEvery;
+    this.isStuck = false;
+    this.onLoadListener = Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["onLoad"])(jquery__WEBPACK_IMPORTED_MODULE_0___default()(window), function () {
+      //We calculate the container height to have correct values for anchor points offset calculation.
+      _this.containerHeight = _this.$element.css("display") == "none" ? 0 : _this.$element[0].getBoundingClientRect().height;
+      _this.$container.css('height', _this.containerHeight);
+      _this.elemHeight = _this.containerHeight;
+      if (_this.options.anchor !== '') {
+        _this.$anchor = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#' + _this.options.anchor);
+      } else {
+        _this._parsePoints();
+      }
+
+      _this._setSizes(function () {
+        var scroll = window.pageYOffset;
+        _this._calc(false, scroll);
+        //Unstick the element will ensure that proper classes are set.
+        if (!_this.isStuck) {
+          _this._removeSticky((scroll >= _this.topPoint) ? false : true);
+        }
+      });
+      _this._events(id.split('-').reverse().join('-'));
+    });
+  }
+
+  /**
+   * If using multiple elements as anchors, calculates the top and bottom pixel values the sticky thing should stick and unstick on.
+   * @function
+   * @private
+   */
+  _parsePoints() {
+    var top = this.options.topAnchor == "" ? 1 : this.options.topAnchor,
+        btm = this.options.btmAnchor== "" ? document.documentElement.scrollHeight : this.options.btmAnchor,
+        pts = [top, btm],
+        breaks = {};
+    for (var i = 0, len = pts.length; i < len && pts[i]; i++) {
+      var pt;
+      if (typeof pts[i] === 'number') {
+        pt = pts[i];
+      } else {
+        var place = pts[i].split(':'),
+            anchor = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#${place[0]}`);
+
+        pt = anchor.offset().top;
+        if (place[1] && place[1].toLowerCase() === 'bottom') {
+          pt += anchor[0].getBoundingClientRect().height;
+        }
+      }
+      breaks[i] = pt;
+    }
+
+
+    this.points = breaks;
+    return;
+  }
+
+  /**
+   * Adds event handlers for the scrolling element.
+   * @private
+   * @param {String} id - pseudo-random id for unique scroll event listener.
+   */
+  _events(id) {
+    var _this = this,
+        scrollListener = this.scrollListener = `scroll.zf.${id}`;
+    if (this.isOn) { return; }
+    if (this.canStick) {
+      this.isOn = true;
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(scrollListener)
+               .on(scrollListener, function(e) {
+                 if (_this.scrollCount === 0) {
+                   _this.scrollCount = _this.options.checkEvery;
+                   _this._setSizes(function() {
+                     _this._calc(false, window.pageYOffset);
+                   });
+                 } else {
+                   _this.scrollCount--;
+                   _this._calc(false, window.pageYOffset);
+                 }
+              });
+    }
+
+    this.$element.off('resizeme.zf.trigger')
+                 .on('resizeme.zf.trigger', function(e, el) {
+                    _this._eventsHandler(id);
+    });
+
+    this.$element.on('mutateme.zf.trigger', function (e, el) {
+        _this._eventsHandler(id);
+    });
+
+    if(this.$anchor) {
+      this.$anchor.on('mutateme.zf.trigger', function (e, el) {
+          _this._eventsHandler(id);
+      });
+    }
+  }
+
+  /**
+   * Handler for events.
+   * @private
+   * @param {String} id - pseudo-random id for unique scroll event listener.
+   */
+  _eventsHandler(id) {
+       var _this = this,
+        scrollListener = this.scrollListener = `scroll.zf.${id}`;
+
+       _this._setSizes(function() {
+       _this._calc(false);
+       if (_this.canStick) {
+         if (!_this.isOn) {
+           _this._events(id);
+         }
+       } else if (_this.isOn) {
+         _this._pauseListeners(scrollListener);
+       }
+     });
+  }
+
+  /**
+   * Removes event handlers for scroll and change events on anchor.
+   * @fires Sticky#pause
+   * @param {String} scrollListener - unique, namespaced scroll listener attached to `window`
+   */
+  _pauseListeners(scrollListener) {
+    this.isOn = false;
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(scrollListener);
+
+    /**
+     * Fires when the plugin is paused due to resize event shrinking the view.
+     * @event Sticky#pause
+     * @private
+     */
+     this.$element.trigger('pause.zf.sticky');
+  }
+
+  /**
+   * Called on every `scroll` event and on `_init`
+   * fires functions based on booleans and cached values
+   * @param {Boolean} checkSizes - true if plugin should recalculate sizes and breakpoints.
+   * @param {Number} scroll - current scroll position passed from scroll event cb function. If not passed, defaults to `window.pageYOffset`.
+   */
+  _calc(checkSizes, scroll) {
+    if (checkSizes) { this._setSizes(); }
+
+    if (!this.canStick) {
+      if (this.isStuck) {
+        this._removeSticky(true);
+      }
+      return false;
+    }
+
+    if (!scroll) { scroll = window.pageYOffset; }
+
+    if (scroll >= this.topPoint) {
+      if (scroll <= this.bottomPoint) {
+        if (!this.isStuck) {
+          this._setSticky();
+        }
+      } else {
+        if (this.isStuck) {
+          this._removeSticky(false);
+        }
+      }
+    } else {
+      if (this.isStuck) {
+        this._removeSticky(true);
+      }
+    }
+  }
+
+  /**
+   * Causes the $element to become stuck.
+   * Adds `position: fixed;`, and helper classes.
+   * @fires Sticky#stuckto
+   * @function
+   * @private
+   */
+  _setSticky() {
+    var _this = this,
+        stickTo = this.options.stickTo,
+        mrgn = stickTo === 'top' ? 'marginTop' : 'marginBottom',
+        notStuckTo = stickTo === 'top' ? 'bottom' : 'top',
+        css = {};
+
+    css[mrgn] = `${this.options[mrgn]}em`;
+    css[stickTo] = 0;
+    css[notStuckTo] = 'auto';
+    this.isStuck = true;
+    this.$element.removeClass(`is-anchored is-at-${notStuckTo}`)
+                 .addClass(`is-stuck is-at-${stickTo}`)
+                 .css(css)
+                 /**
+                  * Fires when the $element has become `position: fixed;`
+                  * Namespaced to `top` or `bottom`, e.g. `sticky.zf.stuckto:top`
+                  * @event Sticky#stuckto
+                  */
+                 .trigger(`sticky.zf.stuckto:${stickTo}`);
+    this.$element.on("transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd", function() {
+      _this._setSizes();
+    });
+  }
+
+  /**
+   * Causes the $element to become unstuck.
+   * Removes `position: fixed;`, and helper classes.
+   * Adds other helper classes.
+   * @param {Boolean} isTop - tells the function if the $element should anchor to the top or bottom of its $anchor element.
+   * @fires Sticky#unstuckfrom
+   * @private
+   */
+  _removeSticky(isTop) {
+    var stickTo = this.options.stickTo,
+        stickToTop = stickTo === 'top',
+        css = {},
+        anchorPt = (this.points ? this.points[1] - this.points[0] : this.anchorHeight) - this.elemHeight,
+        mrgn = stickToTop ? 'marginTop' : 'marginBottom',
+        notStuckTo = stickToTop ? 'bottom' : 'top',
+        topOrBottom = isTop ? 'top' : 'bottom';
+
+    css[mrgn] = 0;
+
+    css['bottom'] = 'auto';
+    if(isTop) {
+      css['top'] = 0;
+    } else {
+      css['top'] = anchorPt;
+    }
+
+    this.isStuck = false;
+    this.$element.removeClass(`is-stuck is-at-${stickTo}`)
+                 .addClass(`is-anchored is-at-${topOrBottom}`)
+                 .css(css)
+                 /**
+                  * Fires when the $element has become anchored.
+                  * Namespaced to `top` or `bottom`, e.g. `sticky.zf.unstuckfrom:bottom`
+                  * @event Sticky#unstuckfrom
+                  */
+                 .trigger(`sticky.zf.unstuckfrom:${topOrBottom}`);
+  }
+
+  /**
+   * Sets the $element and $container sizes for plugin.
+   * Calls `_setBreakPoints`.
+   * @param {Function} cb - optional callback function to fire on completion of `_setBreakPoints`.
+   * @private
+   */
+  _setSizes(cb) {
+    this.canStick = _foundation_util_mediaQuery__WEBPACK_IMPORTED_MODULE_2__["MediaQuery"].is(this.options.stickyOn);
+    if (!this.canStick) {
+      if (cb && typeof cb === 'function') { cb(); }
+    }
+    var _this = this,
+        newElemWidth = this.$container[0].getBoundingClientRect().width,
+        comp = window.getComputedStyle(this.$container[0]),
+        pdngl = parseInt(comp['padding-left'], 10),
+        pdngr = parseInt(comp['padding-right'], 10);
+
+    if (this.$anchor && this.$anchor.length) {
+      this.anchorHeight = this.$anchor[0].getBoundingClientRect().height;
+    } else {
+      this._parsePoints();
+    }
+
+    this.$element.css({
+      'max-width': `${newElemWidth - pdngl - pdngr}px`
+    });
+
+    var newContainerHeight = this.$element[0].getBoundingClientRect().height || this.containerHeight;
+    if (this.$element.css("display") == "none") {
+      newContainerHeight = 0;
+    }
+    this.containerHeight = newContainerHeight;
+    this.$container.css({
+      height: newContainerHeight
+    });
+    this.elemHeight = newContainerHeight;
+
+    if (!this.isStuck) {
+      if (this.$element.hasClass('is-at-bottom')) {
+        var anchorPt = (this.points ? this.points[1] - this.$container.offset().top : this.anchorHeight) - this.elemHeight;
+        this.$element.css('top', anchorPt);
+      }
+    }
+
+    this._setBreakPoints(newContainerHeight, function() {
+      if (cb && typeof cb === 'function') { cb(); }
+    });
+  }
+
+  /**
+   * Sets the upper and lower breakpoints for the element to become sticky/unsticky.
+   * @param {Number} elemHeight - px value for sticky.$element height, calculated by `_setSizes`.
+   * @param {Function} cb - optional callback function to be called on completion.
+   * @private
+   */
+  _setBreakPoints(elemHeight, cb) {
+    if (!this.canStick) {
+      if (cb && typeof cb === 'function') { cb(); }
+      else { return false; }
+    }
+    var mTop = emCalc(this.options.marginTop),
+        mBtm = emCalc(this.options.marginBottom),
+        topPoint = this.points ? this.points[0] : this.$anchor.offset().top,
+        bottomPoint = this.points ? this.points[1] : topPoint + this.anchorHeight,
+        // topPoint = this.$anchor.offset().top || this.points[0],
+        // bottomPoint = topPoint + this.anchorHeight || this.points[1],
+        winHeight = window.innerHeight;
+
+    if (this.options.stickTo === 'top') {
+      topPoint -= mTop;
+      bottomPoint -= (elemHeight + mTop);
+    } else if (this.options.stickTo === 'bottom') {
+      topPoint -= (winHeight - (elemHeight + mBtm));
+      bottomPoint -= (winHeight - mBtm);
+    } else {
+      //this would be the stickTo: both option... tricky
+    }
+
+    this.topPoint = topPoint;
+    this.bottomPoint = bottomPoint;
+
+    if (cb && typeof cb === 'function') { cb(); }
+  }
+
+  /**
+   * Destroys the current sticky element.
+   * Resets the element to the top position first.
+   * Removes event listeners, JS-added css properties and classes, and unwraps the $element if the JS added the $container.
+   * @function
+   */
+  _destroy() {
+    this._removeSticky(true);
+
+    this.$element.removeClass(`${this.options.stickyClass} is-anchored is-at-top`)
+                 .css({
+                   height: '',
+                   top: '',
+                   bottom: '',
+                   'max-width': ''
+                 })
+                 .off('resizeme.zf.trigger')
+                 .off('mutateme.zf.trigger');
+    if (this.$anchor && this.$anchor.length) {
+      this.$anchor.off('change.zf.sticky');
+    }
+    if (this.scrollListener) jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(this.scrollListener)
+    if (this.onLoadListener) jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(this.onLoadListener)
+
+    if (this.wasWrapped) {
+      this.$element.unwrap();
+    } else {
+      this.$container.removeClass(this.options.containerClass)
+                     .css({
+                       height: ''
+                     });
+    }
+  }
+}
+
+Sticky.defaults = {
+  /**
+   * Customizable container template. Add your own classes for styling and sizing.
+   * @option
+   * @type {string}
+   * @default '&lt;div data-sticky-container&gt;&lt;/div&gt;'
+   */
+  container: '<div data-sticky-container></div>',
+  /**
+   * Location in the view the element sticks to. Can be `'top'` or `'bottom'`.
+   * @option
+   * @type {string}
+   * @default 'top'
+   */
+  stickTo: 'top',
+  /**
+   * If anchored to a single element, the id of that element.
+   * @option
+   * @type {string}
+   * @default ''
+   */
+  anchor: '',
+  /**
+   * If using more than one element as anchor points, the id of the top anchor.
+   * @option
+   * @type {string}
+   * @default ''
+   */
+  topAnchor: '',
+  /**
+   * If using more than one element as anchor points, the id of the bottom anchor.
+   * @option
+   * @type {string}
+   * @default ''
+   */
+  btmAnchor: '',
+  /**
+   * Margin, in `em`'s to apply to the top of the element when it becomes sticky.
+   * @option
+   * @type {number}
+   * @default 1
+   */
+  marginTop: 1,
+  /**
+   * Margin, in `em`'s to apply to the bottom of the element when it becomes sticky.
+   * @option
+   * @type {number}
+   * @default 1
+   */
+  marginBottom: 1,
+  /**
+   * Breakpoint string that is the minimum screen size an element should become sticky.
+   * @option
+   * @type {string}
+   * @default 'medium'
+   */
+  stickyOn: 'medium',
+  /**
+   * Class applied to sticky element, and removed on destruction. Foundation defaults to `sticky`.
+   * @option
+   * @type {string}
+   * @default 'sticky'
+   */
+  stickyClass: 'sticky',
+  /**
+   * Class applied to sticky container. Foundation defaults to `sticky-container`.
+   * @option
+   * @type {string}
+   * @default 'sticky-container'
+   */
+  containerClass: 'sticky-container',
+  /**
+   * Number of scroll events between the plugin's recalculating sticky points. Setting it to `0` will cause it to recalc every scroll event, setting it to `-1` will prevent recalc on scroll.
+   * @option
+   * @type {number}
+   * @default -1
+   */
+  checkEvery: -1
+};
+
+/**
+ * Helper function to calculate em values
+ * @param Number {em} - number of em's to calculate into pixels
+ */
+function emCalc(em) {
+  return parseInt(window.getComputedStyle(document.body, null).fontSize, 10) * em;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.box.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.box.js ***!
+  \*****************************************************************/
+/*! exports provided: Box */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Box", function() { return Box; });
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+
+
+
+
+
+var Box = {
+  ImNotTouchingYou: ImNotTouchingYou,
+  OverlapArea: OverlapArea,
+  GetDimensions: GetDimensions,
+  GetOffsets: GetOffsets,
+  GetExplicitOffsets: GetExplicitOffsets
+}
+
+/**
+ * Compares the dimensions of an element to a container and determines collision events with container.
+ * @function
+ * @param {jQuery} element - jQuery object to test for collisions.
+ * @param {jQuery} parent - jQuery object to use as bounding container.
+ * @param {Boolean} lrOnly - set to true to check left and right values only.
+ * @param {Boolean} tbOnly - set to true to check top and bottom values only.
+ * @default if no parent object passed, detects collisions with `window`.
+ * @returns {Boolean} - true if collision free, false if a collision in any direction.
+ */
+function ImNotTouchingYou(element, parent, lrOnly, tbOnly, ignoreBottom) {
+  return OverlapArea(element, parent, lrOnly, tbOnly, ignoreBottom) === 0;
+};
+
+function OverlapArea(element, parent, lrOnly, tbOnly, ignoreBottom) {
+  var eleDims = GetDimensions(element),
+  topOver, bottomOver, leftOver, rightOver;
+  if (parent) {
+    var parDims = GetDimensions(parent);
+
+    bottomOver = (parDims.height + parDims.offset.top) - (eleDims.offset.top + eleDims.height);
+    topOver    = eleDims.offset.top - parDims.offset.top;
+    leftOver   = eleDims.offset.left - parDims.offset.left;
+    rightOver  = (parDims.width + parDims.offset.left) - (eleDims.offset.left + eleDims.width);
+  }
+  else {
+    bottomOver = (eleDims.windowDims.height + eleDims.windowDims.offset.top) - (eleDims.offset.top + eleDims.height);
+    topOver    = eleDims.offset.top - eleDims.windowDims.offset.top;
+    leftOver   = eleDims.offset.left - eleDims.windowDims.offset.left;
+    rightOver  = eleDims.windowDims.width - (eleDims.offset.left + eleDims.width);
+  }
+
+  bottomOver = ignoreBottom ? 0 : Math.min(bottomOver, 0);
+  topOver    = Math.min(topOver, 0);
+  leftOver   = Math.min(leftOver, 0);
+  rightOver  = Math.min(rightOver, 0);
+
+  if (lrOnly) {
+    return leftOver + rightOver;
+  }
+  if (tbOnly) {
+    return topOver + bottomOver;
+  }
+
+  // use sum of squares b/c we care about overlap area.
+  return Math.sqrt((topOver * topOver) + (bottomOver * bottomOver) + (leftOver * leftOver) + (rightOver * rightOver));
+}
+
+/**
+ * Uses native methods to return an object of dimension values.
+ * @function
+ * @param {jQuery || HTML} element - jQuery object or DOM element for which to get the dimensions. Can be any element other that document or window.
+ * @returns {Object} - nested object of integer pixel values
+ * TODO - if element is window, return only those values.
+ */
+function GetDimensions(elem){
+  elem = elem.length ? elem[0] : elem;
+
+  if (elem === window || elem === document) {
+    throw new Error("I'm sorry, Dave. I'm afraid I can't do that.");
+  }
+
+  var rect = elem.getBoundingClientRect(),
+      parRect = elem.parentNode.getBoundingClientRect(),
+      winRect = document.body.getBoundingClientRect(),
+      winY = window.pageYOffset,
+      winX = window.pageXOffset;
+
+  return {
+    width: rect.width,
+    height: rect.height,
+    offset: {
+      top: rect.top + winY,
+      left: rect.left + winX
+    },
+    parentDims: {
+      width: parRect.width,
+      height: parRect.height,
+      offset: {
+        top: parRect.top + winY,
+        left: parRect.left + winX
+      }
+    },
+    windowDims: {
+      width: winRect.width,
+      height: winRect.height,
+      offset: {
+        top: winY,
+        left: winX
+      }
+    }
+  }
+}
+
+/**
+ * Returns an object of top and left integer pixel values for dynamically rendered elements,
+ * such as: Tooltip, Reveal, and Dropdown. Maintained for backwards compatibility, and where
+ * you don't know alignment, but generally from
+ * 6.4 forward you should use GetExplicitOffsets, as GetOffsets conflates position and alignment.
+ * @function
+ * @param {jQuery} element - jQuery object for the element being positioned.
+ * @param {jQuery} anchor - jQuery object for the element's anchor point.
+ * @param {String} position - a string relating to the desired position of the element, relative to it's anchor
+ * @param {Number} vOffset - integer pixel value of desired vertical separation between anchor and element.
+ * @param {Number} hOffset - integer pixel value of desired horizontal separation between anchor and element.
+ * @param {Boolean} isOverflow - if a collision event is detected, sets to true to default the element to full width - any desired offset.
+ * TODO alter/rewrite to work with `em` values as well/instead of pixels
+ */
+function GetOffsets(element, anchor, position, vOffset, hOffset, isOverflow) {
+  console.log("NOTE: GetOffsets is deprecated in favor of GetExplicitOffsets and will be removed in 6.5");
+  switch (position) {
+    case 'top':
+      return Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_0__["rtl"])() ?
+        GetExplicitOffsets(element, anchor, 'top', 'left', vOffset, hOffset, isOverflow) :
+        GetExplicitOffsets(element, anchor, 'top', 'right', vOffset, hOffset, isOverflow);
+    case 'bottom':
+      return Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_0__["rtl"])() ?
+        GetExplicitOffsets(element, anchor, 'bottom', 'left', vOffset, hOffset, isOverflow) :
+        GetExplicitOffsets(element, anchor, 'bottom', 'right', vOffset, hOffset, isOverflow);
+    case 'center top':
+      return GetExplicitOffsets(element, anchor, 'top', 'center', vOffset, hOffset, isOverflow);
+    case 'center bottom':
+      return GetExplicitOffsets(element, anchor, 'bottom', 'center', vOffset, hOffset, isOverflow);
+    case 'center left':
+      return GetExplicitOffsets(element, anchor, 'left', 'center', vOffset, hOffset, isOverflow);
+    case 'center right':
+      return GetExplicitOffsets(element, anchor, 'right', 'center', vOffset, hOffset, isOverflow);
+    case 'left bottom':
+      return GetExplicitOffsets(element, anchor, 'bottom', 'left', vOffset, hOffset, isOverflow);
+    case 'right bottom':
+      return GetExplicitOffsets(element, anchor, 'bottom', 'right', vOffset, hOffset, isOverflow);
+    // Backwards compatibility... this along with the reveal and reveal full
+    // classes are the only ones that didn't reference anchor
+    case 'center':
+      return {
+        left: ($eleDims.windowDims.offset.left + ($eleDims.windowDims.width / 2)) - ($eleDims.width / 2) + hOffset,
+        top: ($eleDims.windowDims.offset.top + ($eleDims.windowDims.height / 2)) - ($eleDims.height / 2 + vOffset)
+      }
+    case 'reveal':
+      return {
+        left: ($eleDims.windowDims.width - $eleDims.width) / 2 + hOffset,
+        top: $eleDims.windowDims.offset.top + vOffset
+      }
+    case 'reveal full':
+      return {
+        left: $eleDims.windowDims.offset.left,
+        top: $eleDims.windowDims.offset.top
+      }
+      break;
+    default:
+      return {
+        left: (Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_0__["rtl"])() ? $anchorDims.offset.left - $eleDims.width + $anchorDims.width - hOffset: $anchorDims.offset.left + hOffset),
+        top: $anchorDims.offset.top + $anchorDims.height + vOffset
+      }
+
+  }
+
+}
+
+function GetExplicitOffsets(element, anchor, position, alignment, vOffset, hOffset, isOverflow) {
+  var $eleDims = GetDimensions(element),
+      $anchorDims = anchor ? GetDimensions(anchor) : null;
+
+      var topVal, leftVal;
+
+  // set position related attribute
+
+  switch (position) {
+    case 'top':
+      topVal = $anchorDims.offset.top - ($eleDims.height + vOffset);
+      break;
+    case 'bottom':
+      topVal = $anchorDims.offset.top + $anchorDims.height + vOffset;
+      break;
+    case 'left':
+      leftVal = $anchorDims.offset.left - ($eleDims.width + hOffset);
+      break;
+    case 'right':
+      leftVal = $anchorDims.offset.left + $anchorDims.width + hOffset;
+      break;
+  }
+
+
+  // set alignment related attribute
+  switch (position) {
+    case 'top':
+    case 'bottom':
+      switch (alignment) {
+        case 'left':
+          leftVal = $anchorDims.offset.left + hOffset;
+          break;
+        case 'right':
+          leftVal = $anchorDims.offset.left - $eleDims.width + $anchorDims.width - hOffset;
+          break;
+        case 'center':
+          leftVal = isOverflow ? hOffset : (($anchorDims.offset.left + ($anchorDims.width / 2)) - ($eleDims.width / 2)) + hOffset;
+          break;
+      }
+      break;
+    case 'right':
+    case 'left':
+      switch (alignment) {
+        case 'bottom':
+          topVal = $anchorDims.offset.top - vOffset + $anchorDims.height - $eleDims.height;
+          break;
+        case 'top':
+          topVal = $anchorDims.offset.top + vOffset
+          break;
+        case 'center':
+          topVal = ($anchorDims.offset.top + vOffset + ($anchorDims.height / 2)) - ($eleDims.height / 2)
+          break;
+      }
+      break;
+  }
+  return {top: topVal, left: leftVal};
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.imageLoader.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.imageLoader.js ***!
+  \*************************************************************************/
+/*! exports provided: onImagesLoaded */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onImagesLoaded", function() { return onImagesLoaded; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+
+/**
+ * Runs a callback function when images are fully loaded.
+ * @param {Object} images - Image(s) to check if loaded.
+ * @param {Func} callback - Function to execute when image is fully loaded.
+ */
+function onImagesLoaded(images, callback){
+  var self = this,
+      unloaded = images.length;
+
+  if (unloaded === 0) {
+    callback();
+  }
+
+  images.each(function(){
+    // Check if image is loaded
+    if (this.complete && typeof this.naturalWidth !== 'undefined') {
+      singleImageLoaded();
+    }
+    else {
+      // If the above check failed, simulate loading on detached element.
+      var image = new Image();
+      // Still count image as loaded if it finalizes with an error.
+      var events = "load.zf.images error.zf.images";
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(image).one(events, function me(event){
+        // Unbind the event listeners. We're using 'one' but only one of the two events will have fired.
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).off(events, me);
+        singleImageLoaded();
+      });
+      image.src = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('src');
+    }
+  });
+
+  function singleImageLoaded() {
+    unloaded--;
+    if (unloaded === 0) {
+      callback();
+    }
+  }
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.keyboard.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.keyboard.js ***!
+  \**********************************************************************/
+/*! exports provided: Keyboard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Keyboard", function() { return Keyboard; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/*******************************************
+ *                                         *
+ * This util was created by Marius Olbertz *
+ * Please thank Marius on GitHub /owlbertz *
+ * or the web http://www.mariusolbertz.de/ *
+ *                                         *
+ ******************************************/
+
+
+
+
+
+
+const keyCodes = {
+  9: 'TAB',
+  13: 'ENTER',
+  27: 'ESCAPE',
+  32: 'SPACE',
+  35: 'END',
+  36: 'HOME',
+  37: 'ARROW_LEFT',
+  38: 'ARROW_UP',
+  39: 'ARROW_RIGHT',
+  40: 'ARROW_DOWN'
+}
+
+var commands = {}
+
+// Functions pulled out to be referenceable from internals
+function findFocusable($element) {
+  if(!$element) {return false; }
+  return $element.find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').filter(function() {
+    if (!jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).is(':visible') || jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('tabindex') < 0) { return false; } //only have visible elements and those that have a tabindex greater or equal 0
+    return true;
+  });
+}
+
+function parseKey(event) {
+  var key = keyCodes[event.which || event.keyCode] || String.fromCharCode(event.which).toUpperCase();
+
+  // Remove un-printable characters, e.g. for `fromCharCode` calls for CTRL only events
+  key = key.replace(/\W+/, '');
+
+  if (event.shiftKey) key = `SHIFT_${key}`;
+  if (event.ctrlKey) key = `CTRL_${key}`;
+  if (event.altKey) key = `ALT_${key}`;
+
+  // Remove trailing underscore, in case only modifiers were used (e.g. only `CTRL_ALT`)
+  key = key.replace(/_$/, '');
+
+  return key;
+}
+
+var Keyboard = {
+  keys: getKeyCodes(keyCodes),
+
+  /**
+   * Parses the (keyboard) event and returns a String that represents its key
+   * Can be used like Foundation.parseKey(event) === Foundation.keys.SPACE
+   * @param {Event} event - the event generated by the event handler
+   * @return String key - String that represents the key pressed
+   */
+  parseKey: parseKey,
+
+  /**
+   * Handles the given (keyboard) event
+   * @param {Event} event - the event generated by the event handler
+   * @param {String} component - Foundation component's name, e.g. Slider or Reveal
+   * @param {Objects} functions - collection of functions that are to be executed
+   */
+  handleKey(event, component, functions) {
+    var commandList = commands[component],
+      keyCode = this.parseKey(event),
+      cmds,
+      command,
+      fn;
+
+    if (!commandList) return console.warn('Component not defined!');
+
+    if (typeof commandList.ltr === 'undefined') { // this component does not differentiate between ltr and rtl
+        cmds = commandList; // use plain list
+    } else { // merge ltr and rtl: if document is rtl, rtl overwrites ltr and vice versa
+        if (Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["rtl"])()) cmds = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, commandList.ltr, commandList.rtl);
+
+        else cmds = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.extend({}, commandList.rtl, commandList.ltr);
+    }
+    command = cmds[keyCode];
+
+    fn = functions[command];
+    if (fn && typeof fn === 'function') { // execute function  if exists
+      var returnValue = fn.apply();
+      if (functions.handled || typeof functions.handled === 'function') { // execute function when event was handled
+          functions.handled(returnValue);
+      }
+    } else {
+      if (functions.unhandled || typeof functions.unhandled === 'function') { // execute function when event was not handled
+          functions.unhandled();
+      }
+    }
+  },
+
+  /**
+   * Finds all focusable elements within the given `$element`
+   * @param {jQuery} $element - jQuery object to search within
+   * @return {jQuery} $focusable - all focusable elements within `$element`
+   */
+
+  findFocusable: findFocusable,
+
+  /**
+   * Returns the component name name
+   * @param {Object} component - Foundation component, e.g. Slider or Reveal
+   * @return String componentName
+   */
+
+  register(componentName, cmds) {
+    commands[componentName] = cmds;
+  },
+
+
+  // TODO9438: These references to Keyboard need to not require global. Will 'this' work in this context?
+  //
+  /**
+   * Traps the focus in the given element.
+   * @param  {jQuery} $element  jQuery object to trap the foucs into.
+   */
+  trapFocus($element) {
+    var $focusable = findFocusable($element),
+        $firstFocusable = $focusable.eq(0),
+        $lastFocusable = $focusable.eq(-1);
+
+    $element.on('keydown.zf.trapfocus', function(event) {
+      if (event.target === $lastFocusable[0] && parseKey(event) === 'TAB') {
+        event.preventDefault();
+        $firstFocusable.focus();
+      }
+      else if (event.target === $firstFocusable[0] && parseKey(event) === 'SHIFT_TAB') {
+        event.preventDefault();
+        $lastFocusable.focus();
+      }
+    });
+  },
+  /**
+   * Releases the trapped focus from the given element.
+   * @param  {jQuery} $element  jQuery object to release the focus for.
+   */
+  releaseFocus($element) {
+    $element.off('keydown.zf.trapfocus');
+  }
+}
+
+/*
+ * Constants for easier comparing.
+ * Can be used like Foundation.parseKey(event) === Foundation.keys.SPACE
+ */
+function getKeyCodes(kcs) {
+  var k = {};
+  for (var kc in kcs) k[kcs[kc]] = kcs[kc];
+  return k;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.mediaQuery.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.mediaQuery.js ***!
+  \************************************************************************/
+/*! exports provided: MediaQuery */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MediaQuery", function() { return MediaQuery; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+
+// Default set of media queries
+const defaultQueries = {
+  'default' : 'only screen',
+  landscape : 'only screen and (orientation: landscape)',
+  portrait : 'only screen and (orientation: portrait)',
+  retina : 'only screen and (-webkit-min-device-pixel-ratio: 2),' +
+    'only screen and (min--moz-device-pixel-ratio: 2),' +
+    'only screen and (-o-min-device-pixel-ratio: 2/1),' +
+    'only screen and (min-device-pixel-ratio: 2),' +
+    'only screen and (min-resolution: 192dpi),' +
+    'only screen and (min-resolution: 2dppx)'
+  };
+
+
+// matchMedia() polyfill - Test a CSS media type/query in JS.
+// Authors & copyright(c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. MIT license
+/* eslint-disable */
+window.matchMedia || (window.matchMedia = (function () {
+  "use strict";
+
+  // For browsers that support matchMedium api such as IE 9 and webkit
+  var styleMedia = (window.styleMedia || window.media);
+
+  // For those that don't support matchMedium
+  if (!styleMedia) {
+    var style   = document.createElement('style'),
+    script      = document.getElementsByTagName('script')[0],
+    info        = null;
+
+    style.type  = 'text/css';
+    style.id    = 'matchmediajs-test';
+
+    if (!script) {
+      document.head.appendChild(style);
+    } else {
+      script.parentNode.insertBefore(style, script);
+    }
+
+    // 'style.currentStyle' is used by IE <= 8 and 'window.getComputedStyle' for all other browsers
+    info = ('getComputedStyle' in window) && window.getComputedStyle(style, null) || style.currentStyle;
+
+    styleMedia = {
+      matchMedium: function (media) {
+        var text = '@media ' + media + '{ #matchmediajs-test { width: 1px; } }';
+
+        // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
+        if (style.styleSheet) {
+          style.styleSheet.cssText = text;
+        } else {
+          style.textContent = text;
+        }
+
+        // Test if media query is true or false
+        return info.width === '1px';
+      }
+    };
+  }
+
+  return function(media) {
+    return {
+      matches: styleMedia.matchMedium(media || 'all'),
+      media: media || 'all'
+    };
+  };
+})());
+/* eslint-enable */
+
+var MediaQuery = {
+  queries: [],
+
+  current: '',
+
+  /**
+   * Initializes the media query helper, by extracting the breakpoint list from the CSS and activating the breakpoint watcher.
+   * @function
+   * @private
+   */
+  _init() {
+    var self = this;
+    var $meta = jquery__WEBPACK_IMPORTED_MODULE_0___default()('meta.foundation-mq');
+    if(!$meta.length){
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('<meta class="foundation-mq">').appendTo(document.head);
+    }
+
+    var extractedStyles = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.foundation-mq').css('font-family');
+    var namedQueries;
+
+    namedQueries = parseStyleToObject(extractedStyles);
+
+    for (var key in namedQueries) {
+      if(namedQueries.hasOwnProperty(key)) {
+        self.queries.push({
+          name: key,
+          value: `only screen and (min-width: ${namedQueries[key]})`
+        });
+      }
+    }
+
+    this.current = this._getCurrentSize();
+
+    this._watcher();
+  },
+
+  /**
+   * Checks if the screen is at least as wide as a breakpoint.
+   * @function
+   * @param {String} size - Name of the breakpoint to check.
+   * @returns {Boolean} `true` if the breakpoint matches, `false` if it's smaller.
+   */
+  atLeast(size) {
+    var query = this.get(size);
+
+    if (query) {
+      return window.matchMedia(query).matches;
+    }
+
+    return false;
+  },
+
+  /**
+   * Checks if the screen matches to a breakpoint.
+   * @function
+   * @param {String} size - Name of the breakpoint to check, either 'small only' or 'small'. Omitting 'only' falls back to using atLeast() method.
+   * @returns {Boolean} `true` if the breakpoint matches, `false` if it does not.
+   */
+  is(size) {
+    size = size.trim().split(' ');
+    if(size.length > 1 && size[1] === 'only') {
+      if(size[0] === this._getCurrentSize()) return true;
+    } else {
+      return this.atLeast(size[0]);
+    }
+    return false;
+  },
+
+  /**
+   * Gets the media query of a breakpoint.
+   * @function
+   * @param {String} size - Name of the breakpoint to get.
+   * @returns {String|null} - The media query of the breakpoint, or `null` if the breakpoint doesn't exist.
+   */
+  get(size) {
+    for (var i in this.queries) {
+      if(this.queries.hasOwnProperty(i)) {
+        var query = this.queries[i];
+        if (size === query.name) return query.value;
+      }
+    }
+
+    return null;
+  },
+
+  /**
+   * Gets the current breakpoint name by testing every breakpoint and returning the last one to match (the biggest one).
+   * @function
+   * @private
+   * @returns {String} Name of the current breakpoint.
+   */
+  _getCurrentSize() {
+    var matched;
+
+    for (var i = 0; i < this.queries.length; i++) {
+      var query = this.queries[i];
+
+      if (window.matchMedia(query.value).matches) {
+        matched = query;
+      }
+    }
+
+    if (typeof matched === 'object') {
+      return matched.name;
+    } else {
+      return matched;
+    }
+  },
+
+  /**
+   * Activates the breakpoint watcher, which fires an event on the window whenever the breakpoint changes.
+   * @function
+   * @private
+   */
+  _watcher() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off('resize.zf.mediaquery').on('resize.zf.mediaquery', () => {
+      var newSize = this._getCurrentSize(), currentSize = this.current;
+
+      if (newSize !== currentSize) {
+        // Change the current media query
+        this.current = newSize;
+
+        // Broadcast the media query change on the window
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).trigger('changed.zf.mediaquery', [newSize, currentSize]);
+      }
+    });
+  }
+};
+
+
+
+// Thank you: https://github.com/sindresorhus/query-string
+function parseStyleToObject(str) {
+  var styleObject = {};
+
+  if (typeof str !== 'string') {
+    return styleObject;
+  }
+
+  str = str.trim().slice(1, -1); // browsers re-quote string style values
+
+  if (!str) {
+    return styleObject;
+  }
+
+  styleObject = str.split('&').reduce(function(ret, param) {
+    var parts = param.replace(/\+/g, ' ').split('=');
+    var key = parts[0];
+    var val = parts[1];
+    key = decodeURIComponent(key);
+
+    // missing `=` should be `null`:
+    // http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+    val = typeof val === 'undefined' ? null : decodeURIComponent(val);
+
+    if (!ret.hasOwnProperty(key)) {
+      ret[key] = val;
+    } else if (Array.isArray(ret[key])) {
+      ret[key].push(val);
+    } else {
+      ret[key] = [ret[key], val];
+    }
+    return ret;
+  }, {});
+
+  return styleObject;
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.motion.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.motion.js ***!
+  \********************************************************************/
+/*! exports provided: Move, Motion */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Move", function() { return Move; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Motion", function() { return Motion; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+
+
+
+
+
+/**
+ * Motion module.
+ * @module foundation.motion
+ */
+
+const initClasses   = ['mui-enter', 'mui-leave'];
+const activeClasses = ['mui-enter-active', 'mui-leave-active'];
+
+const Motion = {
+  animateIn: function(element, animation, cb) {
+    animate(true, element, animation, cb);
+  },
+
+  animateOut: function(element, animation, cb) {
+    animate(false, element, animation, cb);
+  }
+}
+
+function Move(duration, elem, fn){
+  var anim, prog, start = null;
+  // console.log('called');
+
+  if (duration === 0) {
+    fn.apply(elem);
+    elem.trigger('finished.zf.animate', [elem]).triggerHandler('finished.zf.animate', [elem]);
+    return;
+  }
+
+  function move(ts){
+    if(!start) start = ts;
+    // console.log(start, ts);
+    prog = ts - start;
+    fn.apply(elem);
+
+    if(prog < duration){ anim = window.requestAnimationFrame(move, elem); }
+    else{
+      window.cancelAnimationFrame(anim);
+      elem.trigger('finished.zf.animate', [elem]).triggerHandler('finished.zf.animate', [elem]);
+    }
+  }
+  anim = window.requestAnimationFrame(move);
+}
+
+/**
+ * Animates an element in or out using a CSS transition class.
+ * @function
+ * @private
+ * @param {Boolean} isIn - Defines if the animation is in or out.
+ * @param {Object} element - jQuery or HTML object to animate.
+ * @param {String} animation - CSS class to use.
+ * @param {Function} cb - Callback to run when animation is finished.
+ */
+function animate(isIn, element, animation, cb) {
+  element = jquery__WEBPACK_IMPORTED_MODULE_0___default()(element).eq(0);
+
+  if (!element.length) return;
+
+  var initClass = isIn ? initClasses[0] : initClasses[1];
+  var activeClass = isIn ? activeClasses[0] : activeClasses[1];
+
+  // Set up the animation
+  reset();
+
+  element
+    .addClass(animation)
+    .css('transition', 'none');
+
+  requestAnimationFrame(() => {
+    element.addClass(initClass);
+    if (isIn) element.show();
+  });
+
+  // Start the animation
+  requestAnimationFrame(() => {
+    element[0].offsetWidth;
+    element
+      .css('transition', '')
+      .addClass(activeClass);
+  });
+
+  // Clean up the animation when it finishes
+  element.one(Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["transitionend"])(element), finish);
+
+  // Hides the element (for out animations), resets the element, and runs a callback
+  function finish() {
+    if (!isIn) element.hide();
+    reset();
+    if (cb) cb.apply(element);
+  }
+
+  // Resets transitions and removes motion-specific classes
+  function reset() {
+    element[0].style.transitionDuration = 0;
+    element.removeClass(`${initClass} ${activeClass} ${animation}`);
+  }
+}
+
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.nest.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.nest.js ***!
+  \******************************************************************/
+/*! exports provided: Nest */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Nest", function() { return Nest; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+
+const Nest = {
+  Feather(menu, type = 'zf') {
+    menu.attr('role', 'menubar');
+
+    var items = menu.find('li').attr({'role': 'menuitem'}),
+        subMenuClass = `is-${type}-submenu`,
+        subItemClass = `${subMenuClass}-item`,
+        hasSubClass = `is-${type}-submenu-parent`,
+        applyAria = (type !== 'accordion'); // Accordions handle their own ARIA attriutes.
+
+    items.each(function() {
+      var $item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this),
+          $sub = $item.children('ul');
+
+      if ($sub.length) {
+        $item.addClass(hasSubClass);
+        if(applyAria) {
+          $item.attr({
+            'aria-haspopup': true,
+            'aria-label': $item.children('a:first').text()
+          });
+          // Note:  Drilldowns behave differently in how they hide, and so need
+          // additional attributes.  We should look if this possibly over-generalized
+          // utility (Nest) is appropriate when we rework menus in 6.4
+          if(type === 'drilldown') {
+            $item.attr({'aria-expanded': false});
+          }
+        }
+        $sub
+          .addClass(`submenu ${subMenuClass}`)
+          .attr({
+            'data-submenu': '',
+            'role': 'menubar'
+          });
+        if(type === 'drilldown') {
+          $sub.attr({'aria-hidden': true});
+        }
+      }
+
+      if ($item.parent('[data-submenu]').length) {
+        $item.addClass(`is-submenu-item ${subItemClass}`);
+      }
+    });
+
+    return;
+  },
+
+  Burn(menu, type) {
+    var //items = menu.find('li'),
+        subMenuClass = `is-${type}-submenu`,
+        subItemClass = `${subMenuClass}-item`,
+        hasSubClass = `is-${type}-submenu-parent`;
+
+    menu
+      .find('>li, > li > ul, .menu, .menu > li, [data-submenu] > li')
+      .removeClass(`${subMenuClass} ${subItemClass} ${hasSubClass} is-submenu-item submenu is-active`)
+      .removeAttr('data-submenu').css('display', '');
+
+  }
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.timer.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.timer.js ***!
+  \*******************************************************************/
+/*! exports provided: Timer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Timer", function() { return Timer; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+
+
+
+
+function Timer(elem, options, cb) {
+  var _this = this,
+      duration = options.duration,//options is an object for easily adding features later.
+      nameSpace = Object.keys(elem.data())[0] || 'timer',
+      remain = -1,
+      start,
+      timer;
+
+  this.isPaused = false;
+
+  this.restart = function() {
+    remain = -1;
+    clearTimeout(timer);
+    this.start();
+  }
+
+  this.start = function() {
+    this.isPaused = false;
+    // if(!elem.data('paused')){ return false; }//maybe implement this sanity check if used for other things.
+    clearTimeout(timer);
+    remain = remain <= 0 ? duration : remain;
+    elem.data('paused', false);
+    start = Date.now();
+    timer = setTimeout(function(){
+      if(options.infinite){
+        _this.restart();//rerun the timer.
+      }
+      if (cb && typeof cb === 'function') { cb(); }
+    }, remain);
+    elem.trigger(`timerstart.zf.${nameSpace}`);
+  }
+
+  this.pause = function() {
+    this.isPaused = true;
+    //if(elem.data('paused')){ return false; }//maybe implement this sanity check if used for other things.
+    clearTimeout(timer);
+    elem.data('paused', true);
+    var end = Date.now();
+    remain = remain - (end - start);
+    elem.trigger(`timerpaused.zf.${nameSpace}`);
+  }
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.touch.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.touch.js ***!
+  \*******************************************************************/
+/*! exports provided: Touch */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Touch", function() { return Touch; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+//**************************************************
+//**Work inspired by multiple jquery swipe plugins**
+//**Done by Yohai Ararat ***************************
+//**************************************************
+
+
+
+var Touch = {};
+
+var startPosX,
+    startPosY,
+    startTime,
+    elapsedTime,
+    startEvent,
+    isMoving = false,
+    didMoved = false;
+
+function onTouchEnd(e) {
+  this.removeEventListener('touchmove', onTouchMove);
+  this.removeEventListener('touchend', onTouchEnd);
+
+  // If the touch did not move, consider it as a "tap"
+  if (!didMoved) {
+    var tapEvent = jquery__WEBPACK_IMPORTED_MODULE_0___default.a.Event('tap', startEvent || e);
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).trigger(tapEvent);
+  }
+
+  startEvent = null;
+  isMoving = false;
+  didMoved = false;
+}
+
+function onTouchMove(e) {
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default.a.spotSwipe.preventDefault) { e.preventDefault(); }
+
+  if(isMoving) {
+    var x = e.touches[0].pageX;
+    var y = e.touches[0].pageY;
+    var dx = startPosX - x;
+    var dy = startPosY - y;
+    var dir;
+    didMoved = true;
+    elapsedTime = new Date().getTime() - startTime;
+    if(Math.abs(dx) >= jquery__WEBPACK_IMPORTED_MODULE_0___default.a.spotSwipe.moveThreshold && elapsedTime <= jquery__WEBPACK_IMPORTED_MODULE_0___default.a.spotSwipe.timeThreshold) {
+      dir = dx > 0 ? 'left' : 'right';
+    }
+    // else if(Math.abs(dy) >= $.spotSwipe.moveThreshold && elapsedTime <= $.spotSwipe.timeThreshold) {
+    //   dir = dy > 0 ? 'down' : 'up';
+    // }
+    if(dir) {
+      e.preventDefault();
+      onTouchEnd.apply(this, arguments);
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this)
+        .trigger(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.Event('swipe', e), dir)
+        .trigger(jquery__WEBPACK_IMPORTED_MODULE_0___default.a.Event(`swipe${dir}`, e));
+    }
+  }
+
+}
+
+function onTouchStart(e) {
+
+  if (e.touches.length == 1) {
+    startPosX = e.touches[0].pageX;
+    startPosY = e.touches[0].pageY;
+    startEvent = e;
+    isMoving = true;
+    didMoved = false;
+    startTime = new Date().getTime();
+    this.addEventListener('touchmove', onTouchMove, false);
+    this.addEventListener('touchend', onTouchEnd, false);
+  }
+}
+
+function init() {
+  this.addEventListener && this.addEventListener('touchstart', onTouchStart, false);
+}
+
+function teardown() {
+  this.removeEventListener('touchstart', onTouchStart);
+}
+
+class SpotSwipe {
+  constructor($) {
+    this.version = '1.0.0';
+    this.enabled = 'ontouchstart' in document.documentElement;
+    this.preventDefault = false;
+    this.moveThreshold = 75;
+    this.timeThreshold = 200;
+    this.$ = $;
+    this._init();
+  }
+
+  _init() {
+    var $ = this.$;
+    $.event.special.swipe = { setup: init };
+    $.event.special.tap = { setup: init };
+
+    $.each(['left', 'up', 'down', 'right'], function () {
+      $.event.special[`swipe${this}`] = { setup: function(){
+        $(this).on('swipe', $.noop);
+      } };
+    });
+  }
+}
+
+/****************************************************
+ * As far as I can tell, both setupSpotSwipe and    *
+ * setupTouchHandler should be idempotent,          *
+ * because they directly replace functions &        *
+ * values, and do not add event handlers directly.  *
+ ****************************************************/
+
+Touch.setupSpotSwipe = function($) {
+  $.spotSwipe = new SpotSwipe($);
+};
+
+/****************************************************
+ * Method for adding pseudo drag events to elements *
+ ***************************************************/
+Touch.setupTouchHandler = function($) {
+  $.fn.addTouch = function(){
+    this.each(function(i,el){
+      $(el).bind('touchstart touchmove touchend touchcancel', function(event)  {
+        //we pass the original event object because the jQuery event
+        //object is normalized to w3c specs and does not provide the TouchList
+        handleTouch(event);
+      });
+    });
+
+    var handleTouch = function(event){
+      var touches = event.changedTouches,
+          first = touches[0],
+          eventTypes = {
+            touchstart: 'mousedown',
+            touchmove: 'mousemove',
+            touchend: 'mouseup'
+          },
+          type = eventTypes[event.type],
+          simulatedEvent
+        ;
+
+      if('MouseEvent' in window && typeof window.MouseEvent === 'function') {
+        simulatedEvent = new window.MouseEvent(type, {
+          'bubbles': true,
+          'cancelable': true,
+          'screenX': first.screenX,
+          'screenY': first.screenY,
+          'clientX': first.clientX,
+          'clientY': first.clientY
+        });
+      } else {
+        simulatedEvent = document.createEvent('MouseEvent');
+        simulatedEvent.initMouseEvent(type, true, true, window, 1, first.screenX, first.screenY, first.clientX, first.clientY, false, false, false, false, 0/*left*/, null);
+      }
+      first.target.dispatchEvent(simulatedEvent);
+    };
+  };
+};
+
+Touch.init = function ($) {
+
+  if(typeof($.spotSwipe) === 'undefined') {
+    Touch.setupSpotSwipe($);
+    Touch.setupTouchHandler($);
+  }
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/foundation-sites/js/foundation.util.triggers.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/foundation-sites/js/foundation.util.triggers.js ***!
+  \**********************************************************************/
+/*! exports provided: Triggers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Triggers", function() { return Triggers; });
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./foundation.core.utils */ "./node_modules/foundation-sites/js/foundation.core.utils.js");
+/* harmony import */ var _foundation_util_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./foundation.util.motion */ "./node_modules/foundation-sites/js/foundation.util.motion.js");
+
+
+
+
+
+
+const MutationObserver = (function () {
+  var prefixes = ['WebKit', 'Moz', 'O', 'Ms', ''];
+  for (var i=0; i < prefixes.length; i++) {
+    if (`${prefixes[i]}MutationObserver` in window) {
+      return window[`${prefixes[i]}MutationObserver`];
+    }
+  }
+  return false;
+}());
+
+const triggers = (el, type) => {
+  el.data(type).split(' ').forEach(id => {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#${id}`)[ type === 'close' ? 'trigger' : 'triggerHandler'](`${type}.zf.trigger`, [el]);
+  });
+};
+
+var Triggers = {
+  Listeners: {
+    Basic: {},
+    Global: {}
+  },
+  Initializers: {}
+}
+
+Triggers.Listeners.Basic  = {
+  openListener: function() {
+    triggers(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this), 'open');
+  },
+  closeListener: function() {
+    let id = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('close');
+    if (id) {
+      triggers(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this), 'close');
+    }
+    else {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).trigger('close.zf.trigger');
+    }
+  },
+  toggleListener: function() {
+    let id = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('toggle');
+    if (id) {
+      triggers(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this), 'toggle');
+    } else {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).trigger('toggle.zf.trigger');
+    }
+  },
+  closeableListener: function(e) {
+    e.stopPropagation();
+    let animation = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('closable');
+
+    if(animation !== ''){
+      _foundation_util_motion__WEBPACK_IMPORTED_MODULE_2__["Motion"].animateOut(jquery__WEBPACK_IMPORTED_MODULE_0___default()(this), animation, function() {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).trigger('closed.zf');
+      });
+    }else{
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).fadeOut().trigger('closed.zf');
+    }
+  },
+  toggleFocusListener: function() {
+    let id = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).data('toggle-focus');
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(`#${id}`).triggerHandler('toggle.zf.trigger', [jquery__WEBPACK_IMPORTED_MODULE_0___default()(this)]);
+  }
+};
+
+// Elements with [data-open] will reveal a plugin that supports it when clicked.
+Triggers.Initializers.addOpenListener = ($elem) => {
+  $elem.off('click.zf.trigger', Triggers.Listeners.Basic.openListener);
+  $elem.on('click.zf.trigger', '[data-open]', Triggers.Listeners.Basic.openListener);
+}
+
+// Elements with [data-close] will close a plugin that supports it when clicked.
+// If used without a value on [data-close], the event will bubble, allowing it to close a parent component.
+Triggers.Initializers.addCloseListener = ($elem) => {
+  $elem.off('click.zf.trigger', Triggers.Listeners.Basic.closeListener);
+  $elem.on('click.zf.trigger', '[data-close]', Triggers.Listeners.Basic.closeListener);
+}
+
+// Elements with [data-toggle] will toggle a plugin that supports it when clicked.
+Triggers.Initializers.addToggleListener = ($elem) => {
+  $elem.off('click.zf.trigger', Triggers.Listeners.Basic.toggleListener);
+  $elem.on('click.zf.trigger', '[data-toggle]', Triggers.Listeners.Basic.toggleListener);
+}
+
+// Elements with [data-closable] will respond to close.zf.trigger events.
+Triggers.Initializers.addCloseableListener = ($elem) => {
+  $elem.off('close.zf.trigger', Triggers.Listeners.Basic.closeableListener);
+  $elem.on('close.zf.trigger', '[data-closeable], [data-closable]', Triggers.Listeners.Basic.closeableListener);
+}
+
+// Elements with [data-toggle-focus] will respond to coming in and out of focus
+Triggers.Initializers.addToggleFocusListener = ($elem) => {
+  $elem.off('focus.zf.trigger blur.zf.trigger', Triggers.Listeners.Basic.toggleFocusListener);
+  $elem.on('focus.zf.trigger blur.zf.trigger', '[data-toggle-focus]', Triggers.Listeners.Basic.toggleFocusListener);
+}
+
+
+
+// More Global/complex listeners and triggers
+Triggers.Listeners.Global  = {
+  resizeListener: function($nodes) {
+    if(!MutationObserver){//fallback for IE 9
+      $nodes.each(function(){
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).triggerHandler('resizeme.zf.trigger');
+      });
+    }
+    //trigger all listening elements and signal a resize event
+    $nodes.attr('data-events', "resize");
+  },
+  scrollListener: function($nodes) {
+    if(!MutationObserver){//fallback for IE 9
+      $nodes.each(function(){
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).triggerHandler('scrollme.zf.trigger');
+      });
+    }
+    //trigger all listening elements and signal a scroll event
+    $nodes.attr('data-events', "scroll");
+  },
+  closeMeListener: function(e, pluginId){
+    let plugin = e.namespace.split('.')[0];
+    let plugins = jquery__WEBPACK_IMPORTED_MODULE_0___default()(`[data-${plugin}]`).not(`[data-yeti-box="${pluginId}"]`);
+
+    plugins.each(function(){
+      let _this = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this);
+      _this.triggerHandler('close.zf.trigger', [_this]);
+    });
+  }
+}
+
+// Global, parses whole document.
+Triggers.Initializers.addClosemeListener = function(pluginName) {
+  var yetiBoxes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-yeti-box]'),
+      plugNames = ['dropdown', 'tooltip', 'reveal'];
+
+  if(pluginName){
+    if(typeof pluginName === 'string'){
+      plugNames.push(pluginName);
+    }else if(typeof pluginName === 'object' && typeof pluginName[0] === 'string'){
+      plugNames = plugNames.concat(pluginName);
+    }else{
+      console.error('Plugin names must be strings');
+    }
+  }
+  if(yetiBoxes.length){
+    let listeners = plugNames.map((name) => {
+      return `closeme.zf.${name}`;
+    }).join(' ');
+
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(listeners).on(listeners, Triggers.Listeners.Global.closeMeListener);
+  }
+}
+
+function debounceGlobalListener(debounce, trigger, listener) {
+  let timer, args = Array.prototype.slice.call(arguments, 3);
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).off(trigger).on(trigger, function(e) {
+    if (timer) { clearTimeout(timer); }
+    timer = setTimeout(function(){
+      listener.apply(null, args);
+    }, debounce || 10);//default time to emit scroll event
+  });
+}
+
+Triggers.Initializers.addResizeListener = function(debounce){
+  let $nodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-resize]');
+  if($nodes.length){
+    debounceGlobalListener(debounce, 'resize.zf.trigger', Triggers.Listeners.Global.resizeListener, $nodes);
+  }
+}
+
+Triggers.Initializers.addScrollListener = function(debounce){
+  let $nodes = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-scroll]');
+  if($nodes.length){
+    debounceGlobalListener(debounce, 'scroll.zf.trigger', Triggers.Listeners.Global.scrollListener, $nodes);
+  }
+}
+
+Triggers.Initializers.addMutationEventsListener = function($elem) {
+  if(!MutationObserver){ return false; }
+  let $nodes = $elem.find('[data-resize], [data-scroll], [data-mutate]');
+
+  //element callback
+  var listeningElementsMutation = function (mutationRecordsList) {
+    var $target = jquery__WEBPACK_IMPORTED_MODULE_0___default()(mutationRecordsList[0].target);
+
+    //trigger the event handler for the element depending on type
+    switch (mutationRecordsList[0].type) {
+      case "attributes":
+        if ($target.attr("data-events") === "scroll" && mutationRecordsList[0].attributeName === "data-events") {
+          $target.triggerHandler('scrollme.zf.trigger', [$target, window.pageYOffset]);
+        }
+        if ($target.attr("data-events") === "resize" && mutationRecordsList[0].attributeName === "data-events") {
+          $target.triggerHandler('resizeme.zf.trigger', [$target]);
+         }
+        if (mutationRecordsList[0].attributeName === "style") {
+          $target.closest("[data-mutate]").attr("data-events","mutate");
+          $target.closest("[data-mutate]").triggerHandler('mutateme.zf.trigger', [$target.closest("[data-mutate]")]);
+        }
+        break;
+
+      case "childList":
+        $target.closest("[data-mutate]").attr("data-events","mutate");
+        $target.closest("[data-mutate]").triggerHandler('mutateme.zf.trigger', [$target.closest("[data-mutate]")]);
+        break;
+
+      default:
+        return false;
+      //nothing
+    }
+  };
+
+  if ($nodes.length) {
+    //for each element that needs to listen for resizing, scrolling, or mutation add a single observer
+    for (var i = 0; i <= $nodes.length - 1; i++) {
+      var elementObserver = new MutationObserver(listeningElementsMutation);
+      elementObserver.observe($nodes[i], { attributes: true, childList: true, characterData: false, subtree: true, attributeFilter: ["data-events", "style"] });
+    }
+  }
+}
+
+Triggers.Initializers.addSimpleListeners = function() {
+  let $document = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document);
+
+  Triggers.Initializers.addOpenListener($document);
+  Triggers.Initializers.addCloseListener($document);
+  Triggers.Initializers.addToggleListener($document);
+  Triggers.Initializers.addCloseableListener($document);
+  Triggers.Initializers.addToggleFocusListener($document);
+
+}
+
+Triggers.Initializers.addGlobalListeners = function() {
+  let $document = jquery__WEBPACK_IMPORTED_MODULE_0___default()(document);
+  Triggers.Initializers.addMutationEventsListener($document);
+  Triggers.Initializers.addResizeListener();
+  Triggers.Initializers.addScrollListener();
+  Triggers.Initializers.addClosemeListener();
+}
+
+
+Triggers.init = function ($, Foundation) {
+  Object(_foundation_core_utils__WEBPACK_IMPORTED_MODULE_1__["onLoad"])($(window), function () {
+    if ($.triggersInitialized !== true) {
+      Triggers.Initializers.addSimpleListeners();
+      Triggers.Initializers.addGlobalListeners();
+      $.triggersInitialized = true;
+    }
+  });
+
+  if(Foundation) {
+    Foundation.Triggers = Triggers;
+    // Legacy included to be backwards compatible for now.
+    Foundation.IHearYou = Triggers.Initializers.addGlobalListeners
+  }
+}
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/get-size/get-size.js":
+/*!*******************************************!*\
+  !*** ./node_modules/get-size/get-size.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * getSize v2.0.3
+ * measure size of elements
+ * MIT license
+ */
+
+/* jshint browser: true, strict: true, undef: true, unused: true */
+/* globals console: false */
+
+( function( window, factory ) {
+  /* jshint strict: false */ /* globals define, module */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+})( window, function factory() {
+'use strict';
+
+// -------------------------- helpers -------------------------- //
+
+// get a number from a string, not a percentage
+function getStyleSize( value ) {
+  var num = parseFloat( value );
+  // not a percent like '100%', and a number
+  var isValid = value.indexOf('%') == -1 && !isNaN( num );
+  return isValid && num;
+}
+
+function noop() {}
+
+var logError = typeof console == 'undefined' ? noop :
+  function( message ) {
+    console.error( message );
+  };
+
+// -------------------------- measurements -------------------------- //
+
+var measurements = [
+  'paddingLeft',
+  'paddingRight',
+  'paddingTop',
+  'paddingBottom',
+  'marginLeft',
+  'marginRight',
+  'marginTop',
+  'marginBottom',
+  'borderLeftWidth',
+  'borderRightWidth',
+  'borderTopWidth',
+  'borderBottomWidth'
+];
+
+var measurementsLength = measurements.length;
+
+function getZeroSize() {
+  var size = {
+    width: 0,
+    height: 0,
+    innerWidth: 0,
+    innerHeight: 0,
+    outerWidth: 0,
+    outerHeight: 0
+  };
+  for ( var i=0; i < measurementsLength; i++ ) {
+    var measurement = measurements[i];
+    size[ measurement ] = 0;
+  }
+  return size;
+}
+
+// -------------------------- getStyle -------------------------- //
+
+/**
+ * getStyle, get style of element, check for Firefox bug
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+ */
+function getStyle( elem ) {
+  var style = getComputedStyle( elem );
+  if ( !style ) {
+    logError( 'Style returned ' + style +
+      '. Are you running this code in a hidden iframe on Firefox? ' +
+      'See https://bit.ly/getsizebug1' );
+  }
+  return style;
+}
+
+// -------------------------- setup -------------------------- //
+
+var isSetup = false;
+
+var isBoxSizeOuter;
+
+/**
+ * setup
+ * check isBoxSizerOuter
+ * do on first getSize() rather than on page load for Firefox bug
+ */
+function setup() {
+  // setup once
+  if ( isSetup ) {
+    return;
+  }
+  isSetup = true;
+
+  // -------------------------- box sizing -------------------------- //
+
+  /**
+   * Chrome & Safari measure the outer-width on style.width on border-box elems
+   * IE11 & Firefox<29 measures the inner-width
+   */
+  var div = document.createElement('div');
+  div.style.width = '200px';
+  div.style.padding = '1px 2px 3px 4px';
+  div.style.borderStyle = 'solid';
+  div.style.borderWidth = '1px 2px 3px 4px';
+  div.style.boxSizing = 'border-box';
+
+  var body = document.body || document.documentElement;
+  body.appendChild( div );
+  var style = getStyle( div );
+  // round value for browser zoom. desandro/masonry#928
+  isBoxSizeOuter = Math.round( getStyleSize( style.width ) ) == 200;
+  getSize.isBoxSizeOuter = isBoxSizeOuter;
+
+  body.removeChild( div );
+}
+
+// -------------------------- getSize -------------------------- //
+
+function getSize( elem ) {
+  setup();
+
+  // use querySeletor if elem is string
+  if ( typeof elem == 'string' ) {
+    elem = document.querySelector( elem );
+  }
+
+  // do not proceed on non-objects
+  if ( !elem || typeof elem != 'object' || !elem.nodeType ) {
+    return;
+  }
+
+  var style = getStyle( elem );
+
+  // if hidden, everything is 0
+  if ( style.display == 'none' ) {
+    return getZeroSize();
+  }
+
+  var size = {};
+  size.width = elem.offsetWidth;
+  size.height = elem.offsetHeight;
+
+  var isBorderBox = size.isBorderBox = style.boxSizing == 'border-box';
+
+  // get all measurements
+  for ( var i=0; i < measurementsLength; i++ ) {
+    var measurement = measurements[i];
+    var value = style[ measurement ];
+    var num = parseFloat( value );
+    // any 'auto', 'medium' value will be 0
+    size[ measurement ] = !isNaN( num ) ? num : 0;
+  }
+
+  var paddingWidth = size.paddingLeft + size.paddingRight;
+  var paddingHeight = size.paddingTop + size.paddingBottom;
+  var marginWidth = size.marginLeft + size.marginRight;
+  var marginHeight = size.marginTop + size.marginBottom;
+  var borderWidth = size.borderLeftWidth + size.borderRightWidth;
+  var borderHeight = size.borderTopWidth + size.borderBottomWidth;
+
+  var isBorderBoxSizeOuter = isBorderBox && isBoxSizeOuter;
+
+  // overwrite width and height if we can get it from style
+  var styleWidth = getStyleSize( style.width );
+  if ( styleWidth !== false ) {
+    size.width = styleWidth +
+      // add padding and border unless it's already including it
+      ( isBorderBoxSizeOuter ? 0 : paddingWidth + borderWidth );
+  }
+
+  var styleHeight = getStyleSize( style.height );
+  if ( styleHeight !== false ) {
+    size.height = styleHeight +
+      // add padding and border unless it's already including it
+      ( isBorderBoxSizeOuter ? 0 : paddingHeight + borderHeight );
+  }
+
+  size.innerWidth = size.width - ( paddingWidth + borderWidth );
+  size.innerHeight = size.height - ( paddingHeight + borderHeight );
+
+  size.outerWidth = size.width + marginWidth;
+  size.outerHeight = size.height + marginHeight;
+
+  return size;
+}
+
+return getSize;
+
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/imagesloaded/imagesloaded.js":
+/*!***************************************************!*\
+  !*** ./node_modules/imagesloaded/imagesloaded.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * imagesLoaded v4.1.4
+ * JavaScript is all like "You images are done yet or what?"
+ * MIT License
+ */
+
+( function( window, factory ) { 'use strict';
+  // universal module definition
+
+  /*global define: false, module: false, require: false */
+
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+      __webpack_require__(/*! ev-emitter/ev-emitter */ "./node_modules/ev-emitter/ev-emitter.js")
+    ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter ) {
+      return factory( window, EvEmitter );
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+})( typeof window !== 'undefined' ? window : this,
+
+// --------------------------  factory -------------------------- //
+
+function factory( window, EvEmitter ) {
+
+'use strict';
+
+var $ = window.jQuery;
+var console = window.console;
+
+// -------------------------- helpers -------------------------- //
+
+// extend objects
+function extend( a, b ) {
+  for ( var prop in b ) {
+    a[ prop ] = b[ prop ];
+  }
+  return a;
+}
+
+var arraySlice = Array.prototype.slice;
+
+// turn element or nodeList into an array
+function makeArray( obj ) {
+  if ( Array.isArray( obj ) ) {
+    // use object if already an array
+    return obj;
+  }
+
+  var isArrayLike = typeof obj == 'object' && typeof obj.length == 'number';
+  if ( isArrayLike ) {
+    // convert nodeList to array
+    return arraySlice.call( obj );
+  }
+
+  // array of single index
+  return [ obj ];
+}
+
+// -------------------------- imagesLoaded -------------------------- //
+
+/**
+ * @param {Array, Element, NodeList, String} elem
+ * @param {Object or Function} options - if function, use as callback
+ * @param {Function} onAlways - callback function
+ */
+function ImagesLoaded( elem, options, onAlways ) {
+  // coerce ImagesLoaded() without new, to be new ImagesLoaded()
+  if ( !( this instanceof ImagesLoaded ) ) {
+    return new ImagesLoaded( elem, options, onAlways );
+  }
+  // use elem as selector string
+  var queryElem = elem;
+  if ( typeof elem == 'string' ) {
+    queryElem = document.querySelectorAll( elem );
+  }
+  // bail if bad element
+  if ( !queryElem ) {
+    console.error( 'Bad element for imagesLoaded ' + ( queryElem || elem ) );
+    return;
+  }
+
+  this.elements = makeArray( queryElem );
+  this.options = extend( {}, this.options );
+  // shift arguments if no options set
+  if ( typeof options == 'function' ) {
+    onAlways = options;
+  } else {
+    extend( this.options, options );
+  }
+
+  if ( onAlways ) {
+    this.on( 'always', onAlways );
+  }
+
+  this.getImages();
+
+  if ( $ ) {
+    // add jQuery Deferred object
+    this.jqDeferred = new $.Deferred();
+  }
+
+  // HACK check async to allow time to bind listeners
+  setTimeout( this.check.bind( this ) );
+}
+
+ImagesLoaded.prototype = Object.create( EvEmitter.prototype );
+
+ImagesLoaded.prototype.options = {};
+
+ImagesLoaded.prototype.getImages = function() {
+  this.images = [];
+
+  // filter & find items if we have an item selector
+  this.elements.forEach( this.addElementImages, this );
+};
+
+/**
+ * @param {Node} element
+ */
+ImagesLoaded.prototype.addElementImages = function( elem ) {
+  // filter siblings
+  if ( elem.nodeName == 'IMG' ) {
+    this.addImage( elem );
+  }
+  // get background image on element
+  if ( this.options.background === true ) {
+    this.addElementBackgroundImages( elem );
+  }
+
+  // find children
+  // no non-element nodes, #143
+  var nodeType = elem.nodeType;
+  if ( !nodeType || !elementNodeTypes[ nodeType ] ) {
+    return;
+  }
+  var childImgs = elem.querySelectorAll('img');
+  // concat childElems to filterFound array
+  for ( var i=0; i < childImgs.length; i++ ) {
+    var img = childImgs[i];
+    this.addImage( img );
+  }
+
+  // get child background images
+  if ( typeof this.options.background == 'string' ) {
+    var children = elem.querySelectorAll( this.options.background );
+    for ( i=0; i < children.length; i++ ) {
+      var child = children[i];
+      this.addElementBackgroundImages( child );
+    }
+  }
+};
+
+var elementNodeTypes = {
+  1: true,
+  9: true,
+  11: true
+};
+
+ImagesLoaded.prototype.addElementBackgroundImages = function( elem ) {
+  var style = getComputedStyle( elem );
+  if ( !style ) {
+    // Firefox returns null if in a hidden iframe https://bugzil.la/548397
+    return;
+  }
+  // get url inside url("...")
+  var reURL = /url\((['"])?(.*?)\1\)/gi;
+  var matches = reURL.exec( style.backgroundImage );
+  while ( matches !== null ) {
+    var url = matches && matches[2];
+    if ( url ) {
+      this.addBackground( url, elem );
+    }
+    matches = reURL.exec( style.backgroundImage );
+  }
+};
+
+/**
+ * @param {Image} img
+ */
+ImagesLoaded.prototype.addImage = function( img ) {
+  var loadingImage = new LoadingImage( img );
+  this.images.push( loadingImage );
+};
+
+ImagesLoaded.prototype.addBackground = function( url, elem ) {
+  var background = new Background( url, elem );
+  this.images.push( background );
+};
+
+ImagesLoaded.prototype.check = function() {
+  var _this = this;
+  this.progressedCount = 0;
+  this.hasAnyBroken = false;
+  // complete if no images
+  if ( !this.images.length ) {
+    this.complete();
+    return;
+  }
+
+  function onProgress( image, elem, message ) {
+    // HACK - Chrome triggers event before object properties have changed. #83
+    setTimeout( function() {
+      _this.progress( image, elem, message );
+    });
+  }
+
+  this.images.forEach( function( loadingImage ) {
+    loadingImage.once( 'progress', onProgress );
+    loadingImage.check();
+  });
+};
+
+ImagesLoaded.prototype.progress = function( image, elem, message ) {
+  this.progressedCount++;
+  this.hasAnyBroken = this.hasAnyBroken || !image.isLoaded;
+  // progress event
+  this.emitEvent( 'progress', [ this, image, elem ] );
+  if ( this.jqDeferred && this.jqDeferred.notify ) {
+    this.jqDeferred.notify( this, image );
+  }
+  // check if completed
+  if ( this.progressedCount == this.images.length ) {
+    this.complete();
+  }
+
+  if ( this.options.debug && console ) {
+    console.log( 'progress: ' + message, image, elem );
+  }
+};
+
+ImagesLoaded.prototype.complete = function() {
+  var eventName = this.hasAnyBroken ? 'fail' : 'done';
+  this.isComplete = true;
+  this.emitEvent( eventName, [ this ] );
+  this.emitEvent( 'always', [ this ] );
+  if ( this.jqDeferred ) {
+    var jqMethod = this.hasAnyBroken ? 'reject' : 'resolve';
+    this.jqDeferred[ jqMethod ]( this );
+  }
+};
+
+// --------------------------  -------------------------- //
+
+function LoadingImage( img ) {
+  this.img = img;
+}
+
+LoadingImage.prototype = Object.create( EvEmitter.prototype );
+
+LoadingImage.prototype.check = function() {
+  // If complete is true and browser supports natural sizes,
+  // try to check for image status manually.
+  var isComplete = this.getIsImageComplete();
+  if ( isComplete ) {
+    // report based on naturalWidth
+    this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
+    return;
+  }
+
+  // If none of the checks above matched, simulate loading on detached element.
+  this.proxyImage = new Image();
+  this.proxyImage.addEventListener( 'load', this );
+  this.proxyImage.addEventListener( 'error', this );
+  // bind to image as well for Firefox. #191
+  this.img.addEventListener( 'load', this );
+  this.img.addEventListener( 'error', this );
+  this.proxyImage.src = this.img.src;
+};
+
+LoadingImage.prototype.getIsImageComplete = function() {
+  // check for non-zero, non-undefined naturalWidth
+  // fixes Safari+InfiniteScroll+Masonry bug infinite-scroll#671
+  return this.img.complete && this.img.naturalWidth;
+};
+
+LoadingImage.prototype.confirm = function( isLoaded, message ) {
+  this.isLoaded = isLoaded;
+  this.emitEvent( 'progress', [ this, this.img, message ] );
+};
+
+// ----- events ----- //
+
+// trigger specified handler for event type
+LoadingImage.prototype.handleEvent = function( event ) {
+  var method = 'on' + event.type;
+  if ( this[ method ] ) {
+    this[ method ]( event );
+  }
+};
+
+LoadingImage.prototype.onload = function() {
+  this.confirm( true, 'onload' );
+  this.unbindEvents();
+};
+
+LoadingImage.prototype.onerror = function() {
+  this.confirm( false, 'onerror' );
+  this.unbindEvents();
+};
+
+LoadingImage.prototype.unbindEvents = function() {
+  this.proxyImage.removeEventListener( 'load', this );
+  this.proxyImage.removeEventListener( 'error', this );
+  this.img.removeEventListener( 'load', this );
+  this.img.removeEventListener( 'error', this );
+};
+
+// -------------------------- Background -------------------------- //
+
+function Background( url, element ) {
+  this.url = url;
+  this.element = element;
+  this.img = new Image();
+}
+
+// inherit LoadingImage prototype
+Background.prototype = Object.create( LoadingImage.prototype );
+
+Background.prototype.check = function() {
+  this.img.addEventListener( 'load', this );
+  this.img.addEventListener( 'error', this );
+  this.img.src = this.url;
+  // check if image is already complete
+  var isComplete = this.getIsImageComplete();
+  if ( isComplete ) {
+    this.confirm( this.img.naturalWidth !== 0, 'naturalWidth' );
+    this.unbindEvents();
+  }
+};
+
+Background.prototype.unbindEvents = function() {
+  this.img.removeEventListener( 'load', this );
+  this.img.removeEventListener( 'error', this );
+};
+
+Background.prototype.confirm = function( isLoaded, message ) {
+  this.isLoaded = isLoaded;
+  this.emitEvent( 'progress', [ this, this.element, message ] );
+};
+
+// -------------------------- jQuery -------------------------- //
+
+ImagesLoaded.makeJQueryPlugin = function( jQuery ) {
+  jQuery = jQuery || window.jQuery;
+  if ( !jQuery ) {
+    return;
+  }
+  // set local variable
+  $ = jQuery;
+  // $().imagesLoaded()
+  $.fn.imagesLoaded = function( options, callback ) {
+    var instance = new ImagesLoaded( this, options, callback );
+    return instance.jqDeferred.promise( $(this) );
+  };
+};
+// try making plugin
+ImagesLoaded.makeJQueryPlugin();
+
+// --------------------------  -------------------------- //
+
+return ImagesLoaded;
+
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/isotope-layout/js/isotope.js":
+/*!***************************************************!*\
+  !*** ./node_modules/isotope-layout/js/isotope.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * Isotope v3.0.6
+ *
+ * Licensed GPLv3 for open source use
+ * or Isotope Commercial License for commercial use
+ *
+ * https://isotope.metafizzy.co
+ * Copyright 2010-2018 Metafizzy
+ */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! outlayer/outlayer */ "./node_modules/outlayer/outlayer.js"),
+        __webpack_require__(/*! get-size/get-size */ "./node_modules/get-size/get-size.js"),
+        __webpack_require__(/*! desandro-matches-selector/matches-selector */ "./node_modules/desandro-matches-selector/matches-selector.js"),
+        __webpack_require__(/*! fizzy-ui-utils/utils */ "./node_modules/fizzy-ui-utils/utils.js"),
+        __webpack_require__(/*! ./item */ "./node_modules/isotope-layout/js/item.js"),
+        __webpack_require__(/*! ./layout-mode */ "./node_modules/isotope-layout/js/layout-mode.js"),
+        // include default layout modes
+        __webpack_require__(/*! ./layout-modes/masonry */ "./node_modules/isotope-layout/js/layout-modes/masonry.js"),
+        __webpack_require__(/*! ./layout-modes/fit-rows */ "./node_modules/isotope-layout/js/layout-modes/fit-rows.js"),
+        __webpack_require__(/*! ./layout-modes/vertical */ "./node_modules/isotope-layout/js/layout-modes/vertical.js")
+      ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( Outlayer, getSize, matchesSelector, utils, Item, LayoutMode ) {
+        return factory( window, Outlayer, getSize, matchesSelector, utils, Item, LayoutMode );
+      }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( window, Outlayer, getSize, matchesSelector, utils,
+  Item, LayoutMode ) {
+
+'use strict';
+
+// -------------------------- vars -------------------------- //
+
+var jQuery = window.jQuery;
+
+// -------------------------- helpers -------------------------- //
+
+var trim = String.prototype.trim ?
+  function( str ) {
+    return str.trim();
+  } :
+  function( str ) {
+    return str.replace( /^\s+|\s+$/g, '' );
+  };
+
+// -------------------------- isotopeDefinition -------------------------- //
+
+  // create an Outlayer layout class
+  var Isotope = Outlayer.create( 'isotope', {
+    layoutMode: 'masonry',
+    isJQueryFiltering: true,
+    sortAscending: true
+  });
+
+  Isotope.Item = Item;
+  Isotope.LayoutMode = LayoutMode;
+
+  var proto = Isotope.prototype;
+
+  proto._create = function() {
+    this.itemGUID = 0;
+    // functions that sort items
+    this._sorters = {};
+    this._getSorters();
+    // call super
+    Outlayer.prototype._create.call( this );
+
+    // create layout modes
+    this.modes = {};
+    // start filteredItems with all items
+    this.filteredItems = this.items;
+    // keep of track of sortBys
+    this.sortHistory = [ 'original-order' ];
+    // create from registered layout modes
+    for ( var name in LayoutMode.modes ) {
+      this._initLayoutMode( name );
+    }
+  };
+
+  proto.reloadItems = function() {
+    // reset item ID counter
+    this.itemGUID = 0;
+    // call super
+    Outlayer.prototype.reloadItems.call( this );
+  };
+
+  proto._itemize = function() {
+    var items = Outlayer.prototype._itemize.apply( this, arguments );
+    // assign ID for original-order
+    for ( var i=0; i < items.length; i++ ) {
+      var item = items[i];
+      item.id = this.itemGUID++;
+    }
+    this._updateItemsSortData( items );
+    return items;
+  };
+
+
+  // -------------------------- layout -------------------------- //
+
+  proto._initLayoutMode = function( name ) {
+    var Mode = LayoutMode.modes[ name ];
+    // set mode options
+    // HACK extend initial options, back-fill in default options
+    var initialOpts = this.options[ name ] || {};
+    this.options[ name ] = Mode.options ?
+      utils.extend( Mode.options, initialOpts ) : initialOpts;
+    // init layout mode instance
+    this.modes[ name ] = new Mode( this );
+  };
+
+
+  proto.layout = function() {
+    // if first time doing layout, do all magic
+    if ( !this._isLayoutInited && this._getOption('initLayout') ) {
+      this.arrange();
+      return;
+    }
+    this._layout();
+  };
+
+  // private method to be used in layout() & magic()
+  proto._layout = function() {
+    // don't animate first layout
+    var isInstant = this._getIsInstant();
+    // layout flow
+    this._resetLayout();
+    this._manageStamps();
+    this.layoutItems( this.filteredItems, isInstant );
+
+    // flag for initalized
+    this._isLayoutInited = true;
+  };
+
+  // filter + sort + layout
+  proto.arrange = function( opts ) {
+    // set any options pass
+    this.option( opts );
+    this._getIsInstant();
+    // filter, sort, and layout
+
+    // filter
+    var filtered = this._filter( this.items );
+    this.filteredItems = filtered.matches;
+
+    this._bindArrangeComplete();
+
+    if ( this._isInstant ) {
+      this._noTransition( this._hideReveal, [ filtered ] );
+    } else {
+      this._hideReveal( filtered );
+    }
+
+    this._sort();
+    this._layout();
+  };
+  // alias to _init for main plugin method
+  proto._init = proto.arrange;
+
+  proto._hideReveal = function( filtered ) {
+    this.reveal( filtered.needReveal );
+    this.hide( filtered.needHide );
+  };
+
+  // HACK
+  // Don't animate/transition first layout
+  // Or don't animate/transition other layouts
+  proto._getIsInstant = function() {
+    var isLayoutInstant = this._getOption('layoutInstant');
+    var isInstant = isLayoutInstant !== undefined ? isLayoutInstant :
+      !this._isLayoutInited;
+    this._isInstant = isInstant;
+    return isInstant;
+  };
+
+  // listen for layoutComplete, hideComplete and revealComplete
+  // to trigger arrangeComplete
+  proto._bindArrangeComplete = function() {
+    // listen for 3 events to trigger arrangeComplete
+    var isLayoutComplete, isHideComplete, isRevealComplete;
+    var _this = this;
+    function arrangeParallelCallback() {
+      if ( isLayoutComplete && isHideComplete && isRevealComplete ) {
+        _this.dispatchEvent( 'arrangeComplete', null, [ _this.filteredItems ] );
+      }
+    }
+    this.once( 'layoutComplete', function() {
+      isLayoutComplete = true;
+      arrangeParallelCallback();
+    });
+    this.once( 'hideComplete', function() {
+      isHideComplete = true;
+      arrangeParallelCallback();
+    });
+    this.once( 'revealComplete', function() {
+      isRevealComplete = true;
+      arrangeParallelCallback();
+    });
+  };
+
+  // -------------------------- filter -------------------------- //
+
+  proto._filter = function( items ) {
+    var filter = this.options.filter;
+    filter = filter || '*';
+    var matches = [];
+    var hiddenMatched = [];
+    var visibleUnmatched = [];
+
+    var test = this._getFilterTest( filter );
+
+    // test each item
+    for ( var i=0; i < items.length; i++ ) {
+      var item = items[i];
+      if ( item.isIgnored ) {
+        continue;
+      }
+      // add item to either matched or unmatched group
+      var isMatched = test( item );
+      // item.isFilterMatched = isMatched;
+      // add to matches if its a match
+      if ( isMatched ) {
+        matches.push( item );
+      }
+      // add to additional group if item needs to be hidden or revealed
+      if ( isMatched && item.isHidden ) {
+        hiddenMatched.push( item );
+      } else if ( !isMatched && !item.isHidden ) {
+        visibleUnmatched.push( item );
+      }
+    }
+
+    // return collections of items to be manipulated
+    return {
+      matches: matches,
+      needReveal: hiddenMatched,
+      needHide: visibleUnmatched
+    };
+  };
+
+  // get a jQuery, function, or a matchesSelector test given the filter
+  proto._getFilterTest = function( filter ) {
+    if ( jQuery && this.options.isJQueryFiltering ) {
+      // use jQuery
+      return function( item ) {
+        return jQuery( item.element ).is( filter );
+      };
+    }
+    if ( typeof filter == 'function' ) {
+      // use filter as function
+      return function( item ) {
+        return filter( item.element );
+      };
+    }
+    // default, use filter as selector string
+    return function( item ) {
+      return matchesSelector( item.element, filter );
+    };
+  };
+
+  // -------------------------- sorting -------------------------- //
+
+  /**
+   * @params {Array} elems
+   * @public
+   */
+  proto.updateSortData = function( elems ) {
+    // get items
+    var items;
+    if ( elems ) {
+      elems = utils.makeArray( elems );
+      items = this.getItems( elems );
+    } else {
+      // update all items if no elems provided
+      items = this.items;
+    }
+
+    this._getSorters();
+    this._updateItemsSortData( items );
+  };
+
+  proto._getSorters = function() {
+    var getSortData = this.options.getSortData;
+    for ( var key in getSortData ) {
+      var sorter = getSortData[ key ];
+      this._sorters[ key ] = mungeSorter( sorter );
+    }
+  };
+
+  /**
+   * @params {Array} items - of Isotope.Items
+   * @private
+   */
+  proto._updateItemsSortData = function( items ) {
+    // do not update if no items
+    var len = items && items.length;
+
+    for ( var i=0; len && i < len; i++ ) {
+      var item = items[i];
+      item.updateSortData();
+    }
+  };
+
+  // ----- munge sorter ----- //
+
+  // encapsulate this, as we just need mungeSorter
+  // other functions in here are just for munging
+  var mungeSorter = ( function() {
+    // add a magic layer to sorters for convienent shorthands
+    // `.foo-bar` will use the text of .foo-bar querySelector
+    // `[foo-bar]` will use attribute
+    // you can also add parser
+    // `.foo-bar parseInt` will parse that as a number
+    function mungeSorter( sorter ) {
+      // if not a string, return function or whatever it is
+      if ( typeof sorter != 'string' ) {
+        return sorter;
+      }
+      // parse the sorter string
+      var args = trim( sorter ).split(' ');
+      var query = args[0];
+      // check if query looks like [an-attribute]
+      var attrMatch = query.match( /^\[(.+)\]$/ );
+      var attr = attrMatch && attrMatch[1];
+      var getValue = getValueGetter( attr, query );
+      // use second argument as a parser
+      var parser = Isotope.sortDataParsers[ args[1] ];
+      // parse the value, if there was a parser
+      sorter = parser ? function( elem ) {
+        return elem && parser( getValue( elem ) );
+      } :
+      // otherwise just return value
+      function( elem ) {
+        return elem && getValue( elem );
+      };
+
+      return sorter;
+    }
+
+    // get an attribute getter, or get text of the querySelector
+    function getValueGetter( attr, query ) {
+      // if query looks like [foo-bar], get attribute
+      if ( attr ) {
+        return function getAttribute( elem ) {
+          return elem.getAttribute( attr );
+        };
+      }
+
+      // otherwise, assume its a querySelector, and get its text
+      return function getChildText( elem ) {
+        var child = elem.querySelector( query );
+        return child && child.textContent;
+      };
+    }
+
+    return mungeSorter;
+  })();
+
+  // parsers used in getSortData shortcut strings
+  Isotope.sortDataParsers = {
+    'parseInt': function( val ) {
+      return parseInt( val, 10 );
+    },
+    'parseFloat': function( val ) {
+      return parseFloat( val );
+    }
+  };
+
+  // ----- sort method ----- //
+
+  // sort filteredItem order
+  proto._sort = function() {
+    if ( !this.options.sortBy ) {
+      return;
+    }
+    // keep track of sortBy History
+    var sortBys = utils.makeArray( this.options.sortBy );
+    if ( !this._getIsSameSortBy( sortBys ) ) {
+      // concat all sortBy and sortHistory, add to front, oldest goes in last
+      this.sortHistory = sortBys.concat( this.sortHistory );
+    }
+    // sort magic
+    var itemSorter = getItemSorter( this.sortHistory, this.options.sortAscending );
+    this.filteredItems.sort( itemSorter );
+  };
+
+  // check if sortBys is same as start of sortHistory
+  proto._getIsSameSortBy = function( sortBys ) {
+    for ( var i=0; i < sortBys.length; i++ ) {
+      if ( sortBys[i] != this.sortHistory[i] ) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  // returns a function used for sorting
+  function getItemSorter( sortBys, sortAsc ) {
+    return function sorter( itemA, itemB ) {
+      // cycle through all sortKeys
+      for ( var i = 0; i < sortBys.length; i++ ) {
+        var sortBy = sortBys[i];
+        var a = itemA.sortData[ sortBy ];
+        var b = itemB.sortData[ sortBy ];
+        if ( a > b || a < b ) {
+          // if sortAsc is an object, use the value given the sortBy key
+          var isAscending = sortAsc[ sortBy ] !== undefined ? sortAsc[ sortBy ] : sortAsc;
+          var direction = isAscending ? 1 : -1;
+          return ( a > b ? 1 : -1 ) * direction;
+        }
+      }
+      return 0;
+    };
+  }
+
+  // -------------------------- methods -------------------------- //
+
+  // get layout mode
+  proto._mode = function() {
+    var layoutMode = this.options.layoutMode;
+    var mode = this.modes[ layoutMode ];
+    if ( !mode ) {
+      // TODO console.error
+      throw new Error( 'No layout mode: ' + layoutMode );
+    }
+    // HACK sync mode's options
+    // any options set after init for layout mode need to be synced
+    mode.options = this.options[ layoutMode ];
+    return mode;
+  };
+
+  proto._resetLayout = function() {
+    // trigger original reset layout
+    Outlayer.prototype._resetLayout.call( this );
+    this._mode()._resetLayout();
+  };
+
+  proto._getItemLayoutPosition = function( item  ) {
+    return this._mode()._getItemLayoutPosition( item );
+  };
+
+  proto._manageStamp = function( stamp ) {
+    this._mode()._manageStamp( stamp );
+  };
+
+  proto._getContainerSize = function() {
+    return this._mode()._getContainerSize();
+  };
+
+  proto.needsResizeLayout = function() {
+    return this._mode().needsResizeLayout();
+  };
+
+  // -------------------------- adding & removing -------------------------- //
+
+  // HEADS UP overwrites default Outlayer appended
+  proto.appended = function( elems ) {
+    var items = this.addItems( elems );
+    if ( !items.length ) {
+      return;
+    }
+    // filter, layout, reveal new items
+    var filteredItems = this._filterRevealAdded( items );
+    // add to filteredItems
+    this.filteredItems = this.filteredItems.concat( filteredItems );
+  };
+
+  // HEADS UP overwrites default Outlayer prepended
+  proto.prepended = function( elems ) {
+    var items = this._itemize( elems );
+    if ( !items.length ) {
+      return;
+    }
+    // start new layout
+    this._resetLayout();
+    this._manageStamps();
+    // filter, layout, reveal new items
+    var filteredItems = this._filterRevealAdded( items );
+    // layout previous items
+    this.layoutItems( this.filteredItems );
+    // add to items and filteredItems
+    this.filteredItems = filteredItems.concat( this.filteredItems );
+    this.items = items.concat( this.items );
+  };
+
+  proto._filterRevealAdded = function( items ) {
+    var filtered = this._filter( items );
+    this.hide( filtered.needHide );
+    // reveal all new items
+    this.reveal( filtered.matches );
+    // layout new items, no transition
+    this.layoutItems( filtered.matches, true );
+    return filtered.matches;
+  };
+
+  /**
+   * Filter, sort, and layout newly-appended item elements
+   * @param {Array or NodeList or Element} elems
+   */
+  proto.insert = function( elems ) {
+    var items = this.addItems( elems );
+    if ( !items.length ) {
+      return;
+    }
+    // append item elements
+    var i, item;
+    var len = items.length;
+    for ( i=0; i < len; i++ ) {
+      item = items[i];
+      this.element.appendChild( item.element );
+    }
+    // filter new stuff
+    var filteredInsertItems = this._filter( items ).matches;
+    // set flag
+    for ( i=0; i < len; i++ ) {
+      items[i].isLayoutInstant = true;
+    }
+    this.arrange();
+    // reset flag
+    for ( i=0; i < len; i++ ) {
+      delete items[i].isLayoutInstant;
+    }
+    this.reveal( filteredInsertItems );
+  };
+
+  var _remove = proto.remove;
+  proto.remove = function( elems ) {
+    elems = utils.makeArray( elems );
+    var removeItems = this.getItems( elems );
+    // do regular thing
+    _remove.call( this, elems );
+    // bail if no items to remove
+    var len = removeItems && removeItems.length;
+    // remove elems from filteredItems
+    for ( var i=0; len && i < len; i++ ) {
+      var item = removeItems[i];
+      // remove item from collection
+      utils.removeFrom( this.filteredItems, item );
+    }
+  };
+
+  proto.shuffle = function() {
+    // update random sortData
+    for ( var i=0; i < this.items.length; i++ ) {
+      var item = this.items[i];
+      item.sortData.random = Math.random();
+    }
+    this.options.sortBy = 'random';
+    this._sort();
+    this._layout();
+  };
+
+  /**
+   * trigger fn without transition
+   * kind of hacky to have this in the first place
+   * @param {Function} fn
+   * @param {Array} args
+   * @returns ret
+   * @private
+   */
+  proto._noTransition = function( fn, args ) {
+    // save transitionDuration before disabling
+    var transitionDuration = this.options.transitionDuration;
+    // disable transition
+    this.options.transitionDuration = 0;
+    // do it
+    var returnValue = fn.apply( this, args );
+    // re-enable transition for reveal
+    this.options.transitionDuration = transitionDuration;
+    return returnValue;
+  };
+
+  // ----- helper methods ----- //
+
+  /**
+   * getter method for getting filtered item elements
+   * @returns {Array} elems - collection of item elements
+   */
+  proto.getFilteredItemElements = function() {
+    return this.filteredItems.map( function( item ) {
+      return item.element;
+    });
+  };
+
+  // -----  ----- //
+
+  return Isotope;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/isotope-layout/js/item.js":
+/*!************************************************!*\
+  !*** ./node_modules/isotope-layout/js/item.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * Isotope Item
+**/
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! outlayer/outlayer */ "./node_modules/outlayer/outlayer.js")
+      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( Outlayer ) {
+'use strict';
+
+// -------------------------- Item -------------------------- //
+
+// sub-class Outlayer Item
+function Item() {
+  Outlayer.Item.apply( this, arguments );
+}
+
+var proto = Item.prototype = Object.create( Outlayer.Item.prototype );
+
+var _create = proto._create;
+proto._create = function() {
+  // assign id, used for original-order sorting
+  this.id = this.layout.itemGUID++;
+  _create.call( this );
+  this.sortData = {};
+};
+
+proto.updateSortData = function() {
+  if ( this.isIgnored ) {
+    return;
+  }
+  // default sorters
+  this.sortData.id = this.id;
+  // for backward compatibility
+  this.sortData['original-order'] = this.id;
+  this.sortData.random = Math.random();
+  // go thru getSortData obj and apply the sorters
+  var getSortData = this.layout.options.getSortData;
+  var sorters = this.layout._sorters;
+  for ( var key in getSortData ) {
+    var sorter = sorters[ key ];
+    this.sortData[ key ] = sorter( this.element, this );
+  }
+};
+
+var _destroy = proto.destroy;
+proto.destroy = function() {
+  // call super
+  _destroy.apply( this, arguments );
+  // reset display, #741
+  this.css({
+    display: ''
+  });
+};
+
+return Item;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/isotope-layout/js/layout-mode.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/isotope-layout/js/layout-mode.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * Isotope LayoutMode
+ */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! get-size/get-size */ "./node_modules/get-size/get-size.js"),
+        __webpack_require__(/*! outlayer/outlayer */ "./node_modules/outlayer/outlayer.js")
+      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( getSize, Outlayer ) {
+  'use strict';
+
+  // layout mode class
+  function LayoutMode( isotope ) {
+    this.isotope = isotope;
+    // link properties
+    if ( isotope ) {
+      this.options = isotope.options[ this.namespace ];
+      this.element = isotope.element;
+      this.items = isotope.filteredItems;
+      this.size = isotope.size;
+    }
+  }
+
+  var proto = LayoutMode.prototype;
+
+  /**
+   * some methods should just defer to default Outlayer method
+   * and reference the Isotope instance as `this`
+  **/
+  var facadeMethods = [
+    '_resetLayout',
+    '_getItemLayoutPosition',
+    '_manageStamp',
+    '_getContainerSize',
+    '_getElementOffset',
+    'needsResizeLayout',
+    '_getOption'
+  ];
+
+  facadeMethods.forEach( function( methodName ) {
+    proto[ methodName ] = function() {
+      return Outlayer.prototype[ methodName ].apply( this.isotope, arguments );
+    };
+  });
+
+  // -----  ----- //
+
+  // for horizontal layout modes, check vertical size
+  proto.needsVerticalResizeLayout = function() {
+    // don't trigger if size did not change
+    var size = getSize( this.isotope.element );
+    // check that this.size and size are there
+    // IE8 triggers resize on body size change, so they might not be
+    var hasSizes = this.isotope.size && size;
+    return hasSizes && size.innerHeight != this.isotope.size.innerHeight;
+  };
+
+  // ----- measurements ----- //
+
+  proto._getMeasurement = function() {
+    this.isotope._getMeasurement.apply( this, arguments );
+  };
+
+  proto.getColumnWidth = function() {
+    this.getSegmentSize( 'column', 'Width' );
+  };
+
+  proto.getRowHeight = function() {
+    this.getSegmentSize( 'row', 'Height' );
+  };
+
+  /**
+   * get columnWidth or rowHeight
+   * segment: 'column' or 'row'
+   * size 'Width' or 'Height'
+  **/
+  proto.getSegmentSize = function( segment, size ) {
+    var segmentName = segment + size;
+    var outerSize = 'outer' + size;
+    // columnWidth / outerWidth // rowHeight / outerHeight
+    this._getMeasurement( segmentName, outerSize );
+    // got rowHeight or columnWidth, we can chill
+    if ( this[ segmentName ] ) {
+      return;
+    }
+    // fall back to item of first element
+    var firstItemSize = this.getFirstItemSize();
+    this[ segmentName ] = firstItemSize && firstItemSize[ outerSize ] ||
+      // or size of container
+      this.isotope.size[ 'inner' + size ];
+  };
+
+  proto.getFirstItemSize = function() {
+    var firstItem = this.isotope.filteredItems[0];
+    return firstItem && firstItem.element && getSize( firstItem.element );
+  };
+
+  // ----- methods that should reference isotope ----- //
+
+  proto.layout = function() {
+    this.isotope.layout.apply( this.isotope, arguments );
+  };
+
+  proto.getSize = function() {
+    this.isotope.getSize();
+    this.size = this.isotope.size;
+  };
+
+  // -------------------------- create -------------------------- //
+
+  LayoutMode.modes = {};
+
+  LayoutMode.create = function( namespace, options ) {
+
+    function Mode() {
+      LayoutMode.apply( this, arguments );
+    }
+
+    Mode.prototype = Object.create( proto );
+    Mode.prototype.constructor = Mode;
+
+    // default options
+    if ( options ) {
+      Mode.options = options;
+    }
+
+    Mode.prototype.namespace = namespace;
+    // register in Isotope
+    LayoutMode.modes[ namespace ] = Mode;
+
+    return Mode;
+  };
+
+  return LayoutMode;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/isotope-layout/js/layout-modes/fit-rows.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/isotope-layout/js/layout-modes/fit-rows.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * fitRows layout mode
+ */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! ../layout-mode */ "./node_modules/isotope-layout/js/layout-mode.js")
+      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( LayoutMode ) {
+'use strict';
+
+var FitRows = LayoutMode.create('fitRows');
+
+var proto = FitRows.prototype;
+
+proto._resetLayout = function() {
+  this.x = 0;
+  this.y = 0;
+  this.maxY = 0;
+  this._getMeasurement( 'gutter', 'outerWidth' );
+};
+
+proto._getItemLayoutPosition = function( item ) {
+  item.getSize();
+
+  var itemWidth = item.size.outerWidth + this.gutter;
+  // if this element cannot fit in the current row
+  var containerWidth = this.isotope.size.innerWidth + this.gutter;
+  if ( this.x !== 0 && itemWidth + this.x > containerWidth ) {
+    this.x = 0;
+    this.y = this.maxY;
+  }
+
+  var position = {
+    x: this.x,
+    y: this.y
+  };
+
+  this.maxY = Math.max( this.maxY, this.y + item.size.outerHeight );
+  this.x += itemWidth;
+
+  return position;
+};
+
+proto._getContainerSize = function() {
+  return { height: this.maxY };
+};
+
+return FitRows;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/isotope-layout/js/layout-modes/masonry.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/isotope-layout/js/layout-modes/masonry.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * Masonry layout mode
+ * sub-classes Masonry
+ * https://masonry.desandro.com
+ */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! ../layout-mode */ "./node_modules/isotope-layout/js/layout-mode.js"),
+        __webpack_require__(/*! masonry-layout/masonry */ "./node_modules/masonry-layout/masonry.js")
+      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( LayoutMode, Masonry ) {
+'use strict';
+
+// -------------------------- masonryDefinition -------------------------- //
+
+  // create an Outlayer layout class
+  var MasonryMode = LayoutMode.create('masonry');
+
+  var proto = MasonryMode.prototype;
+
+  var keepModeMethods = {
+    _getElementOffset: true,
+    layout: true,
+    _getMeasurement: true
+  };
+
+  // inherit Masonry prototype
+  for ( var method in Masonry.prototype ) {
+    // do not inherit mode methods
+    if ( !keepModeMethods[ method ] ) {
+      proto[ method ] = Masonry.prototype[ method ];
+    }
+  }
+
+  var measureColumns = proto.measureColumns;
+  proto.measureColumns = function() {
+    // set items, used if measuring first item
+    this.items = this.isotope.filteredItems;
+    measureColumns.call( this );
+  };
+
+  // point to mode options for fitWidth
+  var _getOption = proto._getOption;
+  proto._getOption = function( option ) {
+    if ( option == 'fitWidth' ) {
+      return this.options.isFitWidth !== undefined ?
+        this.options.isFitWidth : this.options.fitWidth;
+    }
+    return _getOption.apply( this.isotope, arguments );
+  };
+
+  return MasonryMode;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/isotope-layout/js/layout-modes/vertical.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/isotope-layout/js/layout-modes/vertical.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * vertical layout mode
+ */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! ../layout-mode */ "./node_modules/isotope-layout/js/layout-mode.js")
+      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( LayoutMode ) {
+'use strict';
+
+var Vertical = LayoutMode.create( 'vertical', {
+  horizontalAlignment: 0
+});
+
+var proto = Vertical.prototype;
+
+proto._resetLayout = function() {
+  this.y = 0;
+};
+
+proto._getItemLayoutPosition = function( item ) {
+  item.getSize();
+  var x = ( this.isotope.size.innerWidth - item.size.outerWidth ) *
+    this.options.horizontalAlignment;
+  var y = this.y;
+  this.y += item.size.outerHeight;
+  return { x: x, y: y };
+};
+
+proto._getContainerSize = function() {
+  return { height: this.y };
+};
+
+return Vertical;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/jquery-bridget/jquery-bridget.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/jquery-bridget/jquery-bridget.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * Bridget makes jQuery widgets
+ * v2.0.1
+ * MIT license
+ */
+
+/* jshint browser: true, strict: true, undef: true, unused: true */
+
+( function( window, factory ) {
+  // universal module definition
+  /*jshint strict: false */ /* globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [ __webpack_require__(/*! jquery */ "jquery") ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( jQuery ) {
+      return factory( window, jQuery );
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( window, jQuery ) {
+'use strict';
+
+// ----- utils ----- //
+
+var arraySlice = Array.prototype.slice;
+
+// helper function for logging errors
+// $.error breaks jQuery chaining
+var console = window.console;
+var logError = typeof console == 'undefined' ? function() {} :
+  function( message ) {
+    console.error( message );
+  };
+
+// ----- jQueryBridget ----- //
+
+function jQueryBridget( namespace, PluginClass, $ ) {
+  $ = $ || jQuery || window.jQuery;
+  if ( !$ ) {
+    return;
+  }
+
+  // add option method -> $().plugin('option', {...})
+  if ( !PluginClass.prototype.option ) {
+    // option setter
+    PluginClass.prototype.option = function( opts ) {
+      // bail out if not an object
+      if ( !$.isPlainObject( opts ) ){
+        return;
+      }
+      this.options = $.extend( true, this.options, opts );
+    };
+  }
+
+  // make jQuery plugin
+  $.fn[ namespace ] = function( arg0 /*, arg1 */ ) {
+    if ( typeof arg0 == 'string' ) {
+      // method call $().plugin( 'methodName', { options } )
+      // shift arguments by 1
+      var args = arraySlice.call( arguments, 1 );
+      return methodCall( this, arg0, args );
+    }
+    // just $().plugin({ options })
+    plainCall( this, arg0 );
+    return this;
+  };
+
+  // $().plugin('methodName')
+  function methodCall( $elems, methodName, args ) {
+    var returnValue;
+    var pluginMethodStr = '$().' + namespace + '("' + methodName + '")';
+
+    $elems.each( function( i, elem ) {
+      // get instance
+      var instance = $.data( elem, namespace );
+      if ( !instance ) {
+        logError( namespace + ' not initialized. Cannot call methods, i.e. ' +
+          pluginMethodStr );
+        return;
+      }
+
+      var method = instance[ methodName ];
+      if ( !method || methodName.charAt(0) == '_' ) {
+        logError( pluginMethodStr + ' is not a valid method' );
+        return;
+      }
+
+      // apply method, get return value
+      var value = method.apply( instance, args );
+      // set return value if value is returned, use only first value
+      returnValue = returnValue === undefined ? value : returnValue;
+    });
+
+    return returnValue !== undefined ? returnValue : $elems;
+  }
+
+  function plainCall( $elems, options ) {
+    $elems.each( function( i, elem ) {
+      var instance = $.data( elem, namespace );
+      if ( instance ) {
+        // set options & init
+        instance.option( options );
+        instance._init();
+      } else {
+        // initialize new instance
+        instance = new PluginClass( elem, options );
+        $.data( elem, namespace, instance );
+      }
+    });
+  }
+
+  updateJQuery( $ );
+
+}
+
+// ----- updateJQuery ----- //
+
+// set $.bridget for v1 backwards compatibility
+function updateJQuery( $ ) {
+  if ( !$ || ( $ && $.bridget ) ) {
+    return;
+  }
+  $.bridget = jQueryBridget;
+}
+
+updateJQuery( jQuery || window.jQuery );
+
+// -----  ----- //
+
+return jQueryBridget;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/jquery-match-height/dist/jquery.matchHeight.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/jquery-match-height/dist/jquery.matchHeight.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+* jquery-match-height 0.7.2 by @liabru
+* http://brm.io/jquery-match-height/
+* License: MIT
+*/
+
+;(function(factory) { // eslint-disable-line no-extra-semi
+    'use strict';
+    if (true) {
+        // AMD
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "jquery")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else {}
+})(function($) {
+    /*
+    *  internal
+    */
+
+    var _previousResizeWidth = -1,
+        _updateTimeout = -1;
+
+    /*
+    *  _parse
+    *  value parse utility function
+    */
+
+    var _parse = function(value) {
+        // parse value and convert NaN to 0
+        return parseFloat(value) || 0;
+    };
+
+    /*
+    *  _rows
+    *  utility function returns array of jQuery selections representing each row
+    *  (as displayed after float wrapping applied by browser)
+    */
+
+    var _rows = function(elements) {
+        var tolerance = 1,
+            $elements = $(elements),
+            lastTop = null,
+            rows = [];
+
+        // group elements by their top position
+        $elements.each(function(){
+            var $that = $(this),
+                top = $that.offset().top - _parse($that.css('margin-top')),
+                lastRow = rows.length > 0 ? rows[rows.length - 1] : null;
+
+            if (lastRow === null) {
+                // first item on the row, so just push it
+                rows.push($that);
+            } else {
+                // if the row top is the same, add to the row group
+                if (Math.floor(Math.abs(lastTop - top)) <= tolerance) {
+                    rows[rows.length - 1] = lastRow.add($that);
+                } else {
+                    // otherwise start a new row group
+                    rows.push($that);
+                }
+            }
+
+            // keep track of the last row top
+            lastTop = top;
+        });
+
+        return rows;
+    };
+
+    /*
+    *  _parseOptions
+    *  handle plugin options
+    */
+
+    var _parseOptions = function(options) {
+        var opts = {
+            byRow: true,
+            property: 'height',
+            target: null,
+            remove: false
+        };
+
+        if (typeof options === 'object') {
+            return $.extend(opts, options);
+        }
+
+        if (typeof options === 'boolean') {
+            opts.byRow = options;
+        } else if (options === 'remove') {
+            opts.remove = true;
+        }
+
+        return opts;
+    };
+
+    /*
+    *  matchHeight
+    *  plugin definition
+    */
+
+    var matchHeight = $.fn.matchHeight = function(options) {
+        var opts = _parseOptions(options);
+
+        // handle remove
+        if (opts.remove) {
+            var that = this;
+
+            // remove fixed height from all selected elements
+            this.css(opts.property, '');
+
+            // remove selected elements from all groups
+            $.each(matchHeight._groups, function(key, group) {
+                group.elements = group.elements.not(that);
+            });
+
+            // TODO: cleanup empty groups
+
+            return this;
+        }
+
+        if (this.length <= 1 && !opts.target) {
+            return this;
+        }
+
+        // keep track of this group so we can re-apply later on load and resize events
+        matchHeight._groups.push({
+            elements: this,
+            options: opts
+        });
+
+        // match each element's height to the tallest element in the selection
+        matchHeight._apply(this, opts);
+
+        return this;
+    };
+
+    /*
+    *  plugin global options
+    */
+
+    matchHeight.version = '0.7.2';
+    matchHeight._groups = [];
+    matchHeight._throttle = 80;
+    matchHeight._maintainScroll = false;
+    matchHeight._beforeUpdate = null;
+    matchHeight._afterUpdate = null;
+    matchHeight._rows = _rows;
+    matchHeight._parse = _parse;
+    matchHeight._parseOptions = _parseOptions;
+
+    /*
+    *  matchHeight._apply
+    *  apply matchHeight to given elements
+    */
+
+    matchHeight._apply = function(elements, options) {
+        var opts = _parseOptions(options),
+            $elements = $(elements),
+            rows = [$elements];
+
+        // take note of scroll position
+        var scrollTop = $(window).scrollTop(),
+            htmlHeight = $('html').outerHeight(true);
+
+        // get hidden parents
+        var $hiddenParents = $elements.parents().filter(':hidden');
+
+        // cache the original inline style
+        $hiddenParents.each(function() {
+            var $that = $(this);
+            $that.data('style-cache', $that.attr('style'));
+        });
+
+        // temporarily must force hidden parents visible
+        $hiddenParents.css('display', 'block');
+
+        // get rows if using byRow, otherwise assume one row
+        if (opts.byRow && !opts.target) {
+
+            // must first force an arbitrary equal height so floating elements break evenly
+            $elements.each(function() {
+                var $that = $(this),
+                    display = $that.css('display');
+
+                // temporarily force a usable display value
+                if (display !== 'inline-block' && display !== 'flex' && display !== 'inline-flex') {
+                    display = 'block';
+                }
+
+                // cache the original inline style
+                $that.data('style-cache', $that.attr('style'));
+
+                $that.css({
+                    'display': display,
+                    'padding-top': '0',
+                    'padding-bottom': '0',
+                    'margin-top': '0',
+                    'margin-bottom': '0',
+                    'border-top-width': '0',
+                    'border-bottom-width': '0',
+                    'height': '100px',
+                    'overflow': 'hidden'
+                });
+            });
+
+            // get the array of rows (based on element top position)
+            rows = _rows($elements);
+
+            // revert original inline styles
+            $elements.each(function() {
+                var $that = $(this);
+                $that.attr('style', $that.data('style-cache') || '');
+            });
+        }
+
+        $.each(rows, function(key, row) {
+            var $row = $(row),
+                targetHeight = 0;
+
+            if (!opts.target) {
+                // skip apply to rows with only one item
+                if (opts.byRow && $row.length <= 1) {
+                    $row.css(opts.property, '');
+                    return;
+                }
+
+                // iterate the row and find the max height
+                $row.each(function(){
+                    var $that = $(this),
+                        style = $that.attr('style'),
+                        display = $that.css('display');
+
+                    // temporarily force a usable display value
+                    if (display !== 'inline-block' && display !== 'flex' && display !== 'inline-flex') {
+                        display = 'block';
+                    }
+
+                    // ensure we get the correct actual height (and not a previously set height value)
+                    var css = { 'display': display };
+                    css[opts.property] = '';
+                    $that.css(css);
+
+                    // find the max height (including padding, but not margin)
+                    if ($that.outerHeight(false) > targetHeight) {
+                        targetHeight = $that.outerHeight(false);
+                    }
+
+                    // revert styles
+                    if (style) {
+                        $that.attr('style', style);
+                    } else {
+                        $that.css('display', '');
+                    }
+                });
+            } else {
+                // if target set, use the height of the target element
+                targetHeight = opts.target.outerHeight(false);
+            }
+
+            // iterate the row and apply the height to all elements
+            $row.each(function(){
+                var $that = $(this),
+                    verticalPadding = 0;
+
+                // don't apply to a target
+                if (opts.target && $that.is(opts.target)) {
+                    return;
+                }
+
+                // handle padding and border correctly (required when not using border-box)
+                if ($that.css('box-sizing') !== 'border-box') {
+                    verticalPadding += _parse($that.css('border-top-width')) + _parse($that.css('border-bottom-width'));
+                    verticalPadding += _parse($that.css('padding-top')) + _parse($that.css('padding-bottom'));
+                }
+
+                // set the height (accounting for padding and border)
+                $that.css(opts.property, (targetHeight - verticalPadding) + 'px');
+            });
+        });
+
+        // revert hidden parents
+        $hiddenParents.each(function() {
+            var $that = $(this);
+            $that.attr('style', $that.data('style-cache') || null);
+        });
+
+        // restore scroll position if enabled
+        if (matchHeight._maintainScroll) {
+            $(window).scrollTop((scrollTop / htmlHeight) * $('html').outerHeight(true));
+        }
+
+        return this;
+    };
+
+    /*
+    *  matchHeight._applyDataApi
+    *  applies matchHeight to all elements with a data-match-height attribute
+    */
+
+    matchHeight._applyDataApi = function() {
+        var groups = {};
+
+        // generate groups by their groupId set by elements using data-match-height
+        $('[data-match-height], [data-mh]').each(function() {
+            var $this = $(this),
+                groupId = $this.attr('data-mh') || $this.attr('data-match-height');
+
+            if (groupId in groups) {
+                groups[groupId] = groups[groupId].add($this);
+            } else {
+                groups[groupId] = $this;
+            }
+        });
+
+        // apply matchHeight to each group
+        $.each(groups, function() {
+            this.matchHeight(true);
+        });
+    };
+
+    /*
+    *  matchHeight._update
+    *  updates matchHeight on all current groups with their correct options
+    */
+
+    var _update = function(event) {
+        if (matchHeight._beforeUpdate) {
+            matchHeight._beforeUpdate(event, matchHeight._groups);
+        }
+
+        $.each(matchHeight._groups, function() {
+            matchHeight._apply(this.elements, this.options);
+        });
+
+        if (matchHeight._afterUpdate) {
+            matchHeight._afterUpdate(event, matchHeight._groups);
+        }
+    };
+
+    matchHeight._update = function(throttle, event) {
+        // prevent update if fired from a resize event
+        // where the viewport width hasn't actually changed
+        // fixes an event looping bug in IE8
+        if (event && event.type === 'resize') {
+            var windowWidth = $(window).width();
+            if (windowWidth === _previousResizeWidth) {
+                return;
+            }
+            _previousResizeWidth = windowWidth;
+        }
+
+        // throttle updates
+        if (!throttle) {
+            _update(event);
+        } else if (_updateTimeout === -1) {
+            _updateTimeout = setTimeout(function() {
+                _update(event);
+                _updateTimeout = -1;
+            }, matchHeight._throttle);
+        }
+    };
+
+    /*
+    *  bind events
+    */
+
+    // apply on DOM ready event
+    $(matchHeight._applyDataApi);
+
+    // use on or bind where supported
+    var on = $.fn.on ? 'on' : 'bind';
+
+    // update heights on load and resize events
+    $(window)[on]('load', function(event) {
+        matchHeight._update(false, event);
+    });
+
+    // throttled update heights on resize events
+    $(window)[on]('resize orientationchange', function(event) {
+        matchHeight._update(true, event);
+    });
+
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/lodash.assign/index.js":
+/*!*********************************************!*\
+  !*** ./node_modules/lodash.assign/index.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * lodash (Custom Build) <https://lodash.com/>
+ * Build: `lodash modularize exports="npm" -o ./`
+ * Copyright jQuery Foundation and other contributors <https://jquery.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]';
+
+/** Used to detect unsigned integer values. */
+var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+/**
+ * A faster alternative to `Function#apply`, this function invokes `func`
+ * with the `this` binding of `thisArg` and the arguments of `args`.
+ *
+ * @private
+ * @param {Function} func The function to invoke.
+ * @param {*} thisArg The `this` binding of `func`.
+ * @param {Array} args The arguments to invoke `func` with.
+ * @returns {*} Returns the result of `func`.
+ */
+function apply(func, thisArg, args) {
+  switch (args.length) {
+    case 0: return func.call(thisArg);
+    case 1: return func.call(thisArg, args[0]);
+    case 2: return func.call(thisArg, args[0], args[1]);
+    case 3: return func.call(thisArg, args[0], args[1], args[2]);
+  }
+  return func.apply(thisArg, args);
+}
+
+/**
+ * The base implementation of `_.times` without support for iteratee shorthands
+ * or max array length checks.
+ *
+ * @private
+ * @param {number} n The number of times to invoke `iteratee`.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the array of results.
+ */
+function baseTimes(n, iteratee) {
+  var index = -1,
+      result = Array(n);
+
+  while (++index < n) {
+    result[index] = iteratee(index);
+  }
+  return result;
+}
+
+/**
+ * Creates a unary function that invokes `func` with its argument transformed.
+ *
+ * @private
+ * @param {Function} func The function to wrap.
+ * @param {Function} transform The argument transform.
+ * @returns {Function} Returns the new function.
+ */
+function overArg(func, transform) {
+  return function(arg) {
+    return func(transform(arg));
+  };
+}
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var objectToString = objectProto.toString;
+
+/** Built-in value references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeKeys = overArg(Object.keys, Object),
+    nativeMax = Math.max;
+
+/** Detect if properties shadowing those on `Object.prototype` are non-enumerable. */
+var nonEnumShadows = !propertyIsEnumerable.call({ 'valueOf': 1 }, 'valueOf');
+
+/**
+ * Creates an array of the enumerable property names of the array-like `value`.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @param {boolean} inherited Specify returning inherited property names.
+ * @returns {Array} Returns the array of property names.
+ */
+function arrayLikeKeys(value, inherited) {
+  // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
+  // Safari 9 makes `arguments.length` enumerable in strict mode.
+  var result = (isArray(value) || isArguments(value))
+    ? baseTimes(value.length, String)
+    : [];
+
+  var length = result.length,
+      skipIndexes = !!length;
+
+  for (var key in value) {
+    if ((inherited || hasOwnProperty.call(value, key)) &&
+        !(skipIndexes && (key == 'length' || isIndex(key, length)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+/**
+ * Assigns `value` to `key` of `object` if the existing value is not equivalent
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function assignValue(object, key, value) {
+  var objValue = object[key];
+  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) ||
+      (value === undefined && !(key in object))) {
+    object[key] = value;
+  }
+}
+
+/**
+ * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+function baseKeys(object) {
+  if (!isPrototype(object)) {
+    return nativeKeys(object);
+  }
+  var result = [];
+  for (var key in Object(object)) {
+    if (hasOwnProperty.call(object, key) && key != 'constructor') {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+/**
+ * The base implementation of `_.rest` which doesn't validate or coerce arguments.
+ *
+ * @private
+ * @param {Function} func The function to apply a rest parameter to.
+ * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @returns {Function} Returns the new function.
+ */
+function baseRest(func, start) {
+  start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
+  return function() {
+    var args = arguments,
+        index = -1,
+        length = nativeMax(args.length - start, 0),
+        array = Array(length);
+
+    while (++index < length) {
+      array[index] = args[start + index];
+    }
+    index = -1;
+    var otherArgs = Array(start + 1);
+    while (++index < start) {
+      otherArgs[index] = args[index];
+    }
+    otherArgs[start] = array;
+    return apply(func, this, otherArgs);
+  };
+}
+
+/**
+ * Copies properties of `source` to `object`.
+ *
+ * @private
+ * @param {Object} source The object to copy properties from.
+ * @param {Array} props The property identifiers to copy.
+ * @param {Object} [object={}] The object to copy properties to.
+ * @param {Function} [customizer] The function to customize copied values.
+ * @returns {Object} Returns `object`.
+ */
+function copyObject(source, props, object, customizer) {
+  object || (object = {});
+
+  var index = -1,
+      length = props.length;
+
+  while (++index < length) {
+    var key = props[index];
+
+    var newValue = customizer
+      ? customizer(object[key], source[key], key, object, source)
+      : undefined;
+
+    assignValue(object, key, newValue === undefined ? source[key] : newValue);
+  }
+  return object;
+}
+
+/**
+ * Creates a function like `_.assign`.
+ *
+ * @private
+ * @param {Function} assigner The function to assign values.
+ * @returns {Function} Returns the new assigner function.
+ */
+function createAssigner(assigner) {
+  return baseRest(function(object, sources) {
+    var index = -1,
+        length = sources.length,
+        customizer = length > 1 ? sources[length - 1] : undefined,
+        guard = length > 2 ? sources[2] : undefined;
+
+    customizer = (assigner.length > 3 && typeof customizer == 'function')
+      ? (length--, customizer)
+      : undefined;
+
+    if (guard && isIterateeCall(sources[0], sources[1], guard)) {
+      customizer = length < 3 ? undefined : customizer;
+      length = 1;
+    }
+    object = Object(object);
+    while (++index < length) {
+      var source = sources[index];
+      if (source) {
+        assigner(object, source, index, customizer);
+      }
+    }
+    return object;
+  });
+}
+
+/**
+ * Checks if `value` is a valid array-like index.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+ * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+ */
+function isIndex(value, length) {
+  length = length == null ? MAX_SAFE_INTEGER : length;
+  return !!length &&
+    (typeof value == 'number' || reIsUint.test(value)) &&
+    (value > -1 && value % 1 == 0 && value < length);
+}
+
+/**
+ * Checks if the given arguments are from an iteratee call.
+ *
+ * @private
+ * @param {*} value The potential iteratee value argument.
+ * @param {*} index The potential iteratee index or key argument.
+ * @param {*} object The potential iteratee object argument.
+ * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+ *  else `false`.
+ */
+function isIterateeCall(value, index, object) {
+  if (!isObject(object)) {
+    return false;
+  }
+  var type = typeof index;
+  if (type == 'number'
+        ? (isArrayLike(object) && isIndex(index, object.length))
+        : (type == 'string' && index in object)
+      ) {
+    return eq(object[index], value);
+  }
+  return false;
+}
+
+/**
+ * Checks if `value` is likely a prototype object.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
+ */
+function isPrototype(value) {
+  var Ctor = value && value.constructor,
+      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto;
+
+  return value === proto;
+}
+
+/**
+ * Performs a
+ * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * comparison between two values to determine if they are equivalent.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to compare.
+ * @param {*} other The other value to compare.
+ * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+ * @example
+ *
+ * var object = { 'a': 1 };
+ * var other = { 'a': 1 };
+ *
+ * _.eq(object, object);
+ * // => true
+ *
+ * _.eq(object, other);
+ * // => false
+ *
+ * _.eq('a', 'a');
+ * // => true
+ *
+ * _.eq('a', Object('a'));
+ * // => false
+ *
+ * _.eq(NaN, NaN);
+ * // => true
+ */
+function eq(value, other) {
+  return value === other || (value !== value && other !== other);
+}
+
+/**
+ * Checks if `value` is likely an `arguments` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArguments(function() { return arguments; }());
+ * // => true
+ *
+ * _.isArguments([1, 2, 3]);
+ * // => false
+ */
+function isArguments(value) {
+  // Safari 8.1 makes `arguments.callee` enumerable in strict mode.
+  return isArrayLikeObject(value) && hasOwnProperty.call(value, 'callee') &&
+    (!propertyIsEnumerable.call(value, 'callee') || objectToString.call(value) == argsTag);
+}
+
+/**
+ * Checks if `value` is classified as an `Array` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @example
+ *
+ * _.isArray([1, 2, 3]);
+ * // => true
+ *
+ * _.isArray(document.body.children);
+ * // => false
+ *
+ * _.isArray('abc');
+ * // => false
+ *
+ * _.isArray(_.noop);
+ * // => false
+ */
+var isArray = Array.isArray;
+
+/**
+ * Checks if `value` is array-like. A value is considered array-like if it's
+ * not a function and has a `value.length` that's an integer greater than or
+ * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+ * @example
+ *
+ * _.isArrayLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isArrayLike(document.body.children);
+ * // => true
+ *
+ * _.isArrayLike('abc');
+ * // => true
+ *
+ * _.isArrayLike(_.noop);
+ * // => false
+ */
+function isArrayLike(value) {
+  return value != null && isLength(value.length) && !isFunction(value);
+}
+
+/**
+ * This method is like `_.isArrayLike` except that it also checks if `value`
+ * is an object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array-like object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArrayLikeObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isArrayLikeObject(document.body.children);
+ * // => true
+ *
+ * _.isArrayLikeObject('abc');
+ * // => false
+ *
+ * _.isArrayLikeObject(_.noop);
+ * // => false
+ */
+function isArrayLikeObject(value) {
+  return isObjectLike(value) && isArrayLike(value);
+}
+
+/**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in Safari 8-9 which returns 'object' for typed array and other constructors.
+  var tag = isObject(value) ? objectToString.call(value) : '';
+  return tag == funcTag || tag == genTag;
+}
+
+/**
+ * Checks if `value` is a valid array-like length.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+ * @example
+ *
+ * _.isLength(3);
+ * // => true
+ *
+ * _.isLength(Number.MIN_VALUE);
+ * // => false
+ *
+ * _.isLength(Infinity);
+ * // => false
+ *
+ * _.isLength('3');
+ * // => false
+ */
+function isLength(value) {
+  return typeof value == 'number' &&
+    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+}
+
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value;
+  return !!value && (type == 'object' || type == 'function');
+}
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return !!value && typeof value == 'object';
+}
+
+/**
+ * Assigns own enumerable string keyed properties of source objects to the
+ * destination object. Source objects are applied from left to right.
+ * Subsequent sources overwrite property assignments of previous sources.
+ *
+ * **Note:** This method mutates `object` and is loosely based on
+ * [`Object.assign`](https://mdn.io/Object/assign).
+ *
+ * @static
+ * @memberOf _
+ * @since 0.10.0
+ * @category Object
+ * @param {Object} object The destination object.
+ * @param {...Object} [sources] The source objects.
+ * @returns {Object} Returns `object`.
+ * @see _.assignIn
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ * }
+ *
+ * function Bar() {
+ *   this.c = 3;
+ * }
+ *
+ * Foo.prototype.b = 2;
+ * Bar.prototype.d = 4;
+ *
+ * _.assign({ 'a': 0 }, new Foo, new Bar);
+ * // => { 'a': 1, 'c': 3 }
+ */
+var assign = createAssigner(function(object, source) {
+  if (nonEnumShadows || isPrototype(source) || isArrayLike(source)) {
+    copyObject(source, keys(source), object);
+    return;
+  }
+  for (var key in source) {
+    if (hasOwnProperty.call(source, key)) {
+      assignValue(object, key, source[key]);
+    }
+  }
+});
+
+/**
+ * Creates an array of the own enumerable property names of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects. See the
+ * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+ * for more details.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
+ *
+ * Foo.prototype.c = 3;
+ *
+ * _.keys(new Foo);
+ * // => ['a', 'b'] (iteration order is not guaranteed)
+ *
+ * _.keys('hi');
+ * // => ['0', '1']
+ */
+function keys(object) {
+  return isArrayLike(object) ? arrayLikeKeys(object) : baseKeys(object);
+}
+
+module.exports = assign;
+
+
+/***/ }),
+
+/***/ "./node_modules/masonry-layout/masonry.js":
+/*!************************************************!*\
+  !*** ./node_modules/masonry-layout/masonry.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * Masonry v4.2.2
+ * Cascading grid layout library
+ * https://masonry.desandro.com
+ * MIT License
+ * by David DeSandro
+ */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! outlayer/outlayer */ "./node_modules/outlayer/outlayer.js"),
+        __webpack_require__(/*! get-size/get-size */ "./node_modules/get-size/get-size.js")
+      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( Outlayer, getSize ) {
+
+'use strict';
+
+// -------------------------- masonryDefinition -------------------------- //
+
+  // create an Outlayer layout class
+  var Masonry = Outlayer.create('masonry');
+  // isFitWidth -> fitWidth
+  Masonry.compatOptions.fitWidth = 'isFitWidth';
+
+  var proto = Masonry.prototype;
+
+  proto._resetLayout = function() {
+    this.getSize();
+    this._getMeasurement( 'columnWidth', 'outerWidth' );
+    this._getMeasurement( 'gutter', 'outerWidth' );
+    this.measureColumns();
+
+    // reset column Y
+    this.colYs = [];
+    for ( var i=0; i < this.cols; i++ ) {
+      this.colYs.push( 0 );
+    }
+
+    this.maxY = 0;
+    this.horizontalColIndex = 0;
+  };
+
+  proto.measureColumns = function() {
+    this.getContainerWidth();
+    // if columnWidth is 0, default to outerWidth of first item
+    if ( !this.columnWidth ) {
+      var firstItem = this.items[0];
+      var firstItemElem = firstItem && firstItem.element;
+      // columnWidth fall back to item of first element
+      this.columnWidth = firstItemElem && getSize( firstItemElem ).outerWidth ||
+        // if first elem has no width, default to size of container
+        this.containerWidth;
+    }
+
+    var columnWidth = this.columnWidth += this.gutter;
+
+    // calculate columns
+    var containerWidth = this.containerWidth + this.gutter;
+    var cols = containerWidth / columnWidth;
+    // fix rounding errors, typically with gutters
+    var excess = columnWidth - containerWidth % columnWidth;
+    // if overshoot is less than a pixel, round up, otherwise floor it
+    var mathMethod = excess && excess < 1 ? 'round' : 'floor';
+    cols = Math[ mathMethod ]( cols );
+    this.cols = Math.max( cols, 1 );
+  };
+
+  proto.getContainerWidth = function() {
+    // container is parent if fit width
+    var isFitWidth = this._getOption('fitWidth');
+    var container = isFitWidth ? this.element.parentNode : this.element;
+    // check that this.size and size are there
+    // IE8 triggers resize on body size change, so they might not be
+    var size = getSize( container );
+    this.containerWidth = size && size.innerWidth;
+  };
+
+  proto._getItemLayoutPosition = function( item ) {
+    item.getSize();
+    // how many columns does this brick span
+    var remainder = item.size.outerWidth % this.columnWidth;
+    var mathMethod = remainder && remainder < 1 ? 'round' : 'ceil';
+    // round if off by 1 pixel, otherwise use ceil
+    var colSpan = Math[ mathMethod ]( item.size.outerWidth / this.columnWidth );
+    colSpan = Math.min( colSpan, this.cols );
+    // use horizontal or top column position
+    var colPosMethod = this.options.horizontalOrder ?
+      '_getHorizontalColPosition' : '_getTopColPosition';
+    var colPosition = this[ colPosMethod ]( colSpan, item );
+    // position the brick
+    var position = {
+      x: this.columnWidth * colPosition.col,
+      y: colPosition.y
+    };
+    // apply setHeight to necessary columns
+    var setHeight = colPosition.y + item.size.outerHeight;
+    var setMax = colSpan + colPosition.col;
+    for ( var i = colPosition.col; i < setMax; i++ ) {
+      this.colYs[i] = setHeight;
+    }
+
+    return position;
+  };
+
+  proto._getTopColPosition = function( colSpan ) {
+    var colGroup = this._getTopColGroup( colSpan );
+    // get the minimum Y value from the columns
+    var minimumY = Math.min.apply( Math, colGroup );
+
+    return {
+      col: colGroup.indexOf( minimumY ),
+      y: minimumY,
+    };
+  };
+
+  /**
+   * @param {Number} colSpan - number of columns the element spans
+   * @returns {Array} colGroup
+   */
+  proto._getTopColGroup = function( colSpan ) {
+    if ( colSpan < 2 ) {
+      // if brick spans only one column, use all the column Ys
+      return this.colYs;
+    }
+
+    var colGroup = [];
+    // how many different places could this brick fit horizontally
+    var groupCount = this.cols + 1 - colSpan;
+    // for each group potential horizontal position
+    for ( var i = 0; i < groupCount; i++ ) {
+      colGroup[i] = this._getColGroupY( i, colSpan );
+    }
+    return colGroup;
+  };
+
+  proto._getColGroupY = function( col, colSpan ) {
+    if ( colSpan < 2 ) {
+      return this.colYs[ col ];
+    }
+    // make an array of colY values for that one group
+    var groupColYs = this.colYs.slice( col, col + colSpan );
+    // and get the max value of the array
+    return Math.max.apply( Math, groupColYs );
+  };
+
+  // get column position based on horizontal index. #873
+  proto._getHorizontalColPosition = function( colSpan, item ) {
+    var col = this.horizontalColIndex % this.cols;
+    var isOver = colSpan > 1 && col + colSpan > this.cols;
+    // shift to next row if item can't fit on current row
+    col = isOver ? 0 : col;
+    // don't let zero-size items take up space
+    var hasSize = item.size.outerWidth && item.size.outerHeight;
+    this.horizontalColIndex = hasSize ? col + colSpan : this.horizontalColIndex;
+
+    return {
+      col: col,
+      y: this._getColGroupY( col, colSpan ),
+    };
+  };
+
+  proto._manageStamp = function( stamp ) {
+    var stampSize = getSize( stamp );
+    var offset = this._getElementOffset( stamp );
+    // get the columns that this stamp affects
+    var isOriginLeft = this._getOption('originLeft');
+    var firstX = isOriginLeft ? offset.left : offset.right;
+    var lastX = firstX + stampSize.outerWidth;
+    var firstCol = Math.floor( firstX / this.columnWidth );
+    firstCol = Math.max( 0, firstCol );
+    var lastCol = Math.floor( lastX / this.columnWidth );
+    // lastCol should not go over if multiple of columnWidth #425
+    lastCol -= lastX % this.columnWidth ? 0 : 1;
+    lastCol = Math.min( this.cols - 1, lastCol );
+    // set colYs to bottom of the stamp
+
+    var isOriginTop = this._getOption('originTop');
+    var stampMaxY = ( isOriginTop ? offset.top : offset.bottom ) +
+      stampSize.outerHeight;
+    for ( var i = firstCol; i <= lastCol; i++ ) {
+      this.colYs[i] = Math.max( stampMaxY, this.colYs[i] );
+    }
+  };
+
+  proto._getContainerSize = function() {
+    this.maxY = Math.max.apply( Math, this.colYs );
+    var size = {
+      height: this.maxY
+    };
+
+    if ( this._getOption('fitWidth') ) {
+      size.width = this._getContainerFitWidth();
+    }
+
+    return size;
+  };
+
+  proto._getContainerFitWidth = function() {
+    var unusedCols = 0;
+    // count unused columns
+    var i = this.cols;
+    while ( --i ) {
+      if ( this.colYs[i] !== 0 ) {
+        break;
+      }
+      unusedCols++;
+    }
+    // fit container to columns that have been used
+    return ( this.cols - unusedCols ) * this.columnWidth - this.gutter;
+  };
+
+  proto.needsResizeLayout = function() {
+    var previousWidth = this.containerWidth;
+    this.getContainerWidth();
+    return previousWidth != this.containerWidth;
+  };
+
+  return Masonry;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/outlayer/item.js":
+/*!***************************************!*\
+  !*** ./node_modules/outlayer/item.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * Outlayer Item
+ */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /* globals define, module, require */
+  if ( true ) {
+    // AMD - RequireJS
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! ev-emitter/ev-emitter */ "./node_modules/ev-emitter/ev-emitter.js"),
+        __webpack_require__(/*! get-size/get-size */ "./node_modules/get-size/get-size.js")
+      ], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( EvEmitter, getSize ) {
+'use strict';
+
+// ----- helpers ----- //
+
+function isEmptyObj( obj ) {
+  for ( var prop in obj ) {
+    return false;
+  }
+  prop = null;
+  return true;
+}
+
+// -------------------------- CSS3 support -------------------------- //
+
+
+var docElemStyle = document.documentElement.style;
+
+var transitionProperty = typeof docElemStyle.transition == 'string' ?
+  'transition' : 'WebkitTransition';
+var transformProperty = typeof docElemStyle.transform == 'string' ?
+  'transform' : 'WebkitTransform';
+
+var transitionEndEvent = {
+  WebkitTransition: 'webkitTransitionEnd',
+  transition: 'transitionend'
+}[ transitionProperty ];
+
+// cache all vendor properties that could have vendor prefix
+var vendorProperties = {
+  transform: transformProperty,
+  transition: transitionProperty,
+  transitionDuration: transitionProperty + 'Duration',
+  transitionProperty: transitionProperty + 'Property',
+  transitionDelay: transitionProperty + 'Delay'
+};
+
+// -------------------------- Item -------------------------- //
+
+function Item( element, layout ) {
+  if ( !element ) {
+    return;
+  }
+
+  this.element = element;
+  // parent layout class, i.e. Masonry, Isotope, or Packery
+  this.layout = layout;
+  this.position = {
+    x: 0,
+    y: 0
+  };
+
+  this._create();
+}
+
+// inherit EvEmitter
+var proto = Item.prototype = Object.create( EvEmitter.prototype );
+proto.constructor = Item;
+
+proto._create = function() {
+  // transition objects
+  this._transn = {
+    ingProperties: {},
+    clean: {},
+    onEnd: {}
+  };
+
+  this.css({
+    position: 'absolute'
+  });
+};
+
+// trigger specified handler for event type
+proto.handleEvent = function( event ) {
+  var method = 'on' + event.type;
+  if ( this[ method ] ) {
+    this[ method ]( event );
+  }
+};
+
+proto.getSize = function() {
+  this.size = getSize( this.element );
+};
+
+/**
+ * apply CSS styles to element
+ * @param {Object} style
+ */
+proto.css = function( style ) {
+  var elemStyle = this.element.style;
+
+  for ( var prop in style ) {
+    // use vendor property if available
+    var supportedProp = vendorProperties[ prop ] || prop;
+    elemStyle[ supportedProp ] = style[ prop ];
+  }
+};
+
+ // measure position, and sets it
+proto.getPosition = function() {
+  var style = getComputedStyle( this.element );
+  var isOriginLeft = this.layout._getOption('originLeft');
+  var isOriginTop = this.layout._getOption('originTop');
+  var xValue = style[ isOriginLeft ? 'left' : 'right' ];
+  var yValue = style[ isOriginTop ? 'top' : 'bottom' ];
+  var x = parseFloat( xValue );
+  var y = parseFloat( yValue );
+  // convert percent to pixels
+  var layoutSize = this.layout.size;
+  if ( xValue.indexOf('%') != -1 ) {
+    x = ( x / 100 ) * layoutSize.width;
+  }
+  if ( yValue.indexOf('%') != -1 ) {
+    y = ( y / 100 ) * layoutSize.height;
+  }
+  // clean up 'auto' or other non-integer values
+  x = isNaN( x ) ? 0 : x;
+  y = isNaN( y ) ? 0 : y;
+  // remove padding from measurement
+  x -= isOriginLeft ? layoutSize.paddingLeft : layoutSize.paddingRight;
+  y -= isOriginTop ? layoutSize.paddingTop : layoutSize.paddingBottom;
+
+  this.position.x = x;
+  this.position.y = y;
+};
+
+// set settled position, apply padding
+proto.layoutPosition = function() {
+  var layoutSize = this.layout.size;
+  var style = {};
+  var isOriginLeft = this.layout._getOption('originLeft');
+  var isOriginTop = this.layout._getOption('originTop');
+
+  // x
+  var xPadding = isOriginLeft ? 'paddingLeft' : 'paddingRight';
+  var xProperty = isOriginLeft ? 'left' : 'right';
+  var xResetProperty = isOriginLeft ? 'right' : 'left';
+
+  var x = this.position.x + layoutSize[ xPadding ];
+  // set in percentage or pixels
+  style[ xProperty ] = this.getXValue( x );
+  // reset other property
+  style[ xResetProperty ] = '';
+
+  // y
+  var yPadding = isOriginTop ? 'paddingTop' : 'paddingBottom';
+  var yProperty = isOriginTop ? 'top' : 'bottom';
+  var yResetProperty = isOriginTop ? 'bottom' : 'top';
+
+  var y = this.position.y + layoutSize[ yPadding ];
+  // set in percentage or pixels
+  style[ yProperty ] = this.getYValue( y );
+  // reset other property
+  style[ yResetProperty ] = '';
+
+  this.css( style );
+  this.emitEvent( 'layout', [ this ] );
+};
+
+proto.getXValue = function( x ) {
+  var isHorizontal = this.layout._getOption('horizontal');
+  return this.layout.options.percentPosition && !isHorizontal ?
+    ( ( x / this.layout.size.width ) * 100 ) + '%' : x + 'px';
+};
+
+proto.getYValue = function( y ) {
+  var isHorizontal = this.layout._getOption('horizontal');
+  return this.layout.options.percentPosition && isHorizontal ?
+    ( ( y / this.layout.size.height ) * 100 ) + '%' : y + 'px';
+};
+
+proto._transitionTo = function( x, y ) {
+  this.getPosition();
+  // get current x & y from top/left
+  var curX = this.position.x;
+  var curY = this.position.y;
+
+  var didNotMove = x == this.position.x && y == this.position.y;
+
+  // save end position
+  this.setPosition( x, y );
+
+  // if did not move and not transitioning, just go to layout
+  if ( didNotMove && !this.isTransitioning ) {
+    this.layoutPosition();
+    return;
+  }
+
+  var transX = x - curX;
+  var transY = y - curY;
+  var transitionStyle = {};
+  transitionStyle.transform = this.getTranslate( transX, transY );
+
+  this.transition({
+    to: transitionStyle,
+    onTransitionEnd: {
+      transform: this.layoutPosition
+    },
+    isCleaning: true
+  });
+};
+
+proto.getTranslate = function( x, y ) {
+  // flip cooridinates if origin on right or bottom
+  var isOriginLeft = this.layout._getOption('originLeft');
+  var isOriginTop = this.layout._getOption('originTop');
+  x = isOriginLeft ? x : -x;
+  y = isOriginTop ? y : -y;
+  return 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+};
+
+// non transition + transform support
+proto.goTo = function( x, y ) {
+  this.setPosition( x, y );
+  this.layoutPosition();
+};
+
+proto.moveTo = proto._transitionTo;
+
+proto.setPosition = function( x, y ) {
+  this.position.x = parseFloat( x );
+  this.position.y = parseFloat( y );
+};
+
+// ----- transition ----- //
+
+/**
+ * @param {Object} style - CSS
+ * @param {Function} onTransitionEnd
+ */
+
+// non transition, just trigger callback
+proto._nonTransition = function( args ) {
+  this.css( args.to );
+  if ( args.isCleaning ) {
+    this._removeStyles( args.to );
+  }
+  for ( var prop in args.onTransitionEnd ) {
+    args.onTransitionEnd[ prop ].call( this );
+  }
+};
+
+/**
+ * proper transition
+ * @param {Object} args - arguments
+ *   @param {Object} to - style to transition to
+ *   @param {Object} from - style to start transition from
+ *   @param {Boolean} isCleaning - removes transition styles after transition
+ *   @param {Function} onTransitionEnd - callback
+ */
+proto.transition = function( args ) {
+  // redirect to nonTransition if no transition duration
+  if ( !parseFloat( this.layout.options.transitionDuration ) ) {
+    this._nonTransition( args );
+    return;
+  }
+
+  var _transition = this._transn;
+  // keep track of onTransitionEnd callback by css property
+  for ( var prop in args.onTransitionEnd ) {
+    _transition.onEnd[ prop ] = args.onTransitionEnd[ prop ];
+  }
+  // keep track of properties that are transitioning
+  for ( prop in args.to ) {
+    _transition.ingProperties[ prop ] = true;
+    // keep track of properties to clean up when transition is done
+    if ( args.isCleaning ) {
+      _transition.clean[ prop ] = true;
+    }
+  }
+
+  // set from styles
+  if ( args.from ) {
+    this.css( args.from );
+    // force redraw. http://blog.alexmaccaw.com/css-transitions
+    var h = this.element.offsetHeight;
+    // hack for JSHint to hush about unused var
+    h = null;
+  }
+  // enable transition
+  this.enableTransition( args.to );
+  // set styles that are transitioning
+  this.css( args.to );
+
+  this.isTransitioning = true;
+
+};
+
+// dash before all cap letters, including first for
+// WebkitTransform => -webkit-transform
+function toDashedAll( str ) {
+  return str.replace( /([A-Z])/g, function( $1 ) {
+    return '-' + $1.toLowerCase();
+  });
+}
+
+var transitionProps = 'opacity,' + toDashedAll( transformProperty );
+
+proto.enableTransition = function(/* style */) {
+  // HACK changing transitionProperty during a transition
+  // will cause transition to jump
+  if ( this.isTransitioning ) {
+    return;
+  }
+
+  // make `transition: foo, bar, baz` from style object
+  // HACK un-comment this when enableTransition can work
+  // while a transition is happening
+  // var transitionValues = [];
+  // for ( var prop in style ) {
+  //   // dash-ify camelCased properties like WebkitTransition
+  //   prop = vendorProperties[ prop ] || prop;
+  //   transitionValues.push( toDashedAll( prop ) );
+  // }
+  // munge number to millisecond, to match stagger
+  var duration = this.layout.options.transitionDuration;
+  duration = typeof duration == 'number' ? duration + 'ms' : duration;
+  // enable transition styles
+  this.css({
+    transitionProperty: transitionProps,
+    transitionDuration: duration,
+    transitionDelay: this.staggerDelay || 0
+  });
+  // listen for transition end event
+  this.element.addEventListener( transitionEndEvent, this, false );
+};
+
+// ----- events ----- //
+
+proto.onwebkitTransitionEnd = function( event ) {
+  this.ontransitionend( event );
+};
+
+proto.onotransitionend = function( event ) {
+  this.ontransitionend( event );
+};
+
+// properties that I munge to make my life easier
+var dashedVendorProperties = {
+  '-webkit-transform': 'transform'
+};
+
+proto.ontransitionend = function( event ) {
+  // disregard bubbled events from children
+  if ( event.target !== this.element ) {
+    return;
+  }
+  var _transition = this._transn;
+  // get property name of transitioned property, convert to prefix-free
+  var propertyName = dashedVendorProperties[ event.propertyName ] || event.propertyName;
+
+  // remove property that has completed transitioning
+  delete _transition.ingProperties[ propertyName ];
+  // check if any properties are still transitioning
+  if ( isEmptyObj( _transition.ingProperties ) ) {
+    // all properties have completed transitioning
+    this.disableTransition();
+  }
+  // clean style
+  if ( propertyName in _transition.clean ) {
+    // clean up style
+    this.element.style[ event.propertyName ] = '';
+    delete _transition.clean[ propertyName ];
+  }
+  // trigger onTransitionEnd callback
+  if ( propertyName in _transition.onEnd ) {
+    var onTransitionEnd = _transition.onEnd[ propertyName ];
+    onTransitionEnd.call( this );
+    delete _transition.onEnd[ propertyName ];
+  }
+
+  this.emitEvent( 'transitionEnd', [ this ] );
+};
+
+proto.disableTransition = function() {
+  this.removeTransitionStyles();
+  this.element.removeEventListener( transitionEndEvent, this, false );
+  this.isTransitioning = false;
+};
+
+/**
+ * removes style property from element
+ * @param {Object} style
+**/
+proto._removeStyles = function( style ) {
+  // clean up transition styles
+  var cleanStyle = {};
+  for ( var prop in style ) {
+    cleanStyle[ prop ] = '';
+  }
+  this.css( cleanStyle );
+};
+
+var cleanTransitionStyle = {
+  transitionProperty: '',
+  transitionDuration: '',
+  transitionDelay: ''
+};
+
+proto.removeTransitionStyles = function() {
+  // remove transition
+  this.css( cleanTransitionStyle );
+};
+
+// ----- stagger ----- //
+
+proto.stagger = function( delay ) {
+  delay = isNaN( delay ) ? 0 : delay;
+  this.staggerDelay = delay + 'ms';
+};
+
+// ----- show/hide/remove ----- //
+
+// remove element from DOM
+proto.removeElem = function() {
+  this.element.parentNode.removeChild( this.element );
+  // remove display: none
+  this.css({ display: '' });
+  this.emitEvent( 'remove', [ this ] );
+};
+
+proto.remove = function() {
+  // just remove element if no transition support or no transition
+  if ( !transitionProperty || !parseFloat( this.layout.options.transitionDuration ) ) {
+    this.removeElem();
+    return;
+  }
+
+  // start transition
+  this.once( 'transitionEnd', function() {
+    this.removeElem();
+  });
+  this.hide();
+};
+
+proto.reveal = function() {
+  delete this.isHidden;
+  // remove display: none
+  this.css({ display: '' });
+
+  var options = this.layout.options;
+
+  var onTransitionEnd = {};
+  var transitionEndProperty = this.getHideRevealTransitionEndProperty('visibleStyle');
+  onTransitionEnd[ transitionEndProperty ] = this.onRevealTransitionEnd;
+
+  this.transition({
+    from: options.hiddenStyle,
+    to: options.visibleStyle,
+    isCleaning: true,
+    onTransitionEnd: onTransitionEnd
+  });
+};
+
+proto.onRevealTransitionEnd = function() {
+  // check if still visible
+  // during transition, item may have been hidden
+  if ( !this.isHidden ) {
+    this.emitEvent('reveal');
+  }
+};
+
+/**
+ * get style property use for hide/reveal transition end
+ * @param {String} styleProperty - hiddenStyle/visibleStyle
+ * @returns {String}
+ */
+proto.getHideRevealTransitionEndProperty = function( styleProperty ) {
+  var optionStyle = this.layout.options[ styleProperty ];
+  // use opacity
+  if ( optionStyle.opacity ) {
+    return 'opacity';
+  }
+  // get first property
+  for ( var prop in optionStyle ) {
+    return prop;
+  }
+};
+
+proto.hide = function() {
+  // set flag
+  this.isHidden = true;
+  // remove display: none
+  this.css({ display: '' });
+
+  var options = this.layout.options;
+
+  var onTransitionEnd = {};
+  var transitionEndProperty = this.getHideRevealTransitionEndProperty('hiddenStyle');
+  onTransitionEnd[ transitionEndProperty ] = this.onHideTransitionEnd;
+
+  this.transition({
+    from: options.visibleStyle,
+    to: options.hiddenStyle,
+    // keep hidden stuff hidden
+    isCleaning: true,
+    onTransitionEnd: onTransitionEnd
+  });
+};
+
+proto.onHideTransitionEnd = function() {
+  // check if still hidden
+  // during transition, item may have been un-hidden
+  if ( this.isHidden ) {
+    this.css({ display: 'none' });
+    this.emitEvent('hide');
+  }
+};
+
+proto.destroy = function() {
+  this.css({
+    position: '',
+    left: '',
+    right: '',
+    top: '',
+    bottom: '',
+    transition: '',
+    transform: ''
+  });
+};
+
+return Item;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/outlayer/outlayer.js":
+/*!*******************************************!*\
+  !*** ./node_modules/outlayer/outlayer.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * Outlayer v2.1.1
+ * the brains and guts of a layout library
+ * MIT license
+ */
+
+( function( window, factory ) {
+  'use strict';
+  // universal module definition
+  /* jshint strict: false */ /* globals define, module, require */
+  if ( true ) {
+    // AMD - RequireJS
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(/*! ev-emitter/ev-emitter */ "./node_modules/ev-emitter/ev-emitter.js"),
+        __webpack_require__(/*! get-size/get-size */ "./node_modules/get-size/get-size.js"),
+        __webpack_require__(/*! fizzy-ui-utils/utils */ "./node_modules/fizzy-ui-utils/utils.js"),
+        __webpack_require__(/*! ./item */ "./node_modules/outlayer/item.js")
+      ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter, getSize, utils, Item ) {
+        return factory( window, EvEmitter, getSize, utils, Item);
+      }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else {}
+
+}( window, function factory( window, EvEmitter, getSize, utils, Item ) {
+'use strict';
+
+// ----- vars ----- //
+
+var console = window.console;
+var jQuery = window.jQuery;
+var noop = function() {};
+
+// -------------------------- Outlayer -------------------------- //
+
+// globally unique identifiers
+var GUID = 0;
+// internal store of all Outlayer intances
+var instances = {};
+
+
+/**
+ * @param {Element, String} element
+ * @param {Object} options
+ * @constructor
+ */
+function Outlayer( element, options ) {
+  var queryElement = utils.getQueryElement( element );
+  if ( !queryElement ) {
+    if ( console ) {
+      console.error( 'Bad element for ' + this.constructor.namespace +
+        ': ' + ( queryElement || element ) );
+    }
+    return;
+  }
+  this.element = queryElement;
+  // add jQuery
+  if ( jQuery ) {
+    this.$element = jQuery( this.element );
+  }
+
+  // options
+  this.options = utils.extend( {}, this.constructor.defaults );
+  this.option( options );
+
+  // add id for Outlayer.getFromElement
+  var id = ++GUID;
+  this.element.outlayerGUID = id; // expando
+  instances[ id ] = this; // associate via id
+
+  // kick it off
+  this._create();
+
+  var isInitLayout = this._getOption('initLayout');
+  if ( isInitLayout ) {
+    this.layout();
+  }
+}
+
+// settings are for internal use only
+Outlayer.namespace = 'outlayer';
+Outlayer.Item = Item;
+
+// default options
+Outlayer.defaults = {
+  containerStyle: {
+    position: 'relative'
+  },
+  initLayout: true,
+  originLeft: true,
+  originTop: true,
+  resize: true,
+  resizeContainer: true,
+  // item options
+  transitionDuration: '0.4s',
+  hiddenStyle: {
+    opacity: 0,
+    transform: 'scale(0.001)'
+  },
+  visibleStyle: {
+    opacity: 1,
+    transform: 'scale(1)'
+  }
+};
+
+var proto = Outlayer.prototype;
+// inherit EvEmitter
+utils.extend( proto, EvEmitter.prototype );
+
+/**
+ * set options
+ * @param {Object} opts
+ */
+proto.option = function( opts ) {
+  utils.extend( this.options, opts );
+};
+
+/**
+ * get backwards compatible option value, check old name
+ */
+proto._getOption = function( option ) {
+  var oldOption = this.constructor.compatOptions[ option ];
+  return oldOption && this.options[ oldOption ] !== undefined ?
+    this.options[ oldOption ] : this.options[ option ];
+};
+
+Outlayer.compatOptions = {
+  // currentName: oldName
+  initLayout: 'isInitLayout',
+  horizontal: 'isHorizontal',
+  layoutInstant: 'isLayoutInstant',
+  originLeft: 'isOriginLeft',
+  originTop: 'isOriginTop',
+  resize: 'isResizeBound',
+  resizeContainer: 'isResizingContainer'
+};
+
+proto._create = function() {
+  // get items from children
+  this.reloadItems();
+  // elements that affect layout, but are not laid out
+  this.stamps = [];
+  this.stamp( this.options.stamp );
+  // set container style
+  utils.extend( this.element.style, this.options.containerStyle );
+
+  // bind resize method
+  var canBindResize = this._getOption('resize');
+  if ( canBindResize ) {
+    this.bindResize();
+  }
+};
+
+// goes through all children again and gets bricks in proper order
+proto.reloadItems = function() {
+  // collection of item elements
+  this.items = this._itemize( this.element.children );
+};
+
+
+/**
+ * turn elements into Outlayer.Items to be used in layout
+ * @param {Array or NodeList or HTMLElement} elems
+ * @returns {Array} items - collection of new Outlayer Items
+ */
+proto._itemize = function( elems ) {
+
+  var itemElems = this._filterFindItemElements( elems );
+  var Item = this.constructor.Item;
+
+  // create new Outlayer Items for collection
+  var items = [];
+  for ( var i=0; i < itemElems.length; i++ ) {
+    var elem = itemElems[i];
+    var item = new Item( elem, this );
+    items.push( item );
+  }
+
+  return items;
+};
+
+/**
+ * get item elements to be used in layout
+ * @param {Array or NodeList or HTMLElement} elems
+ * @returns {Array} items - item elements
+ */
+proto._filterFindItemElements = function( elems ) {
+  return utils.filterFindElements( elems, this.options.itemSelector );
+};
+
+/**
+ * getter method for getting item elements
+ * @returns {Array} elems - collection of item elements
+ */
+proto.getItemElements = function() {
+  return this.items.map( function( item ) {
+    return item.element;
+  });
+};
+
+// ----- init & layout ----- //
+
+/**
+ * lays out all items
+ */
+proto.layout = function() {
+  this._resetLayout();
+  this._manageStamps();
+
+  // don't animate first layout
+  var layoutInstant = this._getOption('layoutInstant');
+  var isInstant = layoutInstant !== undefined ?
+    layoutInstant : !this._isLayoutInited;
+  this.layoutItems( this.items, isInstant );
+
+  // flag for initalized
+  this._isLayoutInited = true;
+};
+
+// _init is alias for layout
+proto._init = proto.layout;
+
+/**
+ * logic before any new layout
+ */
+proto._resetLayout = function() {
+  this.getSize();
+};
+
+
+proto.getSize = function() {
+  this.size = getSize( this.element );
+};
+
+/**
+ * get measurement from option, for columnWidth, rowHeight, gutter
+ * if option is String -> get element from selector string, & get size of element
+ * if option is Element -> get size of element
+ * else use option as a number
+ *
+ * @param {String} measurement
+ * @param {String} size - width or height
+ * @private
+ */
+proto._getMeasurement = function( measurement, size ) {
+  var option = this.options[ measurement ];
+  var elem;
+  if ( !option ) {
+    // default to 0
+    this[ measurement ] = 0;
+  } else {
+    // use option as an element
+    if ( typeof option == 'string' ) {
+      elem = this.element.querySelector( option );
+    } else if ( option instanceof HTMLElement ) {
+      elem = option;
+    }
+    // use size of element, if element
+    this[ measurement ] = elem ? getSize( elem )[ size ] : option;
+  }
+};
+
+/**
+ * layout a collection of item elements
+ * @api public
+ */
+proto.layoutItems = function( items, isInstant ) {
+  items = this._getItemsForLayout( items );
+
+  this._layoutItems( items, isInstant );
+
+  this._postLayout();
+};
+
+/**
+ * get the items to be laid out
+ * you may want to skip over some items
+ * @param {Array} items
+ * @returns {Array} items
+ */
+proto._getItemsForLayout = function( items ) {
+  return items.filter( function( item ) {
+    return !item.isIgnored;
+  });
+};
+
+/**
+ * layout items
+ * @param {Array} items
+ * @param {Boolean} isInstant
+ */
+proto._layoutItems = function( items, isInstant ) {
+  this._emitCompleteOnItems( 'layout', items );
+
+  if ( !items || !items.length ) {
+    // no items, emit event with empty array
+    return;
+  }
+
+  var queue = [];
+
+  items.forEach( function( item ) {
+    // get x/y object from method
+    var position = this._getItemLayoutPosition( item );
+    // enqueue
+    position.item = item;
+    position.isInstant = isInstant || item.isLayoutInstant;
+    queue.push( position );
+  }, this );
+
+  this._processLayoutQueue( queue );
+};
+
+/**
+ * get item layout position
+ * @param {Outlayer.Item} item
+ * @returns {Object} x and y position
+ */
+proto._getItemLayoutPosition = function( /* item */ ) {
+  return {
+    x: 0,
+    y: 0
+  };
+};
+
+/**
+ * iterate over array and position each item
+ * Reason being - separating this logic prevents 'layout invalidation'
+ * thx @paul_irish
+ * @param {Array} queue
+ */
+proto._processLayoutQueue = function( queue ) {
+  this.updateStagger();
+  queue.forEach( function( obj, i ) {
+    this._positionItem( obj.item, obj.x, obj.y, obj.isInstant, i );
+  }, this );
+};
+
+// set stagger from option in milliseconds number
+proto.updateStagger = function() {
+  var stagger = this.options.stagger;
+  if ( stagger === null || stagger === undefined ) {
+    this.stagger = 0;
+    return;
+  }
+  this.stagger = getMilliseconds( stagger );
+  return this.stagger;
+};
+
+/**
+ * Sets position of item in DOM
+ * @param {Outlayer.Item} item
+ * @param {Number} x - horizontal position
+ * @param {Number} y - vertical position
+ * @param {Boolean} isInstant - disables transitions
+ */
+proto._positionItem = function( item, x, y, isInstant, i ) {
+  if ( isInstant ) {
+    // if not transition, just set CSS
+    item.goTo( x, y );
+  } else {
+    item.stagger( i * this.stagger );
+    item.moveTo( x, y );
+  }
+};
+
+/**
+ * Any logic you want to do after each layout,
+ * i.e. size the container
+ */
+proto._postLayout = function() {
+  this.resizeContainer();
+};
+
+proto.resizeContainer = function() {
+  var isResizingContainer = this._getOption('resizeContainer');
+  if ( !isResizingContainer ) {
+    return;
+  }
+  var size = this._getContainerSize();
+  if ( size ) {
+    this._setContainerMeasure( size.width, true );
+    this._setContainerMeasure( size.height, false );
+  }
+};
+
+/**
+ * Sets width or height of container if returned
+ * @returns {Object} size
+ *   @param {Number} width
+ *   @param {Number} height
+ */
+proto._getContainerSize = noop;
+
+/**
+ * @param {Number} measure - size of width or height
+ * @param {Boolean} isWidth
+ */
+proto._setContainerMeasure = function( measure, isWidth ) {
+  if ( measure === undefined ) {
+    return;
+  }
+
+  var elemSize = this.size;
+  // add padding and border width if border box
+  if ( elemSize.isBorderBox ) {
+    measure += isWidth ? elemSize.paddingLeft + elemSize.paddingRight +
+      elemSize.borderLeftWidth + elemSize.borderRightWidth :
+      elemSize.paddingBottom + elemSize.paddingTop +
+      elemSize.borderTopWidth + elemSize.borderBottomWidth;
+  }
+
+  measure = Math.max( measure, 0 );
+  this.element.style[ isWidth ? 'width' : 'height' ] = measure + 'px';
+};
+
+/**
+ * emit eventComplete on a collection of items events
+ * @param {String} eventName
+ * @param {Array} items - Outlayer.Items
+ */
+proto._emitCompleteOnItems = function( eventName, items ) {
+  var _this = this;
+  function onComplete() {
+    _this.dispatchEvent( eventName + 'Complete', null, [ items ] );
+  }
+
+  var count = items.length;
+  if ( !items || !count ) {
+    onComplete();
+    return;
+  }
+
+  var doneCount = 0;
+  function tick() {
+    doneCount++;
+    if ( doneCount == count ) {
+      onComplete();
+    }
+  }
+
+  // bind callback
+  items.forEach( function( item ) {
+    item.once( eventName, tick );
+  });
+};
+
+/**
+ * emits events via EvEmitter and jQuery events
+ * @param {String} type - name of event
+ * @param {Event} event - original event
+ * @param {Array} args - extra arguments
+ */
+proto.dispatchEvent = function( type, event, args ) {
+  // add original event to arguments
+  var emitArgs = event ? [ event ].concat( args ) : args;
+  this.emitEvent( type, emitArgs );
+
+  if ( jQuery ) {
+    // set this.$element
+    this.$element = this.$element || jQuery( this.element );
+    if ( event ) {
+      // create jQuery event
+      var $event = jQuery.Event( event );
+      $event.type = type;
+      this.$element.trigger( $event, args );
+    } else {
+      // just trigger with type if no event available
+      this.$element.trigger( type, args );
+    }
+  }
+};
+
+// -------------------------- ignore & stamps -------------------------- //
+
+
+/**
+ * keep item in collection, but do not lay it out
+ * ignored items do not get skipped in layout
+ * @param {Element} elem
+ */
+proto.ignore = function( elem ) {
+  var item = this.getItem( elem );
+  if ( item ) {
+    item.isIgnored = true;
+  }
+};
+
+/**
+ * return item to layout collection
+ * @param {Element} elem
+ */
+proto.unignore = function( elem ) {
+  var item = this.getItem( elem );
+  if ( item ) {
+    delete item.isIgnored;
+  }
+};
+
+/**
+ * adds elements to stamps
+ * @param {NodeList, Array, Element, or String} elems
+ */
+proto.stamp = function( elems ) {
+  elems = this._find( elems );
+  if ( !elems ) {
+    return;
+  }
+
+  this.stamps = this.stamps.concat( elems );
+  // ignore
+  elems.forEach( this.ignore, this );
+};
+
+/**
+ * removes elements to stamps
+ * @param {NodeList, Array, or Element} elems
+ */
+proto.unstamp = function( elems ) {
+  elems = this._find( elems );
+  if ( !elems ){
+    return;
+  }
+
+  elems.forEach( function( elem ) {
+    // filter out removed stamp elements
+    utils.removeFrom( this.stamps, elem );
+    this.unignore( elem );
+  }, this );
+};
+
+/**
+ * finds child elements
+ * @param {NodeList, Array, Element, or String} elems
+ * @returns {Array} elems
+ */
+proto._find = function( elems ) {
+  if ( !elems ) {
+    return;
+  }
+  // if string, use argument as selector string
+  if ( typeof elems == 'string' ) {
+    elems = this.element.querySelectorAll( elems );
+  }
+  elems = utils.makeArray( elems );
+  return elems;
+};
+
+proto._manageStamps = function() {
+  if ( !this.stamps || !this.stamps.length ) {
+    return;
+  }
+
+  this._getBoundingRect();
+
+  this.stamps.forEach( this._manageStamp, this );
+};
+
+// update boundingLeft / Top
+proto._getBoundingRect = function() {
+  // get bounding rect for container element
+  var boundingRect = this.element.getBoundingClientRect();
+  var size = this.size;
+  this._boundingRect = {
+    left: boundingRect.left + size.paddingLeft + size.borderLeftWidth,
+    top: boundingRect.top + size.paddingTop + size.borderTopWidth,
+    right: boundingRect.right - ( size.paddingRight + size.borderRightWidth ),
+    bottom: boundingRect.bottom - ( size.paddingBottom + size.borderBottomWidth )
+  };
+};
+
+/**
+ * @param {Element} stamp
+**/
+proto._manageStamp = noop;
+
+/**
+ * get x/y position of element relative to container element
+ * @param {Element} elem
+ * @returns {Object} offset - has left, top, right, bottom
+ */
+proto._getElementOffset = function( elem ) {
+  var boundingRect = elem.getBoundingClientRect();
+  var thisRect = this._boundingRect;
+  var size = getSize( elem );
+  var offset = {
+    left: boundingRect.left - thisRect.left - size.marginLeft,
+    top: boundingRect.top - thisRect.top - size.marginTop,
+    right: thisRect.right - boundingRect.right - size.marginRight,
+    bottom: thisRect.bottom - boundingRect.bottom - size.marginBottom
+  };
+  return offset;
+};
+
+// -------------------------- resize -------------------------- //
+
+// enable event handlers for listeners
+// i.e. resize -> onresize
+proto.handleEvent = utils.handleEvent;
+
+/**
+ * Bind layout to window resizing
+ */
+proto.bindResize = function() {
+  window.addEventListener( 'resize', this );
+  this.isResizeBound = true;
+};
+
+/**
+ * Unbind layout to window resizing
+ */
+proto.unbindResize = function() {
+  window.removeEventListener( 'resize', this );
+  this.isResizeBound = false;
+};
+
+proto.onresize = function() {
+  this.resize();
+};
+
+utils.debounceMethod( Outlayer, 'onresize', 100 );
+
+proto.resize = function() {
+  // don't trigger if size did not change
+  // or if resize was unbound. See #9
+  if ( !this.isResizeBound || !this.needsResizeLayout() ) {
+    return;
+  }
+
+  this.layout();
+};
+
+/**
+ * check if layout is needed post layout
+ * @returns Boolean
+ */
+proto.needsResizeLayout = function() {
+  var size = getSize( this.element );
+  // check that this.size and size are there
+  // IE8 triggers resize on body size change, so they might not be
+  var hasSizes = this.size && size;
+  return hasSizes && size.innerWidth !== this.size.innerWidth;
+};
+
+// -------------------------- methods -------------------------- //
+
+/**
+ * add items to Outlayer instance
+ * @param {Array or NodeList or Element} elems
+ * @returns {Array} items - Outlayer.Items
+**/
+proto.addItems = function( elems ) {
+  var items = this._itemize( elems );
+  // add items to collection
+  if ( items.length ) {
+    this.items = this.items.concat( items );
+  }
+  return items;
+};
+
+/**
+ * Layout newly-appended item elements
+ * @param {Array or NodeList or Element} elems
+ */
+proto.appended = function( elems ) {
+  var items = this.addItems( elems );
+  if ( !items.length ) {
+    return;
+  }
+  // layout and reveal just the new items
+  this.layoutItems( items, true );
+  this.reveal( items );
+};
+
+/**
+ * Layout prepended elements
+ * @param {Array or NodeList or Element} elems
+ */
+proto.prepended = function( elems ) {
+  var items = this._itemize( elems );
+  if ( !items.length ) {
+    return;
+  }
+  // add items to beginning of collection
+  var previousItems = this.items.slice(0);
+  this.items = items.concat( previousItems );
+  // start new layout
+  this._resetLayout();
+  this._manageStamps();
+  // layout new stuff without transition
+  this.layoutItems( items, true );
+  this.reveal( items );
+  // layout previous items
+  this.layoutItems( previousItems );
+};
+
+/**
+ * reveal a collection of items
+ * @param {Array of Outlayer.Items} items
+ */
+proto.reveal = function( items ) {
+  this._emitCompleteOnItems( 'reveal', items );
+  if ( !items || !items.length ) {
+    return;
+  }
+  var stagger = this.updateStagger();
+  items.forEach( function( item, i ) {
+    item.stagger( i * stagger );
+    item.reveal();
+  });
+};
+
+/**
+ * hide a collection of items
+ * @param {Array of Outlayer.Items} items
+ */
+proto.hide = function( items ) {
+  this._emitCompleteOnItems( 'hide', items );
+  if ( !items || !items.length ) {
+    return;
+  }
+  var stagger = this.updateStagger();
+  items.forEach( function( item, i ) {
+    item.stagger( i * stagger );
+    item.hide();
+  });
+};
+
+/**
+ * reveal item elements
+ * @param {Array}, {Element}, {NodeList} items
+ */
+proto.revealItemElements = function( elems ) {
+  var items = this.getItems( elems );
+  this.reveal( items );
+};
+
+/**
+ * hide item elements
+ * @param {Array}, {Element}, {NodeList} items
+ */
+proto.hideItemElements = function( elems ) {
+  var items = this.getItems( elems );
+  this.hide( items );
+};
+
+/**
+ * get Outlayer.Item, given an Element
+ * @param {Element} elem
+ * @param {Function} callback
+ * @returns {Outlayer.Item} item
+ */
+proto.getItem = function( elem ) {
+  // loop through items to get the one that matches
+  for ( var i=0; i < this.items.length; i++ ) {
+    var item = this.items[i];
+    if ( item.element == elem ) {
+      // return item
+      return item;
+    }
+  }
+};
+
+/**
+ * get collection of Outlayer.Items, given Elements
+ * @param {Array} elems
+ * @returns {Array} items - Outlayer.Items
+ */
+proto.getItems = function( elems ) {
+  elems = utils.makeArray( elems );
+  var items = [];
+  elems.forEach( function( elem ) {
+    var item = this.getItem( elem );
+    if ( item ) {
+      items.push( item );
+    }
+  }, this );
+
+  return items;
+};
+
+/**
+ * remove element(s) from instance and DOM
+ * @param {Array or NodeList or Element} elems
+ */
+proto.remove = function( elems ) {
+  var removeItems = this.getItems( elems );
+
+  this._emitCompleteOnItems( 'remove', removeItems );
+
+  // bail if no items to remove
+  if ( !removeItems || !removeItems.length ) {
+    return;
+  }
+
+  removeItems.forEach( function( item ) {
+    item.remove();
+    // remove item from collection
+    utils.removeFrom( this.items, item );
+  }, this );
+};
+
+// ----- destroy ----- //
+
+// remove and disable Outlayer instance
+proto.destroy = function() {
+  // clean up dynamic styles
+  var style = this.element.style;
+  style.height = '';
+  style.position = '';
+  style.width = '';
+  // destroy items
+  this.items.forEach( function( item ) {
+    item.destroy();
+  });
+
+  this.unbindResize();
+
+  var id = this.element.outlayerGUID;
+  delete instances[ id ]; // remove reference to instance by id
+  delete this.element.outlayerGUID;
+  // remove data for jQuery
+  if ( jQuery ) {
+    jQuery.removeData( this.element, this.constructor.namespace );
+  }
+
+};
+
+// -------------------------- data -------------------------- //
+
+/**
+ * get Outlayer instance from element
+ * @param {Element} elem
+ * @returns {Outlayer}
+ */
+Outlayer.data = function( elem ) {
+  elem = utils.getQueryElement( elem );
+  var id = elem && elem.outlayerGUID;
+  return id && instances[ id ];
+};
+
+
+// -------------------------- create Outlayer class -------------------------- //
+
+/**
+ * create a layout class
+ * @param {String} namespace
+ */
+Outlayer.create = function( namespace, options ) {
+  // sub-class Outlayer
+  var Layout = subclass( Outlayer );
+  // apply new options and compatOptions
+  Layout.defaults = utils.extend( {}, Outlayer.defaults );
+  utils.extend( Layout.defaults, options );
+  Layout.compatOptions = utils.extend( {}, Outlayer.compatOptions  );
+
+  Layout.namespace = namespace;
+
+  Layout.data = Outlayer.data;
+
+  // sub-class Item
+  Layout.Item = subclass( Item );
+
+  // -------------------------- declarative -------------------------- //
+
+  utils.htmlInit( Layout, namespace );
+
+  // -------------------------- jQuery bridge -------------------------- //
+
+  // make into jQuery plugin
+  if ( jQuery && jQuery.bridget ) {
+    jQuery.bridget( namespace, Layout );
+  }
+
+  return Layout;
+};
+
+function subclass( Parent ) {
+  function SubClass() {
+    Parent.apply( this, arguments );
+  }
+
+  SubClass.prototype = Object.create( Parent.prototype );
+  SubClass.prototype.constructor = SubClass;
+
+  return SubClass;
+}
+
+// ----- helpers ----- //
+
+// how many milliseconds are in each unit
+var msUnits = {
+  ms: 1,
+  s: 1000
+};
+
+// munge time-like parameter into millisecond number
+// '0.4s' -> 40
+function getMilliseconds( time ) {
+  if ( typeof time == 'number' ) {
+    return time;
+  }
+  var matches = time.match( /(^\d*\.?\d*)(\w*)/ );
+  var num = matches && matches[1];
+  var unit = matches && matches[2];
+  if ( !num.length ) {
+    return 0;
+  }
+  num = parseFloat( num );
+  var mult = msUnits[ unit ] || 1;
+  return num * mult;
+}
+
+// ----- fin ----- //
+
+// back in global
+Outlayer.Item = Item;
+
+return Outlayer;
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/slick-carousel/slick/slick.js":
+/*!****************************************************!*\
+  !*** ./node_modules/slick-carousel/slick/slick.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+     _ _      _       _
+ ___| (_) ___| | __  (_)___
+/ __| | |/ __| |/ /  | / __|
+\__ \ | | (__|   < _ | \__ \
+|___/_|_|\___|_|\_(_)/ |___/
+                   |__/
+
+ Version: 1.8.1
+  Author: Ken Wheeler
+ Website: http://kenwheeler.github.io
+    Docs: http://kenwheeler.github.io/slick
+    Repo: http://github.com/kenwheeler/slick
+  Issues: http://github.com/kenwheeler/slick/issues
+
+ */
+/* global window, document, define, jQuery, setInterval, clearInterval */
+;(function(factory) {
+    'use strict';
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "jquery")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else {}
+
+}(function($) {
+    'use strict';
+    var Slick = window.Slick || {};
+
+    Slick = (function() {
+
+        var instanceUid = 0;
+
+        function Slick(element, settings) {
+
+            var _ = this, dataSettings;
+
+            _.defaults = {
+                accessibility: true,
+                adaptiveHeight: false,
+                appendArrows: $(element),
+                appendDots: $(element),
+                arrows: true,
+                asNavFor: null,
+                prevArrow: '<button class="slick-prev" aria-label="Previous" type="button">Previous</button>',
+                nextArrow: '<button class="slick-next" aria-label="Next" type="button">Next</button>',
+                autoplay: false,
+                autoplaySpeed: 3000,
+                centerMode: false,
+                centerPadding: '50px',
+                cssEase: 'ease',
+                customPaging: function(slider, i) {
+                    return $('<button type="button" />').text(i + 1);
+                },
+                dots: false,
+                dotsClass: 'slick-dots',
+                draggable: true,
+                easing: 'linear',
+                edgeFriction: 0.35,
+                fade: false,
+                focusOnSelect: false,
+                focusOnChange: false,
+                infinite: true,
+                initialSlide: 0,
+                lazyLoad: 'ondemand',
+                mobileFirst: false,
+                pauseOnHover: true,
+                pauseOnFocus: true,
+                pauseOnDotsHover: false,
+                respondTo: 'window',
+                responsive: null,
+                rows: 1,
+                rtl: false,
+                slide: '',
+                slidesPerRow: 1,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                speed: 500,
+                swipe: true,
+                swipeToSlide: false,
+                touchMove: true,
+                touchThreshold: 5,
+                useCSS: true,
+                useTransform: true,
+                variableWidth: false,
+                vertical: false,
+                verticalSwiping: false,
+                waitForAnimate: true,
+                zIndex: 1000
+            };
+
+            _.initials = {
+                animating: false,
+                dragging: false,
+                autoPlayTimer: null,
+                currentDirection: 0,
+                currentLeft: null,
+                currentSlide: 0,
+                direction: 1,
+                $dots: null,
+                listWidth: null,
+                listHeight: null,
+                loadIndex: 0,
+                $nextArrow: null,
+                $prevArrow: null,
+                scrolling: false,
+                slideCount: null,
+                slideWidth: null,
+                $slideTrack: null,
+                $slides: null,
+                sliding: false,
+                slideOffset: 0,
+                swipeLeft: null,
+                swiping: false,
+                $list: null,
+                touchObject: {},
+                transformsEnabled: false,
+                unslicked: false
+            };
+
+            $.extend(_, _.initials);
+
+            _.activeBreakpoint = null;
+            _.animType = null;
+            _.animProp = null;
+            _.breakpoints = [];
+            _.breakpointSettings = [];
+            _.cssTransitions = false;
+            _.focussed = false;
+            _.interrupted = false;
+            _.hidden = 'hidden';
+            _.paused = true;
+            _.positionProp = null;
+            _.respondTo = null;
+            _.rowCount = 1;
+            _.shouldClick = true;
+            _.$slider = $(element);
+            _.$slidesCache = null;
+            _.transformType = null;
+            _.transitionType = null;
+            _.visibilityChange = 'visibilitychange';
+            _.windowWidth = 0;
+            _.windowTimer = null;
+
+            dataSettings = $(element).data('slick') || {};
+
+            _.options = $.extend({}, _.defaults, settings, dataSettings);
+
+            _.currentSlide = _.options.initialSlide;
+
+            _.originalSettings = _.options;
+
+            if (typeof document.mozHidden !== 'undefined') {
+                _.hidden = 'mozHidden';
+                _.visibilityChange = 'mozvisibilitychange';
+            } else if (typeof document.webkitHidden !== 'undefined') {
+                _.hidden = 'webkitHidden';
+                _.visibilityChange = 'webkitvisibilitychange';
+            }
+
+            _.autoPlay = $.proxy(_.autoPlay, _);
+            _.autoPlayClear = $.proxy(_.autoPlayClear, _);
+            _.autoPlayIterator = $.proxy(_.autoPlayIterator, _);
+            _.changeSlide = $.proxy(_.changeSlide, _);
+            _.clickHandler = $.proxy(_.clickHandler, _);
+            _.selectHandler = $.proxy(_.selectHandler, _);
+            _.setPosition = $.proxy(_.setPosition, _);
+            _.swipeHandler = $.proxy(_.swipeHandler, _);
+            _.dragHandler = $.proxy(_.dragHandler, _);
+            _.keyHandler = $.proxy(_.keyHandler, _);
+
+            _.instanceUid = instanceUid++;
+
+            // A simple way to check for HTML strings
+            // Strict HTML recognition (must start with <)
+            // Extracted from jQuery v1.11 source
+            _.htmlExpr = /^(?:\s*(<[\w\W]+>)[^>]*)$/;
+
+
+            _.registerBreakpoints();
+            _.init(true);
+
+        }
+
+        return Slick;
+
+    }());
+
+    Slick.prototype.activateADA = function() {
+        var _ = this;
+
+        _.$slideTrack.find('.slick-active').attr({
+            'aria-hidden': 'false'
+        }).find('a, input, button, select').attr({
+            'tabindex': '0'
+        });
+
+    };
+
+    Slick.prototype.addSlide = Slick.prototype.slickAdd = function(markup, index, addBefore) {
+
+        var _ = this;
+
+        if (typeof(index) === 'boolean') {
+            addBefore = index;
+            index = null;
+        } else if (index < 0 || (index >= _.slideCount)) {
+            return false;
+        }
+
+        _.unload();
+
+        if (typeof(index) === 'number') {
+            if (index === 0 && _.$slides.length === 0) {
+                $(markup).appendTo(_.$slideTrack);
+            } else if (addBefore) {
+                $(markup).insertBefore(_.$slides.eq(index));
+            } else {
+                $(markup).insertAfter(_.$slides.eq(index));
+            }
+        } else {
+            if (addBefore === true) {
+                $(markup).prependTo(_.$slideTrack);
+            } else {
+                $(markup).appendTo(_.$slideTrack);
+            }
+        }
+
+        _.$slides = _.$slideTrack.children(this.options.slide);
+
+        _.$slideTrack.children(this.options.slide).detach();
+
+        _.$slideTrack.append(_.$slides);
+
+        _.$slides.each(function(index, element) {
+            $(element).attr('data-slick-index', index);
+        });
+
+        _.$slidesCache = _.$slides;
+
+        _.reinit();
+
+    };
+
+    Slick.prototype.animateHeight = function() {
+        var _ = this;
+        if (_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
+            var targetHeight = _.$slides.eq(_.currentSlide).outerHeight(true);
+            _.$list.animate({
+                height: targetHeight
+            }, _.options.speed);
+        }
+    };
+
+    Slick.prototype.animateSlide = function(targetLeft, callback) {
+
+        var animProps = {},
+            _ = this;
+
+        _.animateHeight();
+
+        if (_.options.rtl === true && _.options.vertical === false) {
+            targetLeft = -targetLeft;
+        }
+        if (_.transformsEnabled === false) {
+            if (_.options.vertical === false) {
+                _.$slideTrack.animate({
+                    left: targetLeft
+                }, _.options.speed, _.options.easing, callback);
+            } else {
+                _.$slideTrack.animate({
+                    top: targetLeft
+                }, _.options.speed, _.options.easing, callback);
+            }
+
+        } else {
+
+            if (_.cssTransitions === false) {
+                if (_.options.rtl === true) {
+                    _.currentLeft = -(_.currentLeft);
+                }
+                $({
+                    animStart: _.currentLeft
+                }).animate({
+                    animStart: targetLeft
+                }, {
+                    duration: _.options.speed,
+                    easing: _.options.easing,
+                    step: function(now) {
+                        now = Math.ceil(now);
+                        if (_.options.vertical === false) {
+                            animProps[_.animType] = 'translate(' +
+                                now + 'px, 0px)';
+                            _.$slideTrack.css(animProps);
+                        } else {
+                            animProps[_.animType] = 'translate(0px,' +
+                                now + 'px)';
+                            _.$slideTrack.css(animProps);
+                        }
+                    },
+                    complete: function() {
+                        if (callback) {
+                            callback.call();
+                        }
+                    }
+                });
+
+            } else {
+
+                _.applyTransition();
+                targetLeft = Math.ceil(targetLeft);
+
+                if (_.options.vertical === false) {
+                    animProps[_.animType] = 'translate3d(' + targetLeft + 'px, 0px, 0px)';
+                } else {
+                    animProps[_.animType] = 'translate3d(0px,' + targetLeft + 'px, 0px)';
+                }
+                _.$slideTrack.css(animProps);
+
+                if (callback) {
+                    setTimeout(function() {
+
+                        _.disableTransition();
+
+                        callback.call();
+                    }, _.options.speed);
+                }
+
+            }
+
+        }
+
+    };
+
+    Slick.prototype.getNavTarget = function() {
+
+        var _ = this,
+            asNavFor = _.options.asNavFor;
+
+        if ( asNavFor && asNavFor !== null ) {
+            asNavFor = $(asNavFor).not(_.$slider);
+        }
+
+        return asNavFor;
+
+    };
+
+    Slick.prototype.asNavFor = function(index) {
+
+        var _ = this,
+            asNavFor = _.getNavTarget();
+
+        if ( asNavFor !== null && typeof asNavFor === 'object' ) {
+            asNavFor.each(function() {
+                var target = $(this).slick('getSlick');
+                if(!target.unslicked) {
+                    target.slideHandler(index, true);
+                }
+            });
+        }
+
+    };
+
+    Slick.prototype.applyTransition = function(slide) {
+
+        var _ = this,
+            transition = {};
+
+        if (_.options.fade === false) {
+            transition[_.transitionType] = _.transformType + ' ' + _.options.speed + 'ms ' + _.options.cssEase;
+        } else {
+            transition[_.transitionType] = 'opacity ' + _.options.speed + 'ms ' + _.options.cssEase;
+        }
+
+        if (_.options.fade === false) {
+            _.$slideTrack.css(transition);
+        } else {
+            _.$slides.eq(slide).css(transition);
+        }
+
+    };
+
+    Slick.prototype.autoPlay = function() {
+
+        var _ = this;
+
+        _.autoPlayClear();
+
+        if ( _.slideCount > _.options.slidesToShow ) {
+            _.autoPlayTimer = setInterval( _.autoPlayIterator, _.options.autoplaySpeed );
+        }
+
+    };
+
+    Slick.prototype.autoPlayClear = function() {
+
+        var _ = this;
+
+        if (_.autoPlayTimer) {
+            clearInterval(_.autoPlayTimer);
+        }
+
+    };
+
+    Slick.prototype.autoPlayIterator = function() {
+
+        var _ = this,
+            slideTo = _.currentSlide + _.options.slidesToScroll;
+
+        if ( !_.paused && !_.interrupted && !_.focussed ) {
+
+            if ( _.options.infinite === false ) {
+
+                if ( _.direction === 1 && ( _.currentSlide + 1 ) === ( _.slideCount - 1 )) {
+                    _.direction = 0;
+                }
+
+                else if ( _.direction === 0 ) {
+
+                    slideTo = _.currentSlide - _.options.slidesToScroll;
+
+                    if ( _.currentSlide - 1 === 0 ) {
+                        _.direction = 1;
+                    }
+
+                }
+
+            }
+
+            _.slideHandler( slideTo );
+
+        }
+
+    };
+
+    Slick.prototype.buildArrows = function() {
+
+        var _ = this;
+
+        if (_.options.arrows === true ) {
+
+            _.$prevArrow = $(_.options.prevArrow).addClass('slick-arrow');
+            _.$nextArrow = $(_.options.nextArrow).addClass('slick-arrow');
+
+            if( _.slideCount > _.options.slidesToShow ) {
+
+                _.$prevArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
+                _.$nextArrow.removeClass('slick-hidden').removeAttr('aria-hidden tabindex');
+
+                if (_.htmlExpr.test(_.options.prevArrow)) {
+                    _.$prevArrow.prependTo(_.options.appendArrows);
+                }
+
+                if (_.htmlExpr.test(_.options.nextArrow)) {
+                    _.$nextArrow.appendTo(_.options.appendArrows);
+                }
+
+                if (_.options.infinite !== true) {
+                    _.$prevArrow
+                        .addClass('slick-disabled')
+                        .attr('aria-disabled', 'true');
+                }
+
+            } else {
+
+                _.$prevArrow.add( _.$nextArrow )
+
+                    .addClass('slick-hidden')
+                    .attr({
+                        'aria-disabled': 'true',
+                        'tabindex': '-1'
+                    });
+
+            }
+
+        }
+
+    };
+
+    Slick.prototype.buildDots = function() {
+
+        var _ = this,
+            i, dot;
+
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+
+            _.$slider.addClass('slick-dotted');
+
+            dot = $('<ul />').addClass(_.options.dotsClass);
+
+            for (i = 0; i <= _.getDotCount(); i += 1) {
+                dot.append($('<li />').append(_.options.customPaging.call(this, _, i)));
+            }
+
+            _.$dots = dot.appendTo(_.options.appendDots);
+
+            _.$dots.find('li').first().addClass('slick-active');
+
+        }
+
+    };
+
+    Slick.prototype.buildOut = function() {
+
+        var _ = this;
+
+        _.$slides =
+            _.$slider
+                .children( _.options.slide + ':not(.slick-cloned)')
+                .addClass('slick-slide');
+
+        _.slideCount = _.$slides.length;
+
+        _.$slides.each(function(index, element) {
+            $(element)
+                .attr('data-slick-index', index)
+                .data('originalStyling', $(element).attr('style') || '');
+        });
+
+        _.$slider.addClass('slick-slider');
+
+        _.$slideTrack = (_.slideCount === 0) ?
+            $('<div class="slick-track"/>').appendTo(_.$slider) :
+            _.$slides.wrapAll('<div class="slick-track"/>').parent();
+
+        _.$list = _.$slideTrack.wrap(
+            '<div class="slick-list"/>').parent();
+        _.$slideTrack.css('opacity', 0);
+
+        if (_.options.centerMode === true || _.options.swipeToSlide === true) {
+            _.options.slidesToScroll = 1;
+        }
+
+        $('img[data-lazy]', _.$slider).not('[src]').addClass('slick-loading');
+
+        _.setupInfinite();
+
+        _.buildArrows();
+
+        _.buildDots();
+
+        _.updateDots();
+
+
+        _.setSlideClasses(typeof _.currentSlide === 'number' ? _.currentSlide : 0);
+
+        if (_.options.draggable === true) {
+            _.$list.addClass('draggable');
+        }
+
+    };
+
+    Slick.prototype.buildRows = function() {
+
+        var _ = this, a, b, c, newSlides, numOfSlides, originalSlides,slidesPerSection;
+
+        newSlides = document.createDocumentFragment();
+        originalSlides = _.$slider.children();
+
+        if(_.options.rows > 0) {
+
+            slidesPerSection = _.options.slidesPerRow * _.options.rows;
+            numOfSlides = Math.ceil(
+                originalSlides.length / slidesPerSection
+            );
+
+            for(a = 0; a < numOfSlides; a++){
+                var slide = document.createElement('div');
+                for(b = 0; b < _.options.rows; b++) {
+                    var row = document.createElement('div');
+                    for(c = 0; c < _.options.slidesPerRow; c++) {
+                        var target = (a * slidesPerSection + ((b * _.options.slidesPerRow) + c));
+                        if (originalSlides.get(target)) {
+                            row.appendChild(originalSlides.get(target));
+                        }
+                    }
+                    slide.appendChild(row);
+                }
+                newSlides.appendChild(slide);
+            }
+
+            _.$slider.empty().append(newSlides);
+            _.$slider.children().children().children()
+                .css({
+                    'width':(100 / _.options.slidesPerRow) + '%',
+                    'display': 'inline-block'
+                });
+
+        }
+
+    };
+
+    Slick.prototype.checkResponsive = function(initial, forceUpdate) {
+
+        var _ = this,
+            breakpoint, targetBreakpoint, respondToWidth, triggerBreakpoint = false;
+        var sliderWidth = _.$slider.width();
+        var windowWidth = window.innerWidth || $(window).width();
+
+        if (_.respondTo === 'window') {
+            respondToWidth = windowWidth;
+        } else if (_.respondTo === 'slider') {
+            respondToWidth = sliderWidth;
+        } else if (_.respondTo === 'min') {
+            respondToWidth = Math.min(windowWidth, sliderWidth);
+        }
+
+        if ( _.options.responsive &&
+            _.options.responsive.length &&
+            _.options.responsive !== null) {
+
+            targetBreakpoint = null;
+
+            for (breakpoint in _.breakpoints) {
+                if (_.breakpoints.hasOwnProperty(breakpoint)) {
+                    if (_.originalSettings.mobileFirst === false) {
+                        if (respondToWidth < _.breakpoints[breakpoint]) {
+                            targetBreakpoint = _.breakpoints[breakpoint];
+                        }
+                    } else {
+                        if (respondToWidth > _.breakpoints[breakpoint]) {
+                            targetBreakpoint = _.breakpoints[breakpoint];
+                        }
+                    }
+                }
+            }
+
+            if (targetBreakpoint !== null) {
+                if (_.activeBreakpoint !== null) {
+                    if (targetBreakpoint !== _.activeBreakpoint || forceUpdate) {
+                        _.activeBreakpoint =
+                            targetBreakpoint;
+                        if (_.breakpointSettings[targetBreakpoint] === 'unslick') {
+                            _.unslick(targetBreakpoint);
+                        } else {
+                            _.options = $.extend({}, _.originalSettings,
+                                _.breakpointSettings[
+                                    targetBreakpoint]);
+                            if (initial === true) {
+                                _.currentSlide = _.options.initialSlide;
+                            }
+                            _.refresh(initial);
+                        }
+                        triggerBreakpoint = targetBreakpoint;
+                    }
+                } else {
+                    _.activeBreakpoint = targetBreakpoint;
+                    if (_.breakpointSettings[targetBreakpoint] === 'unslick') {
+                        _.unslick(targetBreakpoint);
+                    } else {
+                        _.options = $.extend({}, _.originalSettings,
+                            _.breakpointSettings[
+                                targetBreakpoint]);
+                        if (initial === true) {
+                            _.currentSlide = _.options.initialSlide;
+                        }
+                        _.refresh(initial);
+                    }
+                    triggerBreakpoint = targetBreakpoint;
+                }
+            } else {
+                if (_.activeBreakpoint !== null) {
+                    _.activeBreakpoint = null;
+                    _.options = _.originalSettings;
+                    if (initial === true) {
+                        _.currentSlide = _.options.initialSlide;
+                    }
+                    _.refresh(initial);
+                    triggerBreakpoint = targetBreakpoint;
+                }
+            }
+
+            // only trigger breakpoints during an actual break. not on initialize.
+            if( !initial && triggerBreakpoint !== false ) {
+                _.$slider.trigger('breakpoint', [_, triggerBreakpoint]);
+            }
+        }
+
+    };
+
+    Slick.prototype.changeSlide = function(event, dontAnimate) {
+
+        var _ = this,
+            $target = $(event.currentTarget),
+            indexOffset, slideOffset, unevenOffset;
+
+        // If target is a link, prevent default action.
+        if($target.is('a')) {
+            event.preventDefault();
+        }
+
+        // If target is not the <li> element (ie: a child), find the <li>.
+        if(!$target.is('li')) {
+            $target = $target.closest('li');
+        }
+
+        unevenOffset = (_.slideCount % _.options.slidesToScroll !== 0);
+        indexOffset = unevenOffset ? 0 : (_.slideCount - _.currentSlide) % _.options.slidesToScroll;
+
+        switch (event.data.message) {
+
+            case 'previous':
+                slideOffset = indexOffset === 0 ? _.options.slidesToScroll : _.options.slidesToShow - indexOffset;
+                if (_.slideCount > _.options.slidesToShow) {
+                    _.slideHandler(_.currentSlide - slideOffset, false, dontAnimate);
+                }
+                break;
+
+            case 'next':
+                slideOffset = indexOffset === 0 ? _.options.slidesToScroll : indexOffset;
+                if (_.slideCount > _.options.slidesToShow) {
+                    _.slideHandler(_.currentSlide + slideOffset, false, dontAnimate);
+                }
+                break;
+
+            case 'index':
+                var index = event.data.index === 0 ? 0 :
+                    event.data.index || $target.index() * _.options.slidesToScroll;
+
+                _.slideHandler(_.checkNavigable(index), false, dontAnimate);
+                $target.children().trigger('focus');
+                break;
+
+            default:
+                return;
+        }
+
+    };
+
+    Slick.prototype.checkNavigable = function(index) {
+
+        var _ = this,
+            navigables, prevNavigable;
+
+        navigables = _.getNavigableIndexes();
+        prevNavigable = 0;
+        if (index > navigables[navigables.length - 1]) {
+            index = navigables[navigables.length - 1];
+        } else {
+            for (var n in navigables) {
+                if (index < navigables[n]) {
+                    index = prevNavigable;
+                    break;
+                }
+                prevNavigable = navigables[n];
+            }
+        }
+
+        return index;
+    };
+
+    Slick.prototype.cleanUpEvents = function() {
+
+        var _ = this;
+
+        if (_.options.dots && _.$dots !== null) {
+
+            $('li', _.$dots)
+                .off('click.slick', _.changeSlide)
+                .off('mouseenter.slick', $.proxy(_.interrupt, _, true))
+                .off('mouseleave.slick', $.proxy(_.interrupt, _, false));
+
+            if (_.options.accessibility === true) {
+                _.$dots.off('keydown.slick', _.keyHandler);
+            }
+        }
+
+        _.$slider.off('focus.slick blur.slick');
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+            _.$prevArrow && _.$prevArrow.off('click.slick', _.changeSlide);
+            _.$nextArrow && _.$nextArrow.off('click.slick', _.changeSlide);
+
+            if (_.options.accessibility === true) {
+                _.$prevArrow && _.$prevArrow.off('keydown.slick', _.keyHandler);
+                _.$nextArrow && _.$nextArrow.off('keydown.slick', _.keyHandler);
+            }
+        }
+
+        _.$list.off('touchstart.slick mousedown.slick', _.swipeHandler);
+        _.$list.off('touchmove.slick mousemove.slick', _.swipeHandler);
+        _.$list.off('touchend.slick mouseup.slick', _.swipeHandler);
+        _.$list.off('touchcancel.slick mouseleave.slick', _.swipeHandler);
+
+        _.$list.off('click.slick', _.clickHandler);
+
+        $(document).off(_.visibilityChange, _.visibility);
+
+        _.cleanUpSlideEvents();
+
+        if (_.options.accessibility === true) {
+            _.$list.off('keydown.slick', _.keyHandler);
+        }
+
+        if (_.options.focusOnSelect === true) {
+            $(_.$slideTrack).children().off('click.slick', _.selectHandler);
+        }
+
+        $(window).off('orientationchange.slick.slick-' + _.instanceUid, _.orientationChange);
+
+        $(window).off('resize.slick.slick-' + _.instanceUid, _.resize);
+
+        $('[draggable!=true]', _.$slideTrack).off('dragstart', _.preventDefault);
+
+        $(window).off('load.slick.slick-' + _.instanceUid, _.setPosition);
+
+    };
+
+    Slick.prototype.cleanUpSlideEvents = function() {
+
+        var _ = this;
+
+        _.$list.off('mouseenter.slick', $.proxy(_.interrupt, _, true));
+        _.$list.off('mouseleave.slick', $.proxy(_.interrupt, _, false));
+
+    };
+
+    Slick.prototype.cleanUpRows = function() {
+
+        var _ = this, originalSlides;
+
+        if(_.options.rows > 0) {
+            originalSlides = _.$slides.children().children();
+            originalSlides.removeAttr('style');
+            _.$slider.empty().append(originalSlides);
+        }
+
+    };
+
+    Slick.prototype.clickHandler = function(event) {
+
+        var _ = this;
+
+        if (_.shouldClick === false) {
+            event.stopImmediatePropagation();
+            event.stopPropagation();
+            event.preventDefault();
+        }
+
+    };
+
+    Slick.prototype.destroy = function(refresh) {
+
+        var _ = this;
+
+        _.autoPlayClear();
+
+        _.touchObject = {};
+
+        _.cleanUpEvents();
+
+        $('.slick-cloned', _.$slider).detach();
+
+        if (_.$dots) {
+            _.$dots.remove();
+        }
+
+        if ( _.$prevArrow && _.$prevArrow.length ) {
+
+            _.$prevArrow
+                .removeClass('slick-disabled slick-arrow slick-hidden')
+                .removeAttr('aria-hidden aria-disabled tabindex')
+                .css('display','');
+
+            if ( _.htmlExpr.test( _.options.prevArrow )) {
+                _.$prevArrow.remove();
+            }
+        }
+
+        if ( _.$nextArrow && _.$nextArrow.length ) {
+
+            _.$nextArrow
+                .removeClass('slick-disabled slick-arrow slick-hidden')
+                .removeAttr('aria-hidden aria-disabled tabindex')
+                .css('display','');
+
+            if ( _.htmlExpr.test( _.options.nextArrow )) {
+                _.$nextArrow.remove();
+            }
+        }
+
+
+        if (_.$slides) {
+
+            _.$slides
+                .removeClass('slick-slide slick-active slick-center slick-visible slick-current')
+                .removeAttr('aria-hidden')
+                .removeAttr('data-slick-index')
+                .each(function(){
+                    $(this).attr('style', $(this).data('originalStyling'));
+                });
+
+            _.$slideTrack.children(this.options.slide).detach();
+
+            _.$slideTrack.detach();
+
+            _.$list.detach();
+
+            _.$slider.append(_.$slides);
+        }
+
+        _.cleanUpRows();
+
+        _.$slider.removeClass('slick-slider');
+        _.$slider.removeClass('slick-initialized');
+        _.$slider.removeClass('slick-dotted');
+
+        _.unslicked = true;
+
+        if(!refresh) {
+            _.$slider.trigger('destroy', [_]);
+        }
+
+    };
+
+    Slick.prototype.disableTransition = function(slide) {
+
+        var _ = this,
+            transition = {};
+
+        transition[_.transitionType] = '';
+
+        if (_.options.fade === false) {
+            _.$slideTrack.css(transition);
+        } else {
+            _.$slides.eq(slide).css(transition);
+        }
+
+    };
+
+    Slick.prototype.fadeSlide = function(slideIndex, callback) {
+
+        var _ = this;
+
+        if (_.cssTransitions === false) {
+
+            _.$slides.eq(slideIndex).css({
+                zIndex: _.options.zIndex
+            });
+
+            _.$slides.eq(slideIndex).animate({
+                opacity: 1
+            }, _.options.speed, _.options.easing, callback);
+
+        } else {
+
+            _.applyTransition(slideIndex);
+
+            _.$slides.eq(slideIndex).css({
+                opacity: 1,
+                zIndex: _.options.zIndex
+            });
+
+            if (callback) {
+                setTimeout(function() {
+
+                    _.disableTransition(slideIndex);
+
+                    callback.call();
+                }, _.options.speed);
+            }
+
+        }
+
+    };
+
+    Slick.prototype.fadeSlideOut = function(slideIndex) {
+
+        var _ = this;
+
+        if (_.cssTransitions === false) {
+
+            _.$slides.eq(slideIndex).animate({
+                opacity: 0,
+                zIndex: _.options.zIndex - 2
+            }, _.options.speed, _.options.easing);
+
+        } else {
+
+            _.applyTransition(slideIndex);
+
+            _.$slides.eq(slideIndex).css({
+                opacity: 0,
+                zIndex: _.options.zIndex - 2
+            });
+
+        }
+
+    };
+
+    Slick.prototype.filterSlides = Slick.prototype.slickFilter = function(filter) {
+
+        var _ = this;
+
+        if (filter !== null) {
+
+            _.$slidesCache = _.$slides;
+
+            _.unload();
+
+            _.$slideTrack.children(this.options.slide).detach();
+
+            _.$slidesCache.filter(filter).appendTo(_.$slideTrack);
+
+            _.reinit();
+
+        }
+
+    };
+
+    Slick.prototype.focusHandler = function() {
+
+        var _ = this;
+
+        _.$slider
+            .off('focus.slick blur.slick')
+            .on('focus.slick blur.slick', '*', function(event) {
+
+            event.stopImmediatePropagation();
+            var $sf = $(this);
+
+            setTimeout(function() {
+
+                if( _.options.pauseOnFocus ) {
+                    _.focussed = $sf.is(':focus');
+                    _.autoPlay();
+                }
+
+            }, 0);
+
+        });
+    };
+
+    Slick.prototype.getCurrent = Slick.prototype.slickCurrentSlide = function() {
+
+        var _ = this;
+        return _.currentSlide;
+
+    };
+
+    Slick.prototype.getDotCount = function() {
+
+        var _ = this;
+
+        var breakPoint = 0;
+        var counter = 0;
+        var pagerQty = 0;
+
+        if (_.options.infinite === true) {
+            if (_.slideCount <= _.options.slidesToShow) {
+                 ++pagerQty;
+            } else {
+                while (breakPoint < _.slideCount) {
+                    ++pagerQty;
+                    breakPoint = counter + _.options.slidesToScroll;
+                    counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
+                }
+            }
+        } else if (_.options.centerMode === true) {
+            pagerQty = _.slideCount;
+        } else if(!_.options.asNavFor) {
+            pagerQty = 1 + Math.ceil((_.slideCount - _.options.slidesToShow) / _.options.slidesToScroll);
+        }else {
+            while (breakPoint < _.slideCount) {
+                ++pagerQty;
+                breakPoint = counter + _.options.slidesToScroll;
+                counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
+            }
+        }
+
+        return pagerQty - 1;
+
+    };
+
+    Slick.prototype.getLeft = function(slideIndex) {
+
+        var _ = this,
+            targetLeft,
+            verticalHeight,
+            verticalOffset = 0,
+            targetSlide,
+            coef;
+
+        _.slideOffset = 0;
+        verticalHeight = _.$slides.first().outerHeight(true);
+
+        if (_.options.infinite === true) {
+            if (_.slideCount > _.options.slidesToShow) {
+                _.slideOffset = (_.slideWidth * _.options.slidesToShow) * -1;
+                coef = -1
+
+                if (_.options.vertical === true && _.options.centerMode === true) {
+                    if (_.options.slidesToShow === 2) {
+                        coef = -1.5;
+                    } else if (_.options.slidesToShow === 1) {
+                        coef = -2
+                    }
+                }
+                verticalOffset = (verticalHeight * _.options.slidesToShow) * coef;
+            }
+            if (_.slideCount % _.options.slidesToScroll !== 0) {
+                if (slideIndex + _.options.slidesToScroll > _.slideCount && _.slideCount > _.options.slidesToShow) {
+                    if (slideIndex > _.slideCount) {
+                        _.slideOffset = ((_.options.slidesToShow - (slideIndex - _.slideCount)) * _.slideWidth) * -1;
+                        verticalOffset = ((_.options.slidesToShow - (slideIndex - _.slideCount)) * verticalHeight) * -1;
+                    } else {
+                        _.slideOffset = ((_.slideCount % _.options.slidesToScroll) * _.slideWidth) * -1;
+                        verticalOffset = ((_.slideCount % _.options.slidesToScroll) * verticalHeight) * -1;
+                    }
+                }
+            }
+        } else {
+            if (slideIndex + _.options.slidesToShow > _.slideCount) {
+                _.slideOffset = ((slideIndex + _.options.slidesToShow) - _.slideCount) * _.slideWidth;
+                verticalOffset = ((slideIndex + _.options.slidesToShow) - _.slideCount) * verticalHeight;
+            }
+        }
+
+        if (_.slideCount <= _.options.slidesToShow) {
+            _.slideOffset = 0;
+            verticalOffset = 0;
+        }
+
+        if (_.options.centerMode === true && _.slideCount <= _.options.slidesToShow) {
+            _.slideOffset = ((_.slideWidth * Math.floor(_.options.slidesToShow)) / 2) - ((_.slideWidth * _.slideCount) / 2);
+        } else if (_.options.centerMode === true && _.options.infinite === true) {
+            _.slideOffset += _.slideWidth * Math.floor(_.options.slidesToShow / 2) - _.slideWidth;
+        } else if (_.options.centerMode === true) {
+            _.slideOffset = 0;
+            _.slideOffset += _.slideWidth * Math.floor(_.options.slidesToShow / 2);
+        }
+
+        if (_.options.vertical === false) {
+            targetLeft = ((slideIndex * _.slideWidth) * -1) + _.slideOffset;
+        } else {
+            targetLeft = ((slideIndex * verticalHeight) * -1) + verticalOffset;
+        }
+
+        if (_.options.variableWidth === true) {
+
+            if (_.slideCount <= _.options.slidesToShow || _.options.infinite === false) {
+                targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex);
+            } else {
+                targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex + _.options.slidesToShow);
+            }
+
+            if (_.options.rtl === true) {
+                if (targetSlide[0]) {
+                    targetLeft = (_.$slideTrack.width() - targetSlide[0].offsetLeft - targetSlide.width()) * -1;
+                } else {
+                    targetLeft =  0;
+                }
+            } else {
+                targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
+            }
+
+            if (_.options.centerMode === true) {
+                if (_.slideCount <= _.options.slidesToShow || _.options.infinite === false) {
+                    targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex);
+                } else {
+                    targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex + _.options.slidesToShow + 1);
+                }
+
+                if (_.options.rtl === true) {
+                    if (targetSlide[0]) {
+                        targetLeft = (_.$slideTrack.width() - targetSlide[0].offsetLeft - targetSlide.width()) * -1;
+                    } else {
+                        targetLeft =  0;
+                    }
+                } else {
+                    targetLeft = targetSlide[0] ? targetSlide[0].offsetLeft * -1 : 0;
+                }
+
+                targetLeft += (_.$list.width() - targetSlide.outerWidth()) / 2;
+            }
+        }
+
+        return targetLeft;
+
+    };
+
+    Slick.prototype.getOption = Slick.prototype.slickGetOption = function(option) {
+
+        var _ = this;
+
+        return _.options[option];
+
+    };
+
+    Slick.prototype.getNavigableIndexes = function() {
+
+        var _ = this,
+            breakPoint = 0,
+            counter = 0,
+            indexes = [],
+            max;
+
+        if (_.options.infinite === false) {
+            max = _.slideCount;
+        } else {
+            breakPoint = _.options.slidesToScroll * -1;
+            counter = _.options.slidesToScroll * -1;
+            max = _.slideCount * 2;
+        }
+
+        while (breakPoint < max) {
+            indexes.push(breakPoint);
+            breakPoint = counter + _.options.slidesToScroll;
+            counter += _.options.slidesToScroll <= _.options.slidesToShow ? _.options.slidesToScroll : _.options.slidesToShow;
+        }
+
+        return indexes;
+
+    };
+
+    Slick.prototype.getSlick = function() {
+
+        return this;
+
+    };
+
+    Slick.prototype.getSlideCount = function() {
+
+        var _ = this,
+            slidesTraversed, swipedSlide, centerOffset;
+
+        centerOffset = _.options.centerMode === true ? _.slideWidth * Math.floor(_.options.slidesToShow / 2) : 0;
+
+        if (_.options.swipeToSlide === true) {
+            _.$slideTrack.find('.slick-slide').each(function(index, slide) {
+                if (slide.offsetLeft - centerOffset + ($(slide).outerWidth() / 2) > (_.swipeLeft * -1)) {
+                    swipedSlide = slide;
+                    return false;
+                }
+            });
+
+            slidesTraversed = Math.abs($(swipedSlide).attr('data-slick-index') - _.currentSlide) || 1;
+
+            return slidesTraversed;
+
+        } else {
+            return _.options.slidesToScroll;
+        }
+
+    };
+
+    Slick.prototype.goTo = Slick.prototype.slickGoTo = function(slide, dontAnimate) {
+
+        var _ = this;
+
+        _.changeSlide({
+            data: {
+                message: 'index',
+                index: parseInt(slide)
+            }
+        }, dontAnimate);
+
+    };
+
+    Slick.prototype.init = function(creation) {
+
+        var _ = this;
+
+        if (!$(_.$slider).hasClass('slick-initialized')) {
+
+            $(_.$slider).addClass('slick-initialized');
+
+            _.buildRows();
+            _.buildOut();
+            _.setProps();
+            _.startLoad();
+            _.loadSlider();
+            _.initializeEvents();
+            _.updateArrows();
+            _.updateDots();
+            _.checkResponsive(true);
+            _.focusHandler();
+
+        }
+
+        if (creation) {
+            _.$slider.trigger('init', [_]);
+        }
+
+        if (_.options.accessibility === true) {
+            _.initADA();
+        }
+
+        if ( _.options.autoplay ) {
+
+            _.paused = false;
+            _.autoPlay();
+
+        }
+
+    };
+
+    Slick.prototype.initADA = function() {
+        var _ = this,
+                numDotGroups = Math.ceil(_.slideCount / _.options.slidesToShow),
+                tabControlIndexes = _.getNavigableIndexes().filter(function(val) {
+                    return (val >= 0) && (val < _.slideCount);
+                });
+
+        _.$slides.add(_.$slideTrack.find('.slick-cloned')).attr({
+            'aria-hidden': 'true',
+            'tabindex': '-1'
+        }).find('a, input, button, select').attr({
+            'tabindex': '-1'
+        });
+
+        if (_.$dots !== null) {
+            _.$slides.not(_.$slideTrack.find('.slick-cloned')).each(function(i) {
+                var slideControlIndex = tabControlIndexes.indexOf(i);
+
+                $(this).attr({
+                    'role': 'tabpanel',
+                    'id': 'slick-slide' + _.instanceUid + i,
+                    'tabindex': -1
+                });
+
+                if (slideControlIndex !== -1) {
+                   var ariaButtonControl = 'slick-slide-control' + _.instanceUid + slideControlIndex
+                   if ($('#' + ariaButtonControl).length) {
+                     $(this).attr({
+                         'aria-describedby': ariaButtonControl
+                     });
+                   }
+                }
+            });
+
+            _.$dots.attr('role', 'tablist').find('li').each(function(i) {
+                var mappedSlideIndex = tabControlIndexes[i];
+
+                $(this).attr({
+                    'role': 'presentation'
+                });
+
+                $(this).find('button').first().attr({
+                    'role': 'tab',
+                    'id': 'slick-slide-control' + _.instanceUid + i,
+                    'aria-controls': 'slick-slide' + _.instanceUid + mappedSlideIndex,
+                    'aria-label': (i + 1) + ' of ' + numDotGroups,
+                    'aria-selected': null,
+                    'tabindex': '-1'
+                });
+
+            }).eq(_.currentSlide).find('button').attr({
+                'aria-selected': 'true',
+                'tabindex': '0'
+            }).end();
+        }
+
+        for (var i=_.currentSlide, max=i+_.options.slidesToShow; i < max; i++) {
+          if (_.options.focusOnChange) {
+            _.$slides.eq(i).attr({'tabindex': '0'});
+          } else {
+            _.$slides.eq(i).removeAttr('tabindex');
+          }
+        }
+
+        _.activateADA();
+
+    };
+
+    Slick.prototype.initArrowEvents = function() {
+
+        var _ = this;
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+            _.$prevArrow
+               .off('click.slick')
+               .on('click.slick', {
+                    message: 'previous'
+               }, _.changeSlide);
+            _.$nextArrow
+               .off('click.slick')
+               .on('click.slick', {
+                    message: 'next'
+               }, _.changeSlide);
+
+            if (_.options.accessibility === true) {
+                _.$prevArrow.on('keydown.slick', _.keyHandler);
+                _.$nextArrow.on('keydown.slick', _.keyHandler);
+            }
+        }
+
+    };
+
+    Slick.prototype.initDotEvents = function() {
+
+        var _ = this;
+
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+            $('li', _.$dots).on('click.slick', {
+                message: 'index'
+            }, _.changeSlide);
+
+            if (_.options.accessibility === true) {
+                _.$dots.on('keydown.slick', _.keyHandler);
+            }
+        }
+
+        if (_.options.dots === true && _.options.pauseOnDotsHover === true && _.slideCount > _.options.slidesToShow) {
+
+            $('li', _.$dots)
+                .on('mouseenter.slick', $.proxy(_.interrupt, _, true))
+                .on('mouseleave.slick', $.proxy(_.interrupt, _, false));
+
+        }
+
+    };
+
+    Slick.prototype.initSlideEvents = function() {
+
+        var _ = this;
+
+        if ( _.options.pauseOnHover ) {
+
+            _.$list.on('mouseenter.slick', $.proxy(_.interrupt, _, true));
+            _.$list.on('mouseleave.slick', $.proxy(_.interrupt, _, false));
+
+        }
+
+    };
+
+    Slick.prototype.initializeEvents = function() {
+
+        var _ = this;
+
+        _.initArrowEvents();
+
+        _.initDotEvents();
+        _.initSlideEvents();
+
+        _.$list.on('touchstart.slick mousedown.slick', {
+            action: 'start'
+        }, _.swipeHandler);
+        _.$list.on('touchmove.slick mousemove.slick', {
+            action: 'move'
+        }, _.swipeHandler);
+        _.$list.on('touchend.slick mouseup.slick', {
+            action: 'end'
+        }, _.swipeHandler);
+        _.$list.on('touchcancel.slick mouseleave.slick', {
+            action: 'end'
+        }, _.swipeHandler);
+
+        _.$list.on('click.slick', _.clickHandler);
+
+        $(document).on(_.visibilityChange, $.proxy(_.visibility, _));
+
+        if (_.options.accessibility === true) {
+            _.$list.on('keydown.slick', _.keyHandler);
+        }
+
+        if (_.options.focusOnSelect === true) {
+            $(_.$slideTrack).children().on('click.slick', _.selectHandler);
+        }
+
+        $(window).on('orientationchange.slick.slick-' + _.instanceUid, $.proxy(_.orientationChange, _));
+
+        $(window).on('resize.slick.slick-' + _.instanceUid, $.proxy(_.resize, _));
+
+        $('[draggable!=true]', _.$slideTrack).on('dragstart', _.preventDefault);
+
+        $(window).on('load.slick.slick-' + _.instanceUid, _.setPosition);
+        $(_.setPosition);
+
+    };
+
+    Slick.prototype.initUI = function() {
+
+        var _ = this;
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+
+            _.$prevArrow.show();
+            _.$nextArrow.show();
+
+        }
+
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+
+            _.$dots.show();
+
+        }
+
+    };
+
+    Slick.prototype.keyHandler = function(event) {
+
+        var _ = this;
+         //Dont slide if the cursor is inside the form fields and arrow keys are pressed
+        if(!event.target.tagName.match('TEXTAREA|INPUT|SELECT')) {
+            if (event.keyCode === 37 && _.options.accessibility === true) {
+                _.changeSlide({
+                    data: {
+                        message: _.options.rtl === true ? 'next' :  'previous'
+                    }
+                });
+            } else if (event.keyCode === 39 && _.options.accessibility === true) {
+                _.changeSlide({
+                    data: {
+                        message: _.options.rtl === true ? 'previous' : 'next'
+                    }
+                });
+            }
+        }
+
+    };
+
+    Slick.prototype.lazyLoad = function() {
+
+        var _ = this,
+            loadRange, cloneRange, rangeStart, rangeEnd;
+
+        function loadImages(imagesScope) {
+
+            $('img[data-lazy]', imagesScope).each(function() {
+
+                var image = $(this),
+                    imageSource = $(this).attr('data-lazy'),
+                    imageSrcSet = $(this).attr('data-srcset'),
+                    imageSizes  = $(this).attr('data-sizes') || _.$slider.attr('data-sizes'),
+                    imageToLoad = document.createElement('img');
+
+                imageToLoad.onload = function() {
+
+                    image
+                        .animate({ opacity: 0 }, 100, function() {
+
+                            if (imageSrcSet) {
+                                image
+                                    .attr('srcset', imageSrcSet );
+
+                                if (imageSizes) {
+                                    image
+                                        .attr('sizes', imageSizes );
+                                }
+                            }
+
+                            image
+                                .attr('src', imageSource)
+                                .animate({ opacity: 1 }, 200, function() {
+                                    image
+                                        .removeAttr('data-lazy data-srcset data-sizes')
+                                        .removeClass('slick-loading');
+                                });
+                            _.$slider.trigger('lazyLoaded', [_, image, imageSource]);
+                        });
+
+                };
+
+                imageToLoad.onerror = function() {
+
+                    image
+                        .removeAttr( 'data-lazy' )
+                        .removeClass( 'slick-loading' )
+                        .addClass( 'slick-lazyload-error' );
+
+                    _.$slider.trigger('lazyLoadError', [ _, image, imageSource ]);
+
+                };
+
+                imageToLoad.src = imageSource;
+
+            });
+
+        }
+
+        if (_.options.centerMode === true) {
+            if (_.options.infinite === true) {
+                rangeStart = _.currentSlide + (_.options.slidesToShow / 2 + 1);
+                rangeEnd = rangeStart + _.options.slidesToShow + 2;
+            } else {
+                rangeStart = Math.max(0, _.currentSlide - (_.options.slidesToShow / 2 + 1));
+                rangeEnd = 2 + (_.options.slidesToShow / 2 + 1) + _.currentSlide;
+            }
+        } else {
+            rangeStart = _.options.infinite ? _.options.slidesToShow + _.currentSlide : _.currentSlide;
+            rangeEnd = Math.ceil(rangeStart + _.options.slidesToShow);
+            if (_.options.fade === true) {
+                if (rangeStart > 0) rangeStart--;
+                if (rangeEnd <= _.slideCount) rangeEnd++;
+            }
+        }
+
+        loadRange = _.$slider.find('.slick-slide').slice(rangeStart, rangeEnd);
+
+        if (_.options.lazyLoad === 'anticipated') {
+            var prevSlide = rangeStart - 1,
+                nextSlide = rangeEnd,
+                $slides = _.$slider.find('.slick-slide');
+
+            for (var i = 0; i < _.options.slidesToScroll; i++) {
+                if (prevSlide < 0) prevSlide = _.slideCount - 1;
+                loadRange = loadRange.add($slides.eq(prevSlide));
+                loadRange = loadRange.add($slides.eq(nextSlide));
+                prevSlide--;
+                nextSlide++;
+            }
+        }
+
+        loadImages(loadRange);
+
+        if (_.slideCount <= _.options.slidesToShow) {
+            cloneRange = _.$slider.find('.slick-slide');
+            loadImages(cloneRange);
+        } else
+        if (_.currentSlide >= _.slideCount - _.options.slidesToShow) {
+            cloneRange = _.$slider.find('.slick-cloned').slice(0, _.options.slidesToShow);
+            loadImages(cloneRange);
+        } else if (_.currentSlide === 0) {
+            cloneRange = _.$slider.find('.slick-cloned').slice(_.options.slidesToShow * -1);
+            loadImages(cloneRange);
+        }
+
+    };
+
+    Slick.prototype.loadSlider = function() {
+
+        var _ = this;
+
+        _.setPosition();
+
+        _.$slideTrack.css({
+            opacity: 1
+        });
+
+        _.$slider.removeClass('slick-loading');
+
+        _.initUI();
+
+        if (_.options.lazyLoad === 'progressive') {
+            _.progressiveLazyLoad();
+        }
+
+    };
+
+    Slick.prototype.next = Slick.prototype.slickNext = function() {
+
+        var _ = this;
+
+        _.changeSlide({
+            data: {
+                message: 'next'
+            }
+        });
+
+    };
+
+    Slick.prototype.orientationChange = function() {
+
+        var _ = this;
+
+        _.checkResponsive();
+        _.setPosition();
+
+    };
+
+    Slick.prototype.pause = Slick.prototype.slickPause = function() {
+
+        var _ = this;
+
+        _.autoPlayClear();
+        _.paused = true;
+
+    };
+
+    Slick.prototype.play = Slick.prototype.slickPlay = function() {
+
+        var _ = this;
+
+        _.autoPlay();
+        _.options.autoplay = true;
+        _.paused = false;
+        _.focussed = false;
+        _.interrupted = false;
+
+    };
+
+    Slick.prototype.postSlide = function(index) {
+
+        var _ = this;
+
+        if( !_.unslicked ) {
+
+            _.$slider.trigger('afterChange', [_, index]);
+
+            _.animating = false;
+
+            if (_.slideCount > _.options.slidesToShow) {
+                _.setPosition();
+            }
+
+            _.swipeLeft = null;
+
+            if ( _.options.autoplay ) {
+                _.autoPlay();
+            }
+
+            if (_.options.accessibility === true) {
+                _.initADA();
+
+                if (_.options.focusOnChange) {
+                    var $currentSlide = $(_.$slides.get(_.currentSlide));
+                    $currentSlide.attr('tabindex', 0).focus();
+                }
+            }
+
+        }
+
+    };
+
+    Slick.prototype.prev = Slick.prototype.slickPrev = function() {
+
+        var _ = this;
+
+        _.changeSlide({
+            data: {
+                message: 'previous'
+            }
+        });
+
+    };
+
+    Slick.prototype.preventDefault = function(event) {
+
+        event.preventDefault();
+
+    };
+
+    Slick.prototype.progressiveLazyLoad = function( tryCount ) {
+
+        tryCount = tryCount || 1;
+
+        var _ = this,
+            $imgsToLoad = $( 'img[data-lazy]', _.$slider ),
+            image,
+            imageSource,
+            imageSrcSet,
+            imageSizes,
+            imageToLoad;
+
+        if ( $imgsToLoad.length ) {
+
+            image = $imgsToLoad.first();
+            imageSource = image.attr('data-lazy');
+            imageSrcSet = image.attr('data-srcset');
+            imageSizes  = image.attr('data-sizes') || _.$slider.attr('data-sizes');
+            imageToLoad = document.createElement('img');
+
+            imageToLoad.onload = function() {
+
+                if (imageSrcSet) {
+                    image
+                        .attr('srcset', imageSrcSet );
+
+                    if (imageSizes) {
+                        image
+                            .attr('sizes', imageSizes );
+                    }
+                }
+
+                image
+                    .attr( 'src', imageSource )
+                    .removeAttr('data-lazy data-srcset data-sizes')
+                    .removeClass('slick-loading');
+
+                if ( _.options.adaptiveHeight === true ) {
+                    _.setPosition();
+                }
+
+                _.$slider.trigger('lazyLoaded', [ _, image, imageSource ]);
+                _.progressiveLazyLoad();
+
+            };
+
+            imageToLoad.onerror = function() {
+
+                if ( tryCount < 3 ) {
+
+                    /**
+                     * try to load the image 3 times,
+                     * leave a slight delay so we don't get
+                     * servers blocking the request.
+                     */
+                    setTimeout( function() {
+                        _.progressiveLazyLoad( tryCount + 1 );
+                    }, 500 );
+
+                } else {
+
+                    image
+                        .removeAttr( 'data-lazy' )
+                        .removeClass( 'slick-loading' )
+                        .addClass( 'slick-lazyload-error' );
+
+                    _.$slider.trigger('lazyLoadError', [ _, image, imageSource ]);
+
+                    _.progressiveLazyLoad();
+
+                }
+
+            };
+
+            imageToLoad.src = imageSource;
+
+        } else {
+
+            _.$slider.trigger('allImagesLoaded', [ _ ]);
+
+        }
+
+    };
+
+    Slick.prototype.refresh = function( initializing ) {
+
+        var _ = this, currentSlide, lastVisibleIndex;
+
+        lastVisibleIndex = _.slideCount - _.options.slidesToShow;
+
+        // in non-infinite sliders, we don't want to go past the
+        // last visible index.
+        if( !_.options.infinite && ( _.currentSlide > lastVisibleIndex )) {
+            _.currentSlide = lastVisibleIndex;
+        }
+
+        // if less slides than to show, go to start.
+        if ( _.slideCount <= _.options.slidesToShow ) {
+            _.currentSlide = 0;
+
+        }
+
+        currentSlide = _.currentSlide;
+
+        _.destroy(true);
+
+        $.extend(_, _.initials, { currentSlide: currentSlide });
+
+        _.init();
+
+        if( !initializing ) {
+
+            _.changeSlide({
+                data: {
+                    message: 'index',
+                    index: currentSlide
+                }
+            }, false);
+
+        }
+
+    };
+
+    Slick.prototype.registerBreakpoints = function() {
+
+        var _ = this, breakpoint, currentBreakpoint, l,
+            responsiveSettings = _.options.responsive || null;
+
+        if ( $.type(responsiveSettings) === 'array' && responsiveSettings.length ) {
+
+            _.respondTo = _.options.respondTo || 'window';
+
+            for ( breakpoint in responsiveSettings ) {
+
+                l = _.breakpoints.length-1;
+
+                if (responsiveSettings.hasOwnProperty(breakpoint)) {
+                    currentBreakpoint = responsiveSettings[breakpoint].breakpoint;
+
+                    // loop through the breakpoints and cut out any existing
+                    // ones with the same breakpoint number, we don't want dupes.
+                    while( l >= 0 ) {
+                        if( _.breakpoints[l] && _.breakpoints[l] === currentBreakpoint ) {
+                            _.breakpoints.splice(l,1);
+                        }
+                        l--;
+                    }
+
+                    _.breakpoints.push(currentBreakpoint);
+                    _.breakpointSettings[currentBreakpoint] = responsiveSettings[breakpoint].settings;
+
+                }
+
+            }
+
+            _.breakpoints.sort(function(a, b) {
+                return ( _.options.mobileFirst ) ? a-b : b-a;
+            });
+
+        }
+
+    };
+
+    Slick.prototype.reinit = function() {
+
+        var _ = this;
+
+        _.$slides =
+            _.$slideTrack
+                .children(_.options.slide)
+                .addClass('slick-slide');
+
+        _.slideCount = _.$slides.length;
+
+        if (_.currentSlide >= _.slideCount && _.currentSlide !== 0) {
+            _.currentSlide = _.currentSlide - _.options.slidesToScroll;
+        }
+
+        if (_.slideCount <= _.options.slidesToShow) {
+            _.currentSlide = 0;
+        }
+
+        _.registerBreakpoints();
+
+        _.setProps();
+        _.setupInfinite();
+        _.buildArrows();
+        _.updateArrows();
+        _.initArrowEvents();
+        _.buildDots();
+        _.updateDots();
+        _.initDotEvents();
+        _.cleanUpSlideEvents();
+        _.initSlideEvents();
+
+        _.checkResponsive(false, true);
+
+        if (_.options.focusOnSelect === true) {
+            $(_.$slideTrack).children().on('click.slick', _.selectHandler);
+        }
+
+        _.setSlideClasses(typeof _.currentSlide === 'number' ? _.currentSlide : 0);
+
+        _.setPosition();
+        _.focusHandler();
+
+        _.paused = !_.options.autoplay;
+        _.autoPlay();
+
+        _.$slider.trigger('reInit', [_]);
+
+    };
+
+    Slick.prototype.resize = function() {
+
+        var _ = this;
+
+        if ($(window).width() !== _.windowWidth) {
+            clearTimeout(_.windowDelay);
+            _.windowDelay = window.setTimeout(function() {
+                _.windowWidth = $(window).width();
+                _.checkResponsive();
+                if( !_.unslicked ) { _.setPosition(); }
+            }, 50);
+        }
+    };
+
+    Slick.prototype.removeSlide = Slick.prototype.slickRemove = function(index, removeBefore, removeAll) {
+
+        var _ = this;
+
+        if (typeof(index) === 'boolean') {
+            removeBefore = index;
+            index = removeBefore === true ? 0 : _.slideCount - 1;
+        } else {
+            index = removeBefore === true ? --index : index;
+        }
+
+        if (_.slideCount < 1 || index < 0 || index > _.slideCount - 1) {
+            return false;
+        }
+
+        _.unload();
+
+        if (removeAll === true) {
+            _.$slideTrack.children().remove();
+        } else {
+            _.$slideTrack.children(this.options.slide).eq(index).remove();
+        }
+
+        _.$slides = _.$slideTrack.children(this.options.slide);
+
+        _.$slideTrack.children(this.options.slide).detach();
+
+        _.$slideTrack.append(_.$slides);
+
+        _.$slidesCache = _.$slides;
+
+        _.reinit();
+
+    };
+
+    Slick.prototype.setCSS = function(position) {
+
+        var _ = this,
+            positionProps = {},
+            x, y;
+
+        if (_.options.rtl === true) {
+            position = -position;
+        }
+        x = _.positionProp == 'left' ? Math.ceil(position) + 'px' : '0px';
+        y = _.positionProp == 'top' ? Math.ceil(position) + 'px' : '0px';
+
+        positionProps[_.positionProp] = position;
+
+        if (_.transformsEnabled === false) {
+            _.$slideTrack.css(positionProps);
+        } else {
+            positionProps = {};
+            if (_.cssTransitions === false) {
+                positionProps[_.animType] = 'translate(' + x + ', ' + y + ')';
+                _.$slideTrack.css(positionProps);
+            } else {
+                positionProps[_.animType] = 'translate3d(' + x + ', ' + y + ', 0px)';
+                _.$slideTrack.css(positionProps);
+            }
+        }
+
+    };
+
+    Slick.prototype.setDimensions = function() {
+
+        var _ = this;
+
+        if (_.options.vertical === false) {
+            if (_.options.centerMode === true) {
+                _.$list.css({
+                    padding: ('0px ' + _.options.centerPadding)
+                });
+            }
+        } else {
+            _.$list.height(_.$slides.first().outerHeight(true) * _.options.slidesToShow);
+            if (_.options.centerMode === true) {
+                _.$list.css({
+                    padding: (_.options.centerPadding + ' 0px')
+                });
+            }
+        }
+
+        _.listWidth = _.$list.width();
+        _.listHeight = _.$list.height();
+
+
+        if (_.options.vertical === false && _.options.variableWidth === false) {
+            _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);
+            _.$slideTrack.width(Math.ceil((_.slideWidth * _.$slideTrack.children('.slick-slide').length)));
+
+        } else if (_.options.variableWidth === true) {
+            _.$slideTrack.width(5000 * _.slideCount);
+        } else {
+            _.slideWidth = Math.ceil(_.listWidth);
+            _.$slideTrack.height(Math.ceil((_.$slides.first().outerHeight(true) * _.$slideTrack.children('.slick-slide').length)));
+        }
+
+        var offset = _.$slides.first().outerWidth(true) - _.$slides.first().width();
+        if (_.options.variableWidth === false) _.$slideTrack.children('.slick-slide').width(_.slideWidth - offset);
+
+    };
+
+    Slick.prototype.setFade = function() {
+
+        var _ = this,
+            targetLeft;
+
+        _.$slides.each(function(index, element) {
+            targetLeft = (_.slideWidth * index) * -1;
+            if (_.options.rtl === true) {
+                $(element).css({
+                    position: 'relative',
+                    right: targetLeft,
+                    top: 0,
+                    zIndex: _.options.zIndex - 2,
+                    opacity: 0
+                });
+            } else {
+                $(element).css({
+                    position: 'relative',
+                    left: targetLeft,
+                    top: 0,
+                    zIndex: _.options.zIndex - 2,
+                    opacity: 0
+                });
+            }
+        });
+
+        _.$slides.eq(_.currentSlide).css({
+            zIndex: _.options.zIndex - 1,
+            opacity: 1
+        });
+
+    };
+
+    Slick.prototype.setHeight = function() {
+
+        var _ = this;
+
+        if (_.options.slidesToShow === 1 && _.options.adaptiveHeight === true && _.options.vertical === false) {
+            var targetHeight = _.$slides.eq(_.currentSlide).outerHeight(true);
+            _.$list.css('height', targetHeight);
+        }
+
+    };
+
+    Slick.prototype.setOption =
+    Slick.prototype.slickSetOption = function() {
+
+        /**
+         * accepts arguments in format of:
+         *
+         *  - for changing a single option's value:
+         *     .slick("setOption", option, value, refresh )
+         *
+         *  - for changing a set of responsive options:
+         *     .slick("setOption", 'responsive', [{}, ...], refresh )
+         *
+         *  - for updating multiple values at once (not responsive)
+         *     .slick("setOption", { 'option': value, ... }, refresh )
+         */
+
+        var _ = this, l, item, option, value, refresh = false, type;
+
+        if( $.type( arguments[0] ) === 'object' ) {
+
+            option =  arguments[0];
+            refresh = arguments[1];
+            type = 'multiple';
+
+        } else if ( $.type( arguments[0] ) === 'string' ) {
+
+            option =  arguments[0];
+            value = arguments[1];
+            refresh = arguments[2];
+
+            if ( arguments[0] === 'responsive' && $.type( arguments[1] ) === 'array' ) {
+
+                type = 'responsive';
+
+            } else if ( typeof arguments[1] !== 'undefined' ) {
+
+                type = 'single';
+
+            }
+
+        }
+
+        if ( type === 'single' ) {
+
+            _.options[option] = value;
+
+
+        } else if ( type === 'multiple' ) {
+
+            $.each( option , function( opt, val ) {
+
+                _.options[opt] = val;
+
+            });
+
+
+        } else if ( type === 'responsive' ) {
+
+            for ( item in value ) {
+
+                if( $.type( _.options.responsive ) !== 'array' ) {
+
+                    _.options.responsive = [ value[item] ];
+
+                } else {
+
+                    l = _.options.responsive.length-1;
+
+                    // loop through the responsive object and splice out duplicates.
+                    while( l >= 0 ) {
+
+                        if( _.options.responsive[l].breakpoint === value[item].breakpoint ) {
+
+                            _.options.responsive.splice(l,1);
+
+                        }
+
+                        l--;
+
+                    }
+
+                    _.options.responsive.push( value[item] );
+
+                }
+
+            }
+
+        }
+
+        if ( refresh ) {
+
+            _.unload();
+            _.reinit();
+
+        }
+
+    };
+
+    Slick.prototype.setPosition = function() {
+
+        var _ = this;
+
+        _.setDimensions();
+
+        _.setHeight();
+
+        if (_.options.fade === false) {
+            _.setCSS(_.getLeft(_.currentSlide));
+        } else {
+            _.setFade();
+        }
+
+        _.$slider.trigger('setPosition', [_]);
+
+    };
+
+    Slick.prototype.setProps = function() {
+
+        var _ = this,
+            bodyStyle = document.body.style;
+
+        _.positionProp = _.options.vertical === true ? 'top' : 'left';
+
+        if (_.positionProp === 'top') {
+            _.$slider.addClass('slick-vertical');
+        } else {
+            _.$slider.removeClass('slick-vertical');
+        }
+
+        if (bodyStyle.WebkitTransition !== undefined ||
+            bodyStyle.MozTransition !== undefined ||
+            bodyStyle.msTransition !== undefined) {
+            if (_.options.useCSS === true) {
+                _.cssTransitions = true;
+            }
+        }
+
+        if ( _.options.fade ) {
+            if ( typeof _.options.zIndex === 'number' ) {
+                if( _.options.zIndex < 3 ) {
+                    _.options.zIndex = 3;
+                }
+            } else {
+                _.options.zIndex = _.defaults.zIndex;
+            }
+        }
+
+        if (bodyStyle.OTransform !== undefined) {
+            _.animType = 'OTransform';
+            _.transformType = '-o-transform';
+            _.transitionType = 'OTransition';
+            if (bodyStyle.perspectiveProperty === undefined && bodyStyle.webkitPerspective === undefined) _.animType = false;
+        }
+        if (bodyStyle.MozTransform !== undefined) {
+            _.animType = 'MozTransform';
+            _.transformType = '-moz-transform';
+            _.transitionType = 'MozTransition';
+            if (bodyStyle.perspectiveProperty === undefined && bodyStyle.MozPerspective === undefined) _.animType = false;
+        }
+        if (bodyStyle.webkitTransform !== undefined) {
+            _.animType = 'webkitTransform';
+            _.transformType = '-webkit-transform';
+            _.transitionType = 'webkitTransition';
+            if (bodyStyle.perspectiveProperty === undefined && bodyStyle.webkitPerspective === undefined) _.animType = false;
+        }
+        if (bodyStyle.msTransform !== undefined) {
+            _.animType = 'msTransform';
+            _.transformType = '-ms-transform';
+            _.transitionType = 'msTransition';
+            if (bodyStyle.msTransform === undefined) _.animType = false;
+        }
+        if (bodyStyle.transform !== undefined && _.animType !== false) {
+            _.animType = 'transform';
+            _.transformType = 'transform';
+            _.transitionType = 'transition';
+        }
+        _.transformsEnabled = _.options.useTransform && (_.animType !== null && _.animType !== false);
+    };
+
+
+    Slick.prototype.setSlideClasses = function(index) {
+
+        var _ = this,
+            centerOffset, allSlides, indexOffset, remainder;
+
+        allSlides = _.$slider
+            .find('.slick-slide')
+            .removeClass('slick-active slick-center slick-current')
+            .attr('aria-hidden', 'true');
+
+        _.$slides
+            .eq(index)
+            .addClass('slick-current');
+
+        if (_.options.centerMode === true) {
+
+            var evenCoef = _.options.slidesToShow % 2 === 0 ? 1 : 0;
+
+            centerOffset = Math.floor(_.options.slidesToShow / 2);
+
+            if (_.options.infinite === true) {
+
+                if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
+                    _.$slides
+                        .slice(index - centerOffset + evenCoef, index + centerOffset + 1)
+                        .addClass('slick-active')
+                        .attr('aria-hidden', 'false');
+
+                } else {
+
+                    indexOffset = _.options.slidesToShow + index;
+                    allSlides
+                        .slice(indexOffset - centerOffset + 1 + evenCoef, indexOffset + centerOffset + 2)
+                        .addClass('slick-active')
+                        .attr('aria-hidden', 'false');
+
+                }
+
+                if (index === 0) {
+
+                    allSlides
+                        .eq(allSlides.length - 1 - _.options.slidesToShow)
+                        .addClass('slick-center');
+
+                } else if (index === _.slideCount - 1) {
+
+                    allSlides
+                        .eq(_.options.slidesToShow)
+                        .addClass('slick-center');
+
+                }
+
+            }
+
+            _.$slides
+                .eq(index)
+                .addClass('slick-center');
+
+        } else {
+
+            if (index >= 0 && index <= (_.slideCount - _.options.slidesToShow)) {
+
+                _.$slides
+                    .slice(index, index + _.options.slidesToShow)
+                    .addClass('slick-active')
+                    .attr('aria-hidden', 'false');
+
+            } else if (allSlides.length <= _.options.slidesToShow) {
+
+                allSlides
+                    .addClass('slick-active')
+                    .attr('aria-hidden', 'false');
+
+            } else {
+
+                remainder = _.slideCount % _.options.slidesToShow;
+                indexOffset = _.options.infinite === true ? _.options.slidesToShow + index : index;
+
+                if (_.options.slidesToShow == _.options.slidesToScroll && (_.slideCount - index) < _.options.slidesToShow) {
+
+                    allSlides
+                        .slice(indexOffset - (_.options.slidesToShow - remainder), indexOffset + remainder)
+                        .addClass('slick-active')
+                        .attr('aria-hidden', 'false');
+
+                } else {
+
+                    allSlides
+                        .slice(indexOffset, indexOffset + _.options.slidesToShow)
+                        .addClass('slick-active')
+                        .attr('aria-hidden', 'false');
+
+                }
+
+            }
+
+        }
+
+        if (_.options.lazyLoad === 'ondemand' || _.options.lazyLoad === 'anticipated') {
+            _.lazyLoad();
+        }
+    };
+
+    Slick.prototype.setupInfinite = function() {
+
+        var _ = this,
+            i, slideIndex, infiniteCount;
+
+        if (_.options.fade === true) {
+            _.options.centerMode = false;
+        }
+
+        if (_.options.infinite === true && _.options.fade === false) {
+
+            slideIndex = null;
+
+            if (_.slideCount > _.options.slidesToShow) {
+
+                if (_.options.centerMode === true) {
+                    infiniteCount = _.options.slidesToShow + 1;
+                } else {
+                    infiniteCount = _.options.slidesToShow;
+                }
+
+                for (i = _.slideCount; i > (_.slideCount -
+                        infiniteCount); i -= 1) {
+                    slideIndex = i - 1;
+                    $(_.$slides[slideIndex]).clone(true).attr('id', '')
+                        .attr('data-slick-index', slideIndex - _.slideCount)
+                        .prependTo(_.$slideTrack).addClass('slick-cloned');
+                }
+                for (i = 0; i < infiniteCount  + _.slideCount; i += 1) {
+                    slideIndex = i;
+                    $(_.$slides[slideIndex]).clone(true).attr('id', '')
+                        .attr('data-slick-index', slideIndex + _.slideCount)
+                        .appendTo(_.$slideTrack).addClass('slick-cloned');
+                }
+                _.$slideTrack.find('.slick-cloned').find('[id]').each(function() {
+                    $(this).attr('id', '');
+                });
+
+            }
+
+        }
+
+    };
+
+    Slick.prototype.interrupt = function( toggle ) {
+
+        var _ = this;
+
+        if( !toggle ) {
+            _.autoPlay();
+        }
+        _.interrupted = toggle;
+
+    };
+
+    Slick.prototype.selectHandler = function(event) {
+
+        var _ = this;
+
+        var targetElement =
+            $(event.target).is('.slick-slide') ?
+                $(event.target) :
+                $(event.target).parents('.slick-slide');
+
+        var index = parseInt(targetElement.attr('data-slick-index'));
+
+        if (!index) index = 0;
+
+        if (_.slideCount <= _.options.slidesToShow) {
+
+            _.slideHandler(index, false, true);
+            return;
+
+        }
+
+        _.slideHandler(index);
+
+    };
+
+    Slick.prototype.slideHandler = function(index, sync, dontAnimate) {
+
+        var targetSlide, animSlide, oldSlide, slideLeft, targetLeft = null,
+            _ = this, navTarget;
+
+        sync = sync || false;
+
+        if (_.animating === true && _.options.waitForAnimate === true) {
+            return;
+        }
+
+        if (_.options.fade === true && _.currentSlide === index) {
+            return;
+        }
+
+        if (sync === false) {
+            _.asNavFor(index);
+        }
+
+        targetSlide = index;
+        targetLeft = _.getLeft(targetSlide);
+        slideLeft = _.getLeft(_.currentSlide);
+
+        _.currentLeft = _.swipeLeft === null ? slideLeft : _.swipeLeft;
+
+        if (_.options.infinite === false && _.options.centerMode === false && (index < 0 || index > _.getDotCount() * _.options.slidesToScroll)) {
+            if (_.options.fade === false) {
+                targetSlide = _.currentSlide;
+                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+                    _.animateSlide(slideLeft, function() {
+                        _.postSlide(targetSlide);
+                    });
+                } else {
+                    _.postSlide(targetSlide);
+                }
+            }
+            return;
+        } else if (_.options.infinite === false && _.options.centerMode === true && (index < 0 || index > (_.slideCount - _.options.slidesToScroll))) {
+            if (_.options.fade === false) {
+                targetSlide = _.currentSlide;
+                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+                    _.animateSlide(slideLeft, function() {
+                        _.postSlide(targetSlide);
+                    });
+                } else {
+                    _.postSlide(targetSlide);
+                }
+            }
+            return;
+        }
+
+        if ( _.options.autoplay ) {
+            clearInterval(_.autoPlayTimer);
+        }
+
+        if (targetSlide < 0) {
+            if (_.slideCount % _.options.slidesToScroll !== 0) {
+                animSlide = _.slideCount - (_.slideCount % _.options.slidesToScroll);
+            } else {
+                animSlide = _.slideCount + targetSlide;
+            }
+        } else if (targetSlide >= _.slideCount) {
+            if (_.slideCount % _.options.slidesToScroll !== 0) {
+                animSlide = 0;
+            } else {
+                animSlide = targetSlide - _.slideCount;
+            }
+        } else {
+            animSlide = targetSlide;
+        }
+
+        _.animating = true;
+
+        _.$slider.trigger('beforeChange', [_, _.currentSlide, animSlide]);
+
+        oldSlide = _.currentSlide;
+        _.currentSlide = animSlide;
+
+        _.setSlideClasses(_.currentSlide);
+
+        if ( _.options.asNavFor ) {
+
+            navTarget = _.getNavTarget();
+            navTarget = navTarget.slick('getSlick');
+
+            if ( navTarget.slideCount <= navTarget.options.slidesToShow ) {
+                navTarget.setSlideClasses(_.currentSlide);
+            }
+
+        }
+
+        _.updateDots();
+        _.updateArrows();
+
+        if (_.options.fade === true) {
+            if (dontAnimate !== true) {
+
+                _.fadeSlideOut(oldSlide);
+
+                _.fadeSlide(animSlide, function() {
+                    _.postSlide(animSlide);
+                });
+
+            } else {
+                _.postSlide(animSlide);
+            }
+            _.animateHeight();
+            return;
+        }
+
+        if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+            _.animateSlide(targetLeft, function() {
+                _.postSlide(animSlide);
+            });
+        } else {
+            _.postSlide(animSlide);
+        }
+
+    };
+
+    Slick.prototype.startLoad = function() {
+
+        var _ = this;
+
+        if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
+
+            _.$prevArrow.hide();
+            _.$nextArrow.hide();
+
+        }
+
+        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+
+            _.$dots.hide();
+
+        }
+
+        _.$slider.addClass('slick-loading');
+
+    };
+
+    Slick.prototype.swipeDirection = function() {
+
+        var xDist, yDist, r, swipeAngle, _ = this;
+
+        xDist = _.touchObject.startX - _.touchObject.curX;
+        yDist = _.touchObject.startY - _.touchObject.curY;
+        r = Math.atan2(yDist, xDist);
+
+        swipeAngle = Math.round(r * 180 / Math.PI);
+        if (swipeAngle < 0) {
+            swipeAngle = 360 - Math.abs(swipeAngle);
+        }
+
+        if ((swipeAngle <= 45) && (swipeAngle >= 0)) {
+            return (_.options.rtl === false ? 'left' : 'right');
+        }
+        if ((swipeAngle <= 360) && (swipeAngle >= 315)) {
+            return (_.options.rtl === false ? 'left' : 'right');
+        }
+        if ((swipeAngle >= 135) && (swipeAngle <= 225)) {
+            return (_.options.rtl === false ? 'right' : 'left');
+        }
+        if (_.options.verticalSwiping === true) {
+            if ((swipeAngle >= 35) && (swipeAngle <= 135)) {
+                return 'down';
+            } else {
+                return 'up';
+            }
+        }
+
+        return 'vertical';
+
+    };
+
+    Slick.prototype.swipeEnd = function(event) {
+
+        var _ = this,
+            slideCount,
+            direction;
+
+        _.dragging = false;
+        _.swiping = false;
+
+        if (_.scrolling) {
+            _.scrolling = false;
+            return false;
+        }
+
+        _.interrupted = false;
+        _.shouldClick = ( _.touchObject.swipeLength > 10 ) ? false : true;
+
+        if ( _.touchObject.curX === undefined ) {
+            return false;
+        }
+
+        if ( _.touchObject.edgeHit === true ) {
+            _.$slider.trigger('edge', [_, _.swipeDirection() ]);
+        }
+
+        if ( _.touchObject.swipeLength >= _.touchObject.minSwipe ) {
+
+            direction = _.swipeDirection();
+
+            switch ( direction ) {
+
+                case 'left':
+                case 'down':
+
+                    slideCount =
+                        _.options.swipeToSlide ?
+                            _.checkNavigable( _.currentSlide + _.getSlideCount() ) :
+                            _.currentSlide + _.getSlideCount();
+
+                    _.currentDirection = 0;
+
+                    break;
+
+                case 'right':
+                case 'up':
+
+                    slideCount =
+                        _.options.swipeToSlide ?
+                            _.checkNavigable( _.currentSlide - _.getSlideCount() ) :
+                            _.currentSlide - _.getSlideCount();
+
+                    _.currentDirection = 1;
+
+                    break;
+
+                default:
+
+
+            }
+
+            if( direction != 'vertical' ) {
+
+                _.slideHandler( slideCount );
+                _.touchObject = {};
+                _.$slider.trigger('swipe', [_, direction ]);
+
+            }
+
+        } else {
+
+            if ( _.touchObject.startX !== _.touchObject.curX ) {
+
+                _.slideHandler( _.currentSlide );
+                _.touchObject = {};
+
+            }
+
+        }
+
+    };
+
+    Slick.prototype.swipeHandler = function(event) {
+
+        var _ = this;
+
+        if ((_.options.swipe === false) || ('ontouchend' in document && _.options.swipe === false)) {
+            return;
+        } else if (_.options.draggable === false && event.type.indexOf('mouse') !== -1) {
+            return;
+        }
+
+        _.touchObject.fingerCount = event.originalEvent && event.originalEvent.touches !== undefined ?
+            event.originalEvent.touches.length : 1;
+
+        _.touchObject.minSwipe = _.listWidth / _.options
+            .touchThreshold;
+
+        if (_.options.verticalSwiping === true) {
+            _.touchObject.minSwipe = _.listHeight / _.options
+                .touchThreshold;
+        }
+
+        switch (event.data.action) {
+
+            case 'start':
+                _.swipeStart(event);
+                break;
+
+            case 'move':
+                _.swipeMove(event);
+                break;
+
+            case 'end':
+                _.swipeEnd(event);
+                break;
+
+        }
+
+    };
+
+    Slick.prototype.swipeMove = function(event) {
+
+        var _ = this,
+            edgeWasHit = false,
+            curLeft, swipeDirection, swipeLength, positionOffset, touches, verticalSwipeLength;
+
+        touches = event.originalEvent !== undefined ? event.originalEvent.touches : null;
+
+        if (!_.dragging || _.scrolling || touches && touches.length !== 1) {
+            return false;
+        }
+
+        curLeft = _.getLeft(_.currentSlide);
+
+        _.touchObject.curX = touches !== undefined ? touches[0].pageX : event.clientX;
+        _.touchObject.curY = touches !== undefined ? touches[0].pageY : event.clientY;
+
+        _.touchObject.swipeLength = Math.round(Math.sqrt(
+            Math.pow(_.touchObject.curX - _.touchObject.startX, 2)));
+
+        verticalSwipeLength = Math.round(Math.sqrt(
+            Math.pow(_.touchObject.curY - _.touchObject.startY, 2)));
+
+        if (!_.options.verticalSwiping && !_.swiping && verticalSwipeLength > 4) {
+            _.scrolling = true;
+            return false;
+        }
+
+        if (_.options.verticalSwiping === true) {
+            _.touchObject.swipeLength = verticalSwipeLength;
+        }
+
+        swipeDirection = _.swipeDirection();
+
+        if (event.originalEvent !== undefined && _.touchObject.swipeLength > 4) {
+            _.swiping = true;
+            event.preventDefault();
+        }
+
+        positionOffset = (_.options.rtl === false ? 1 : -1) * (_.touchObject.curX > _.touchObject.startX ? 1 : -1);
+        if (_.options.verticalSwiping === true) {
+            positionOffset = _.touchObject.curY > _.touchObject.startY ? 1 : -1;
+        }
+
+
+        swipeLength = _.touchObject.swipeLength;
+
+        _.touchObject.edgeHit = false;
+
+        if (_.options.infinite === false) {
+            if ((_.currentSlide === 0 && swipeDirection === 'right') || (_.currentSlide >= _.getDotCount() && swipeDirection === 'left')) {
+                swipeLength = _.touchObject.swipeLength * _.options.edgeFriction;
+                _.touchObject.edgeHit = true;
+            }
+        }
+
+        if (_.options.vertical === false) {
+            _.swipeLeft = curLeft + swipeLength * positionOffset;
+        } else {
+            _.swipeLeft = curLeft + (swipeLength * (_.$list.height() / _.listWidth)) * positionOffset;
+        }
+        if (_.options.verticalSwiping === true) {
+            _.swipeLeft = curLeft + swipeLength * positionOffset;
+        }
+
+        if (_.options.fade === true || _.options.touchMove === false) {
+            return false;
+        }
+
+        if (_.animating === true) {
+            _.swipeLeft = null;
+            return false;
+        }
+
+        _.setCSS(_.swipeLeft);
+
+    };
+
+    Slick.prototype.swipeStart = function(event) {
+
+        var _ = this,
+            touches;
+
+        _.interrupted = true;
+
+        if (_.touchObject.fingerCount !== 1 || _.slideCount <= _.options.slidesToShow) {
+            _.touchObject = {};
+            return false;
+        }
+
+        if (event.originalEvent !== undefined && event.originalEvent.touches !== undefined) {
+            touches = event.originalEvent.touches[0];
+        }
+
+        _.touchObject.startX = _.touchObject.curX = touches !== undefined ? touches.pageX : event.clientX;
+        _.touchObject.startY = _.touchObject.curY = touches !== undefined ? touches.pageY : event.clientY;
+
+        _.dragging = true;
+
+    };
+
+    Slick.prototype.unfilterSlides = Slick.prototype.slickUnfilter = function() {
+
+        var _ = this;
+
+        if (_.$slidesCache !== null) {
+
+            _.unload();
+
+            _.$slideTrack.children(this.options.slide).detach();
+
+            _.$slidesCache.appendTo(_.$slideTrack);
+
+            _.reinit();
+
+        }
+
+    };
+
+    Slick.prototype.unload = function() {
+
+        var _ = this;
+
+        $('.slick-cloned', _.$slider).remove();
+
+        if (_.$dots) {
+            _.$dots.remove();
+        }
+
+        if (_.$prevArrow && _.htmlExpr.test(_.options.prevArrow)) {
+            _.$prevArrow.remove();
+        }
+
+        if (_.$nextArrow && _.htmlExpr.test(_.options.nextArrow)) {
+            _.$nextArrow.remove();
+        }
+
+        _.$slides
+            .removeClass('slick-slide slick-active slick-visible slick-current')
+            .attr('aria-hidden', 'true')
+            .css('width', '');
+
+    };
+
+    Slick.prototype.unslick = function(fromBreakpoint) {
+
+        var _ = this;
+        _.$slider.trigger('unslick', [_, fromBreakpoint]);
+        _.destroy();
+
+    };
+
+    Slick.prototype.updateArrows = function() {
+
+        var _ = this,
+            centerOffset;
+
+        centerOffset = Math.floor(_.options.slidesToShow / 2);
+
+        if ( _.options.arrows === true &&
+            _.slideCount > _.options.slidesToShow &&
+            !_.options.infinite ) {
+
+            _.$prevArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
+            _.$nextArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
+
+            if (_.currentSlide === 0) {
+
+                _.$prevArrow.addClass('slick-disabled').attr('aria-disabled', 'true');
+                _.$nextArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
+
+            } else if (_.currentSlide >= _.slideCount - _.options.slidesToShow && _.options.centerMode === false) {
+
+                _.$nextArrow.addClass('slick-disabled').attr('aria-disabled', 'true');
+                _.$prevArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
+
+            } else if (_.currentSlide >= _.slideCount - 1 && _.options.centerMode === true) {
+
+                _.$nextArrow.addClass('slick-disabled').attr('aria-disabled', 'true');
+                _.$prevArrow.removeClass('slick-disabled').attr('aria-disabled', 'false');
+
+            }
+
+        }
+
+    };
+
+    Slick.prototype.updateDots = function() {
+
+        var _ = this;
+
+        if (_.$dots !== null) {
+
+            _.$dots
+                .find('li')
+                    .removeClass('slick-active')
+                    .end();
+
+            _.$dots
+                .find('li')
+                .eq(Math.floor(_.currentSlide / _.options.slidesToScroll))
+                .addClass('slick-active');
+
+        }
+
+    };
+
+    Slick.prototype.visibility = function() {
+
+        var _ = this;
+
+        if ( _.options.autoplay ) {
+
+            if ( document[_.hidden] ) {
+
+                _.interrupted = true;
+
+            } else {
+
+                _.interrupted = false;
+
+            }
+
+        }
+
+    };
+
+    $.fn.slick = function() {
+        var _ = this,
+            opt = arguments[0],
+            args = Array.prototype.slice.call(arguments, 1),
+            l = _.length,
+            i,
+            ret;
+        for (i = 0; i < l; i++) {
+            if (typeof opt == 'object' || typeof opt == 'undefined')
+                _[i].slick = new Slick(_[i], opt);
+            else
+                ret = _[i].slick[opt].apply(_[i].slick, args);
+            if (typeof ret != 'undefined') return ret;
+        }
+        return _;
+    };
+
+}));
+
+
+/***/ }),
+
+/***/ "./node_modules/what-input/dist/what-input.js":
+/*!****************************************************!*\
+  !*** ./node_modules/what-input/dist/what-input.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * what-input - A global utility for tracking the current input method (mouse, keyboard or touch).
+ * @version v5.2.3
+ * @link https://github.com/ten1seven/what-input
+ * @license MIT
+ */
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else {}
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	module.exports = function () {
+	  /*
+	   * bail out if there is no document or window
+	   * (i.e. in a node/non-DOM environment)
+	   *
+	   * Return a stubbed API instead
+	   */
+	  if (typeof document === 'undefined' || typeof window === 'undefined') {
+	    return {
+	      // always return "initial" because no interaction will ever be detected
+	      ask: function ask() {
+	        return 'initial';
+	      },
+
+	      // always return null
+	      element: function element() {
+	        return null;
+	      },
+
+	      // no-op
+	      ignoreKeys: function ignoreKeys() {},
+
+	      // no-op
+	      specificKeys: function specificKeys() {},
+
+	      // no-op
+	      registerOnChange: function registerOnChange() {},
+
+	      // no-op
+	      unRegisterOnChange: function unRegisterOnChange() {}
+	    };
+	  }
+
+	  /*
+	   * variables
+	   */
+
+	  // cache document.documentElement
+	  var docElem = document.documentElement;
+
+	  // currently focused dom element
+	  var currentElement = null;
+
+	  // last used input type
+	  var currentInput = 'initial';
+
+	  // last used input intent
+	  var currentIntent = currentInput;
+
+	  // UNIX timestamp of current event
+	  var currentTimestamp = Date.now();
+
+	  // check for sessionStorage support
+	  // then check for session variables and use if available
+	  try {
+	    if (window.sessionStorage.getItem('what-input')) {
+	      currentInput = window.sessionStorage.getItem('what-input');
+	    }
+
+	    if (window.sessionStorage.getItem('what-intent')) {
+	      currentIntent = window.sessionStorage.getItem('what-intent');
+	    }
+	  } catch (e) {}
+
+	  // form input types
+	  var formInputs = ['button', 'input', 'select', 'textarea'];
+
+	  // empty array for holding callback functions
+	  var functionList = [];
+
+	  // list of modifier keys commonly used with the mouse and
+	  // can be safely ignored to prevent false keyboard detection
+	  var ignoreMap = [16, // shift
+	  17, // control
+	  18, // alt
+	  91, // Windows key / left Apple cmd
+	  93 // Windows menu / right Apple cmd
+	  ];
+
+	  var specificMap = [];
+
+	  // mapping of events to input types
+	  var inputMap = {
+	    keydown: 'keyboard',
+	    keyup: 'keyboard',
+	    mousedown: 'mouse',
+	    mousemove: 'mouse',
+	    MSPointerDown: 'pointer',
+	    MSPointerMove: 'pointer',
+	    pointerdown: 'pointer',
+	    pointermove: 'pointer',
+	    touchstart: 'touch',
+	    touchend: 'touch'
+
+	    // boolean: true if the page is being scrolled
+	  };var isScrolling = false;
+
+	  // store current mouse position
+	  var mousePos = {
+	    x: null,
+	    y: null
+
+	    // map of IE 10 pointer events
+	  };var pointerMap = {
+	    2: 'touch',
+	    3: 'touch', // treat pen like touch
+	    4: 'mouse'
+
+	    // check support for passive event listeners
+	  };var supportsPassive = false;
+
+	  try {
+	    var opts = Object.defineProperty({}, 'passive', {
+	      get: function get() {
+	        supportsPassive = true;
+	      }
+	    });
+
+	    window.addEventListener('test', null, opts);
+	  } catch (e) {}
+
+	  /*
+	   * set up
+	   */
+
+	  var setUp = function setUp() {
+	    // add correct mouse wheel event mapping to `inputMap`
+	    inputMap[detectWheel()] = 'mouse';
+
+	    addListeners();
+	    doUpdate('input');
+	    doUpdate('intent');
+	  };
+
+	  /*
+	   * events
+	   */
+
+	  var addListeners = function addListeners() {
+	    // `pointermove`, `MSPointerMove`, `mousemove` and mouse wheel event binding
+	    // can only demonstrate potential, but not actual, interaction
+	    // and are treated separately
+	    var options = supportsPassive ? { passive: true } : false;
+
+	    // pointer events (mouse, pen, touch)
+	    if (window.PointerEvent) {
+	      window.addEventListener('pointerdown', setInput);
+	      window.addEventListener('pointermove', setIntent);
+	    } else if (window.MSPointerEvent) {
+	      window.addEventListener('MSPointerDown', setInput);
+	      window.addEventListener('MSPointerMove', setIntent);
+	    } else {
+	      // mouse events
+	      window.addEventListener('mousedown', setInput);
+	      window.addEventListener('mousemove', setIntent);
+
+	      // touch events
+	      if ('ontouchstart' in window) {
+	        window.addEventListener('touchstart', setInput, options);
+	        window.addEventListener('touchend', setInput);
+	      }
+	    }
+
+	    // mouse wheel
+	    window.addEventListener(detectWheel(), setIntent, options);
+
+	    // keyboard events
+	    window.addEventListener('keydown', setInput);
+	    window.addEventListener('keyup', setInput);
+
+	    // focus events
+	    window.addEventListener('focusin', setElement);
+	    window.addEventListener('focusout', clearElement);
+	  };
+
+	  // checks conditions before updating new input
+	  var setInput = function setInput(event) {
+	    var eventKey = event.which;
+	    var value = inputMap[event.type];
+
+	    if (value === 'pointer') {
+	      value = pointerType(event);
+	    }
+
+	    var ignoreMatch = !specificMap.length && ignoreMap.indexOf(eventKey) === -1;
+
+	    var specificMatch = specificMap.length && specificMap.indexOf(eventKey) !== -1;
+
+	    var shouldUpdate = value === 'keyboard' && eventKey && (ignoreMatch || specificMatch) || value === 'mouse' || value === 'touch';
+
+	    // prevent touch detection from being overridden by event execution order
+	    if (validateTouch(value)) {
+	      shouldUpdate = false;
+	    }
+
+	    if (shouldUpdate && currentInput !== value) {
+	      currentInput = value;
+
+	      try {
+	        window.sessionStorage.setItem('what-input', currentInput);
+	      } catch (e) {}
+
+	      doUpdate('input');
+	    }
+
+	    if (shouldUpdate && currentIntent !== value) {
+	      // preserve intent for keyboard interaction with form fields
+	      var activeElem = document.activeElement;
+	      var notFormInput = activeElem && activeElem.nodeName && (formInputs.indexOf(activeElem.nodeName.toLowerCase()) === -1 || activeElem.nodeName.toLowerCase() === 'button' && !checkClosest(activeElem, 'form'));
+
+	      if (notFormInput) {
+	        currentIntent = value;
+
+	        try {
+	          window.sessionStorage.setItem('what-intent', currentIntent);
+	        } catch (e) {}
+
+	        doUpdate('intent');
+	      }
+	    }
+	  };
+
+	  // updates the doc and `inputTypes` array with new input
+	  var doUpdate = function doUpdate(which) {
+	    docElem.setAttribute('data-what' + which, which === 'input' ? currentInput : currentIntent);
+
+	    fireFunctions(which);
+	  };
+
+	  // updates input intent for `mousemove` and `pointermove`
+	  var setIntent = function setIntent(event) {
+	    var value = inputMap[event.type];
+
+	    if (value === 'pointer') {
+	      value = pointerType(event);
+	    }
+
+	    // test to see if `mousemove` happened relative to the screen to detect scrolling versus mousemove
+	    detectScrolling(event);
+
+	    // only execute if scrolling isn't happening
+	    if ((!isScrolling && !validateTouch(value) || isScrolling && event.type === 'wheel' || event.type === 'mousewheel' || event.type === 'DOMMouseScroll') && currentIntent !== value) {
+	      currentIntent = value;
+
+	      try {
+	        window.sessionStorage.setItem('what-intent', currentIntent);
+	      } catch (e) {}
+
+	      doUpdate('intent');
+	    }
+	  };
+
+	  var setElement = function setElement(event) {
+	    if (!event.target.nodeName) {
+	      // If nodeName is undefined, clear the element
+	      // This can happen if click inside an <svg> element.
+	      clearElement();
+	      return;
+	    }
+
+	    currentElement = event.target.nodeName.toLowerCase();
+	    docElem.setAttribute('data-whatelement', currentElement);
+
+	    if (event.target.classList && event.target.classList.length) {
+	      docElem.setAttribute('data-whatclasses', event.target.classList.toString().replace(' ', ','));
+	    }
+	  };
+
+	  var clearElement = function clearElement() {
+	    currentElement = null;
+
+	    docElem.removeAttribute('data-whatelement');
+	    docElem.removeAttribute('data-whatclasses');
+	  };
+
+	  /*
+	   * utilities
+	   */
+
+	  var pointerType = function pointerType(event) {
+	    if (typeof event.pointerType === 'number') {
+	      return pointerMap[event.pointerType];
+	    } else {
+	      // treat pen like touch
+	      return event.pointerType === 'pen' ? 'touch' : event.pointerType;
+	    }
+	  };
+
+	  // prevent touch detection from being overridden by event execution order
+	  var validateTouch = function validateTouch(value) {
+	    var timestamp = Date.now();
+
+	    var touchIsValid = value === 'mouse' && currentInput === 'touch' && timestamp - currentTimestamp < 200;
+
+	    currentTimestamp = timestamp;
+
+	    return touchIsValid;
+	  };
+
+	  // detect version of mouse wheel event to use
+	  // via https://developer.mozilla.org/en-US/docs/Web/API/Element/wheel_event
+	  var detectWheel = function detectWheel() {
+	    var wheelType = null;
+
+	    // Modern browsers support "wheel"
+	    if ('onwheel' in document.createElement('div')) {
+	      wheelType = 'wheel';
+	    } else {
+	      // Webkit and IE support at least "mousewheel"
+	      // or assume that remaining browsers are older Firefox
+	      wheelType = document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
+	    }
+
+	    return wheelType;
+	  };
+
+	  // runs callback functions
+	  var fireFunctions = function fireFunctions(type) {
+	    for (var i = 0, len = functionList.length; i < len; i++) {
+	      if (functionList[i].type === type) {
+	        functionList[i].fn.call(undefined, type === 'input' ? currentInput : currentIntent);
+	      }
+	    }
+	  };
+
+	  // finds matching element in an object
+	  var objPos = function objPos(match) {
+	    for (var i = 0, len = functionList.length; i < len; i++) {
+	      if (functionList[i].fn === match) {
+	        return i;
+	      }
+	    }
+	  };
+
+	  var detectScrolling = function detectScrolling(event) {
+	    if (mousePos['x'] !== event.screenX || mousePos['y'] !== event.screenY) {
+	      isScrolling = false;
+
+	      mousePos['x'] = event.screenX;
+	      mousePos['y'] = event.screenY;
+	    } else {
+	      isScrolling = true;
+	    }
+	  };
+
+	  // manual version of `closest()`
+	  var checkClosest = function checkClosest(elem, tag) {
+	    var ElementPrototype = window.Element.prototype;
+
+	    if (!ElementPrototype.matches) {
+	      ElementPrototype.matches = ElementPrototype.msMatchesSelector || ElementPrototype.webkitMatchesSelector;
+	    }
+
+	    if (!ElementPrototype.closest) {
+	      do {
+	        if (elem.matches(tag)) {
+	          return elem;
+	        }
+
+	        elem = elem.parentElement || elem.parentNode;
+	      } while (elem !== null && elem.nodeType === 1);
+
+	      return null;
+	    } else {
+	      return elem.closest(tag);
+	    }
+	  };
+
+	  /*
+	   * init
+	   */
+
+	  // don't start script unless browser cuts the mustard
+	  // (also passes if polyfills are used)
+	  if ('addEventListener' in window && Array.prototype.indexOf) {
+	    setUp();
+	  }
+
+	  /*
+	   * api
+	   */
+
+	  return {
+	    // returns string: the current input type
+	    // opt: 'intent'|'input'
+	    // 'input' (default): returns the same value as the `data-whatinput` attribute
+	    // 'intent': includes `data-whatintent` value if it's different than `data-whatinput`
+	    ask: function ask(opt) {
+	      return opt === 'intent' ? currentIntent : currentInput;
+	    },
+
+	    // returns string: the currently focused element or null
+	    element: function element() {
+	      return currentElement;
+	    },
+
+	    // overwrites ignored keys with provided array
+	    ignoreKeys: function ignoreKeys(arr) {
+	      ignoreMap = arr;
+	    },
+
+	    // overwrites specific char keys to update on
+	    specificKeys: function specificKeys(arr) {
+	      specificMap = arr;
+	    },
+
+	    // attach functions to input and intent "events"
+	    // funct: function to fire on change
+	    // eventType: 'input'|'intent'
+	    registerOnChange: function registerOnChange(fn, eventType) {
+	      functionList.push({
+	        fn: fn,
+	        type: eventType || 'input'
+	      });
+	    },
+
+	    unRegisterOnChange: function unRegisterOnChange(fn) {
+	      var position = objPos(fn);
+
+	      if (position || position === 0) {
+	        functionList.splice(position, 1);
+	      }
+	    }
+	  };
+	}();
+
+/***/ })
+/******/ ])
+});
+;
+
+/***/ })
+
+}]);
+//# sourceMappingURL=vendor.js.map
