@@ -25,6 +25,8 @@ import smoothScroll from './modules/smooth-scroll';
 import menuToggle from './modules/menu-toggle';
 import isotope from './modules/isotope';
 
+import fancyBox from './modules/fancybox';
+
 // import full screen scrolling section
 //import fullScreenScrollingSection from './modules/full-screen-scrolling-section';
 

@@ -55,9 +55,11 @@
 		"webpack-dashboard": "^3.0.7"
 	},
 	"dependencies": {
+		"@fancyapps/fancybox": "^3.5.7",
 		"classnames": "^2.2.6",
 		"foundation-sites": "^6.5.3",
 		"imagesloaded": "^4.1.4",
+		"infinite-scroll": "^3.0.6",
 		"isotope-layout": "^3.0.6",
 		"jquery-bridget": "^2.0.1",
 		"jquery-match-height": "^0.7.2",
