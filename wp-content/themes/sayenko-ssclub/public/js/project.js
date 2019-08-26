@@ -277,6 +277,39 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./assets/js/modules/infinite-scroll.js":
+/*!**********************************************!*\
+  !*** ./assets/js/modules/infinite-scroll.js ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "jquery");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var infinite_scroll_dist_infinite_scroll_pkgd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! infinite-scroll/dist/infinite-scroll.pkgd */ "./node_modules/infinite-scroll/dist/infinite-scroll.pkgd.js");
+/* harmony import */ var infinite_scroll_dist_infinite_scroll_pkgd__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(infinite_scroll_dist_infinite_scroll_pkgd__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  init: function init() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-partners .grid').infiniteScroll({
+      // options
+      path: '.section-partners .pagination .next',
+      checkLastPage: '.section-partners .pagination .next',
+      loadOnScroll: false,
+      scrollThreshold: true,
+      button: '.load-more-button',
+      append: '.grid .cell',
+      history: false,
+      status: '.infinite-scroll-status'
+    });
+  }
+});
+
+/***/ }),
+
 /***/ "./assets/js/modules/isotope.js":
 /*!**************************************!*\
   !*** ./assets/js/modules/isotope.js ***!
@@ -528,6 +561,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_menu_toggle__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/menu-toggle */ "./assets/js/modules/menu-toggle.js");
 /* harmony import */ var _modules_isotope__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/isotope */ "./assets/js/modules/isotope.js");
 /* harmony import */ var _modules_fancybox__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/fancybox */ "./assets/js/modules/fancybox.js");
+/* harmony import */ var _modules_infinite_scroll__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/infinite-scroll */ "./assets/js/modules/infinite-scroll.js");
 
  // Foundation
 
@@ -553,6 +587,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
  // import full screen scrolling section
 //import fullScreenScrollingSection from './modules/full-screen-scrolling-section';
 
@@ -570,7 +605,8 @@ var modules = new _loader_ModuleLoader__WEBPACK_IMPORTED_MODULE_1__["default"]({
   // superfish
   //backgroundVideo,
   menuToggle: _modules_menu_toggle__WEBPACK_IMPORTED_MODULE_8__["default"],
-  isotope: _modules_isotope__WEBPACK_IMPORTED_MODULE_9__["default"]
+  isotope: _modules_isotope__WEBPACK_IMPORTED_MODULE_9__["default"],
+  infiniteScroll: _modules_infinite_scroll__WEBPACK_IMPORTED_MODULE_11__["default"]
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();

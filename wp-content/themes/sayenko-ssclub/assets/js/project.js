@@ -27,6 +27,8 @@ import isotope from './modules/isotope';
 
 import fancyBox from './modules/fancybox';
 
+import infiniteScroll from './modules/infinite-scroll';
+
 // import full screen scrolling section
 //import fullScreenScrollingSection from './modules/full-screen-scrolling-section';
 
@@ -44,7 +46,8 @@ const modules = new ModuleLoader( {
 	// superfish
 	//backgroundVideo,
 	menuToggle,
-    isotope
+    isotope,
+    infiniteScroll
 } );
 
 $( document ).ready( () => {
