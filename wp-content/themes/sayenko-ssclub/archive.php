@@ -122,7 +122,7 @@ get_header(); ?>
                 $pagination = paginate_links();   
             }
             
-            printf( '<div class="grid-x grid-margin-x"><div class="cell">%s</div></div>', $pagination );
+            printf( '<div class="grid-container"><div class="grid-x grid-margin-x"><div class="cell">%s</div></div></div>', $pagination );
             
             echo '</div>';
             ?>

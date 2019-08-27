@@ -28,7 +28,23 @@ _s_get_template_part( 'template-parts/case-study', 'gallery' );
                ?>
         
             </main>
-        
+            
+            <footer class="entry-footer show-for-xlarge">
+                <?php
+                $previous = sprintf( '<span>%s</span>',  __( 'Previous Post', '_s') );
+                            
+                $next = sprintf( '<span>%s</span>',  __( 'Next Post', '_s') );
+                
+                $navigation = _s_get_the_post_navigation( array( 'prev_text' => $previous, 'next_text' => $next ) );
+                
+                printf( '<h3 class="hide-for-large"><span>%s</span></h3><div class="wrap text-center">%s%s</div>', 
+                        __( 'Share This', '_s' ),
+                        _s_get_addtoany_share_icons(),
+                        $navigation  
+                      );                  
+                ?>           
+            </footer><!-- .entry-footer -->
+                    
         </div>
         
             <?php
@@ -81,7 +97,24 @@ _s_get_template_part( 'template-parts/case-study', 'gallery' );
             ?>
                 
     </div>
-            
+    
+    <div class="grid-x grid-padding-x hide-for-xlarge">  
+        <footer class="cell entry-footer">
+                <?php
+                $previous = sprintf( '<span>%s</span>',  __( 'Previous Post', '_s') );
+                            
+                $next = sprintf( '<span>%s</span>',  __( 'Next Post', '_s') );
+                
+                $navigation = _s_get_the_post_navigation( array( 'prev_text' => $previous, 'next_text' => $next ) );
+                
+                printf( '<h3 class="hide-for-large"><span>%s</span></h3><div class="wrap text-center">%s%s</div>', 
+                        __( 'Share This', '_s' ),
+                        _s_get_addtoany_share_icons(),
+                        $navigation  
+                      );                  
+                ?>           
+            </footer><!-- .entry-footer -->
+    </div>   
 </div>
 
 <?php
