@@ -55,7 +55,7 @@ if( ! class_exists( 'Related_Posts' ) ) {
 	
             if ( $loop->have_posts() ) : 
                 while ( $loop->have_posts() ) : $loop->the_post(); 
-                    $posts[] = sprintf( '<div class="column">%s</div>', _s_get_template_part( 'template-parts', 'content-post-column', false, true ) );
+                    $posts[] = sprintf( '<div class="cell">%s</div>', _s_get_template_part( 'template-parts', 'content-post-column', false, true ) );
                 endwhile;
             endif;
             
@@ -65,7 +65,21 @@ if( ! class_exists( 'Related_Posts' ) ) {
                 return false;
             }
             
-            return sprintf( '<header class="column row text-center">%s</header><div class="row slick">%s</div>', $heading, join( '', $posts ) );            
+            $out = sprintf( '<div class="grid-container full">
+                                    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xxxlarge-up-4 grid-margin-bottom grid">                                        
+                                        %s
+                                     </div> 
+                                </div>', join( '', $posts ) );
+                                
+                                
+            return sprintf( '<div class="grid-container">
+                                <div class="grid-x grid-margin-x grid-margin-bottom">
+                                    <div class="cell text-center"><h2>%s</h2></div>
+                                </div>
+                             </div>%s', 
+                             __( 'You might also like' ),
+                             $out );  
+                       
         }
         
         
