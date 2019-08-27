@@ -26,6 +26,7 @@ function _s_get_addtoany_share_icons( $url = '', $title = '' ) {
 			'twitter'      => 'twitter',
             //'pinterest'    => 'pinterest',
             'linkedin'     => 'linkedin',
+            'email'        => 'email',
  	);
 	
 	

@@ -234,7 +234,7 @@
         
     }
     
-    section {
+    #primary section {
         
         padding-bottom: rem-calc(25);
         
@@ -437,6 +437,38 @@
     
     .section-related-posts {
         padding: rem-calc(75 0 45);
+        
+        h2 {
+            position: relative;
+            display: inline-block;
+            padding: rem-calc(0 40);
+            margin-bottom: rem-calc(45);
+            
+            @include breakpoint(large) {
+                padding: rem-calc(0 140); 
+            }
+            
+            &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 1px;
+                background: #b9b9b9; 
+                
+                
+            }
+            
+            span {
+                display: inline-block;
+                padding: rem-calc(0 24);
+                background: #fff;  
+                position: relative;
+                z-index: 2; 
+            }
+        }
     }
 }
 
