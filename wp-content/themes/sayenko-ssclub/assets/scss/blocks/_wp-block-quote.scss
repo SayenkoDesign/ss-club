@@ -1,0 +1,51 @@
+// wp block quote
+
+.wp-block-quote {
+    border-left: none;
+    padding: rem-calc(70 0 0);
+    
+    p {
+        font-family: $playfair;
+        font-style: italic;
+        color: $blue;
+        font-size: rem-calc(20);
+        line-height: 1.45;
+    }
+    
+    
+    position: relative;
+    
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+    }
+    
+    &:before {
+        width: 100%;
+        max-width: 100%;
+        background-color: #979797;
+        height: 1px;
+        top: 16px;
+        
+        @include breakpoint(medium) {
+            max-width: rem-calc(300);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    
+    &:after {
+        padding: rem-calc(0 15);
+        width: 70px;
+        height: 34px;
+        background-color: #fff;
+        background-image: url(../images/quote@2x.png);
+        background-repeat: no-repeat;
+        background-size: 40px 34px;
+        background-position: center;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
