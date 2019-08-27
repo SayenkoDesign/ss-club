@@ -435,7 +435,7 @@ __webpack_require__.r(__webpack_exports__);
     });
     $slickEl.slick({
       centerMode: true,
-      centerPadding: '15%',
+      centerPadding: '0px',
       slidesToShow: 1,
       focusOnSelect: true,
       swipe: false,
@@ -443,15 +443,17 @@ __webpack_require__.r(__webpack_exports__);
       dots: false,
       infinite: true,
       adaptiveHeight: false,
-      //rows: 0,
+      variableWidth: true,
+      rows: 0,
       nextArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-next', $sliderEl),
       prevArrow: jquery__WEBPACK_IMPORTED_MODULE_0___default()('.slick-prev', $sliderEl),
       responsive: [{
-        breakpoint: 1023,
+        breakpoint: 1199,
         settings: {
           arrows: false,
           dots: true,
           centerMode: false,
+          variableWidth: false,
           slidesToShow: 1
         }
       }]

@@ -60,7 +60,7 @@ Header
         margin: 0 auto;  
         position: relative;
         
-        padding-left: rem-calc(map-get($grid-column-gutter, small)/2); 
+        padding-left: rem-calc(map-get($grid-column-gutter, small)/2 + 36px); 
         padding-right: rem-calc(map-get($grid-column-gutter, small)/2 + 36px); 
                 
         @include breakpoint(xlarge) {

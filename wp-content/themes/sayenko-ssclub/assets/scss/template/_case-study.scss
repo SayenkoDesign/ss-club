@@ -9,7 +9,41 @@
         &.images-loaded {
             opacity: 1;
             visibility: visible;
-        }   
+        }
+        
+        .slick {
+            @include breakpoint(xxlarge) {
+                position: relative;
+            
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: calc((100% - 1200px) / 2 ); 
+                    top: 0;   
+                    background-color: rgba(255,255,255,0.8); 
+                    height: 100%;
+                    display: block;
+                    z-index: 3;
+                }
+                
+                &:before {
+                    left: 0;
+                }
+                
+                &:after {
+                    right: 0;
+                }   
+            }
+            
+        }
+        
+        .slick-slide {
+            width: 100%;
+            @include breakpoint(xxlarge) {
+                width: 1200px!important;  
+            }
+        }
     }
     
     .section-slideshow .slider {
@@ -27,22 +61,24 @@
      }
      
      .slick-arrow {
-        display: block!important;  
+        display: block!important; 
         z-index: 9;
         
-        @include breakpoint(xlarge) {
+        @include breakpoint(xxlarge) {
             
             &.slick-prev {
-                left: 5%;   
+                left: 5%;  
+                z-index: 99;
             }
             
             &.slick-next {
                 right: 5%;  
+                z-index: 99;
             }
         }
      }
      
-     @include breakpoint(large down) {
+     @include breakpoint(xlarge down) {
     
         .slick-arrows {
             display: flex;
@@ -83,23 +119,7 @@
           .twentytwenty-overlay {
             display: none;   
           }
-        }
-        
-        @include breakpoint(1024) {
-            .slide {
-                position: relative;
-                
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    left: 0;
-                    bottom: 0;
-                    background-color: rgba(255,255,255,0.8); 
-                }
-            }
-        }
+        }        
     }
     
     .slick-active { 
@@ -107,19 +127,16 @@
     }
     
     .slick-center { 
-      //transform: scale(1.08) 
+
     }
     
-    .slick-slide:not(.slick-active) { 
-      
-    }
     
     .slick-slide:not(.slick-active) { 
         cursor: pointer; 
         margin: 0; 
         
         .caption {
-            @include breakpoint(xlarge) {
+            @include breakpoint(xxlarge) {
                 opacity: 0;
                 visibility: hidden;   
                 transition: visibility 0s linear 300ms, opacity 300ms;   
@@ -151,11 +168,13 @@
             line-height: 26px;
             background: #000;
             
-            @include breakpoint(xlarge) {
+            @include breakpoint(medium) {
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                background: transparent;
+                width: 100%;
+                //background: transparent;
+                background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
             }
             
             &__text {
@@ -391,8 +410,12 @@
     
     @include breakpoint(xlarge) {
         
+        .grid-x {
+            position: relative;
+        } 
+        
         #secondary {
-            width: rem-calc(290);    
+            width: rem-calc(290);  
         }        
     }
     

@@ -8,9 +8,9 @@ _s_get_template_part( 'template-parts/case-study', 'gallery' );
     
 <div class="grid-container">
 
-    <div class="grid-x grid-padding-x small-padding-collapse">    
+    <div class="grid-x grid-padding-x small-padding-collapse align-center">    
   
-        <div id="primary" class="cell xlarge-auto xlarge-order-2 content-area">
+        <div id="primary" class="cell xlarge-9 xlarge-order-2 content-area">
         
             <main id="main" class="site-main" role="main">
                 <?php
@@ -74,7 +74,7 @@ _s_get_template_part( 'template-parts/case-study', 'gallery' );
             
             
             if( ! empty( $secondary ) ) {
-                printf( '<div id="secondary" class="cell xlarge-shrink xlarge-order-1 sticky-container" role="complementary" data-stick-container>
+                printf( '<div id="secondary" class="cell xlarge-auto sticky-container" role="complementary" data-stick-container>
                         <div class="sidebar sticky" data-sticky data-top-anchor="section-1:bottom" data-btm-anchor="primary:bottom" data-margin-top="7" data-sticky-on="xlarge">%s</div>
                         </div>', $secondary );
             }

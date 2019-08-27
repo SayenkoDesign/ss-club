@@ -66,7 +66,7 @@ if( ! class_exists( 'Related_Posts' ) ) {
             }
             
             $out = sprintf( '<div class="grid-container full">
-                                    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xxxlarge-up-4 grid-margin-bottom grid">                                        
+                                    <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xxxlarge-up-4 align-center grid-margin-bottom grid">                                        
                                         %s
                                      </div> 
                                 </div>', join( '', $posts ) );

@@ -26,7 +26,7 @@ export default {
         
         $slickEl.slick({
           centerMode: true,
-          centerPadding: '15%',
+          centerPadding: '0px',
           slidesToShow:1,
           focusOnSelect: true,
           swipe: false,
@@ -34,17 +34,18 @@ export default {
           dots: false,
           infinite: true,
           adaptiveHeight: false,
-          //rows: 0,
+          variableWidth: true,
+          rows: 0,
           nextArrow: $('.slick-next', $sliderEl),
           prevArrow: $('.slick-prev', $sliderEl),
           responsive: [
             {
-              breakpoint: 1023,
+              breakpoint: 1199,
               settings: {
                 arrows: false,
                 dots: true,
                 centerMode: false,
-        
+                variableWidth: false,
                 slidesToShow: 1
               }
             }
