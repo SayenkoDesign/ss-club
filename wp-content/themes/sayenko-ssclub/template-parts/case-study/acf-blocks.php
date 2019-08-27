@@ -12,13 +12,50 @@ if( ! class_exists( 'ACF_Blocks' ) ) {
             // use parent attributes
             parent::_add_render_attributes();  
             
+            $this->add_render_attribute(
+                'wrapper', 'class', [
+                     $this->get_name() . '-photos'
+                ]
+            );       
+            
+            if( $this->get_settings( 'background_options' ) ) {
+                
+                $background_options = $this->get_settings( 'background_options' );
+                
+                foreach( $background_options as $background_option_key => $background_option_value ) {
+                                        
+                    $this->add_render_attribute(
+                        'wrapper', 'class', [
+                            str_replace( '_', '-', sanitize_title_with_dashes( sprintf( '%s-%s', $background_option_key, $background_option_value ) ) )
+                        ]
+                    );
+                }
+            }  
+            
+            if( $this->get_settings( 'display_options' ) ) {
+                
+                $display_options = $this->get_settings( 'display_options' );
+                
+                foreach( $display_options as $display_option_key => $display_option_value ) {
+                                        
+                    $this->add_render_attribute(
+                        'wrapper', 'class', [
+                            str_replace( '_', '-', sanitize_title_with_dashes( sprintf( '%s-%s', $display_option_key, $display_option_value ) ) )
+                        ]
+                    );
+                }
+                /*
+                
+                */
+            }  
+            
             if( $this->get_settings( 'overview' ) ) {
                 $this->add_render_attribute(
                     'wrapper', 'id', [
                         sanitize_title_with_dashes( $this->get_settings( 'overview' ) )
                     ], true
                 );
-            }          
+            }            
                         
         }    
         

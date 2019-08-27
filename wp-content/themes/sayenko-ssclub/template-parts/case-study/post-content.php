@@ -22,6 +22,15 @@
                 </header><!-- .entry-header -->
             
                 <?php 
+                $intro = get_field( 'introduction' );
+    
+                if( ! empty( $intro ) ) {
+                    $intro = preg_replace( '~(?<=^<p>)(\W*)(\w)(?=[\s\S]*</p>$)~i',
+                                   '$1<span class="first-letter">$2</span>',
+                                   $intro );
+                    printf( '<div class="intro">%s</div>', $intro );
+                }
+                
                 the_content(); 		
                 ?>
             </div>        

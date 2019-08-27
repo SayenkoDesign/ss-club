@@ -64,7 +64,7 @@ if( ! class_exists( 'Case_Study_Gallery' ) ) {
                 
                 $caption = $slide['caption'];
                 if( ! empty( $caption ) ) {
-                    $caption = sprintf( '<figure class="caption">%s</figure>', $caption );
+                    $caption = sprintf( '<figure class="caption"><div class="caption__text">%s</div></figure>', $caption );
                 }
                 
                 $slides[] = sprintf( '<div class="slide">%s%s</div>', $images, $caption );

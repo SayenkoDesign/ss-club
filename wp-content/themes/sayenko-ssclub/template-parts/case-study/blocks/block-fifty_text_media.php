@@ -34,7 +34,9 @@ $text            = get_sub_field( 'text_primary' );
         
         <div class="cell large-auto">
             <?php 
-             echo _s_get_acf_image( $image_data, 'large' );   
+             if( ! empty( $image_data ) ) {
+                printf( '<a data-fancybox class="expand-icon" href="%s">%s</a>', _s_get_acf_image( $image_data, 'hero', true ), _s_get_acf_image( $image_data, 'large' ) );
+             }
             ?>
         </div>
         
