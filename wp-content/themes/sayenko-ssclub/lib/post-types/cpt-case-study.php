@@ -38,7 +38,7 @@ class CPT_CASE_STUDY extends CPT_Core {
 				'exclude_from_search' => false,
                 'taxonomies' => [ 'category' ],
 				'rewrite'             => array( 'slug' => 'case-studies' ),
-				'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'revisions' ),
+				'supports' => array( 'title', 'thumbnail', 'excerpt', 'revisions' ),
 				 )
 
         );
