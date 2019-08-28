@@ -17,6 +17,8 @@ function ea_disable_editor( $id = false ) {
 
 	$excluded_templates = array(
         'page-templates/multi-purpose.php',
+        'page-templates/partners.php',
+        'page-templates/contact.php',
 	);
 
 	$excluded_ids = array(
