@@ -462,6 +462,37 @@ add_filter( 'getarchives_where' , '_s_getarchives_where_filter' , 10 , 2 );
 
 
 
+function custom_archive_by_category_where($x) {
+    global $wpdb;
+    $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
+        
+    $cat = false;
+    
+    if ( ! empty( $cat_id ) ) {
+        $cat = $cat_id;
+        
+    } else if ( is_category() ) {
+        $cat = get_queried_object_id();
+    }
+    
+    if ( $cat ) {
+  
+        return $x . " AND $wpdb->term_taxonomy.taxonomy = 'category' AND $wpdb->term_taxonomy.term_id IN ($cat)";
+  
+    }
+  
+    return $x;
+}
+
+function custom_archive_by_category_join( $x ) {
+    global $wpdb;
+    return $x . " INNER JOIN $wpdb->term_relationships ON ($wpdb->posts.ID = $wpdb->term_relationships.object_id) INNER JOIN $wpdb->term_taxonomy ON ($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)";
+}
+
+add_filter( 'getarchives_where', 'custom_archive_by_category_where' );
+add_filter( 'getarchives_join', 'custom_archive_by_category_join' ); // You must add `join` to keep it works. Adding only `where` will return nothing
+
+
 
 add_filter( 'query_vars', function ( $vars ) {
 

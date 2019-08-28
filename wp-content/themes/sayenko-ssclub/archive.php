@@ -23,7 +23,26 @@ get_header(); ?>
         <main id="main" class="site-main" role="main">
                    
             <?php 
-                       
+                                   
+            // Date/Category for filters
+            $all_class = false;
+            $title = '';
+            if( is_date() && get_query_var( '_category' ) ) {
+                $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
+                $all = get_category_link( $cat_id );
+                $title = sprintf( '<h1>%s</h1>', get_cat_name( $cat_id ) );
+            } else if( is_category() ) {
+                $cat_id = get_queried_object_id();
+                $all = get_category_link( get_queried_object_id() );
+                $all_class = true;
+                $title = sprintf( '<h1>%s</h1>', single_cat_title( '', '' ) );
+            } else {
+                $cat_id = false;
+                $all = get_permalink( get_option( 'page_for_posts' ) );   
+                $all_class = true;
+                $title = sprintf( '<h1>%s</h1>', get_the_title( get_option( 'page_for_posts' ) ) );
+            }
+            
             $args = array(
                 'type'            => 'monthly',
                 'limit'           => '10',
@@ -35,23 +54,6 @@ get_header(); ?>
                 'order'           => 'DESC',
                 'post_type'     => 'post'
             );
-            
-            // Date/Category for filters
-            $all_class = false;
-            $title = '';
-            if( is_date() && get_query_var( '_category' ) ) {
-                $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
-                $all = get_category_link( $cat_id );
-                $title = sprintf( '<h1>%s</h1>', get_cat_name( $cat_id ) );
-            } else if( is_category() ) {
-                $all = get_category_link( get_queried_object_id() );
-                $all_class = true;
-                $title = sprintf( '<h1>%s</h1>', single_cat_title( '', '' ) );
-            } else {
-                $all = get_permalink( get_option( 'page_for_posts' ) );   
-                $all_class = true;
-                $title = sprintf( '<h1>%s</h1>', get_the_title( get_option( 'page_for_posts' ) ) );
-            }
                         
             $select = sprintf( '<select class="filters-select" onchange="if (this.value) window.location.href=this.value">
                                     <option value="%s">%s</option>%s
