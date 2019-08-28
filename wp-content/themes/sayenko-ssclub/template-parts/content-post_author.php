@@ -39,17 +39,22 @@
                         <?php
                         the_content();
                         
-                        $socials = get_field( 'get_field_object' );
+                        $socials = get_field_object( 'social' );
                         
                         $social_profiles = [];
                         
-                        if( ! empty( $socials ) ) {
-                            foreach( $socials as $social ) {
-                                $social_profiles['key'] = $social['value'];
+                        if( ! empty( $socials['value'] ) ) {
+                            foreach( $socials['value'] as $key => $value ) {
+                                $social_profiles[$key] = $value;
                             }
                         }
                         
-                        echo _s_get_social_icons( $social_profiles );
+                        $social_profiles = array_filter( $social_profiles );
+                                                
+                        if( ! empty( $social_profiles ) ) {
+                            echo _s_get_social_icons( $social_profiles );
+                        }
+                        
                         ?>
                     </div>
             </div>
