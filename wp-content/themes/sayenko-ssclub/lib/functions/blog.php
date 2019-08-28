@@ -461,7 +461,7 @@ function _s_getarchives_where_filter( $where , $r ) {
 add_filter( 'getarchives_where' , '_s_getarchives_where_filter' , 10 , 2 ); 
 
 
-
+// Filter Archive by category
 function custom_archive_by_category_where($x) {
     global $wpdb;
     $cat_id = filter_input( INPUT_GET, '_category', FILTER_VALIDATE_INT );
