@@ -89,6 +89,11 @@ if( ! class_exists( 'Case_Study' ) ) {
             
             $image = get_the_post_thumbnail( get_the_ID(), 'large' );  
             
+            $custom_image = $this->get_fields( 'image' );
+            if( ! empty( $custom_image ) ) {
+                $image = _s_get_acf_image( $custom_image, 'large' );
+            }
+            
             $number = sprintf( '<div class="number"><span><i>no.</i><b>%s</b></span></div>', $index );
             
             $title = get_the_title();
