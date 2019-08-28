@@ -64,7 +64,7 @@ _s_get_template_part( 'template-parts/case-study', 'gallery' );
                         
             if( ! empty( $list ) ) {
                 $secondary .= sprintf( '<div class="panel overview show-for-xlarge">
-                <h4>Overview ></h4><ul class="no-bullet"><li><a href="#content" data-smooth-scroll>Gallery</a></li>%s</ul></div>', $list );
+                <h4>Overview ></h4><ul class="no-bullet"><li><a href="#top" data-smooth-scroll>Gallery</a></li>%s</ul></div>', $list );
             }
             
             // Meta
