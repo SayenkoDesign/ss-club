@@ -27,9 +27,12 @@ section {
 
 .attachment-hero {
     display: block;
-    max-width: rem-calc(1600);
     margin-left: auto;
     margin-right: auto;
+    
+    @include breakpoint(1600) {
+        max-width: rem-calc(1600);
+    }
 }
 
 button,

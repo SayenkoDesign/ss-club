@@ -1,9 +1,13 @@
 // wp block quote
 
-.wp-block-quote {
+.wp-block-quote,
+.wp-block-quote.is-style-large {
+
     border-left: none;
     padding: rem-calc(60 0 0);
     margin-bottom: rem-calc(40);
+    
+    
     
     p {
         font-family: $playfair;

@@ -83,7 +83,7 @@ if( ! class_exists( 'Featured' ) ) {
             if( $image ) {
                 $layout = strtolower( $this->get_fields( 'layout' ) );
                 $size  = 'wide' == $layout ? 'hero' : 'large';
-                $image = _s_get_acf_image( $image, $size );
+                $image = sprintf( '<a href="%s">%s</a>', get_permalink( $_post ), _s_get_acf_image( $image, $size ) );
             }
             
             $title = sprintf( '<a href="%s" rel="bookmark">%s</a>', get_permalink( $_post ), get_the_title( $_post ) );
@@ -107,12 +107,15 @@ if( ! class_exists( 'Featured' ) ) {
                 $grid_open = '<div class="grid-container"><div class="grid-x grid-margin-x"><div class="cell">';
                 $grid_close = '</div></div></div>';
             }
+            
+            $link = sprintf( '<a href="%s"><span>%s ></span></a>', get_permalink( $_post ), __( 'dive in' ) );
                        
-            return sprintf( '<div class="posts featured">%s%s<div class="post">%s%s%s</div>%s</div>', 
+            return sprintf( '<div class="posts featured">%s%s<div class="post">%s%s%s%s</div>%s</div>', 
                                 $image,
                                 $grid_open,
                                 $title,
                                 $excerpt,
+                                $link,
                                 $post_author,
                                 $grid_close
                              );

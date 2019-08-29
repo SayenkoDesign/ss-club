@@ -9,6 +9,14 @@
     }
     
     .featured {
+        
+        .post span {
+            color: #000;
+            font-size: rem-calc(15);
+            line-height: 1.333333333;
+            text-transform: uppercase;     
+        }
+        
         .entry-author a {
             color: #252B33;
             font-family: $playfair;
