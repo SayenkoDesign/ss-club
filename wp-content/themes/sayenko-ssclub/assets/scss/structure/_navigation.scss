@@ -22,6 +22,18 @@
     }
 }
 
+.loggedin-hello {
+    
+    color: #252B33;
+    padding: rem-calc(40 16 40);
+    
+    a {
+        &:hover {
+            color: $blue;   
+        }
+    }
+}
+
 .nav-primary {
     
     @include breakpoint(large) {

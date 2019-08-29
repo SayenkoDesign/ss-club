@@ -72,7 +72,9 @@
                     </div>
                     
                     <?php
-                    if( has_nav_menu( 'copyright' ) ) {
+                    $menu = '';
+                    
+                    if( has_nav_menu( 'off-canvas' ) ) {
                         $args = array( 
                         'theme_location'  => 'off-canvas', 
                         'container'       => false,
@@ -83,10 +85,36 @@
                         'depth'           => 0,
                         ); 
                         
-                        printf( '<nav class="nav-off-canvas">%s</nav>', str_replace('<a', '<i>&nbsp;/&nbsp;&nbsp;</i><a', 
-                                strip_tags( wp_nav_menu( $args ), '<a>' ) ) );
+                        $menu = str_replace('<a', '<i>&nbsp;/&nbsp;&nbsp;</i><a', 
+                                strip_tags( wp_nav_menu( $args ), '<a>' ) );
+                        
+                        
                         
                     }
+                    
+                    if( is_user_logged_in() ) {
+                        $current_user = wp_get_current_user();
+                        $username = $current_user->user_login;
+                        $first_name = $current_user->user_firstname;
+                        $display_name = $current_user->display_name;
+                        if( $display_name ) {
+                            $name = $display_name;
+                        } else if( $first_name ) {
+                            $name = $first_name;
+                        } else {
+                            $name = $username;
+                        }
+                        
+                        printf( '<div class="loggedin-hello">Hi, %s <i>&nbsp;/&nbsp;&nbsp;</i><a href="%s">%s</a></div>', 
+                                                    $name, 
+                                                    wp_logout_url(), 
+                                                    __( 'Logout' ) 
+                                            );
+                    } else {
+                        printf( '<nav class="nav-off-canvas">%s</nav>', $menu );
+                    }
+                    
+                    
                     
                     echo get_search_form(false);
                     ?>

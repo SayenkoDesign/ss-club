@@ -1,0 +1,37 @@
+// MemberPress
+
+ .mepr_price {
+     font-size: rem-calc(30);
+     margin-bottom: rem-calc(40);
+ }
+
+
+.mp_wrapper {
+    
+    .mepr-form {
+        input[type='text'],
+        input[type='url'],
+        input[type='email'],
+        input[type='tel'],
+        input[type='number'],
+        input[type='password'],
+        input[type='file'],
+        input[type='search'],
+        input[type='password'],
+        textarea,
+        select {
+            border: 1px solid #979797!important;
+            padding: rem-calc(15 10 15 15) !important;
+        } 
+        
+    }
+    
+    .mp-form-row { 
+        margin-bottom: rem-calc(16);
+    }
+    
+    label[for=mepr_agree_to_privacy_policy] {
+        display: block!important;
+        margin-top: rem-calc(30)!important;   
+    }
+}
