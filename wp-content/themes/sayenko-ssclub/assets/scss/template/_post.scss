@@ -158,69 +158,15 @@
         max-width: calc(#{$global-width} + 200px);   
     }
     
-    .slider {
-        
-        padding: 0 rem-calc(map-get($grid-margin-gutters, large)/2);
-
-                
-        @include breakpoint(xxlarge) {
-            padding: rem-calc(0 100);
-        }
-        
-        margin: 0 auto rem-calc(45);
-                
-        .slick-track {
-            
-            .slick-slide {
-                padding-bottom: rem-calc(30);   
-            }
-        }
-        
-        .cell{
+    .cell{
                     
-            margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
-            padding: rem-calc(map-get($grid-margin-gutters, small)/2);
-            
-            @include breakpoint(large) {
-                margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
-                padding: rem-calc(map-get($grid-margin-gutters, large)/2);
-            }      
-            
-        }
+        margin-bottom: rem-calc(map-get($grid-margin-gutters, small));
+        padding: rem-calc(map-get($grid-margin-gutters, small)/2);
         
-        .slick {
-            .slick-slide {
-                padding: rem-calc(map-get($grid-margin-gutters, small)/2);
-            
-                @include breakpoint(large) {
-                    padding: rem-calc(map-get($grid-margin-gutters, large)/2);
-                }  
-            }
-            
-            .cell {
-                padding: 0;   
-            }
-        }
-        
-        @include breakpoint(xlarge down) {
-    
-            .slick-arrows {
-                display: flex;
-                justify-content: space-between;
-                margin-top: rem-calc(30);
-                
-                .slick-next {
-                    margin-left: auto;   
-                }
-            }
-            .slick-prev, .slick-next {
-                position: static;
-                top: auto;
-                left: auto;
-                right: auto;  
-                transform: none;    
-            }
-        }
+        @include breakpoint(large) {
+            margin-bottom: rem-calc(map-get($grid-margin-gutters, large));
+            padding: rem-calc(map-get($grid-margin-gutters, large)/2);
+        } 
         
         .panel {
             border: 1px solid #D7D5D5;
@@ -238,13 +184,7 @@
                 bottom: 0;
                 left: 0;   
             }
-        }
-        
-        .slick-slide:hover {
-            .panel {
-                box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);   
-            }
-        }
+        } 
         
         article {
             height: 100%;
@@ -306,6 +246,71 @@
             &:last-child {
                 margin-bottom: 0;   
             }
+        }    
+        
+    }
+    
+    .slider {
+        
+        padding: 0 rem-calc(map-get($grid-margin-gutters, large)/2);
+
+                
+        @include breakpoint(xxlarge) {
+            padding: rem-calc(0 100);
         }
+        
+        margin: 0 auto rem-calc(45);
+                
+        .slick-track {
+            
+            .slick-slide {
+                padding-bottom: rem-calc(30);   
+            }
+        }
+        
+        
+        
+        .slick {
+            .slick-slide {
+                padding: rem-calc(map-get($grid-margin-gutters, small)/2);
+            
+                @include breakpoint(large) {
+                    padding: rem-calc(map-get($grid-margin-gutters, large)/2);
+                }  
+            }
+            
+            .cell {
+                padding: 0;   
+            }
+        }
+        
+        @include breakpoint(xlarge down) {
+    
+            .slick-arrows {
+                display: flex;
+                justify-content: space-between;
+                margin-top: rem-calc(30);
+                
+                .slick-next {
+                    margin-left: auto;   
+                }
+            }
+            .slick-prev, .slick-next {
+                position: static;
+                top: auto;
+                left: auto;
+                right: auto;  
+                transform: none;    
+            }
+        }
+        
+        
+        .slick-slide:hover {
+            .panel {
+                box-shadow: 0 11px 12px 0 rgba(0,0,0,0.1);   
+            }
+        }
+        
+        
     }
 }
