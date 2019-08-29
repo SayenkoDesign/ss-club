@@ -244,6 +244,7 @@
         
         &.background-color-gray {
             position: relative;
+            overflow: hidden;
             
             padding-top: rem-calc(75);   
             margin-bottom: rem-calc(75);
