@@ -5,7 +5,7 @@
     .nav-links {
         display: flex;
         justify-content: space-between;
-        margin-bottom: rem-calc(40);
+        margin: rem-calc(40) auto rem-calc(40);
         position: relative;
         
         $color: #D7D5D5;
@@ -39,24 +39,10 @@
                 
             }
         }
-        
-        .nav-previous,
-        .nav-next {
-            @include breakpoint(medium) {
-                position: absolute; 
-                top: 50%;
-                transform: translateY(-50%); 
-                margin-top: rem-calc(-20); 
-            }   
-        }
-        
-        
+                
         .nav-previous {
             padding-right: rem-calc(20);
             
-            @include breakpoint(medium) {
-                left: 0; 
-            }
             
             a {
                 &:before {
@@ -75,9 +61,7 @@
         .nav-next {
             padding-left: rem-calc(20);
             
-            @include breakpoint(medium) {
-                right: 0; 
-            }
+            margin-left: auto;
             
             a {
                 &:before {

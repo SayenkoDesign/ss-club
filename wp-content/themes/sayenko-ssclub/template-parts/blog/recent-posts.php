@@ -65,12 +65,17 @@ if( ! class_exists( 'Recent_Posts' ) ) {
                 return false;
             }
             
+            $heading        = __( 'You might also like', '_s' );
+            $heading        = _s_format_string( $heading, 'h2' );
+            
             $is_slick = count( $posts ) > 3 ? true : false;
             
             $buttons = '<div class="slick-arrows">
                             <button class="slick-prev slick-arrow" aria-label="Previous" type="button">Previous</button>
                             <button class="slick-next slick-arrow" aria-label="Next" type="button">Previous</button>
                         </div>';
+            
+            $out = '';
             
             if( $is_slick ) {
                 
@@ -80,21 +85,27 @@ if( ! class_exists( 'Recent_Posts' ) ) {
                     return sprintf( '<div class="slick-slide">%s</div>', $slick_post );
                 }, $posts );
                 
-                return sprintf( '<div class="grid-container">
+                $out = sprintf( '<div class="grid-container full">
                                     <div class="grid-x grid-margin-x">                                        
                                         <div class="cell"><div class="slider"><div class="slick slick-default">%s</div>%s</div></div>
                                     </div>
                                 </div>', join( '', $slick_posts ), $buttons );
             } else {
-                return sprintf( '<div class="grid-container">
+                $out = sprintf( '<div class="grid-container">
                                     <div class="grid-x grid-margin-x small-up-1 medium-up-3">                                        
                                         %s
                                      </div> 
                                 </div>', join( '', $posts ) );
             }
             
-            
-            return sprintf( '<div class="row slick">%s</div>', join( '', $posts ) );            
+            return sprintf( '<div class="grid-container">
+                                <div class="grid-x grid-margin-x grid-margin-bottom">
+                                    <div class="cell text-center"><h2><span>%s</span></h2></div>
+                                </div>
+                             </div>%s', 
+                             __( 'You might also like' ),
+                             $out );  
+          
         }
         
         

@@ -111,7 +111,7 @@ no-js .slick-arrows {
 .slick-prev {
     left: 0;
     
-    @include breakpoint(xxlarge) {
+    @include breakpoint(xxxlarge) {
         
         .slick-default & {
             left: -60px;
@@ -130,7 +130,7 @@ no-js .slick-arrows {
 
 .slick-next {
     right: 0;
-    @include breakpoint(xxlarge) {
+    @include breakpoint(xxxlarge) {
         .slick-default & {
             right: -60px;
         }
