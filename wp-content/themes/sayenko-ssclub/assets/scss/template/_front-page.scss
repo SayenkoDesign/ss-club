@@ -44,7 +44,11 @@
         
         .featured {
             .post {
-                padding: rem-calc(100 0);
+                padding: rem-calc(50 0 100);
+                
+                @include breakpoint(xlarge) {
+                    padding: rem-calc(100 0);
+                }
                 
                 h3 {
                     color: #000;   
@@ -307,7 +311,11 @@
            }
             
             .panel {
-                padding: rem-calc(100 0 75 75); 
+                padding: rem-calc(45 0); 
+                
+                @include breakpoint(large) {
+                    padding: rem-calc(100 0 75 75); 
+                }
                 
                 h3,
                 p {
@@ -340,7 +348,7 @@
                 width: rem-calc(110);
                 height: rem-calc(110);
                 position: relative;
-                margin: -36px auto;
+                margin: -100px auto 20px;
                 
                 @include breakpoint(large) {
                     margin: rem-calc(0 0 -75 -155);

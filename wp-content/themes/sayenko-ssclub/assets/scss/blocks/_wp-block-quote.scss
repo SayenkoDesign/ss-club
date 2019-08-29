@@ -32,11 +32,12 @@
         background-color: #979797;
         height: 1px;
         top: 16px;
+        left: 50%;
+        transform: translateX(-50%);
         
         @include breakpoint(medium) {
             max-width: rem-calc(300);
-            left: 50%;
-            transform: translateX(-50%);
+            
         }
     }
     
