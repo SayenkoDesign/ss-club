@@ -105,10 +105,9 @@
                             $name = $username;
                         }
                         
-                        printf( '<div class="loggedin-hello">Hi, %s <i>&nbsp;/&nbsp;&nbsp;</i><a href="%s">%s</a></div>', 
+                        printf( '<div class="loggedin-hello">Hi, %s<i>&nbsp;/&nbsp;</i>%s</div>', 
                                                     $name, 
-                                                    wp_logout_url(), 
-                                                    __( 'Logout' ) 
+                                                    str_replace( '&nbsp;&nbsp;', '<i>&nbsp;/&nbsp;</i>', do_shortcode( '[mepr-account-link]' ) )
                                             );
                     } else {
                         printf( '<nav class="nav-off-canvas">%s</nav>', $menu );

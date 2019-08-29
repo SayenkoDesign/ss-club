@@ -5,6 +5,23 @@
      margin-bottom: rem-calc(40);
  }
 
+#mepr-logged-in-template {
+    display: inline-block;    
+}
+
+#mepr-account-nav span {
+    
+    display: inline-block; 
+    
+    &:after {
+        content: ' / ';
+        margin-left: rem-calc(6);
+    }
+    
+    &:last-child:after {
+        display: none;   
+    }
+}
 
 .mp_wrapper {
     
