@@ -12,6 +12,7 @@
 #mepr-account-nav span {
     
     display: inline-block; 
+    margin-bottom: rem-calc(10);
     
     &:after {
         content: ' / ';
