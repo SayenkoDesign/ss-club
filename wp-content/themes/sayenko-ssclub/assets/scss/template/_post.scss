@@ -37,13 +37,13 @@
                     font-size: rem-calc(15);
                     line-height: 1.666666667;
                     text-align: center;
-                    text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+                    //text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
                     text-transform: uppercase;
                 }
             }
             
             h2 {
-                marghin-bottom: rem-calc(30);   
+                margin-bottom: rem-calc(30);   
             }
             
             .entry-author {
@@ -154,7 +154,7 @@
     
     
     .grid-container.full {
-        margin: o auto;
+        margin: 0 auto;
         max-width: calc(#{$global-width} + 200px);   
     }
     
@@ -260,7 +260,7 @@
                 font-family: $playfair;
                 font-size: rem-calc(15);
                 line-height: 1.666666667;
-                text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+                //text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
                 position: relative;
                 z-index: 2;
             }

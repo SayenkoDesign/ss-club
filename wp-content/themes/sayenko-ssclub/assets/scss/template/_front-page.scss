@@ -22,7 +22,7 @@
             font-family: $playfair;
             font-size: rem-calc(15);
             line-height: 1.666666667;
-            text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);   
+            //text-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);   
         }
     }
     
@@ -148,7 +148,7 @@
         
         .trending {
             
-            pading-top: rem-calc(24);
+            padding-top: rem-calc(24);
             
             h2 {
                 display: inline-block;
