@@ -47,7 +47,8 @@ const modules = new ModuleLoader( {
 	//backgroundVideo,
 	menuToggle,
     isotope,
-    infiniteScroll
+    infiniteScroll,
+    fancyBox
 } );
 
 $( document ).ready( () => {

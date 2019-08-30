@@ -73,7 +73,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  init: function init() {}
+  init: function init() {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
+      selector: '.fancybox'
+    });
+  }
 });
 
 /***/ }),
@@ -608,7 +612,8 @@ var modules = new _loader_ModuleLoader__WEBPACK_IMPORTED_MODULE_1__["default"]({
   //backgroundVideo,
   menuToggle: _modules_menu_toggle__WEBPACK_IMPORTED_MODULE_8__["default"],
   isotope: _modules_isotope__WEBPACK_IMPORTED_MODULE_9__["default"],
-  infiniteScroll: _modules_infinite_scroll__WEBPACK_IMPORTED_MODULE_11__["default"]
+  infiniteScroll: _modules_infinite_scroll__WEBPACK_IMPORTED_MODULE_11__["default"],
+  fancyBox: _modules_fancybox__WEBPACK_IMPORTED_MODULE_10__["default"]
 });
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).foundation();
