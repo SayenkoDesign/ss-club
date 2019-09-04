@@ -341,7 +341,7 @@ __webpack_require__.r(__webpack_exports__);
         background: '.background'
       }).done(function (instance) {
         jquery_bridget__WEBPACK_IMPORTED_MODULE_1___default()('isotope', isotope_layout__WEBPACK_IMPORTED_MODULE_2___default.a, jquery__WEBPACK_IMPORTED_MODULE_0___default.a);
-        var $grid = jquery__WEBPACK_IMPORTED_MODULE_0___default()(".isotope-grid").isotope({
+        $isotopeGrid.isotope({
           layoutMode: 'fitRows',
           itemSelector: ".cell",
           percentPosition: true,
@@ -350,7 +350,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         }); // layout Isotope after each image loads
 
-        $grid.imagesLoaded({
+        $isotopeGrid.imagesLoaded({
           background: 'article'
         }).progress(function () {//$grid.isotope('layout');
         }); // bind filter on select change
@@ -359,14 +359,14 @@ __webpack_require__.r(__webpack_exports__);
           // get filter value from option value
           var filterValue = this.value; // use filterFn if matches value
 
-          $grid.isotope({
+          $isotopeGrid.isotope({
             filter: filterValue
           });
         });
         jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').click(function () {
           jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').removeClass('active');
           var data = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('data-filter');
-          $grid.isotope({
+          $isotopeGrid.isotope({
             filter: data
           });
           jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');

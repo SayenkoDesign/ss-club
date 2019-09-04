@@ -14,7 +14,7 @@ export default {
                 .done( function( instance ) {
             
                     jQueryBridget('isotope', isotope, $);
-                    let $grid = $(".isotope-grid").isotope({
+                    $isotopeGrid.isotope({
                       layoutMode: 'fitRows',
                       itemSelector: ".cell",
                       percentPosition: true,
@@ -24,7 +24,7 @@ export default {
                     });
                     
                     // layout Isotope after each image loads
-                    $grid.imagesLoaded({ background: 'article' }).progress( function() {
+                    $isotopeGrid.imagesLoaded({ background: 'article' }).progress( function() {
                       //$grid.isotope('layout');
                     });  
                             
@@ -33,14 +33,14 @@ export default {
                       // get filter value from option value
                       var filterValue = this.value;
                       // use filterFn if matches value
-                      $grid.isotope({ filter: filterValue });
+                      $isotopeGrid.isotope({ filter: filterValue });
                     });
                             
                     
                     $('.filters li').click(function(){
                       $('.filters li').removeClass('active');              
                       var data = $(this).attr('data-filter');
-                      $grid.isotope({
+                      $isotopeGrid.isotope({
                         filter: data
                       })
                       
