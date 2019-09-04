@@ -337,6 +337,7 @@ __webpack_require__.r(__webpack_exports__);
     var $isotopeGrid = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.isotope-grid');
 
     if ($isotopeGrid.length) {
+      console.log($isotopeGrid.length);
       $isotopeGrid.imagesLoaded({
         background: '.background'
       }).done(function (instance) {

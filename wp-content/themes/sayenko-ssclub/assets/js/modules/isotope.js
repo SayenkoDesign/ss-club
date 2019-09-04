@@ -9,6 +9,8 @@ export default {
         
         if($isotopeGrid.length) {
             
+            console.log($isotopeGrid.length);
+            
             $isotopeGrid.imagesLoaded({ background: '.background' })
             
                 .done( function( instance ) {
