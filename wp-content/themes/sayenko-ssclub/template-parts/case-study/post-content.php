@@ -17,7 +17,7 @@
                 
                 <header class="entry-header">
                     <?php 
-                        printf( '<h1 class="entry-title">Case %s: %s</h1>', _s_get_post_index( get_the_ID() ), get_the_title() ); 
+                        printf( '<h1 class="entry-title">Case %s: %s</h1>', get_field( 'case_study_number' ), get_the_title() ); 
                     ?>
                 </header><!-- .entry-header -->
             

@@ -69,7 +69,7 @@ if( ! class_exists( 'Case_Study' ) ) {
                     $loop->the_post(); 
                                         
                     if( $post_id == get_the_ID() ) {
-                        $index = $loop->current_post +1;
+                        $index = get_field( 'case_study_number' );
                         $posts .= $this->get_post( $index );
                     }
                     
