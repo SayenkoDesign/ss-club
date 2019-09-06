@@ -7,8 +7,8 @@
 
 // Set up fields.
 $heading         = get_sub_field( 'heading' );
-$image_data      = get_sub_field( 'media_right' );
-$text            = get_sub_field( 'text_primary' );
+$media_left      = get_sub_field( 'media_left' );
+$media_right      = get_sub_field( 'media_right' );
 ?>
 
 <div class="grid-container full">
@@ -27,15 +27,8 @@ $text            = get_sub_field( 'text_primary' );
     
         <div class="cell large-auto">
             <?php
-            echo _s_get_the_content( $text ); // WPCS: XSS OK. 
-            _s_get_template_part( 'template-parts/blocks/fields', 'button' );
-            ?>
-        </div>
-        
-        <div class="cell large-auto">
-            <?php 
-             if( ! empty( $image_data ) ) {
-                $caption = wp_get_attachment_caption( $image_data );
+            if( ! empty( $media_left ) ) {
+                $caption = wp_get_attachment_caption( $media_left );
                 $data_caption = '';
                 if( ! empty( $caption ) ) {
                     $data_caption = sprintf( ' data-caption="%s"', esc_attr( $caption ) );
@@ -43,8 +36,27 @@ $text            = get_sub_field( 'text_primary' );
                 }
                 printf( '<figure class="wp-block-image"><a data-fancybox%s class="expand-icon" href="%s">%s</a>%s</figure>', 
                         $data_caption,
-                        _s_get_acf_image( $image_data, 'hero', true ), 
-                        _s_get_acf_image( $image_data, 'large' ),
+                        _s_get_acf_image( $media_left, 'hero', true ), 
+                        _s_get_acf_image( $media_left, 'large' ),
+                        $caption
+                      );
+             }
+            ?>
+        </div>
+        
+        <div class="cell large-auto">
+            <?php 
+             if( ! empty( $media_right ) ) {
+                $caption = wp_get_attachment_caption( $media_right );
+                $data_caption = '';
+                if( ! empty( $caption ) ) {
+                    $data_caption = sprintf( ' data-caption="%s"', esc_attr( $caption ) );
+                    $caption = sprintf( '<figcaption>%s</figcaption>', $caption );
+                }
+                printf( '<figure class="wp-block-image"><a data-fancybox%s class="expand-icon" href="%s">%s</a>%s</figure>', 
+                        $data_caption,
+                        _s_get_acf_image( $media_right, 'hero', true ), 
+                        _s_get_acf_image( $media_right, 'large' ),
                         $caption
                       );
              }

@@ -21,6 +21,9 @@ switch ( $block_layout ) {
 	case 'text_text':
 		get_template_part( 'template-parts/case-study/blocks/block', 'fifty_text_only' );
 		break;
+    case 'media_media':
+		get_template_part( 'template-parts/case-study/blocks/block', 'fifty_media_media' );
+		break;
 
 	default:
 		get_template_part( 'template-parts/case-study/blocks/block', 'fifty_text_media' );

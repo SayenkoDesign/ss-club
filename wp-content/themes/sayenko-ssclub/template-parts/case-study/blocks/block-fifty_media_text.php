@@ -29,10 +29,13 @@ $text            = get_sub_field( 'text_primary' );
             <?php
             if( ! empty( $image_data ) ) {
                 $caption = wp_get_attachment_caption( $image_data );
+                $data_caption = '';
                 if( ! empty( $caption ) ) {
+                    $data_caption = sprintf( ' data-caption="%s"', esc_attr( $caption ) );
                     $caption = sprintf( '<figcaption>%s</figcaption>', $caption );
                 }
-                printf( '<figure class="wp-block-image"><a data-fancybox class="expand-icon" href="%s">%s</a>%s</figure>', 
+                printf( '<figure class="wp-block-image"><a data-fancybox%s class="expand-icon" href="%s">%s</a>%s</figure>', 
+                        $data_caption,
                         _s_get_acf_image( $image_data, 'hero', true ), 
                         _s_get_acf_image( $image_data, 'large' ),
                         $caption
