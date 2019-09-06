@@ -74,8 +74,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   init: function init() {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()().fancybox({
-      selector: '.fancybox'
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('a.fancybox').fancybox({
+      caption: function caption(instance, item) {
+        return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('figure').find('figcaption').html();
+      }
     });
   }
 });

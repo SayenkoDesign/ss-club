@@ -35,7 +35,15 @@ $text            = get_sub_field( 'text_primary' );
         <div class="cell large-auto">
             <?php 
              if( ! empty( $image_data ) ) {
-                printf( '<a data-fancybox class="expand-icon" href="%s">%s</a>', _s_get_acf_image( $image_data, 'hero', true ), _s_get_acf_image( $image_data, 'large' ) );
+                $caption = wp_get_attachment_caption( $image_data );
+                if( ! empty( $caption ) ) {
+                    $caption = sprintf( '<figcaption>%s</figcaption>', $caption );
+                }
+                printf( '<figure class="wp-block-image"><a data-fancybox class="expand-icon" href="%s">%s</a>%s</figure>', 
+                        _s_get_acf_image( $image_data, 'hero', true ), 
+                        _s_get_acf_image( $image_data, 'large' ),
+                        $caption
+                      );
              }
             ?>
         </div>

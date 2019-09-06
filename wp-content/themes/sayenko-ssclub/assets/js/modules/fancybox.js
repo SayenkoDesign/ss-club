@@ -3,8 +3,10 @@ import '@fancyapps/fancybox';
 
 export default {
 	init() {
-        $().fancybox({
-            selector : '.fancybox'
+        $('a.fancybox').fancybox({
+            caption : function(instance,item) {
+              return $(this).closest('figure').find('figcaption').html();
+            }
         });
 		 
 	},

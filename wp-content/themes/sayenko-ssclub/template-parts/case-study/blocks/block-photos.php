@@ -31,8 +31,15 @@ $index    = get_row_index();
             <div class="photos">
                 <?php
                     foreach( $rows as $row ) {
-                        printf( '<div class="photo"><a data-fancybox="gallery-%s" class="expand-icon" href="%s">%s</a></div>', 
+                        
+                        $caption = wp_get_attachment_caption( $row );
+                        if( ! empty( $caption ) ) {
+                            $caption = sprintf( ' data-caption="%s"', esc_attr( $caption ) );
+                        }
+                        
+                        printf( '<div class="photo"><a data-fancybox="gallery-%s"%s class="expand-icon" href="%s">%s</a></div>', 
                                 $index, 
+                                $caption,
                                 _s_get_acf_image( $row, 'hero', true ), 
                                 _s_get_acf_image( $row, 'large' ) 
                         );
