@@ -29,28 +29,28 @@ export default {
                     $isotopeGrid.imagesLoaded({ background: 'article' }).progress( function() {
                       //$grid.isotope('layout');
                     });  
-                            
-                    // bind filter on select change
-                    $('.filters-select').on( 'change', function() {
-                      // get filter value from option value
-                      var filterValue = this.value;
-                      // use filterFn if matches value
-                      $isotopeGrid.isotope({ filter: filterValue });
-                    });
-                            
-                    
-                    $('.filters li').click(function(){
-                      $('.filters li').removeClass('active');              
-                      var data = $(this).attr('data-filter');
-                      $isotopeGrid.isotope({
-                        filter: data
-                      })
-                      
-                      $(this).addClass('active');
-                    });
-                    
+                                                
                     $isotopeGrid.addClass('images-loaded');
                });
+               
+               // bind filter on select change
+                $('.filters-select').on( 'change', function() {
+                  // get filter value from option value
+                  var filterValue = this.value;
+                  // use filterFn if matches value
+                  $isotopeGrid.isotope({ filter: filterValue });
+                });
+                        
+                
+                $('.filters li').click(function(){
+                  $('.filters li').removeClass('active');              
+                  var data = $(this).attr('data-filter');
+                  $isotopeGrid.isotope({
+                    filter: data
+                  })
+                  
+                  $(this).addClass('active');
+                });
          
          }
         

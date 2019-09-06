@@ -354,25 +354,25 @@ __webpack_require__.r(__webpack_exports__);
         $isotopeGrid.imagesLoaded({
           background: 'article'
         }).progress(function () {//$grid.isotope('layout');
-        }); // bind filter on select change
-
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters-select').on('change', function () {
-          // get filter value from option value
-          var filterValue = this.value; // use filterFn if matches value
-
-          $isotopeGrid.isotope({
-            filter: filterValue
-          });
-        });
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').click(function () {
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').removeClass('active');
-          var data = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('data-filter');
-          $isotopeGrid.isotope({
-            filter: data
-          });
-          jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
         });
         $isotopeGrid.addClass('images-loaded');
+      }); // bind filter on select change
+
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters-select').on('change', function () {
+        // get filter value from option value
+        var filterValue = this.value; // use filterFn if matches value
+
+        $isotopeGrid.isotope({
+          filter: filterValue
+        });
+      });
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').click(function () {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.filters li').removeClass('active');
+        var data = jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).attr('data-filter');
+        $isotopeGrid.isotope({
+          filter: data
+        });
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).addClass('active');
       });
     }
   }
