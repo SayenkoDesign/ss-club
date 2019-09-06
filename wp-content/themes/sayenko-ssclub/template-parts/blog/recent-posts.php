@@ -46,6 +46,8 @@ if( ! class_exists( 'Recent_Posts' ) ) {
                                     
             $args = $this->_s_get_recent_posts_query_args();
             
+            $args['post__not_in'] = [get_the_ID()];
+            
             $loop = new WP_Query( $args );
             
             $posts = [];
