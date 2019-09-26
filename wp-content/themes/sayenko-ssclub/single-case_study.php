@@ -91,7 +91,7 @@ _s_get_template_part( 'template-parts/case-study', 'gallery' );
             
             if( ! empty( $secondary ) ) {
                 printf( '<div id="secondary" class="cell xlarge-auto sticky-container" role="complementary" data-stick-container>
-                        <div class="sidebar sticky" data-sticky data-top-anchor="section-1:bottom" data-btm-anchor="primary:bottom" data-margin-top="7" data-sticky-on="xlarge">%s</div>
+                        <div class="sidebar sticky" data-sticky data-top-anchor="section-1:bottom" data-btm-anchor="primary:bottom" data-margin-top="7" data-sticky-on="xxlarge">%s</div>
                         </div>', $secondary );
             }
             ?>
