@@ -85,11 +85,16 @@ if( ! class_exists( 'Partners_Gallery' ) ) {
                 
                 $logo = get_sub_field( 'logo' );
                 $logo = _s_get_acf_image( $logo, 'thumbnail' );
-                $image = get_sub_field( 'image' );            
+                $image = get_sub_field( 'image' );   
+                $url = get_sub_field( 'url' );          
                 
                 if( $image ) {
                     $image = _s_get_acf_image( $image, 'large', true );
-                    $out .= sprintf( '<div class="cell"><div class="panel"><a data-fancybox="gallery" href="%s">%s</a></div></div>', $image, $logo );
+                    $out .= sprintf( '<div class="cell"><div class="panel"><a data-fancybox="gallery" data-url="%s" href="%s">%s</a></div></div>', 
+                                    esc_url( $url ),
+                                    $image, 
+                                    $logo 
+                                   );
                 } else {
                     $out .= sprintf( '<div class="cell"><div class="panel"><span>%s</span></div></div>', $logo );
                 }

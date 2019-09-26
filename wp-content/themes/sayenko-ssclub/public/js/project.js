@@ -79,6 +79,22 @@ __webpack_require__.r(__webpack_exports__);
         return jquery__WEBPACK_IMPORTED_MODULE_0___default()(this).closest('figure').find('figcaption').html();
       }
     });
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('a[data-fancybox]').fancybox({
+      afterShow: function afterShow(instance, current) {
+        var $a = current.opts.$orig;
+        var url = $a.data('url');
+
+        if (url) {
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()(".fancybox-image").wrap(jquery__WEBPACK_IMPORTED_MODULE_0___default()("<a />", {
+            // set anchor attributes
+            href: url,
+            //or your target link
+            target: "_blank" // optional
+
+          }));
+        }
+      }
+    });
   }
 });
 
