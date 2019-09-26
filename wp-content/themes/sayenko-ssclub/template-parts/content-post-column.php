@@ -26,7 +26,7 @@
             $excerpt =  $excerpt . '...';
         }
         
-        $excerpt = sprintf( '<div class="excerpt">%s</div>', apply_filters( 'the_content', $excerpt ) );
+        $excerpt = sprintf( '<div class="excerpt">%s</div>', wpautop( $excerpt  ) );
     }
     
     $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );

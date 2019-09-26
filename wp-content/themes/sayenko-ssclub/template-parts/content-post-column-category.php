@@ -26,7 +26,7 @@
     
     $excerpt = '';
     if( has_excerpt() ) {
-        $excerpt = apply_filters( 'the_content', get_the_excerpt() );
+        $excerpt = wpautop( get_the_excerpt() );
     }
        
     printf( '<div class="panel">%s<a href="%s" rel="bookmark"></a><div class="entry">%s%s%s</div></div>', 

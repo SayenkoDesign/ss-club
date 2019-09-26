@@ -101,7 +101,7 @@ if( ! class_exists( 'Case_Study' ) ) {
             
             $excerpt = '';
             if( has_excerpt() ) {
-                $excerpt = apply_filters( 'the_content', get_the_excerpt() );
+                $excerpt = wpautop( get_the_excerpt() );
             }
             
             $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
