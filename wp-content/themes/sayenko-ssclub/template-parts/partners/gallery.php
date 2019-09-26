@@ -18,9 +18,7 @@ if( ! class_exists( 'Partners_Gallery' ) ) {
             
             $settings = [];
             $this->set_settings( $settings );
-            
-            https://unpkg.com/infinite-scroll@3/dist/infinite-scroll.pkgd.min.js
-            
+                        
             // print the section
             $this->print_element();        
         }
@@ -51,14 +49,7 @@ if( ! class_exists( 'Partners_Gallery' ) ) {
                 return false;
             }
             
-            
-            return sprintf( '<div class="grid-container full">
-                                <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xlarge-up-4 grid">
-                                    %s
-                                </div>
-                             </div>
-                             
-                             <div class="infinite-scroll-status">
+            $infinite_scroll = '<div class="infinite-scroll-status">
                               <div class="loader-ellips infinite-scroll-request">
                                 <span class="loader-ellips__dot"></span>
                                 <span class="loader-ellips__dot"></span>
@@ -69,18 +60,48 @@ if( ! class_exists( 'Partners_Gallery' ) ) {
                               <p class="infinite-scroll-error hide">No more pages to load</p>
                             </div>
                             
-                             <div class="infinite-scroll-pagination"><button class="button load-more-button">View more</button></div>
-                             %s
-                             
+                             <div class="infinite-scroll-pagination"><button class="button load-more-button">View more</button></div>';
+            
+            return sprintf( '<div class="grid-container full">
+                                <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xlarge-up-4 grid">
+                                    %s
+                                </div>
+                             </div>
                              ',
-                            $gallery,
-                            $this->pagination
+                            $gallery
             );
                
         }
 
         
+        private function get_gallery() {
+            
+            $out = '';
+            
+            // ACF Loop
+            if( have_rows( 'gallery' ) ) :
+            
+              while( have_rows( 'gallery' ) ): the_row();
+                
+                $logo = get_sub_field( 'logo' );
+                $logo = _s_get_acf_image( $logo, 'thumbnail' );
+                $image = get_sub_field( 'image' );            
+                
+                if( $image ) {
+                    $image = _s_get_acf_image( $image, 'large', true );
+                    $out .= sprintf( '<div class="cell"><div class="panel"><a data-fancybox="gallery" href="%s">%s</a></div></div>', $image, $logo );
+                } else {
+                    $out .= sprintf( '<div class="cell"><div class="panel"><span>%s</span></div></div>', $logo );
+                }
+            
+              endwhile;
+                 
+             endif;
+             
+             return $out;
+        }
         
+        /*
         private function get_gallery() {
             
             if( get_query_var('page') ) {
@@ -136,7 +157,7 @@ if( ! class_exists( 'Partners_Gallery' ) ) {
              endif;
              
              return $out;
-        }
+        }*/
               
     }
 }
