@@ -110,13 +110,14 @@ if( ! class_exists( 'Case_Study' ) ) {
                                     <div class="grid-x grid-padding-x align-middle">
                                         <div class="cell large-6">%s</div>
                                         <div class="cell large-6">
-                                            <div class="panel"><a href="%s" rel="bookmark">%s%s%s%s</a></div>
+                                            <div class="panel"><a href="%s" rel="bookmark">%s%s%s%s%s</a></div>
                                         </div> 
                                      </div> 
                             </div>', 
                             $image,
                             get_permalink(),
                             $number,
+                            '<h1>Case Study</h1>',
                             $title,
                             $excerpt,
                             $link

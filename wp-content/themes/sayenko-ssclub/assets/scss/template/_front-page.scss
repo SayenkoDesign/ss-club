@@ -273,6 +273,8 @@
             position: relative;
             z-index: 2;
             padding: rem-calc(60 0);   
+            
+            
         }
         
         @include breakpoint(large) {
@@ -314,7 +316,9 @@
                 padding: rem-calc(45 0); 
                 
                 @include breakpoint(large) {
-                    padding: rem-calc(100 0 75 75); 
+                    position: relative;
+                    top: rem-calc(-30);
+                    padding: rem-calc(75 0 75 75); 
                 }
                 
                 h3,
