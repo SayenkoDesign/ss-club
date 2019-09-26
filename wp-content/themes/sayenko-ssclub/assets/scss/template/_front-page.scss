@@ -47,7 +47,7 @@
                 padding: rem-calc(50 0 100);
                 
                 @include breakpoint(xlarge) {
-                    padding: rem-calc(100 0);
+                    padding: rem-calc(50 0 0);
                 }
                 
                 h3 {
