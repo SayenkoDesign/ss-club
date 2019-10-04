@@ -32,20 +32,22 @@
         position: relative;
         
         &.facebook {
-            background-color: #3C5A99; 
+            background-color: #0077b5; // 3C5A99
             &:hover {
-                background-color: scale-color(#3C5A99, $lightness: 10%);   
+                background-color: scale-color(#0077b5, $lightness: 10%);   
             }
         }
         
-        &.twitter {
+        &.twitter,
+        &.instagram {
             background-color: #1DA1F2; 
             &:hover {
                 background-color: scale-color(#1DA1F2, $lightness: 10%);   
             }
         }
         
-        &.linkedin {
+        &.linkedin,
+        &.email {
             background-color: #0077b5;
             &:hover {
                 background-color: scale-color(#0077b5, $lightness: 10%);   
