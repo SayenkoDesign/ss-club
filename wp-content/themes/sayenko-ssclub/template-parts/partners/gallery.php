@@ -63,9 +63,7 @@ if( ! class_exists( 'Partners_Gallery' ) ) {
                              <div class="infinite-scroll-pagination"><button class="button load-more-button">View more</button></div>';
             
             return sprintf( '<div class="grid-container full">
-                                <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xlarge-up-4 grid">
-                                    %s
-                                </div>
+                                %s
                              </div>
                              ',
                             $gallery
@@ -75,33 +73,56 @@ if( ! class_exists( 'Partners_Gallery' ) ) {
 
         
         private function get_gallery() {
-            
+                        
             $out = '';
+            $all = '';
+            $top = '';
             
             // ACF Loop
             if( have_rows( 'gallery' ) ) :
             
               while( have_rows( 'gallery' ) ): the_row();
                 
+                $item = '';
                 $logo = get_sub_field( 'logo' );
                 $logo = _s_get_acf_image( $logo, 'thumbnail' );
                 $image = get_sub_field( 'image' );   
-                $url = get_sub_field( 'url' );          
+                $url = get_sub_field( 'url' );  
+                
+                $featured = get_sub_field( 'featured' );          
                 
                 if( $image ) {
                     $image = _s_get_acf_image( $image, 'large', true );
-                    $out .= sprintf( '<div class="cell"><div class="panel"><a data-fancybox="gallery" data-url="%s" href="%s">%s</a></div></div>', 
+                    $item = sprintf( '<div class="cell"><div class="panel"><a data-fancybox="gallery" data-url="%s" href="%s">%s</a></div></div>', 
                                     esc_url( $url ),
                                     $image, 
                                     $logo 
                                    );
                 } else {
-                    $out .= sprintf( '<div class="cell"><div class="panel"><span>%s</span></div></div>', $logo );
+                    $item = sprintf( '<div class="cell"><div class="panel"><span>%s</span></div></div>', $logo );
+                }
+                
+                if( $featured ) {
+                    $top .= $item;
+                } else {
+                    $all .= $item;
                 }
             
               endwhile;
                  
              endif;
+             
+             if( ! empty( $top ) ) {
+                 $out .= sprintf( '<div class="grid-x grid-margin-x small-up-1 large-up-2 align-center grid featured">
+                                    %s
+                                </div>', $top );
+             }
+             
+             if( ! empty( $all ) ) {
+                 $out .= sprintf( '<div class="grid-x grid-margin-x small-up-2 large-up-4 align-center grid">
+                                    %s
+                                </div>', $all );
+             }
              
              return $out;
         }

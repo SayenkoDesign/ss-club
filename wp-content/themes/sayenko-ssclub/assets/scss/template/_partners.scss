@@ -4,6 +4,11 @@
 .page-template-partners {
     
     .grid {
+        
+        &.featured {
+            margin-bottom: rem-calc(75);   
+        }
+        
         .panel a, 
         .panel span {
             display: block;
