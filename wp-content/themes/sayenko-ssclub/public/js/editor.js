@@ -774,7 +774,7 @@ var TokenList = wp.tokenList;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/ssclub/wp-content/themes/sayenko-ssclub/assets/js/editor.js */"./assets/js/editor.js");
+module.exports = __webpack_require__(/*! /Users/kylerumble/Sites/ssclub/wp-content/themes/sayenko-ssclub/assets/js/editor.js */"./assets/js/editor.js");
 
 
 /***/ })

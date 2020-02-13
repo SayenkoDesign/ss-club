@@ -681,10 +681,10 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/ssclub/wp-content/themes/sayenko-ssclub/assets/js/project.js */"./assets/js/project.js");
-__webpack_require__(/*! /Applications/MAMP/htdocs/ssclub/wp-content/themes/sayenko-ssclub/assets/scss/style.scss */"./assets/scss/style.scss");
-__webpack_require__(/*! /Applications/MAMP/htdocs/ssclub/wp-content/themes/sayenko-ssclub/assets/scss/login.scss */"./assets/scss/login.scss");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/ssclub/wp-content/themes/sayenko-ssclub/assets/scss/editor.scss */"./assets/scss/editor.scss");
+__webpack_require__(/*! /Users/kylerumble/Sites/ssclub/wp-content/themes/sayenko-ssclub/assets/js/project.js */"./assets/js/project.js");
+__webpack_require__(/*! /Users/kylerumble/Sites/ssclub/wp-content/themes/sayenko-ssclub/assets/scss/style.scss */"./assets/scss/style.scss");
+__webpack_require__(/*! /Users/kylerumble/Sites/ssclub/wp-content/themes/sayenko-ssclub/assets/scss/login.scss */"./assets/scss/login.scss");
+module.exports = __webpack_require__(/*! /Users/kylerumble/Sites/ssclub/wp-content/themes/sayenko-ssclub/assets/scss/editor.scss */"./assets/scss/editor.scss");
 
 
 /***/ }),

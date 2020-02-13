@@ -163,7 +163,7 @@ function _typeof(obj) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/ssclub/wp-content/themes/sayenko-ssclub/assets/js/modernizr-custom.js */"./assets/js/modernizr-custom.js");
+module.exports = __webpack_require__(/*! /Users/kylerumble/Sites/ssclub/wp-content/themes/sayenko-ssclub/assets/js/modernizr-custom.js */"./assets/js/modernizr-custom.js");
 
 
 /***/ })
