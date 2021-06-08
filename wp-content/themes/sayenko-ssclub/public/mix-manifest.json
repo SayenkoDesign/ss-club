@@ -1,18 +1,10 @@
 {
-    "/js/editor.js": "/js/editor.js",
-    "/js/editor.js.map": "/js/editor.js.map",
-    "/js/manifest.js": "/js/manifest.js",
-    "/js/manifest.js.map": "/js/manifest.js.map",
-    "/js/modernizr-custom.js": "/js/modernizr-custom.js",
-    "/js/modernizr-custom.js.map": "/js/modernizr-custom.js.map",
-    "/js/project.js": "/js/project.js",
-    "/css/style.css": "/css/style.css",
-    "/css/login.css": "/css/login.css",
-    "/css/editor.css": "/css/editor.css",
-    "/js/project.js.map": "/js/project.js.map",
-    "/css/style.css.map": "/css/style.css.map",
-    "/css/login.css.map": "/css/login.css.map",
-    "/css/editor.css.map": "/css/editor.css.map",
-    "/js/vendor.js": "/js/vendor.js",
-    "/js/vendor.js.map": "/js/vendor.js.map"
+    "/js/manifest.js": "/js/manifest.js?id=01c8731923a46c30aaed",
+    "/js/vendor.js": "/js/vendor.js?id=e8682e03b03601de29c9",
+    "/js/editor.js": "/js/editor.js?id=4b792606beb8075fb794",
+    "/js/modernizr-custom.js": "/js/modernizr-custom.js?id=c1db800f6ddd45d8c51f",
+    "/js/project.js": "/js/project.js?id=9ba4841b4eed7d20e002",
+    "/css/style.css": "/css/style.css?id=9f60465970aece3fd980",
+    "/css/login.css": "/css/login.css?id=4cfc662b0a92049499ab",
+    "/css/editor.css": "/css/editor.css?id=d98eb8a726d19d43a795"
 }

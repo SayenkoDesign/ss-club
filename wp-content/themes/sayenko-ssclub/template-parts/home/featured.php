@@ -108,7 +108,7 @@ if( ! class_exists( 'Featured' ) ) {
                 $grid_close = '</div></div></div>';
             }
             
-            $link = sprintf( '<a href="%s"><span>%s ></span></a>', get_permalink( $_post ), __( 'dive in' ) );
+            $link = sprintf( '<a href="%s"><span>%s ></span></a>', get_permalink( $_post ), __( 'dive in', '_s' ) );
                        
             return sprintf( '<div class="posts featured">%s%s<div class="post">%s%s%s%s</div>%s</div>', 
                                 $image,
@@ -130,7 +130,7 @@ if( ! class_exists( 'Featured' ) ) {
             $cell_close = '';
             $layout = strtolower( $this->get_fields( 'layout' ) );
             
-            $heading = sprintf( '<h2>%s</h2>', __( 'Trending Articles' ) );
+            $heading = sprintf( '<h2>%s</h2>', __( 'Trending Articles', '_s' ) );
             
             if( 'wide' == $layout ) {
                 $grid_open = '<div class="grid-container full"><div class="grid-x grid-margin-x small-up-1 medium-large-up-3">';
@@ -155,7 +155,10 @@ if( ! class_exists( 'Featured' ) ) {
                 'update_post_term_cache' => false,
                 'fields' => 'ids',
                 'meta_key' => 'views',
-                'orderby'  => 'meta_value_num comment_count date'
+                'orderby'  => 'meta_value_num comment_count date',
+                'date_query' => array(
+                    'after' => date('Y-m-d', strtotime('-60 days')) 
+                )
             );
             
             $loop = new WP_Query( $args );
@@ -200,7 +203,7 @@ if( ! class_exists( 'Featured' ) ) {
             $title = get_the_title();
             $title = _s_format_string( $title, 'h3' );
             
-            $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
+            $link = sprintf( '<span>%s ></span>', __( 'dive in', '_s' ) );
            
             return sprintf( '<div class="post"><a href="%s" rel="bookmark">%s<div class="number"><span>%s</span></div><div class="entry">%s%s</div></a></div>', 
                                 get_permalink(),

@@ -67,7 +67,7 @@ function ev_get_post_view_count( $post_id ) {
 add_filter( 'manage_post_posts_columns', 'posts_column_views' );
 add_action( 'manage_post_posts_custom_column', 'posts_custom_column_views', 5, 2 );
 function posts_column_views($defaults){
-    $defaults['post_views'] = __('Views');
+    $defaults['post_views'] = __('Views', '_s');
     return $defaults;
 }
 

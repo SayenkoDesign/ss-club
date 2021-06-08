@@ -55,7 +55,7 @@
 
     include_once( 'functions/addtoany.php' );
 
-    //include_once( 'functions/facetwp.php' );
+    include_once( 'functions/memberpress.php' );
 
     include_once( 'functions/case-studies.php' );
 

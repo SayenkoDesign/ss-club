@@ -29,7 +29,7 @@
         $excerpt = sprintf( '<div class="excerpt">%s</div>', wpautop( $excerpt  ) );
     }
     
-    $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
+    $link = sprintf( '<span>%s ></span>', __( 'dive in', '_s' ) );
    
     printf( '%s<a href="%s" class="permalink" rel="bookmark"><div class="entry">%s%s%s</div></a>', 
                         $image,

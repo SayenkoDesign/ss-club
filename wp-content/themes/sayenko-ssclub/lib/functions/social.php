@@ -110,7 +110,7 @@ class KR_Social_Widget extends WP_Widget {
 		);
 		
 		// load widget
-        parent::__construct( 'kr-social-widget', __( 'Social Widget' ), $widget_ops, $control_ops );
+        parent::__construct( 'kr-social-widget', __( 'Social Widget', '_s' ), $widget_ops, $control_ops );
 	}
 
     

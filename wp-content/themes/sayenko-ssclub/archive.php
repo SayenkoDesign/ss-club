@@ -59,7 +59,7 @@ get_header(); ?>
                                     <option value="%s">%s</option>%s
                                 </select>', 
                                 $all, 
-                                __( 'All' ),
+                                __( 'All', '_s' ),
                                 wp_get_archives( $args ) );   
             
             
@@ -77,7 +77,7 @@ get_header(); ?>
             $menu = sprintf( '<ul class="menu filters"><li%s><a href="%s">%s</a></li>%s</ul>', 
                               $all_class ? ' class="current-archive"' : '',
                               $all, 
-                              __( 'All' ), 
+                              __( 'All', '_s' ), 
                               _s_get_archives( $args ) );             
 
                               

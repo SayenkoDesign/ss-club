@@ -31,11 +31,11 @@ class Foundation_Accordion extends Foundation {
     public function add_item( $args = array() ) {
                 
         if( !is_array( $args ) ) {
-            wp_die( __( 'It is required to pass an array of arguments: title, content', 'foundation' ) );
+            wp_die( __( 'It is required to pass an array of arguments: title, content', '_s' ) );
         }
         
         if( ! isset( $args['title'] ) && ! isset( $args['content'] ) ) {
-            wp_die( __( 'Tab title and content are required', 'foundation' ) );
+            wp_die( __( 'Tab title and content are required', '_s' ) );
         }
         
         $this->items[] = $args;

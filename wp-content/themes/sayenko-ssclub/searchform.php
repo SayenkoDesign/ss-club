@@ -12,7 +12,7 @@
 		<span class="screen-reader-text">Search for:</span>
         <?php
         $args = array(
-            'show_option_all'    => __( 'Select Topic' ),
+            'show_option_all'    => __( 'Select Topic', '_s' ),
             'hide_empty'         => 1,
             'exclude'            => 1,
             'echo'               => 0,

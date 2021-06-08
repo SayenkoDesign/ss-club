@@ -77,7 +77,7 @@ if( ! class_exists( 'Related_Posts' ) ) {
                                     <div class="cell text-center"><h2><span>%s</span></h2></div>
                                 </div>
                              </div>%s', 
-                             __( 'You might also like' ),
+                             __( 'You might also like', '_s' ),
                              $out );  
                        
         }

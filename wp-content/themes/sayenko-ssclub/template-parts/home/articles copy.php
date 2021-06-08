@@ -43,12 +43,11 @@ if( ! class_exists( 'Articles' ) ) {
             
             $filters = sprintf( '<div class="grid-container">
                                     <div class="grid-x grid-margin-x">
-                                        <div class="cell"><h2>%s</h2></div>
+                                        <div class="cell"><h2>%s</h2>%s</div>
                                     </div>
                                  </div>', 
                                  __( 'Most Recent', '_s' ),
-                                 // $filters 
-                                );  
+                                 $filters );  
             
             $posts = sprintf( '<div class="grid-container full">
                                 <div class="grid-x grid-margin-x small-up-1 medium-up-2 large-up-3 xxxlarge-up-4 isotope-grid">
@@ -72,17 +71,36 @@ if( ! class_exists( 'Articles' ) ) {
                 return false;
             }
             
-        
+            // Get terms so we can set the order          
+            $categories = get_terms( array(
+                'taxonomy' => 'category',
+                'hide_empty' => true,
+                'exclude' => 1,
+                'parent' => 0
+            ) );
+            
+            if( is_wp_error( $categories ) || empty( $categories ) ) {
+                return false;
+            }
+            
+            $order = [];
+            
+            foreach( $categories as $category ) {
+                $order[sanitize_title_with_dashes( $category->name ) ] = $category->name; 
+            }
+            
+            // Set the sorted order
+            $terms = array_merge( $order, $terms );
                                       
             $options = '<option value="*">All</option>';
             $links = '<li class="active" data-filter="*"><span>All</span></li>';
             
-            foreach( $terms as $key => $term ) {
+            foreach( $terms as $term ) {
                 if( 'Uncategorized' == $term ) { // Remove uncategorized
                     continue;   
                 }
-                $options .= sprintf( '<option value=".category-%s*">%s</option>', $key, $term );
-                $links   .= sprintf( '<li data-filter=".category-%s"><span>%s</span></li>', $key, $term );
+                $options .= sprintf( '<option value=".category-%s*">%s</option>', sanitize_title_with_dashes( $term ), $term );
+                $links   .= sprintf( '<li data-filter=".category-%s"><span>%s</span></li>', sanitize_title_with_dashes( $term ), $term );
             }
             
             $select = sprintf( '<select class="filters-select">%s</select>', $options );
@@ -114,6 +132,10 @@ if( ! class_exists( 'Articles' ) ) {
                     $loop->the_post(); 
                                         
                     $terms =  get_the_terms( get_the_ID(), 'category' );
+
+                    foreach( $terms as $term ) {
+                        echo $term->name . '<br />';
+                    }
                     
                     if( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
                         foreach( $terms as $term ) {

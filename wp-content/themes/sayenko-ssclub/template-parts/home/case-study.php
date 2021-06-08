@@ -104,7 +104,7 @@ if( ! class_exists( 'Case_Study' ) ) {
                 $excerpt = wpautop( get_the_excerpt() );
             }
             
-            $link = sprintf( '<span>%s ></span>', __( 'dive in' ) );
+            $link = sprintf( '<span>%s ></span>', __( 'dive in', '_s' ) );
            
             return sprintf( '<div class="grid-container">
                                     <div class="grid-x grid-padding-x align-middle">

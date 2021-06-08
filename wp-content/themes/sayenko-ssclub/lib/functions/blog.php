@@ -323,7 +323,7 @@ function _s_get_archives( $args = '' ) {
 					$url = add_query_arg( 'post_type', $r['post_type'], $url );
 				}
 				/* translators: 1: month name, 2: 4-digit year */
-				$text = sprintf( __( '%1$s %2$d' ), $wp_locale->get_month_abbrev( $wp_locale->get_month( $result->month ) ), substr( $result->year, 2 ) );
+				$text = sprintf( __( '%1$s %2$d', '_s' ), $wp_locale->get_month_abbrev( $wp_locale->get_month( $result->month ) ), substr( $result->year, 2 ) );
 				if ( $r['show_post_count'] ) {
 					$r['after'] = '&nbsp;(' . $result->posts . ')' . $after;
 				}
